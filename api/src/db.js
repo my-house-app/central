@@ -20,6 +20,7 @@ const modelDefiners = [];
 fs.readdirSync(path.join(__dirname, '/models'))
   .filter((file) => (file.indexOf('.') !== 0) && (file !== basename) && (file.slice(-3) === '.js'))
   .forEach((file) => {
+    // eslint-disable-next-line import/no-dynamic-require
     modelDefiners.push(require(path.join(__dirname, '/models', file)));// eslint-disable-line global-require
   });
 
@@ -34,10 +35,30 @@ sequelize.models = Object.fromEntries(capsEntries);
 // En sequelize.models están todos los modelos importados como propiedades
 // Para relacionarlos hacemos un destructuring
 
-// const { Pokemon } = sequelize.models; *descomentar*
+const {
+  User, Post, Property, Image, VisitDate, Comment,
+} = sequelize.models;
 
 // Aca vendrian las relaciones
-// Product.hasMany(Reviews);
+User.hasMany(Post);
+Post.belongsTo(User);
+
+Post.belongsTo(Property);
+Property.hasOne(Post);
+
+Property.hasMany(Image);
+Image.belongsTo(Property);
+
+Property.hasMany(VisitDate);
+VisitDate.belongsTo(Property);
+User.hasMany(VisitDate);
+VisitDate.belongsTo(User);
+
+Comment.belongsTo(User);
+User.hasMany(Comment);
+
+Comment.belongsTo(Post);
+Post.hasMany(Comment);
 
 module.exports = {
   ...sequelize.models,
