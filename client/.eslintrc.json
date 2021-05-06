@@ -20,6 +20,7 @@
     "rules": {
       "indent": ["error", 2],
       "linebreak-style": "off",
-      "semi": ["error", "always"]
+      "semi": ["error", "always"],
+      "react/prop-types": "off"
     }
 }

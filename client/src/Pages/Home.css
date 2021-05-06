@@ -1,6 +1,6 @@
 .body2{
-    flex: 1;
-    background-color: #1b2838;
+    /* flex: 1; */
+    background-color:  ##ded9d9;
 }
 
 .cuerpo{
@@ -52,5 +52,3 @@
     justify-content: center;
     align-items: center;
 }
-
-
