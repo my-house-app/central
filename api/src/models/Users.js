@@ -39,10 +39,8 @@ module.exports = (sequelize) => {
     zip_code: {
       type: DataTypes.STRING,
     },
-
-     favorites: {
-       type: DataTypes.ARRAY,
-     },
-
+    // favorites: { lo comento porque al moemnto de connectarme a la db da error @renny
+    //   type: DataTypes.ARRAY,
+    // },
   });
 };

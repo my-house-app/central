@@ -3,7 +3,7 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const routes = require('./routes/index.js');
-const errorHandler = require('../src/middleware/errorHandler.js');
+const errorHandler = require('./middleware/errorHandler.js');
 
 require('./db.js');
 
