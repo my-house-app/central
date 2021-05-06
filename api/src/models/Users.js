@@ -39,5 +39,10 @@ module.exports = (sequelize) => {
     zip_code: {
       type: DataTypes.STRING,
     },
+
+     favorites: {
+       type: DataTypes.ARRAY,
+     },
+
   });
 };
