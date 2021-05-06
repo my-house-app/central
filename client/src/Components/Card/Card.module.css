@@ -1,0 +1,8 @@
+.ctn{
+  display: flex;
+  background-color: #e2e0e7;
+  padding: 10px;
+}
+.img{
+  width: 35%;
+}

@@ -1,14 +1,16 @@
-import { EXAMPLE } from '../Actions/index';// para importar las variales de cada caso
+import { PROPERTIES } from '../Actions/index';// para importar las variales de cada caso
 
 const initialState = {
+  principal: [],
   render: [],
 };
 
 export default function rootReducer(state = initialState, action) {
   switch (action.type) {
-  case EXAMPLE:
+  case PROPERTIES:
     return {
-
+      ...state,
+      principal: action.payload,
     };
 
   default:

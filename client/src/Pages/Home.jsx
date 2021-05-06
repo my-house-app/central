@@ -1,4 +1,5 @@
 import React from 'react';
+import Cards from '../Components/Cards/Cards';
 import './Home.css';
 
 export default function Home() {
@@ -11,6 +12,9 @@ export default function Home() {
         <div className="main">
           <div className="main-encabezado">
             {/* <SearchBar/> */}
+          </div>
+          <div>
+            <Cards />
           </div>
         </div>
       </div>
