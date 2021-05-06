@@ -17,8 +17,5 @@ module.exports = (sequelize) => {
       type: DataTypes.TEXT,
       allowNull: false,
     },
-  },
-  {
-    timestamps: false,
   });
 };

@@ -47,6 +47,10 @@ module.exports = (sequelize) => {
       type: DataTypes.INTEGER,
       allowNull: false,
     },
+    bathrooms: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
     years: {
       type: DataTypes.INTEGER,
     },

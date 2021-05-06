@@ -19,6 +19,10 @@ module.exports = (sequelize) => {
       isEmail: true,
       unique: true,
     },
+    password: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     phone: {
       type: DataTypes.INTEGER,
     },
@@ -34,9 +38,6 @@ module.exports = (sequelize) => {
     },
     zip_code: {
       type: DataTypes.STRING,
-    },
-    favorites: {
-      type: DataTypes.ARRAY,
     },
   });
 };
