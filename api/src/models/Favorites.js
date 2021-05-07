@@ -4,7 +4,7 @@ const { DataTypes } = require('sequelize');
 
 module.exports = (sequelize) => {
   // Defining model
-  sequelize.define('property', {
+  sequelize.define('favorite', {
     id: {
       type: DataTypes.UUID,
       primaryKey: true,

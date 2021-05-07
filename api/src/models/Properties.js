@@ -11,7 +11,7 @@ module.exports = (sequelize) => {
     },
     prop_type: {
       type: DataTypes.ENUM,
-      values: ['house', 'apartment'],
+      values: ['Casa', 'Apartamento'],
     },
     city: {
       type: DataTypes.STRING,
@@ -36,7 +36,7 @@ module.exports = (sequelize) => {
       allowNull: false,
     },
     price: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.BIGINT,
       allowNull: false,
     },
     m2: {
