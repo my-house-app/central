@@ -1,20 +1,80 @@
-.ctn{
-  margin: 18px 0;
-  background-color: rgb(18, 17, 16);
+nav {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  height: 60px;
+  box-shadow: 0px 3px 6px 0px var(--blackShadow);
 }
-.divH3{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-content: space-around;
-  width: 40%;
-}
-a{
+
+.link {
+  color: var(--black);
   text-decoration: none;
-  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  margin: 0 10%;
+  transition: all .3s ease-in-out;
+}
+.link:hover {
+  transition: all .3s ease-in-out;
+  text-shadow: 1px 1px 0px #bdbdbd;
+}
+
+.active {
+  color: var(--blue);
+}
+
+.menu {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 50%;
+}
+
+.logo {
+  height: 10%;
+  width: 10%;
+  margin: 1%;
+}
+
+.signin {
+  color: var(--black);
+  text-decoration: none;
+  font-size: 1rem;
+  cursor: pointer;
+  margin: 0 10%;
+  background-color: var(--light-blue);
+  border-radius: 25px;
+  padding: 1% 2%;
+  transition: all .3s ease-in-out;
+} 
+.signin:hover {
+  transition: all .3s ease-in-out;
+  color: var(--white);
+  box-shadow: 1px 1px 0px #bdbdbd;
+}
+
+.mobileMenu{
+  display: none;
+}
+
+
+@media screen and (max-width: 768px) {
+  .menu {
+    display: none;
+  }
+  .mobileMenu {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(-100%, 60%);
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: #1C3C17;
+  }
+  .logo {
+    height: 70%;
+    width: 70%;
+  }
+  .logoSide{
+    margin-left: -100px;
+  }
 }
