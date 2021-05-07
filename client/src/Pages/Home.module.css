@@ -1,0 +1,39 @@
+.home{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 4%;
+}
+.home .filterArea{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 4%;
+    width: 40%;
+}
+
+.home .filterArea .filterCont{ 
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    width: 100%;
+    height: 60%;
+    padding: 6%;
+    border-radius: 20px;
+    background-color: var(--light-blue);
+    box-shadow: 0px 3px 6px 0px var(--blackShadow);
+}
+
+.home .main{
+    display: flex;
+    flex-direction: column;
+    margin: 0 2%;
+}
+
+.home .main .search_order {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 2em;
+}
