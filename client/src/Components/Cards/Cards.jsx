@@ -10,13 +10,13 @@ function Cards({ principalState, principal }) {
   }, [principal]);
   const list = principalState?.map((e) => (
     <Card
-      image={e.image}
-      postName={e.postName}
-      propType={e.propType}
-      neighborhood={e.neighborhood}
-      price={e.price}
-      rooms={e.rooms}
-      m2={e.m2}
+      image={e.property.images[0].photo}
+      postName={e.post_name}
+      propType={e.property.prop_type}
+      neighborhood={e.property.neighborhood}
+      price={e.property.price}
+      rooms={e.property.rooms}
+      m2={e.property.m2}
     />
   ));
   return (

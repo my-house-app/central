@@ -22,7 +22,9 @@
       "linebreak-style": "off",
       "semi": ["error", "always"],
       "react/prop-types": "off",
+      "react/jsx-no-comment-textnodes":"off",
+      "jsx-a11y/label-has-associated-control":"off",
       "react/react-in-jsx-scope": "off",
-      "no-unused-vars": [0, { "vars": "all", "args": "after-used", "ignoreRestSiblings": false }]
+      "no-unused-vars": [0, { "vars": "all", "args": "after-used", "ignoreRestSiblings": false }],
     }
 }

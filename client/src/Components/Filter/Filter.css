@@ -1,0 +1,20 @@
+.filter{
+    /* display: flex; */
+    /* flex-direction: row; */
+}
+
+.input-filter{
+    width:100%;
+}
+
+.input-MinMax{
+    width:40px;
+}
+
+#closeIcon{
+    background-color: #dc3545;
+    width: 25px;
+    height: 25px;
+    border-radius: 5px;
+    color: aliceblue;
+}
