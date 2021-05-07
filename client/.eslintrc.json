@@ -21,6 +21,8 @@
       "indent": ["error", 2],
       "linebreak-style": "off",
       "semi": ["error", "always"],
-      "react/prop-types": "off"
+      "react/prop-types": "off",
+      "react/react-in-jsx-scope": "off",
+      "no-unused-vars": [0, { "vars": "all", "args": "after-used", "ignoreRestSiblings": false }]
     }
 }
