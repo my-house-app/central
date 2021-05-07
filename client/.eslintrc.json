@@ -21,6 +21,8 @@
       "indent": ["error", 2],
       "linebreak-style": "off",
       "semi": ["error", "always"],
-      "react/prop-types": "off"
+      "react/prop-types": "off",
+      "react/jsx-no-comment-textnodes":"off",
+      "jsx-a11y/label-has-associated-control":"off"
     }
 }
