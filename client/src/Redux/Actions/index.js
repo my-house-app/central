@@ -4,6 +4,7 @@ import { getFilteredPropiertiesService, getAllPostsService } from '../../Service
 // variables que se exportan para el reducer
 export const PROPERTIES = 'properties';
 export const GET_FILTERED_PROPERTIES = 'GET_FILTERED_PROPERTIES';
+export const GET_SEARCHED_POST = 'GET_SEARCHED_POST';
 
 // Actions
 export const detailPokemon = () => async function (dispatch) {
@@ -31,5 +32,18 @@ export function getFilteredPropierties(queryBlock) {
         );
       })
       .catch((e) => console.log('Error getFilteredPropiertiesService: ', e));
+  };
+}
+
+export function getSearchedPost(payload) {
+  return function (dispatch) {
+    // eslint-disable-next-line no-console
+    console.log('payload: ', payload);
+    dispatch(
+      {
+        type: GET_SEARCHED_POST,
+        payload,
+      },
+    );
   };
 }
