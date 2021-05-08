@@ -1,6 +1,7 @@
 import React from 'react';
 import Cards from '../Components/Cards/Cards';
 import style from './Home.module.css';
+import Filter from '../Components/Filter/Filter';
 
 export default function Home() {
   return (
@@ -8,6 +9,7 @@ export default function Home() {
       <div className={style.filterArea}>
         <div className={style.filterCont}>
           <h4>Fileters</h4>
+          <Filter />
         </div>
       </div>
       <div className={style.main}>

@@ -163,6 +163,7 @@ export default function Filter() {
         </label>
 
         {/* Stratum */}
+        {/* Hay que cambiarlo debería ser un input type number */}
         <select className="select-filter" name="stratum" value={queryBlock.stratum} onChange={handlerQuery}>
           <option value="">Stratum</option>
           {['stratum 1', 'stratum 2', 'stratum 3'].map((strat) => (<option value={strat}>{strat}</option>))}
@@ -171,7 +172,7 @@ export default function Filter() {
         {/* Type of property */}
         <select className="select-filter" name="prop_type" value={queryBlock.prop_type} onChange={handlerQuery}>
           <option value="">Type of property</option>
-          {['house', 'flat'].map((type) => (<option value={type}>{type}</option>))}
+          {['Casa', 'Apartamento'].map((type) => (<option value={type}>{type}</option>))}
           {/* {['Barrio', 'Antigüedad'].map((g) =>
           (<option key={g.id} value={g.name}>{g.name}</option>))} */}
         </select>
