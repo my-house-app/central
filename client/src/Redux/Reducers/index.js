@@ -4,6 +4,8 @@ const initialState = {
   count: '',
   principal: [],
   render: [],
+  currentPage: '',
+  selfEndpoint: '',
 };
 
 export default function rootReducer(state = initialState, action) {
@@ -13,11 +15,16 @@ export default function rootReducer(state = initialState, action) {
       ...state,
       principal: action.payload.posts,
       count: action.payload.count,
+      currentPage: action.payload.currentPage,
+      selfEndpoint: action.payload.selfEndpoint,
     };
   case GET_FILTERED_PROPERTIES:
     return {
       ...state,
-      principal: action.payload,
+      principal: action.payload.posts,
+      count: action.payload.count,
+      currentPage: action.payload.currentPage,
+      selfEndpoint: action.payload.selfEndpoint,
     };
 
   default:

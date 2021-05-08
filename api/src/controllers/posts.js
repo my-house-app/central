@@ -1,6 +1,6 @@
 /* eslint-disable camelcase */
 const { v4: uuidv4 } = require('uuid');
-const { Op, Sequelize } = require('sequelize');
+// const { Op, Sequelize } = require('sequelize');
 const { Post, Property, Image } = require('../db.js');
 const { buidlWhere, getCurrentPage, getCurrentEndPoint } = require('../utils');
 

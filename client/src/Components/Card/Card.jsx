@@ -19,7 +19,8 @@ export default function Card({
           <div className={style.title_price}>
             <h3>{postName}</h3>
             {/* <p>Casa nueva ubicada en Barrio1</p> */}
-            <h3 className={style.price}>{`$${price}`}</h3>
+            {/* <h3 className={style.price}>{`$${price}`}</h3> */}
+            <h3 className={style.price}>{`$${new Intl.NumberFormat('de-DE').format(price)}`}</h3>
             {/* <p>$1000</p> */}
           </div>
           <p>{`${propType} en ${neighborhood}`}</p>
