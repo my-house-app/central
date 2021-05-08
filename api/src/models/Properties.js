@@ -10,7 +10,8 @@ module.exports = (sequelize) => {
       primaryKey: true,
     },
     prop_type: {
-      type: DataTypes.ENUM('Casa', 'Apartamento'),
+      type: DataTypes.STRING,
+      isIn: [['Casa', 'Apartamento']],
     },
     city: {
       type: DataTypes.STRING,
