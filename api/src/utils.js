@@ -46,15 +46,20 @@ function buidlWhere(block) {
   const query = [];
 
   query.push({ price: buildMinMax(block.priceMin, block.priceMax) });
-  query.push({ m2:    buildMinMax(block.areaMin, block.areaMax) });
-  if (block.city)         query.push({ city:         buildIlike(block.city) });
-  if (block.neighborhood) query.push({ neighborhood: buildIlike(block.neighborhood) });
-  if (block.prop_type)    query.push({ prop_type:    buildIlike(block.prop_type) });
-  if (block.stratum)      query.push({ stratum:      buildEqual(block.stratum) });
-  if (block.rooms)        query.push({ rooms:        buildEqual(block.rooms) });
-  if (block.bathrooms)    query.push({ bathrooms:    buildEqual(block.bathrooms) });
-  if (block.years)        query.push({ years:        buildEqual(block.years) });
-
+  query.push({ m2: buildMinMax(block.areaMin, block.areaMax) });
+  if (block.stratum) query.push({ stratum: buildEqual(block.stratum) });
+  if (block.rooms) query.push({ rooms: buildEqual(block.rooms) });
+  if (block.bathrooms) query.push({ bathrooms: buildEqual(block.bathrooms) });
+  if (block.years) query.push({ years: buildEqual(block.years) });
+  if (block.prop_type) query.push({ prop_type: buildIlike(block.prop_type) });
+  if (block.pool) query.push({ pool: buildEqual(block.pool) });
+  if (block.backyard) query.push({ backyard: buildEqual(block.backyard) });
+  if (block.gym) query.push({ gym: buildEqual(block.gym) });
+  if (block.bbq) query.push({ bbq: buildEqual(block.bbq) });
+  if (block.parking_lot) query.push({ parking_lot: buildEqual(block.parking_lot) });
+  if (block.elevator) query.push({ elevator: buildEqual(block.elevator) });
+  if (block.security) query.push({ security: buildEqual(block.security) });
+  if (block.garden) query.push({ garden: buildEqual(block.garden) });
   return { [Sequelize.Op.and]: query };
 }
 
@@ -77,20 +82,26 @@ function getCurrentPage(offset, limit) {
  */
 function getCurrentEndPoint(block, limit, offset) {
   let endpoint = `http://localhost:3001/posts?offset=${offset}`;
-
-  if (block.city)         endpoint += `&city=${block.city}`;
+  if (block.post_name) endpoint += `&post_name=${block.post_name}`;
+  if (block.city) endpoint += `&city=${block.city}`;
   if (block.neighborhood) endpoint += `&neighborhood=${block.neighborhood}`;
-  if (block.prop_type)    endpoint += `&prop_type=${block.prop_type}`;
-  if (block.stratum)      endpoint += `&stratum=${block.stratum}`;
-  if (block.rooms)        endpoint += `&rooms=${block.rooms}`;
-  if (block.bathrooms)    endpoint += `&bathrooms=${block.bathrooms}`;
-  if (block.years)        endpoint += `&years=${block.years}`;
-  if (block.priceMin)     endpoint += `&priceMin=${block.priceMin}`;
-  if (block.priceMax)     endpoint += `&priceMax=${block.priceMax}`;
-  if (block.areaMin)      endpoint += `&areaMin=${block.areaMin}`;
-  if (block.areaMax)      endpoint += `&areaMax=${block.areaMax}`;
-  if (limit) endpoint += `&limit=${limit}`;
-
+  if (block.priceMin) endpoint += `&priceMin=${block.priceMin}`;
+  if (block.priceMax) endpoint += `&priceMax=${block.priceMax}`;
+  if (block.areaMin) endpoint += `&areaMin=${block.areaMin}`;
+  if (block.areaMax) endpoint += `&areaMax=${block.areaMax}`;
+  if (block.stratum) endpoint += `&stratum=${block.stratum}`;
+  if (block.rooms) endpoint += `&rooms=${block.rooms}`;
+  if (block.bathrooms) endpoint += `&bathrooms=${block.bathrooms}`;
+  if (block.years) endpoint += `&years=${block.years}`;
+  if (block.prop_type) endpoint += `&prop_type=${block.prop_type}`;
+  if (block.pool) endpoint += `&pool=${block.pool}`;
+  if (block.backyard) endpoint += `&backyard=${block.backyard}`;
+  if (block.gym) endpoint += `&gym=${block.gym}`;
+  if (block.bbq) endpoint += `&bbq=${block.bbq}`;
+  if (block.parking_lot) endpoint += `&parking_lot=${block.parking_lot}`;
+  if (block.elevator) endpoint += `&elevator=${block.elevator}`;
+  if (block.security) endpoint += `&security=${block.security}`;
+  if (block.garden) endpoint += `&garden=${block.garden}`;
   return endpoint;
 }
 

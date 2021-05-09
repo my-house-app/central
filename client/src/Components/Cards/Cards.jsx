@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import Card from '../Card/Card';
-import { detailPokemon } from '../../Redux/Actions/index';
+import { getAllPost } from '../../Redux/Actions/index';
 // import style from './Cards.module.css';
 
 function Cards({ principalState, principal }) {
   useEffect(() => {
     if (!principalState.length) principal();
-  }, [principal]);
+  }, [principalState]);
   const list = principalState?.map((e) => (
     <Card
       image={e.property.images[0]?.photo}
@@ -32,7 +32,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  principal: () => dispatch(detailPokemon()),
+  principal: () => dispatch(getAllPost()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Cards);

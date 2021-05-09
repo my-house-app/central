@@ -1,6 +1,8 @@
+/* eslint-disable no-console */
 /* eslint-disable func-names */
 import axios from 'axios';
 import { getFilteredPropiertiesService, getAllPostsService, getNextOrPreviousPageService } from '../../Services/properties.service';
+
 // variables que se exportan para el reducer
 export const PROPERTIES = 'properties';
 export const GET_FILTERED_PROPERTIES = 'GET_FILTERED_PROPERTIES';
@@ -8,7 +10,7 @@ export const GET_SEARCHED_POST = 'GET_SEARCHED_POST';
 export const GET_NEXT_OR_PREVIOUS_PAGE = 'GET_NEXT_OR_PREVIOUS_PAGE';
 
 // Actions
-export const detailPokemon = () => async function (dispatch) {
+export const getAllPost = () => async function (dispatch) {
   return getAllPostsService()
     .then((res) => {
       dispatch(
@@ -18,7 +20,7 @@ export const detailPokemon = () => async function (dispatch) {
         },
       );
     })
-    .catch((e) => console.log('Error detailPokemon: ', e));
+    .catch((e) => console.log('Error getAllPost: ', e));
 };
 
 export function getFilteredPropierties(queryBlock) {
@@ -36,10 +38,8 @@ export function getFilteredPropierties(queryBlock) {
   };
 }
 
-export function getSearchedPost(payload) {
+export function searchedPost(payload) {
   return function (dispatch) {
-    // eslint-disable-next-line no-console
-    console.log('payload: ', payload);
     dispatch(
       {
         type: GET_SEARCHED_POST,

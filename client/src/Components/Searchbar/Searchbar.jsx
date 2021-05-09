@@ -1,35 +1,34 @@
-/* eslint-disable no-console */
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { getSearchedPost } from '../../Redux/Actions/index';
+import { FaSearch } from 'react-icons/fa';
+import { searchedPost } from '../../Redux/Actions';
+import style from './Searchbar.module.css';
 
-function Searchbar({ searchPost }) {
+function Searchbar({ find }) {
   const [search, setSearch] = useState('');
 
   function handleChange(e) {
     setSearch(e.target.value);
-  }
-
-  function handleSubmit(e) {
-    e.preventDefault();
-    searchPost(search);
+    find(e.target.value);
   }
 
   return (
-    <form onSubmit={(e) => handleSubmit(e)}>
+    <div className={style.searchBox}>
       <input
+        className={style.searchText}
         type="text"
-        placeholder="Busca alguna publicacion aqui..."
+        autoComplete="off"
         value={search}
         onChange={(e) => handleChange(e)}
+        placeholder="Search any post here..."
       />
-      <input type="submit" value="Buscar" />
-    </form>
+      <FaSearch className={style.searchIcon} />
+    </div>
   );
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  searchPost: (postName) => dispatch(getSearchedPost(postName)),
+  find: (postName) => dispatch(searchedPost(postName)),
 });
 
 export default connect(null, mapDispatchToProps)(Searchbar);

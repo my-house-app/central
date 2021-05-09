@@ -3,9 +3,9 @@ import {
 } from '../Actions/index';// para importar las variales de cada caso
 
 const initialState = {
-  count: '',
   principal: [],
-  render: [],
+  searched: '',
+  count: '',
   currentPage: '',
   selfEndpoint: '',
 };
@@ -39,15 +39,7 @@ export default function rootReducer(state = initialState, action) {
   case GET_SEARCHED_POST:
     return {
       ...state,
-      principal: state.principal.filter((post) => {
-        if (post.post_name.toLowerCase().includes(action.payload.toLowerCase())) {
-          return post;
-        }
-        return null;
-      }),
-      // count: state.count,
-      // currentPage: state.currentPage,
-      // selfEndpoint: state.selfEndpoint,
+      searched: action.payload,
     };
 
   default:
