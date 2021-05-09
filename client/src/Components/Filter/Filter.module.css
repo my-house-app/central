@@ -1,13 +1,8 @@
-.filter{
-    /* display: flex; */
-    /* flex-direction: row; */
-}
-
-.input-filter{
+.inputfilter{
     width:100%;
 }
 
-.input-MinMax{
+.inputMinMax{
     width:40px;
 }
 
@@ -17,4 +12,8 @@
     height: 25px;
     border-radius: 5px;
     color: aliceblue;
+}
+
+.noFacilities{
+    display: none;
 }

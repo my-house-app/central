@@ -1,22 +1,14 @@
-import React, { useState } from 'react';
-import './Filter.css';
-import { useDispatch } from 'react-redux';
-import { detailPokemon, getFilteredPropierties } from '../../Redux/Actions';
-/**
-Puedo filtrar por
-city
-stratum
-neighborhood
-price
-m2
-rooms
-bathrooms
-years
+/* eslint-disable no-shadow */
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+import React, { useEffect, useState } from 'react';
+import { connect } from 'react-redux';
+import style from './Filter.module.css';
+import { getAllPost, getFilteredPropierties } from '../../Redux/Actions';
 
-zip_code
- */
-export default function Filter() {
+function Filter({ searched, filter, getAllPost }) {
   const initialState = {
+    post_name: searched, // search by postName
     prop_type: '', // select
     city: '', // input
     stratum: '', // select es un numero
@@ -25,50 +17,64 @@ export default function Filter() {
     priceMax: '',
     areaMin: '',
     areaMax: '',
-    // price: { min: '', max: '' }, // input
-    // area: { min: '', max: '' }, // input
     rooms: '', // input number
     bathrooms: '', // input number
     years: '', // input number
+    pool: false,
+    backyard: false,
+    gym: false,
+    bbq: false,
+    parking_lot: false,
+    elevator: false,
+    security: false,
+    garden: false,
   };
-  const dispatch = useDispatch();
   const [queryBlock, setQueryBlock] = useState(initialState);
-  function handleSubmit(event) {
-    event.preventDefault();
-
-    // eslint-disable-next-line no-console
-    console.log('buscando action');
-    dispatch(getFilteredPropierties(queryBlock));
-  }
 
   function handlerQuery(event) {
-    // eslint-disable-next-line no-console
-    console.log('City: ', event.target.value);
     setQueryBlock(
       {
         ...queryBlock,
         [event.target.name]: event.target.value,
+        searched,
       },
     );
+    filter({
+      ...queryBlock,
+      [event.target.name]: event.target.value,
+    });
   }
+
+  useEffect(() => {
+    setQueryBlock({
+      ...queryBlock,
+      post_name: searched,
+    });
+    filter({
+      ...queryBlock,
+      post_name: searched,
+    });
+  }, [searched]);
 
   function clear() {
     setQueryBlock(initialState);
-    dispatch(detailPokemon());
+    document.getElementById('form').reset();
+    getAllPost();
   }
 
+  const [display, setDisplay] = useState(false);
+
   return (
-    <div className="filter">
-      <h2>Filter</h2>
-      <button type="button" id="closeIcon" onClick={clear}>
+    <div className={style.filter}>
+      <button type="button" id={style.closeIcon} onClick={clear}>
         <strong>X</strong>
       </button>
-      <form style={{ display: 'flex', flexDirection: 'column' }} onSubmit={handleSubmit}>
+      <form id="form" style={{ display: 'flex', flexDirection: 'column' }}>
         {/* City */}
         <label>
           City:&nbsp;
           <input
-            className="input-filter"
+            className={style.inputFilter}
             type="text"
             name="city"
             placeholder="City"
@@ -81,7 +87,7 @@ export default function Filter() {
         <label>
           Neighborhood:&nbsp;
           <input
-            className="input-filter"
+            className={style.inputFilter}
             type="text"
             name="neighborhood"
             placeholder="Neighborhood"
@@ -95,7 +101,7 @@ export default function Filter() {
           Price:&nbsp;
           &nbsp;from&nbsp;
           <input
-            className="input-MinMax"
+            className={style.inputMinMax}
             type="text"
             name="priceMin"
             placeholder="price min"
@@ -104,7 +110,7 @@ export default function Filter() {
           />
           &nbsp;to&nbsp;
           <input
-            className="input-MinMax"
+            className={style.inputMinMax}
             type="text"
             name="priceMax"
             placeholder="price max"
@@ -117,7 +123,7 @@ export default function Filter() {
         <label>
           Rooms:&nbsp;
           <input
-            className="input-MinMax"
+            className={style.inputMinMax}
             type="number"
             name="rooms"
             placeholder="0"
@@ -130,7 +136,7 @@ export default function Filter() {
         <label>
           Bathrooms:&nbsp;
           <input
-            className="input-MinMax"
+            className={style.inputMinMax}
             type="number"
             name="bathrooms"
             placeholder="0"
@@ -144,7 +150,7 @@ export default function Filter() {
           Area:&nbsp;
           &nbsp;from&nbsp;
           <input
-            className="input-MinMax"
+            className={style.inputMinMax}
             type="text"
             name="areaMin"
             placeholder=" min"
@@ -153,7 +159,7 @@ export default function Filter() {
           />
           &nbsp;to&nbsp;
           <input
-            className="input-MinMax"
+            className={style.inputMinMax}
             type="text"
             name="areaMax"
             placeholder=" max"
@@ -164,13 +170,13 @@ export default function Filter() {
 
         {/* Stratum */}
         {/* Hay que cambiarlo debería ser un input type number */}
-        <select className="select-filter" name="stratum" value={queryBlock.stratum} onChange={handlerQuery}>
+        <select className={style.selectFilter} name="stratum" value={queryBlock.stratum} onChange={handlerQuery}>
           <option value="">Stratum</option>
           {['stratum 1', 'stratum 2', 'stratum 3'].map((strat) => (<option value={strat}>{strat}</option>))}
         </select>
 
         {/* Type of property */}
-        <select className="select-filter" name="prop_type" value={queryBlock.prop_type} onChange={handlerQuery}>
+        <select className={style.selectFilter} name="prop_type" value={queryBlock.prop_type} onChange={handlerQuery}>
           <option value="">Type of property</option>
           {['Casa', 'Apartamento'].map((type) => (<option value={type}>{type}</option>))}
           {/* {['Barrio', 'Antigüedad'].map((g) =>
@@ -188,11 +194,46 @@ export default function Filter() {
             onChange={handlerQuery}
           />
         </label>
-        <button type="submit" onClick={handleSubmit}> Send </button>
-
+        <label onClick={() => setDisplay(!display)}>
+          Other facilities
+        </label>
+        <div className={display ? style.facilities : style.noFacilities}>
+          <input type="checkbox" onChange={handlerQuery} name="pool" value={!queryBlock.pool} />
+          <label htmlFor="pool"> Swimming pool</label>
+          <br />
+          <input type="checkbox" onChange={handlerQuery} name="backyard" value={!queryBlock.backyard} />
+          <label htmlFor="backyard"> Backyard</label>
+          <br />
+          <input type="checkbox" onChange={handlerQuery} name="gym" value={!queryBlock.gym} />
+          <label htmlFor="gym"> Gym</label>
+          <br />
+          <input type="checkbox" onChange={handlerQuery} name="bbq" value={!queryBlock.bbq} />
+          <label htmlFor="bbq"> Barbecue</label>
+          <br />
+          <input type="checkbox" onChange={handlerQuery} name="parking_lot" value={!queryBlock.parking_lot} />
+          <label htmlFor="parking_lot"> Parking lot</label>
+          <br />
+          <input type="checkbox" onChange={handlerQuery} name="elevator" value={!queryBlock.elevator} />
+          <label htmlFor="elevator"> Elevator</label>
+          <br />
+          <input type="checkbox" onChange={handlerQuery} name="security" value={!queryBlock.security} />
+          <label htmlFor="secutiry"> Security</label>
+          <br />
+          <input type="checkbox" onChange={handlerQuery} name="garden" value={!queryBlock.garden} />
+          <label htmlFor="garden"> Garden</label>
+        </div>
       </form>
-      {/* <button type="submit" onClick={() =>
-        dispatch(getVideogamesByRating(true, orden))}> Ratng </button> */}
     </div>
   );
 }
+
+const mapStateToProps = (state) => ({
+  searched: state.searched,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  filter: (queryBlock) => dispatch(getFilteredPropierties(queryBlock)),
+  getAllPost: () => dispatch(getAllPost()),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Filter);

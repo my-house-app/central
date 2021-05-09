@@ -1,8 +1,9 @@
 /* eslint-disable camelcase */
 const { v4: uuidv4 } = require('uuid');
-// const { Op, Sequelize } = require('sequelize');
 const { Post, Property, Image } = require('../db.js');
-const { buidlWhere, getCurrentPage, getCurrentEndPoint } = require('../utils');
+const {
+  buidlWhere, buildIlike, getCurrentPage, getCurrentEndPoint,
+} = require('../utils');
 
 async function addPost(req, res) {
   const id = uuidv4();
@@ -48,6 +49,7 @@ async function getPosts(req, res) {
   const limit = 10;
   const offset = Number(req.query.offset) || 0;
   const block = {
+    post_name: req.query.post_name,
     city: req.query.city || '',
     neighborhood: req.query.neighborhood || '',
     prop_type: req.query.prop_type || '',
@@ -59,22 +61,52 @@ async function getPosts(req, res) {
     rooms: Number(req.query.rooms) || null,
     bathrooms: Number(req.query.bathrooms) || null,
     years: Number(req.query.years) || null,
+    pool: req.query.pool || null,
+    backyard: req.query.pool || null,
+    gym: req.query.gym || null,
+    bbq: req.query.bbq || null,
+    parking_lot: req.query.parking_lot || null,
+    elevator: req.query.elevator || null,
+    security: req.query.security || null,
+    garden: req.query.garden || null,
   };
 
-  const queryPost = {
-    limit,
-    offset,
-    attributes: ['id', 'post_name'],
-    include: {
-      model: Property,
-      attributes: ['id', 'prop_type', 'city', 'neighborhood', 'm2', 'price', 'stratum', 'rooms', 'bathrooms', 'years'],
-      where: buidlWhere(block),
-      include: {
-        model: Image,
-        attributes: ['id', 'photo'],
-      },
-    },
-  };
+  let queryPost = {};
+
+  function querying() {
+    if (block.post_name) {
+      queryPost = {
+        limit,
+        offset,
+        attributes: ['id', 'post_name'],
+        where: { post_name: buildIlike(block.post_name) },
+        include: {
+          model: Property,
+          where: buidlWhere(block),
+          include: {
+            model: Image,
+            attributes: ['id', 'photo'],
+          },
+        },
+      };
+    } else {
+      queryPost = {
+        limit,
+        offset,
+        attributes: ['id', 'post_name'],
+        include: {
+          model: Property,
+          where: buidlWhere(block),
+          include: {
+            model: Image,
+            attributes: ['id', 'photo'],
+          },
+        },
+      };
+    }
+  }
+
+  querying();
 
   const { count, rows } = await Post.findAndCountAll(queryPost);
 
