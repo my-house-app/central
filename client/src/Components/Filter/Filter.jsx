@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import React, { useState } from 'react';
 import './Filter.css';
 import { useDispatch } from 'react-redux';
@@ -25,24 +26,20 @@ export default function Filter() {
     priceMax: '',
     areaMin: '',
     areaMax: '',
-    // price: { min: '', max: '' }, // input
-    // area: { min: '', max: '' }, // input
     rooms: '', // input number
     bathrooms: '', // input number
     years: '', // input number
   };
   const dispatch = useDispatch();
   const [queryBlock, setQueryBlock] = useState(initialState);
+
   function handleSubmit(event) {
     event.preventDefault();
-
-    // eslint-disable-next-line no-console
     console.log('buscando action');
     dispatch(getFilteredPropierties(queryBlock));
   }
 
   function handlerQuery(event) {
-    // eslint-disable-next-line no-console
     console.log('City: ', event.target.value);
     setQueryBlock(
       {

@@ -1,3 +1,5 @@
+/* eslint-disable no-multi-spaces */
+/* eslint-disable key-spacing */
 const { Op, Sequelize } = require('sequelize');
 // FUNCIONES AUXILIARES DE SEQUELIZE
 
@@ -42,15 +44,17 @@ function buildEqual(number) {
 function buidlWhere(block) {
   // eslint-disable-next-line no-shadow
   const query = [];
-  if (block.city) query.push({ city: buildIlike(block.city) });
-  if (block.neighborhood) query.push({ neighborhood: buildIlike(block.neighborhood) });
+
   query.push({ price: buildMinMax(block.priceMin, block.priceMax) });
-  query.push({ m2: buildMinMax(block.areaMin, block.areaMax) });
-  if (block.stratum) query.push({ stratum: buildEqual(block.stratum) });
-  if (block.rooms) query.push({ rooms: buildEqual(block.rooms) });
-  if (block.bathrooms) query.push({ bathrooms: buildEqual(block.bathrooms) });
-  if (block.years) query.push({ years: buildEqual(block.years) });
-  if (block.prop_type) query.push({ prop_type: buildIlike(block.prop_type) });
+  query.push({ m2:    buildMinMax(block.areaMin, block.areaMax) });
+  if (block.city)         query.push({ city:         buildIlike(block.city) });
+  if (block.neighborhood) query.push({ neighborhood: buildIlike(block.neighborhood) });
+  if (block.prop_type)    query.push({ prop_type:    buildIlike(block.prop_type) });
+  if (block.stratum)      query.push({ stratum:      buildEqual(block.stratum) });
+  if (block.rooms)        query.push({ rooms:        buildEqual(block.rooms) });
+  if (block.bathrooms)    query.push({ bathrooms:    buildEqual(block.bathrooms) });
+  if (block.years)        query.push({ years:        buildEqual(block.years) });
+
   return { [Sequelize.Op.and]: query };
 }
 
@@ -71,19 +75,22 @@ function getCurrentPage(offset, limit) {
  * @param {* offset es de tipo integer y es desde donde empiezo a traer los datos} offset
  * @returns Un string (endpoint) con todas las re.query que se usaron
  */
-function getCurrentEndPoint(block, offset) {
+function getCurrentEndPoint(block, limit, offset) {
   let endpoint = `http://localhost:3001/posts?offset=${offset}`;
-  if (block.city) endpoint += `&city=${block.city}`;
+
+  if (block.city)         endpoint += `&city=${block.city}`;
   if (block.neighborhood) endpoint += `&neighborhood=${block.neighborhood}`;
-  if (block.priceMin) endpoint += `&priceMin=${block.priceMin}`;
-  if (block.priceMax) endpoint += `&priceMax=${block.priceMax}`;
-  if (block.areaMin) endpoint += `&areaMin=${block.areaMin}`;
-  if (block.areaMax) endpoint += `&areaMax=${block.areaMax}`;
-  if (block.stratum) endpoint += `&stratum=${block.stratum}`;
-  if (block.rooms) endpoint += `&rooms=${block.rooms}`;
-  if (block.bathrooms) endpoint += `&bathrooms=${block.bathrooms}`;
-  if (block.years) endpoint += `&years=${block.years}`;
-  if (block.prop_type) endpoint += `&prop_type=${block.prop_type}`;
+  if (block.prop_type)    endpoint += `&prop_type=${block.prop_type}`;
+  if (block.stratum)      endpoint += `&stratum=${block.stratum}`;
+  if (block.rooms)        endpoint += `&rooms=${block.rooms}`;
+  if (block.bathrooms)    endpoint += `&bathrooms=${block.bathrooms}`;
+  if (block.years)        endpoint += `&years=${block.years}`;
+  if (block.priceMin)     endpoint += `&priceMin=${block.priceMin}`;
+  if (block.priceMax)     endpoint += `&priceMax=${block.priceMax}`;
+  if (block.areaMin)      endpoint += `&areaMin=${block.areaMin}`;
+  if (block.areaMax)      endpoint += `&areaMax=${block.areaMax}`;
+  if (limit) endpoint += `&limit=${limit}`;
+
   return endpoint;
 }
 

@@ -1,10 +1,11 @@
 /* eslint-disable func-names */
 import axios from 'axios';
-import { getFilteredPropiertiesService, getAllPostsService } from '../../Services/properties.service';
+import { getFilteredPropiertiesService, getAllPostsService, getNextOrPreviousPageService } from '../../Services/properties.service';
 // variables que se exportan para el reducer
 export const PROPERTIES = 'properties';
 export const GET_FILTERED_PROPERTIES = 'GET_FILTERED_PROPERTIES';
 export const GET_SEARCHED_POST = 'GET_SEARCHED_POST';
+export const GET_NEXT_OR_PREVIOUS_PAGE = 'GET_NEXT_OR_PREVIOUS_PAGE';
 
 // Actions
 export const detailPokemon = () => async function (dispatch) {
@@ -45,5 +46,20 @@ export function getSearchedPost(payload) {
         payload,
       },
     );
+  };
+}
+
+export function getNextOrPreviousPage(link) {
+  return async function (dispatch) {
+    return getNextOrPreviousPageService(link)
+      .then((res) => {
+        dispatch(
+          {
+            type: GET_NEXT_OR_PREVIOUS_PAGE,
+            payload: res.data,
+          },
+        );
+      })
+      .catch((e) => console.log('Pagina, error del pedido: ', e));
   };
 }
