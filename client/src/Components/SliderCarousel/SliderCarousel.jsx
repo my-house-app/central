@@ -10,12 +10,18 @@ import {
   image,
 } from './SliderCarousel.module.css';
 
-const SliderCarousel = ({ elements = [] }) => {
+const SliderCarousel = ({ elements }) => {
   const [current, setCurrent] = useState(0);
 
-  const elementsLength = elements.length;
+  const elementsLength = elements?.length;
 
-  if (!elementsLength) return null;
+  if (!elementsLength) {
+    return (
+      <div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/300px-No_image_available.svg.png" alt="no available" />
+      </div>
+    );
+  }
 
   const next = () => {
     setCurrent(current === elementsLength - 1 ? 0 : current + 1);
@@ -39,7 +45,9 @@ const SliderCarousel = ({ elements = [] }) => {
         className={rightArrow}
       />
       {elements.map((element, index) => (
-        <div className={index === current ? `${slide} ${active}` : `${slide}`}>
+        <div
+          className={index === current ? `${slide} ${active}` : `${slide}`}
+        >
           {index === current && (
             <img
               className={image}
@@ -50,6 +58,7 @@ const SliderCarousel = ({ elements = [] }) => {
           )}
         </div>
       ))}
+
     </section>
   );
 };

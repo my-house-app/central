@@ -1,8 +1,95 @@
-.container{
-    width: 90%;
-    margin: auto;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+.container {
+  width: 1176px;
+  margin: 0 auto;
+  box-sizing: border-box;
 }
 
+
+
+article.address_detail {
+  width: 330px;
+  padding: 1rem;
+}
+
+section.title {
+  display: flex;
+  flex-direction: column;
+}
+
+article.tour_schedule {
+  width: 330px;
+  padding: 1rem;
+}
+section.photo_description {
+  display: flex;
+  position: relative;
+  height: 330px;
+}
+
+section.map_facilities {
+  display: flex;
+  justify-content: center;
+  height: 150px;
+}
+
+section.map_facilities > article {
+  width: 50%;
+}
+
+article.hero_carousel {
+  width: 500px;
+  position: relative;
+}
+
+div.details > * {
+  display: block;
+  margin-top: 10px;
+}
+
+.map_container {
+  position: relative;
+  overflow: hidden;
+}
+
+.tour_schedule .details {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: 280px;
+  text-align: center;
+  border-radius: 8px;
+  background-color: gainsboro;
+}
+
+.hero_carousel .photo_gallery {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  overflow: hidden;
+}
+
+.facilities_container {
+  text-align: center;
+}
+
+.facility{
+  
+  width: 160px;
+  margin-bottom: 1rem;
+}
+.facilities {
+  width: 80%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+article > img {
+  width: 100%;
+  border-radius: 8px;
+
+  height: 100%;
+}
