@@ -1,8 +1,9 @@
 import React from 'react';
 import Cards from '../Components/Cards/Cards';
-import style from './Home.module.css';
 import Filter from '../Components/Filter/Filter';
 import Searchbar from '../Components/Searchbar/Searchbar';
+import Order from '../Components/Order/Order';
+import style from './Home.module.css';
 
 export default function Home() {
   return (
@@ -15,10 +16,8 @@ export default function Home() {
       </div>
       <div className={style.main}>
         <div className={style.search_order}>
-          <h4>Select order</h4>
-          {/* <h4>SearchBar</h4> */}
+          <Order />
           <Searchbar />
-          {/* <Order/> */}
         </div>
         <div className={style.cards}>
           <Cards />

@@ -14,6 +14,10 @@
     color: aliceblue;
 }
 
+label {
+    color: var(--white);
+}
+
 .noFacilities{
     display: none;
 }

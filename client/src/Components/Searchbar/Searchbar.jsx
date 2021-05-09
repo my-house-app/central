@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
+import { FaSearch } from 'react-icons/fa';
 import { searchedPost } from '../../Redux/Actions';
+import style from './Searchbar.module.css';
 
 function Searchbar({ find }) {
   const [search, setSearch] = useState('');
@@ -11,13 +13,16 @@ function Searchbar({ find }) {
   }
 
   return (
-    <div>
+    <div className={style.searchBox}>
       <input
+        className={style.searchText}
         type="text"
-        placeholder="Search any post here..."
+        autoComplete="off"
         value={search}
         onChange={(e) => handleChange(e)}
+        placeholder="Search any post here..."
       />
+      <FaSearch className={style.searchIcon} />
     </div>
   );
 }
