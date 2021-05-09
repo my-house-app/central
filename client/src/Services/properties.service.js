@@ -1,9 +1,10 @@
+/* eslint-disable no-multi-spaces */
 /* eslint-disable no-return-await */
 import axios from 'axios';
 
 const LOCALHOST = 'http://localhost:3001';
 
-export async function getFilteredPropiertiesService(block, offset = 0) {
+export async function getFilteredPropiertiesService(block, limit = 10, offset = 0) {
   let endpoint = `${LOCALHOST}/posts?offset=${offset}`;
   if (block.post_name) endpoint += `&post_name=${block.post_name}`;
   if (block.city) endpoint += `&city=${block.city}`;
@@ -25,10 +26,16 @@ export async function getFilteredPropiertiesService(block, offset = 0) {
   if (block.elevator) endpoint += `&elevator=${block.elevator}`;
   if (block.security) endpoint += `&security=${block.security}`;
   if (block.garden) endpoint += `&garden=${block.garden}`;
-  console.log(endpoint);
+  if (limit) endpoint += `&limit=${limit}`;
   return await axios.get(endpoint);
 }
 
-export async function getAllPostsService() {
-  return await axios.get(`${LOCALHOST}/posts`);
+export async function getAllPostsService(limit = 10) {
+  let endpoint = `${LOCALHOST}/posts`;
+  if (limit) endpoint += `?limit=${limit}`;
+  return await axios.get(endpoint);
+}
+
+export async function getNextOrPreviousPageService(link) {
+  return await axios.get(`${link}`);
 }

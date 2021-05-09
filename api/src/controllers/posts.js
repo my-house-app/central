@@ -1,3 +1,5 @@
+/* eslint-disable no-multi-spaces */
+/* eslint-disable key-spacing */
 /* eslint-disable camelcase */
 const { v4: uuidv4 } = require('uuid');
 const { Post, Property, Image } = require('../db.js');
@@ -46,8 +48,9 @@ async function addPost(req, res) {
 // http://localhost:3001/posts?city=med&neighborhood=pol&prop_type=Apartamento
 // http://localhost:3001/posts?city=med&neighborhood=pol&priceMin=0&priceMax=100000000
 async function getPosts(req, res) {
-  const limit = 10;
+  const limit =  Number(req.query.limit)  || 10;
   const offset = Number(req.query.offset) || 0;
+  const { atributo, orden } = req.query;
   const block = {
     post_name: req.query.post_name,
     city: req.query.city || '',
@@ -109,13 +112,14 @@ async function getPosts(req, res) {
   querying();
 
   const { count, rows } = await Post.findAndCountAll(queryPost);
+  // const { count, rows } = await Property.findAndCountAll(queryPost);
 
   return res.status(200).json(
     {
       count,
       posts: rows,
       currentPage: getCurrentPage(offset, limit),
-      selfEndpoint: getCurrentEndPoint(block, offset),
+      selfEndpoint: getCurrentEndPoint(block, limit, offset),
     },
   );
 }

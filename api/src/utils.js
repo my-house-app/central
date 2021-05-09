@@ -1,3 +1,5 @@
+/* eslint-disable no-multi-spaces */
+/* eslint-disable key-spacing */
 const { Op, Sequelize } = require('sequelize');
 // FUNCIONES AUXILIARES DE SEQUELIZE
 
@@ -42,8 +44,7 @@ function buildEqual(number) {
 function buidlWhere(block) {
   // eslint-disable-next-line no-shadow
   const query = [];
-  if (block.city) query.push({ city: buildIlike(block.city) });
-  if (block.neighborhood) query.push({ neighborhood: buildIlike(block.neighborhood) });
+
   query.push({ price: buildMinMax(block.priceMin, block.priceMax) });
   query.push({ m2: buildMinMax(block.areaMin, block.areaMax) });
   if (block.stratum) query.push({ stratum: buildEqual(block.stratum) });
@@ -79,7 +80,7 @@ function getCurrentPage(offset, limit) {
  * @param {* offset es de tipo integer y es desde donde empiezo a traer los datos} offset
  * @returns Un string (endpoint) con todas las re.query que se usaron
  */
-function getCurrentEndPoint(block, offset) {
+function getCurrentEndPoint(block, limit, offset) {
   let endpoint = `http://localhost:3001/posts?offset=${offset}`;
   if (block.post_name) endpoint += `&post_name=${block.post_name}`;
   if (block.city) endpoint += `&city=${block.city}`;

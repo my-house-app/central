@@ -1,85 +1,94 @@
-// import Like from '../Like';
-// import Share from '../Share';
-// import ScheduleTour from '../ScheduleTour';
+import { useState, useEffect } from 'react';
 import SliderCarousel from '../SliderCarousel/SliderCarousel';
-import { container } from './Details.module.css';
+import styles from './Details.module.css';
 
-const images = [
-  {
-    id: 0,
-    photo:
-      'https://metrocuadrado.blob.core.windows.net/inmuebles/5265-M2856945/5265-M2856945_2_p.jpg',
-  },
+export default function Details({ routerProps }) {
+  const { id } = routerProps.match.params;
 
-  {
-    id: 2,
-    photo:
-      'https://metrocuadrado.blob.core.windows.net/inmuebles/3390-M2856958/3390-M2856958_4_p.jpg',
-  },
+  const [property, setProperty] = useState('');
+  const [loading, setLoading] = useState(true);
 
-  {
-    id: 4,
-    photo:
-      'https://metrocuadrado.blob.core.windows.net/inmuebles/2444-1328L7/2444-1328L7_1_p.jpg',
-  },
-  {
-    id: 5,
-    photo:
-      'https://metrocuadrado.blob.core.windows.net/inmuebles/416-1556/416-1556_1_p.jpg',
-  },
+  const getPropertyDetails = async () => {
+    const response = await fetch(`http://localhost:3001/post/${id}`);
+    const propertyFetch = await response.json();
+    setProperty(propertyFetch);
+    setLoading(false);
+  };
+  useEffect(() => {
+    getPropertyDetails();
+  }, []);
 
-  {
-    id: 6,
-    photo:
-      'https://metrocuadrado.blob.core.windows.net/inmuebles/2444-2333L19/2444-2333L19_1_p.jpg',
-  },
-  {
-    id: 7,
-    photo:
-      'https://metrocuadrado.blob.core.windows.net/inmuebles/2444-1556L12/2444-1556L12_1_p.jpg',
-  },
-
-  {
-    id: 8,
-    photo:
-      'https://metrocuadrado.blob.core.windows.net/inmuebles/4303-990/4303-990_15_p.jpg',
-  },
-  {
-    id: 9,
-    photo:
-      'https://metrocuadrado.blob.core.windows.net/inmuebles/12041-3830350/12041-3830350_14_p.jpg',
-  },
-  {
-    id: 10,
-    photo:
-      'https://metrocuadrado.blob.core.windows.net/inmuebles/3390-M2857043/3390-M2857043_3_p.jpg',
-  },
-];
-
-export default function Details({
-  title,
-  description,
-  price,
-  city,
-  // images,
-  ...rest
-}) {
   return (
-    <div className={container}>
-      <div>
-        <h1>{title}</h1>
-        <p>{description}</p>
-        <p>{city}</p>
-        <span>{price}</span>
-      </div>
-      <div>
-        <SliderCarousel elements={images} />
-      </div>
+    <div>
+      {!loading && (
+        <main className={styles.container}>
+          <section className={styles.title}>
+            <h1>{property.description}</h1>
+            <p>{property.prop_type}</p>
+          </section>
+          <section className={styles.photo_description}>
+            <article className={styles.address_detail}>
+              <div>
+                <h2>{property.city}</h2>
+                <p>{property.neighborhood}</p>
+                <p>{property.price}</p>
+              </div>
+            </article>
+            <article className={styles.hero_carousel}>
+              <div className={styles.photo_gallery}>
+                <SliderCarousel elements={property.images} />
+              </div>
+            </article>
+            <article className={styles.tour_schedule}>
+              <div className={styles.details}>
+                <h3>Arrange you tour</h3>
 
-      {/* <Like /> */}
-      {/* <Share/> */}
-
-      <div>{/* <ScheduleTour/> */}</div>
+                <input type="date" name="tour_date" />
+                <input type="time" name="tour_time" />
+                <button type="submit">Select</button>
+              </div>
+            </article>
+          </section>
+          <section className={styles.map_facilities}>
+            <article className={styles.map_container}>
+              <img
+                src="https://northstar-pres.com/wp-content/uploads/2015/10/google-map-placeholder.png"
+                alt="map placeholder"
+              />
+            </article>
+            <article className={styles.facilities_container}>
+              <h3>Facilities</h3>
+              <div className={styles.facilities}>
+                <div className={styles.facility}>
+                  Parking lot
+                  {property.parking_lot && <span> ✔️ </span>}
+                </div>
+                <div className={styles.facility}>
+                  GYM
+                  {property.gym && <span> ✔️ </span>}
+                </div>
+                <div className={styles.facility}>
+                  ELEVATOR
+                  {property.elevator && <span> ✔️ </span>}
+                </div>
+                <div className={styles.facility}>
+                  GARDEN
+                  {property.garden && <span> ✔️ </span>}
+                </div>
+                <div className={styles.facility}>
+                  BACKYARD
+                  {property.backyard && <span> ✔️ </span>}
+                </div>
+                <div className={styles.facility}>
+                  PRIVATE SECURITY
+                  {property.private_security && <span> ✔️ </span>}
+                </div>
+              </div>
+            </article>
+          </section>
+        </main>
+      )}
+      {loading && <div>Cargando...</div>}
     </div>
   );
 }
