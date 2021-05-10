@@ -7,7 +7,7 @@ import { getAllPost } from '../../Redux/Actions/index';
 function Cards({ principalState, principal }) {
   useEffect(() => {
     if (!principalState.length) principal();
-  }, [principalState]);
+  }, []);
   const list = principalState?.map((e) => (
     <Card
       image={e.property.images[0]?.photo}
@@ -16,6 +16,7 @@ function Cards({ principalState, principal }) {
       neighborhood={e.property.neighborhood}
       price={e.property.price}
       rooms={e.property.rooms}
+      bathrooms={e.property.bathrooms}
       m2={e.property.m2}
       id={e.property.id}
     />

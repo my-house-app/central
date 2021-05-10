@@ -170,10 +170,19 @@ function Filter({ searched, filter, getAllPost }) {
 
         {/* Stratum */}
         {/* Hay que cambiarlo debería ser un input type number */}
-        <select className={style.selectFilter} name="stratum" value={queryBlock.stratum} onChange={handlerQuery}>
-          <option value="">Stratum</option>
-          {['stratum 1', 'stratum 2', 'stratum 3'].map((strat) => (<option value={strat}>{strat}</option>))}
-        </select>
+        <label>
+          Stratum:&nbsp;
+          <input
+            className={style.inputMinMax}
+            type="number"
+            name="stratum"
+            placeholder="0"
+            min="0"
+            max="6"
+            value={queryBlock.stratum}
+            onChange={handlerQuery}
+          />
+        </label>
 
         {/* Type of property */}
         <select className={style.selectFilter} name="prop_type" value={queryBlock.prop_type} onChange={handlerQuery}>
