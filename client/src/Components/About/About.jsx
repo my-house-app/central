@@ -5,9 +5,11 @@ function About() {
   return (
     <div className={style.ctn}>
       <div>
-        <h1>My House-App</h1>
-        <h5>Version 1.0.0</h5>
-        <p>App developed with React, Redux, Node y Sequelize.</p>
+        <h1 className={style.title}>My House-App</h1>
+        <h5 className={style.version}>Version 1.0.0</h5>
+        <p className={style.description}>
+          App developed with React, Redux, Node, Express and Sequelize.
+        </p>
       </div>
     </div>
   );

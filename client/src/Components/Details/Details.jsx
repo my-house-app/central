@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
+import { FaCheck } from 'react-icons/fa';
 import SliderCarousel from '../SliderCarousel/SliderCarousel';
+import Map from '../Map/Map';
 import styles from './Details.module.css';
 
 export default function Details({ routerProps }) {
@@ -51,38 +53,65 @@ export default function Details({ routerProps }) {
           </section>
           <section className={styles.map_facilities}>
             <article className={styles.map_container}>
-              <img
+              {/* <img
                 src="https://northstar-pres.com/wp-content/uploads/2015/10/google-map-placeholder.png"
                 alt="map placeholder"
-              />
+              /> */}
+              <div>
+                <Map />
+              </div>
             </article>
             <article className={styles.facilities_container}>
-              <h3>Facilities</h3>
+              <h3 className={styles.tit}>Facilities</h3>
               <div className={styles.facilities}>
-                <div className={styles.facility}>
-                  Parking lot
-                  {property.parking_lot && <span> ✔️ </span>}
-                </div>
-                <div className={styles.facility}>
-                  GYM
-                  {property.gym && <span> ✔️ </span>}
-                </div>
-                <div className={styles.facility}>
-                  ELEVATOR
-                  {property.elevator && <span> ✔️ </span>}
-                </div>
-                <div className={styles.facility}>
-                  GARDEN
-                  {property.garden && <span> ✔️ </span>}
-                </div>
-                <div className={styles.facility}>
-                  BACKYARD
-                  {property.backyard && <span> ✔️ </span>}
-                </div>
-                <div className={styles.facility}>
-                  PRIVATE SECURITY
-                  {property.private_security && <span> ✔️ </span>}
-                </div>
+                {property.parking_lot && (
+                  <div className={styles.facility}>
+                    PARKING LOT
+                    <span className={styles.icon}><FaCheck /></span>
+                  </div>
+                )}
+                {property.gym && (
+                  <div className={styles.facility}>
+                    GYM
+                    <span className={styles.icon}><FaCheck /></span>
+                  </div>
+                )}
+                {property.elevator && (
+                  <div className={styles.facility}>
+                    ELEVATOR
+                    <span className={styles.icon}><FaCheck /></span>
+                  </div>
+                )}
+                {property.garden && (
+                  <div className={styles.facility}>
+                    GARDEN
+                    <span className={styles.icon}><FaCheck /></span>
+                  </div>
+                )}
+                {property.backyard && (
+                  <div className={styles.facility}>
+                    BACKYARD
+                    <span className={styles.icon}><FaCheck /></span>
+                  </div>
+                )}
+                {property.private_security && (
+                  <div className={styles.facility}>
+                    PRIVATE SECURITY
+                    <span className={styles.icon}><FaCheck /></span>
+                  </div>
+                )}
+                {property.pool && (
+                  <div className={styles.facility}>
+                    SWIMMING POOL
+                    <span className={styles.icon}><FaCheck /></span>
+                  </div>
+                )}
+                {property.bbq && (
+                  <div className={styles.facility}>
+                    BARBECUE
+                    <span className={styles.icon}><FaCheck /></span>
+                  </div>
+                )}
               </div>
             </article>
           </section>

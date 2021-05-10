@@ -17,13 +17,12 @@ export default function Home() {
     <div className={style.home}>
       <div className={style.filterArea}>
         <div className={style.filterCont}>
-          <h4>Fileters</h4>
           <Filter />
         </div>
       </div>
       <div className={style.main}>
         <div className={style.search_order}>
-          <Order />
+          {/* <Order /> */}
           <Searchbar />
         </div>
         {count && <Paginacion count={count} paginaActual={page} limit={limit} />}

@@ -1,6 +1,6 @@
 .slider {
   position: relative;
-  width: 420px;
+  width: 80%;
   margin: auto;
 }
 
@@ -12,22 +12,24 @@
   position: absolute;
   top: 50%;
   right: 32px;
-  font-size: 3rem;
-  color: #000;
+  font-size: 4rem;
+  color: var(--white);
   z-index: 10;
   cursor: pointer;
   user-select: none;
+  text-shadow: 2px 2px 0px #bdbdbd55;
 }
 
 .leftArrow {
   position: absolute;
   top: 50%;
   left: 32px;
-  font-size: 3rem;
-  color: #000;
+  font-size: 4rem;
+  color: var(--white);
   z-index: 10;
   cursor: pointer;
   user-select: none;
+  text-shadow: 2px 2px 0px #bdbdbd55;
 }
 .image {
   width: 100%;
