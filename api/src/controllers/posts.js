@@ -50,7 +50,7 @@ async function addPost(req, res) {
 async function getPosts(req, res) {
   const limit =  Number(req.query.limit)  || 10;
   const offset = Number(req.query.offset) || 0;
-  const { atributo, orden } = req.query;
+  // const { atributo, orden } = req.query;
   const block = {
     post_name: req.query.post_name,
     city: req.query.city || '',

@@ -17,9 +17,9 @@ nav {
   text-shadow: 1px 1px 0px #bdbdbd;
 }
 
-.active {
+/* .active {
   color: var(--blue);
-}
+} */
 
 .menu {
   display: flex;
@@ -32,6 +32,7 @@ nav {
   height: 10%;
   width: 10%;
   margin: 1%;
+  color: var(--white);
 }
 
 .signin {
@@ -49,32 +50,4 @@ nav {
   transition: all .3s ease-in-out;
   background-color: var(--dark);
   box-shadow: 1px 1px 0px #bdbdbd;
-}
-
-.mobileMenu{
-  display: none;
-}
-
-
-@media screen and (max-width: 768px) {
-  .menu {
-    display: none;
-  }
-  .mobileMenu {
-    display: block;
-    position: absolute;
-    top: 0;
-    right: 0;
-    transform: translate(-100%, 60%);
-    font-size: 1.8rem;
-    cursor: pointer;
-    color: #1C3C17;
-  }
-  .logo {
-    height: 70%;
-    width: 70%;
-  }
-  .logoSide{
-    margin-left: -100px;
-  }
 }

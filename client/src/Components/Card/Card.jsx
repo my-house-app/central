@@ -8,7 +8,7 @@ import style from './Card.module.css';
 
 // export default function Card(props) {
 export default function Card({
-  image, postName, propType, neighborhood, price, rooms, m2, id,
+  image, postName, propType, neighborhood, price, rooms, bathrooms, m2, id,
 }) {
   // console.log("props:", props);
 
@@ -38,7 +38,7 @@ export default function Card({
             </p>
             {/* <p>Habitaciones: 3</p> */}
             <p>
-              4
+              {bathrooms}
               <span className={style.icon}>
                 <FontAwesomeIcon icon={faBath} />
               </span>

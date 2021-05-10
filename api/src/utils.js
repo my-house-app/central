@@ -44,7 +44,8 @@ function buildEqual(number) {
 function buidlWhere(block) {
   // eslint-disable-next-line no-shadow
   const query = [];
-
+  if (block.city) query.push({ city: buildIlike(block.city) });
+  if (block.neighborhood) query.push({ neighborhood: buildIlike(block.neighborhood) });
   query.push({ price: buildMinMax(block.priceMin, block.priceMax) });
   query.push({ m2: buildMinMax(block.areaMin, block.areaMax) });
   if (block.stratum) query.push({ stratum: buildEqual(block.stratum) });

@@ -33,7 +33,7 @@
     color: var(--white);
 }
 
-input, input::placeholder {
+.searchBox input, input::placeholder {
     color: var(--white);
     font-size: 0.8rem;
 }
