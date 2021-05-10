@@ -1,12 +1,12 @@
-/* eslint-disable no-shadow */
-/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
+import { FaRegTimesCircle } from 'react-icons/fa';
 import style from './Filter.module.css';
-import { getAllPost, getFilteredPropierties } from '../../Redux/Actions';
+import { getFilteredPropierties } from '../../Redux/Actions';
 
-function Filter({ searched, filter, getAllPost }) {
+function Filter({ searched, filter }) {
   const initialState = {
     post_name: searched, // search by postName
     prop_type: '', // select
@@ -59,153 +59,175 @@ function Filter({ searched, filter, getAllPost }) {
   function clear() {
     setQueryBlock(initialState);
     document.getElementById('form').reset();
-    getAllPost();
   }
 
   const [display, setDisplay] = useState(false);
 
   return (
     <div className={style.filter}>
-      <button type="button" id={style.closeIcon} onClick={clear}>
-        <strong>X</strong>
-      </button>
-      <form id="form" style={{ display: 'flex', flexDirection: 'column' }}>
+      <div type="button" className={style.closeIcon} onClick={clear}>
+        <FaRegTimesCircle />
+      </div>
+      <form id="form" className={style.form}>
         {/* City */}
-        <label>
-          City:&nbsp;
-          <input
-            className={style.inputFilter}
-            type="text"
-            name="city"
-            placeholder="City"
-            value={queryBlock.city}
-            onChange={handlerQuery}
-          />
-        </label>
+        <div className={style.field}>
+          <label>
+            City:&nbsp;
+            <input
+              className={style.inputFilter}
+              type="text"
+              name="city"
+              placeholder="City"
+              value={queryBlock.city}
+              onChange={handlerQuery}
+            />
+          </label>
+        </div>
 
         {/* Neighborhood */}
-        <label>
-          Neighborhood:&nbsp;
-          <input
-            className={style.inputFilter}
-            type="text"
-            name="neighborhood"
-            placeholder="Neighborhood"
-            value={queryBlock.neighborhood}
-            onChange={handlerQuery}
-          />
-        </label>
+        <div className={style.field}>
+          <label>
+            Neighborhood:
+            <input
+              className={style.inputFilter}
+              type="text"
+              name="neighborhood"
+              placeholder="Neighborhood"
+              value={queryBlock.neighborhood}
+              onChange={handlerQuery}
+            />
+          </label>
+        </div>
 
         {/* Price min y max */}
-        <label>
+        <div className={style.field}>
           Price:&nbsp;
-          &nbsp;from&nbsp;
-          <input
-            className={style.inputMinMax}
-            type="text"
-            name="priceMin"
-            placeholder="price min"
-            value={queryBlock.priceMin}
-            onChange={handlerQuery}
-          />
-          &nbsp;to&nbsp;
-          <input
-            className={style.inputMinMax}
-            type="text"
-            name="priceMax"
-            placeholder="price max"
-            value={queryBlock.priceMax}
-            onChange={handlerQuery}
-          />
-        </label>
+          <div className={style.from_to}>
+            from&nbsp;
+            <input
+              className={style.inputMinMax}
+              type="text"
+              name="priceMin"
+              placeholder="min"
+              value={queryBlock.priceMin}
+              onChange={handlerQuery}
+            />
+            &nbsp;to&nbsp;
+            <input
+              className={style.inputMinMax}
+              type="text"
+              name="priceMax"
+              placeholder="max"
+              value={queryBlock.priceMax}
+              onChange={handlerQuery}
+            />
+          </div>
+        </div>
 
         {/* Rooms  */}
-        <label>
-          Rooms:&nbsp;
-          <input
-            className={style.inputMinMax}
-            type="number"
-            name="rooms"
-            placeholder="0"
-            value={queryBlock.rooms}
-            onChange={handlerQuery}
-          />
-        </label>
+        <div className={style.field}>
+          <label>
+            Rooms:&nbsp;
+            <input
+              className={style.inputMinMax}
+              type="number"
+              name="rooms"
+              placeholder="0"
+              value={queryBlock.rooms}
+              onChange={handlerQuery}
+            />
+          </label>
+        </div>
 
         {/* Bathrooms */}
-        <label>
-          Bathrooms:&nbsp;
-          <input
-            className={style.inputMinMax}
-            type="number"
-            name="bathrooms"
-            placeholder="0"
-            value={queryBlock.bathrooms}
-            onChange={handlerQuery}
-          />
-        </label>
+        <div className={style.field}>
+          <label>
+            Bathrooms:&nbsp;
+            <input
+              className={style.inputMinMax}
+              type="number"
+              name="bathrooms"
+              placeholder="0"
+              value={queryBlock.bathrooms}
+              onChange={handlerQuery}
+            />
+          </label>
+        </div>
 
         {/* Area min y max */}
-        <label>
+        <div className={style.field}>
           Area:&nbsp;
-          &nbsp;from&nbsp;
-          <input
-            className={style.inputMinMax}
-            type="text"
-            name="areaMin"
-            placeholder=" min"
-            value={queryBlock.areaMin}
-            onChange={handlerQuery}
-          />
-          &nbsp;to&nbsp;
-          <input
-            className={style.inputMinMax}
-            type="text"
-            name="areaMax"
-            placeholder=" max"
-            value={queryBlock.areaMax}
-            onChange={handlerQuery}
-          />
-        </label>
+          <div className={style.from_to}>
+            from&nbsp;
+            <input
+              className={style.inputMinMax}
+              type="text"
+              name="areaMin"
+              placeholder="min"
+              value={queryBlock.areaMin}
+              onChange={handlerQuery}
+            />
+            &nbsp;to&nbsp;
+            <input
+              className={style.inputMinMax}
+              type="text"
+              name="areaMax"
+              placeholder="max"
+              value={queryBlock.areaMax}
+              onChange={handlerQuery}
+            />
+          </div>
+        </div>
 
         {/* Stratum */}
         {/* Hay que cambiarlo debería ser un input type number */}
-        <label>
-          Stratum:&nbsp;
-          <input
-            className={style.inputMinMax}
-            type="number"
-            name="stratum"
-            placeholder="0"
-            min="0"
-            max="6"
-            value={queryBlock.stratum}
-            onChange={handlerQuery}
-          />
-        </label>
+        <div className={style.field}>
+          <label>
+            Stratum:  &nbsp;
+            <input
+              className={style.inputMinMax}
+              type="number"
+              name="stratum"
+              placeholder="0"
+              min="0"
+              max="6"
+              value={queryBlock.stratum}
+              onChange={handlerQuery}
+            />
+          </label>
+        </div>
 
         {/* Type of property */}
-        <select className={style.selectFilter} name="prop_type" value={queryBlock.prop_type} onChange={handlerQuery}>
-          <option value="">Type of property</option>
-          {['Casa', 'Apartamento'].map((type) => (<option value={type}>{type}</option>))}
-          {/* {['Barrio', 'Antigüedad'].map((g) =>
-          (<option key={g.id} value={g.name}>{g.name}</option>))} */}
-        </select>
+        <div className={style.field}>
+          <select className={style.selectFilter} name="prop_type" value={queryBlock.prop_type} onChange={handlerQuery}>
+            <option value="">Type of property</option>
+            {['Casa', 'Apartamento'].map((type) => (<option value={type}>{type}</option>))}
+            {/* {['Barrio', 'Antigüedad'].map((g) =>
+            (<option key={g.id} value={g.name}>{g.name}</option>))} */}
+          </select>
+        </div>
 
         {/* years */}
-        <label>
-          Years:&nbsp;
-          <input
-            type="number"
-            name="years"
-            placeholder="years"
-            value={queryBlock.years}
-            onChange={handlerQuery}
-          />
-        </label>
-        <label onClick={() => setDisplay(!display)}>
-          Other facilities
-        </label>
+        <div className={style.field}>
+          <label>
+            Years:  &nbsp;
+            <input
+              className={style.inputMinMax}
+              type="number"
+              name="years"
+              value={queryBlock.years}
+              onChange={handlerQuery}
+              min="0"
+            />
+          </label>
+        </div>
+
+        {/* Facilities */}
+        <div className={style.field} onClick={() => setDisplay(!display)}>
+          <p className={style.tit_facilities}>
+            Other facilities
+          </p>
+        </div>
         <div className={display ? style.facilities : style.noFacilities}>
           <input type="checkbox" onChange={handlerQuery} name="pool" value={!queryBlock.pool} />
           <label htmlFor="pool"> Swimming pool</label>
@@ -242,7 +264,6 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   filter: (queryBlock) => dispatch(getFilteredPropierties(queryBlock)),
-  getAllPost: () => dispatch(getAllPost()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Filter);

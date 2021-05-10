@@ -8,6 +8,8 @@ import {
 import Home from './Pages/Home';
 import NavBar from './Components/NavBar/NavBar';
 import Details from './Components/Details/Details';
+import About from './Components/About/About';
+import Signin from './Components/Signin/Signin';
 
 export default function MyHouseRoutes() {
   return (
@@ -23,6 +25,11 @@ export default function MyHouseRoutes() {
           <Route exact path="/">
             <Redirect to="/home" />
           </Route>
+          <Route
+            path="/about"
+            component={About}
+          />
+          <Route path="/signin" component={Signin} />
         </Switch>
         {/* <Footer/> */}
       </div>

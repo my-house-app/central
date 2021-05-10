@@ -1,5 +1,5 @@
 .searchBox {
-    background-color: var(--blue);
+    background-color: var(--white);
     height: 2.4em;
     width: 13em;
     border-radius: 20px;
@@ -8,6 +8,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
+    border: 2px solid var(--blue);
 }
 
 /* .searchBox:hover > .searchIcon{
@@ -15,7 +16,7 @@
 }
  */
 .searchBox .searchIcon{
-    color: var(--white);
+    color: var(--blue);
     border-radius: 50%;
     float: right;
     width: 1.8em;
@@ -30,11 +31,13 @@
     padding: 0 6px;
     transition: 0.4s;
     line-height: 40px;
-    color: var(--white);
+    color: var(--blue);
+    cursor: pointer;
+    font-family: 'Poppins';
 }
 
 .searchBox input, input::placeholder {
-    color: var(--white);
+    color: var(--blue);
     font-size: 0.8rem;
 }
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import logo from '../../images/newLogos/logoCirculo.png';
+import logo from '../../images/circulo2-8.png';
 import style from './NavBar.module.css';
 
 function NavBar() {
