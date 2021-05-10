@@ -4,7 +4,7 @@
   justify-content: space-around;
   align-items: stretch;
   background-color: var(--white);
-  border: 5px solid #ffffff03;
+  border: 2px solid var(--blue);
   border-radius: 20px;
   box-shadow: 2px 4px 6px 3px var(--blackShadow);
   margin: 4% 0;
@@ -12,9 +12,10 @@
 }
 
 .ctn .img{
-  width: 80%;
-  height: 90%;
-  border-radius: 1%;
+  width: 12.5rem;
+  height: 12.5rem;
+  border-radius: 5%;
+  display : flex;
 }
 
 
@@ -61,4 +62,14 @@
 .ctn a {
   text-decoration: none;
   color: var(--blue);
+  transition: all 0.25s;
+}
+
+.ctn a:hover {
+  color: var(--dark);
+  font-size: 1.01rem;
+}
+
+.ctn a h3 {
+  margin: 0 20px 0 0;
 }
