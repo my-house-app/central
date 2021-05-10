@@ -31,7 +31,7 @@ const visitDates = require('./src/loaders/visitDates');
 const images = require('./src/loaders/images');
 
 // Syncing all the models at once.
-conn.sync({ force: false }).then(() => {
+conn.sync({ force: true }).then(() => {
   User.bulkCreate(users);
   Property.bulkCreate(properties);
   Post.bulkCreate(posts);
