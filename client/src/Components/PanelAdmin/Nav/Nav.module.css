@@ -2,10 +2,11 @@
   position: absolute;
   /* background-color: blue; */
   width: 20%;
-  min-height: 100%;
+  height: 100%;
   background-color: var(--blue);
   color: var(--white);
   padding: 10px;
+  font-size: 14px;
 }
 .ctnFixed {
   position: fixed;
@@ -18,4 +19,7 @@
 a {
   text-decoration: none;
   color: black
+}
+.divTitle {
+  margin: 15px 0;
 }

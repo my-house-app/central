@@ -20,11 +20,11 @@ function Header() {
         <div className={style.btnCtn}>
           <NavLink to="/admin" className={style.btnBar}>
             <FontAwesomeIcon icon={faPlus} />
-            Create
+            {' Create'}
           </NavLink>
           <span className={style.btnBar}>
             <FontAwesomeIcon icon={faSlidersH} />
-            Filter
+            {' Filter'}
           </span>
         </div>
       </div>

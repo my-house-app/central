@@ -10,8 +10,8 @@ import style from './Nav.module.css';
 
 function Nav() {
   const [state, setState] = useState(false);
-  const scroll = document.getElementById('navPanel').getBoundingClientRect().top;
   window.onscroll = () => {
+    const scroll = document.getElementById('navPanel').getBoundingClientRect().top;
     const scrollWindow = window.scrollY;
     if (scroll < scrollWindow) setState(true);
     else setState(false);
@@ -19,24 +19,24 @@ function Nav() {
   return (
     <div className={`${style.ctn} ${state && style.ctnFixed}`} id="navPanel">
       <label>NAVIGATION</label>
-      <div>
+      <div className={style.divTitle}>
         <h3>Users Management</h3>
-        <NavLink to="/admin/users">
+        <NavLink to="/admin/users" activeStyle={{ color: '#dadada' }}>
           <h3>
             <FontAwesomeIcon icon={faUser} />
             {' Users'}
           </h3>
         </NavLink>
       </div>
-      <div>
+      <div className={style.divTitle}>
         <h3>Posts Management</h3>
-        <NavLink to="/admin/posts">
+        <NavLink to="/admin/posts" activeStyle={{ color: '#dadada' }}>
           <h3>
             <FontAwesomeIcon icon={faHouseUser} />
             {' Posts'}
           </h3>
         </NavLink>
-        <NavLink to="/admin/comments">
+        <NavLink to="/admin/comments" activeStyle={{ color: '#dadada' }}>
           <h3>
             <FontAwesomeIcon icon={faComments} />
             {' Comments'}
