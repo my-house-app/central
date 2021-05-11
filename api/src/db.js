@@ -36,21 +36,18 @@ sequelize.models = Object.fromEntries(capsEntries);
 // Para relacionarlos hacemos un destructuring
 
 const {
-  User, Post, Property, Image, VisitDate, Comment,
+  User, Post, Image, VisitDate, Comment,
 } = sequelize.models;
 
 // Aca vendrian las relaciones
 User.hasMany(Post);
 Post.belongsTo(User);
 
-Post.belongsTo(Property);
-Property.hasOne(Post);
+Post.hasMany(Image);
+Image.belongsTo(Post);
 
-Property.hasMany(Image);
-Image.belongsTo(Property);
-
-Property.hasMany(VisitDate);
-VisitDate.belongsTo(Property);
+Post.hasMany(VisitDate);
+VisitDate.belongsTo(Post);
 User.hasMany(VisitDate);
 VisitDate.belongsTo(User);
 

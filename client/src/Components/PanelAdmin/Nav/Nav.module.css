@@ -1,0 +1,16 @@
+.ctn {
+  position: fixed;
+  width: 20%;
+  min-height: 100vh;
+  background-color: var(--blue);
+  color: var(--white);
+  padding: 10px;
+}
+.ctn label{
+  color: #dadada;
+  font-size: 80%;
+}
+a {
+  text-decoration: none;
+  color: black
+}

@@ -21,19 +21,17 @@
 const server = require('./src/app.js');
 const { conn } = require('./src/db.js');
 const {
-  Property, User, Post, Comment, VisitDate, Image,
+  User, Post, Comment, VisitDate, Image,
 } = require('./src/db.js');
 const users = require('./src/loaders/users');
-const properties = require('./src/loaders/properties');
 const posts = require('./src/loaders/posts');
 const comments = require('./src/loaders/comments');
 const visitDates = require('./src/loaders/visitDates');
 const images = require('./src/loaders/images');
 
 // Syncing all the models at once.
-conn.sync({ force: true }).then(() => {
+conn.sync({ force: false }).then(() => {
   User.bulkCreate(users);
-  Property.bulkCreate(properties);
   Post.bulkCreate(posts);
   Comment.bulkCreate(comments);
   VisitDate.bulkCreate(visitDates);
