@@ -1,6 +1,7 @@
 const { v4: uuidv4 } = require('uuid');
 const rawData = require('./rawData');
 const users = require('./users');
+const addresses = require('./addresses');
 
 const userIdList = users.map((u) => u.id);
 const premiumRate = 0.2;
@@ -24,7 +25,7 @@ const posts = rawData.map(
     premium: Math.random() < premiumRate,
     prop_type: mtipoinmueble.nombre,
     city: mciudad.nombre,
-    street_number: 'To be determined',
+    street_number: addresses.shift(),
     zip_code: 'To be determined',
     description: title,
     stratum: mzona && mzona.id,
