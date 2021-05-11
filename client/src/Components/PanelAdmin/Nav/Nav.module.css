@@ -1,10 +1,15 @@
-.ctn {
-  position: fixed;
+.ctn{
+  position: absolute;
+  /* background-color: blue; */
   width: 20%;
-  min-height: 100vh;
+  min-height: 100%;
   background-color: var(--blue);
   color: var(--white);
   padding: 10px;
+}
+.ctnFixed {
+  position: fixed;
+  top:0;
 }
 .ctn label{
   color: #dadada;

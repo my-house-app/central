@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -9,8 +9,15 @@ import {
 import style from './Nav.module.css';
 
 function Nav() {
+  const [state, setState] = useState(false);
+  const scroll = document.getElementById('navPanel').getBoundingClientRect().top;
+  window.onscroll = () => {
+    const scrollWindow = window.scrollY;
+    if (scroll < scrollWindow) setState(true);
+    else setState(false);
+  };
   return (
-    <div className={style.ctn}>
+    <div className={`${style.ctn} ${state && style.ctnFixed}`} id="navPanel">
       <label>NAVIGATION</label>
       <div>
         <h3>Users Management</h3>
