@@ -10,6 +10,7 @@ import NavBar from './Components/NavBar/NavBar';
 import Details from './Components/Details/Details';
 import About from './Components/About/About';
 import Signin from './Components/Signin/Signin';
+import PanelAdmin from './Components/PanelAdmin/PanelAdmin';
 
 export default function MyHouseRoutes() {
   return (
@@ -29,7 +30,14 @@ export default function MyHouseRoutes() {
             path="/about"
             component={About}
           />
-          <Route path="/signin" component={Signin} />
+          <Route
+            path="/signin"
+            component={Signin}
+          />
+          <Route
+            path="/admin"
+            component={PanelAdmin}
+          />
         </Switch>
         {/* <Footer/> */}
       </div>

@@ -1,0 +1,11 @@
+.ctn{
+  min-height: 100vh;
+}
+.divScroll {
+  margin-left: 20%;
+  min-height: 120vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background-color: #dadada;
+}
