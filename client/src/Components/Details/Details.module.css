@@ -19,7 +19,7 @@ section.photo_description {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  height: 50vh;
+  height: 400px;
 }
 
 article.address_detail {
@@ -30,11 +30,11 @@ article.address_detail {
   width: 20%;
 }
 
-article.hero_carousel {
+/* article.hero_carousel {
   width: 60%;
   height: 100%;
   position: relative;
-}
+} */
 
 article.tour_schedule {
   display: flex;
@@ -82,12 +82,14 @@ div.details > * {
   box-shadow: 0px 3px 6px 0px var(--blackShadow);
 }
 
-.hero_carousel .photo_gallery {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 100%;
-  overflow: hidden;
+.hero_carousel {
+  width: 620px;
+  height: 380px;
+}
+
+.photo_gallery {
+  width: 620px;
+  height: 380px;
 }
 
 .facilities_container {

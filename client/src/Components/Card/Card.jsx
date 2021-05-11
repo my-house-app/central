@@ -15,7 +15,7 @@ export default function Card({
     <>
       <div className={style.ctn}>
         <Link to={`/post/${id}`}>
-          <img src={image} alt="props.prop_type in props.neighborhood" className={style.img} />
+          <img src={image} alt={`${propType} en ${neighborhood}`} className={style.img} />
         </Link>
         <div className={style.propInfo}>
           <div className={style.general}>
@@ -53,6 +53,5 @@ export default function Card({
         </div>
       </div>
     </>
-
   );
 }

@@ -73,3 +73,13 @@
 .ctn a h3 {
   margin: 0 20px 0 0;
 }
+
+.details p {
+  color:  var(--dark);
+  font-size: 20px;
+}
+
+.general p {
+  color:  var(--dark);
+  font-size: 18px;
+}
