@@ -13,7 +13,7 @@ import {
 const SliderCarousel = ({ elements }) => {
   const [current, setCurrent] = useState(0);
 
-  const elementsLength = elements?.length;
+  const elementsLength = elements[0]?.photo.length;
 
   if (!elementsLength) {
     return (
@@ -44,15 +44,16 @@ const SliderCarousel = ({ elements }) => {
         onClick={next}
         className={rightArrow}
       />
-      {elements.map((element, index) => (
+      {elements[0].photo.map((element, index) => (
         <div
           className={index === current ? `${slide} ${active}` : `${slide}`}
         >
+          {console.log(element)}
           {index === current && (
             <img
               className={image}
-              key={element.id}
-              src={element.photo}
+              key={element}
+              src={element}
               alt="house view"
             />
           )}

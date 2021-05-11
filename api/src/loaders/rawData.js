@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 const rawData = [
   {
     contactPhone: '3118677017',
@@ -2900,1495 +2901,1495 @@ const rawData = [
     midempresa: '5098',
     mestadoinmueble: 'Usado',
   },
-  {
-    contactPhone: '3108372887',
-    whatsapp: '+573108372887',
-    title: 'Apartamento en Venta, Robledo El Diamante, Medellín',
-    link:
-      '/inmueble/venta-apartamento-medellin-el-diamante-5-habitaciones-2-banos/MC2856601',
-    imageLink:
-      'https://metrocuadrado.blob.core.windows.net/inmuebles/MC2856601/MC2856601_2_p.jpg',
-    whatsappMessage:
-      'Hola, Estoy interesado en anuncio con ID: MC2856601 que encontre en www.metrocuadrado.com  - Apartamento en Venta, Robledo El Diamante, Medellín y quiero  más información - https://www.metrocuadrado.com',
-    badge: null,
-    midinmueble: 'MC2856601',
-    mtipoinmueble: {
-      id: '1',
-      nombre: 'Apartamento',
-    },
-    mtiponegocio: 'venta',
-    mvalorventa: 260000000,
-    mvalorarriendo: null,
-    marea: 123,
-    mareac: 123,
-    mnrocuartos: '5',
-    mnrobanos: '2',
-    mnrogarajes: '0',
-    mciudad: {
-      id: '3',
-      nombre: 'Medellín',
-    },
-    mzona: {
-      id: '35',
-      nombre: 'Noroccidente',
-    },
-    mbarrio: 'EL DIAMANTE',
-    mnombrecomunbarrio: 'Robledo El Diamante',
-    data: {
-      mprimerafotoinmueble: 'MC2856601_2',
-      murldetalle:
-        '/inmueble/venta-apartamento-medellin-el-diamante-5-habitaciones-2-banos/MC2856601',
-    },
-    mnombreconstructor: null,
-    mnombreproyecto: null,
-    midempresa: null,
-    mestadoinmueble: 'Usado',
-  },
-  {
-    contactPhone: '3182458380',
-    whatsapp: '+573182458380',
-    title: 'Apartamento en Venta, Poblado, Medellín',
-    link:
-      '/inmueble/venta-apartamento-medellin-el-poblado-3-habitaciones-5-banos-3-garajes/687-1820746',
-    imageLink:
-      'https://metrocuadrado.blob.core.windows.net/inmuebles/687-1820746/687-1820746_21_p.jpg',
-    whatsappMessage:
-      'Hola, Estoy interesado en anuncio con ID: 687-1820746 que encontre en www.metrocuadrado.com  - Apartamento en Venta, Poblado, Medellín y quiero  más información - https://www.metrocuadrado.com',
-    badge: null,
-    midinmueble: '687-1820746',
-    mtipoinmueble: {
-      id: '1',
-      nombre: 'Apartamento',
-    },
-    mtiponegocio: 'venta',
-    mvalorventa: 1350000000,
-    mvalorarriendo: 0,
-    marea: 240,
-    mareac: 240,
-    mnrocuartos: '3',
-    mnrobanos: '5',
-    mnrogarajes: '3',
-    mciudad: {
-      id: '3',
-      nombre: 'Medellín',
-    },
-    mzona: {
-      id: '38',
-      nombre: 'Suroriente',
-    },
-    mbarrio: 'EL POBLADO',
-    mnombrecomunbarrio: 'Poblado',
-    data: {
-      mprimerafotoinmueble: '687-1820746_21',
-      murldetalle:
-        '/inmueble/venta-apartamento-medellin-el-poblado-3-habitaciones-5-banos-3-garajes/687-1820746',
-    },
-    mnombreconstructor: null,
-    mnombreproyecto: null,
-    midempresa: '2669',
-    mestadoinmueble: 'Usado',
-  },
-  {
-    contactPhone: '3145438665',
-    whatsapp: '+573145438665',
-    title: 'Casa en Venta, Las Palmas, Medellín',
-    link:
-      '/inmueble/venta-casa-medellin-asomadera-no.2-5-habitaciones-5-banos/12133-1112',
-    imageLink:
-      'https://metrocuadrado.blob.core.windows.net/inmuebles/12133-1112/12133-1112_41_p.jpg',
-    whatsappMessage:
-      'Hola, Estoy interesado en anuncio con ID: 12133-1112 que encontre en www.metrocuadrado.com  - Casa en Venta, Las Palmas, Medellín y quiero  más información - https://www.metrocuadrado.com',
-    badge: null,
-    midinmueble: '12133-1112',
-    mtipoinmueble: {
-      id: '2',
-      nombre: 'Casa',
-    },
-    mtiponegocio: 'venta',
-    mvalorventa: 2700000000,
-    mvalorarriendo: null,
-    marea: 1000,
-    mareac: 492,
-    mnrocuartos: '5',
-    mnrobanos: '5',
-    mnrogarajes: '0',
-    mciudad: {
-      id: '3',
-      nombre: 'Medellín',
-    },
-    mzona: {
-      id: '36',
-      nombre: 'Nororiente',
-    },
-    mbarrio: 'ASOMADERA No.2',
-    mnombrecomunbarrio: 'Las Palmas',
-    data: {
-      mprimerafotoinmueble: '12133-1112_41',
-      murldetalle:
-        '/inmueble/venta-casa-medellin-asomadera-no.2-5-habitaciones-5-banos/12133-1112',
-    },
-    mnombreconstructor: null,
-    mnombreproyecto: null,
-    midempresa: '5544',
-    mestadoinmueble: 'Usado',
-  },
-  {
-    contactPhone: '3192476357',
-    whatsapp: '+573192476357',
-    title: 'Apartamento en Venta, Robledo, Medellín',
-    link:
-      '/inmueble/venta-apartamento-medellin-nazareth-3-habitaciones-2-banos-1-garajes/MC2797972',
-    imageLink:
-      'https://metrocuadrado.blob.core.windows.net/inmuebles/MC2797972/MC2797972_16_p.jpg',
-    whatsappMessage:
-      'Hola, Estoy interesado en anuncio con ID: MC2797972 que encontre en www.metrocuadrado.com  - Apartamento en Venta, Robledo, Medellín y quiero  más información - https://www.metrocuadrado.com',
-    badge: null,
-    midinmueble: 'MC2797972',
-    mtipoinmueble: {
-      id: '1',
-      nombre: 'Apartamento',
-    },
-    mtiponegocio: 'venta',
-    mvalorventa: 195000000,
-    mvalorarriendo: null,
-    marea: 47,
-    mareac: 52,
-    mnrocuartos: '3',
-    mnrobanos: '2',
-    mnrogarajes: '1',
-    mciudad: {
-      id: '3',
-      nombre: 'Medellín',
-    },
-    mzona: {
-      id: '35',
-      nombre: 'Noroccidente',
-    },
-    mbarrio: 'NAZARETH',
-    mnombrecomunbarrio: 'Robledo',
-    data: {
-      mprimerafotoinmueble: 'MC2797972_16',
-      murldetalle:
-        '/inmueble/venta-apartamento-medellin-nazareth-3-habitaciones-2-banos-1-garajes/MC2797972',
-    },
-    mnombreconstructor: null,
-    mnombreproyecto: null,
-    midempresa: null,
-    mestadoinmueble: 'Usado',
-  },
-  {
-    contactPhone: '3207683172',
-    whatsapp: '+573207683172',
-    title: 'Apartamento en Venta, LOS LAURELES - Nororiente, Medellín',
-    link:
-      '/inmueble/venta-apartamento-medellin-laureles-3-habitaciones-2-banos-1-garajes/MC2797757',
-    imageLink:
-      'https://metrocuadrado.blob.core.windows.net/inmuebles/MC2797757/MC2797757_1_p.jpg',
-    whatsappMessage:
-      'Hola, Estoy interesado en anuncio con ID: MC2797757 que encontre en www.metrocuadrado.com  - Apartamento en Venta, LOS LAURELES - Nororiente, Medellín y quiero  más información - https://www.metrocuadrado.com',
-    badge: null,
-    midinmueble: 'MC2797757',
-    mtipoinmueble: {
-      id: '1',
-      nombre: 'Apartamento',
-    },
-    mtiponegocio: 'venta',
-    mvalorventa: 585909117,
-    mvalorarriendo: null,
-    marea: 96.62,
-    mareac: 96.62,
-    mnrocuartos: '3',
-    mnrobanos: '2',
-    mnrogarajes: '1',
-    mciudad: {
-      id: '3',
-      nombre: 'Medellín',
-    },
-    mzona: {
-      id: '35',
-      nombre: 'Noroccidente',
-    },
-    mbarrio: 'LAURELES',
-    mnombrecomunbarrio: 'LOS LAURELES - Nororiente',
-    data: {
-      mprimerafotoinmueble: 'MC2797757_1',
-      murldetalle:
-        '/inmueble/venta-apartamento-medellin-laureles-3-habitaciones-2-banos-1-garajes/MC2797757',
-    },
-    mnombreconstructor: null,
-    mnombreproyecto: null,
-    midempresa: null,
-    mestadoinmueble: 'Usado',
-  },
-  {
-    contactPhone: '3006170401',
-    whatsapp: '+573006170401',
-    title: 'Apartamento en Venta, EL POBLADO SAN LUCAS, Medellín',
-    link:
-      '/inmueble/venta-apartamento-medellin-el-diamante-no.2-3-habitaciones-2-banos-1-garajes/11086-M2856552',
-    imageLink:
-      'https://metrocuadrado.blob.core.windows.net/inmuebles/11086-M2856552/11086-M2856552_1_p.jpg',
-    whatsappMessage:
-      'Hola, Estoy interesado en anuncio con ID: 11086-M2856552 que encontre en www.metrocuadrado.com  - Apartamento en Venta, EL POBLADO SAN LUCAS, Medellín y quiero  más información - https://www.metrocuadrado.com',
-    badge: null,
-    midinmueble: '11086-M2856552',
-    mtipoinmueble: {
-      id: '1',
-      nombre: 'Apartamento',
-    },
-    mtiponegocio: 'venta',
-    mvalorventa: 440000000,
-    mvalorarriendo: 0,
-    marea: 118,
-    mareac: 118,
-    mnrocuartos: '3',
-    mnrobanos: '2',
-    mnrogarajes: '1',
-    mciudad: {
-      id: '3',
-      nombre: 'Medellín',
-    },
-    mzona: {
-      id: '38',
-      nombre: 'Suroriente',
-    },
-    mbarrio: 'EL DIAMANTE No.2',
-    mnombrecomunbarrio: 'EL POBLADO SAN LUCAS',
-    data: {
-      mprimerafotoinmueble: '11086-M2856552_1',
-      murldetalle:
-        '/inmueble/venta-apartamento-medellin-el-diamante-no.2-3-habitaciones-2-banos-1-garajes/11086-M2856552',
-    },
-    mnombreconstructor: null,
-    mnombreproyecto: null,
-    midempresa: '5162',
-    mestadoinmueble: 'Usado',
-  },
-  {
-    contactPhone: '3182458380',
-    whatsapp: '+573182458380',
-    title: 'Apartamento en Venta, EL POBLADO, Medellín',
-    link:
-      '/inmueble/venta-apartamento-medellin-el-diamante-no.2-3-habitaciones-3-banos-2-garajes/687-M2772161',
-    imageLink:
-      'https://metrocuadrado.blob.core.windows.net/inmuebles/687-M2772161/687-M2772161_1_p.jpg',
-    whatsappMessage:
-      'Hola, Estoy interesado en anuncio con ID: 687-M2772161 que encontre en www.metrocuadrado.com  - Apartamento en Venta, EL POBLADO, Medellín y quiero  más información - https://www.metrocuadrado.com',
-    badge: null,
-    midinmueble: '687-M2772161',
-    mtipoinmueble: {
-      id: '1',
-      nombre: 'Apartamento',
-    },
-    mtiponegocio: 'venta',
-    mvalorventa: 460000000,
-    mvalorarriendo: 0,
-    marea: 122,
-    mareac: 122,
-    mnrocuartos: '3',
-    mnrobanos: '3',
-    mnrogarajes: '2',
-    mciudad: {
-      id: '3',
-      nombre: 'Medellín',
-    },
-    mzona: {
-      id: '38',
-      nombre: 'Suroriente',
-    },
-    mbarrio: 'EL DIAMANTE No.2',
-    mnombrecomunbarrio: 'EL POBLADO',
-    data: {
-      mprimerafotoinmueble: '687-M2772161_1',
-      murldetalle:
-        '/inmueble/venta-apartamento-medellin-el-diamante-no.2-3-habitaciones-3-banos-2-garajes/687-M2772161',
-    },
-    mnombreconstructor: null,
-    mnombreproyecto: null,
-    midempresa: '2669',
-    mestadoinmueble: 'Usado',
-  },
-  {
-    contactPhone: '3182458380',
-    whatsapp: '+573182458380',
-    title: 'Apartamento en Venta y Arriendo, POBLADO, Medellín',
-    link:
-      '/inmueble/venta-apartamento-medellin-castropol-2-habitaciones-2-banos-2-garajes/687-M2458366',
-    imageLink:
-      'https://metrocuadrado.blob.core.windows.net/inmuebles/687-M2458366/687-M2458366_1_p.jpg',
-    whatsappMessage:
-      'Hola, Estoy interesado en anuncio con ID: 687-M2458366 que encontre en www.metrocuadrado.com  - Apartamento en Venta y Arriendo, POBLADO, Medellín y quiero  más información - https://www.metrocuadrado.com',
-    badge: null,
-    midinmueble: '687-M2458366',
-    mtipoinmueble: {
-      id: '1',
-      nombre: 'Apartamento',
-    },
-    mtiponegocio: 'Venta y Arriendo',
-    mvalorventa: 398000000,
-    mvalorarriendo: 1850000,
-    marea: 73,
-    mareac: 73,
-    mnrocuartos: '2',
-    mnrobanos: '2',
-    mnrogarajes: '2',
-    mciudad: {
-      id: '3',
-      nombre: 'Medellín',
-    },
-    mzona: {
-      id: '38',
-      nombre: 'Suroriente',
-    },
-    mbarrio: 'CASTROPOL',
-    mnombrecomunbarrio: 'POBLADO',
-    data: {
-      mprimerafotoinmueble: '687-M2458366_1',
-      murldetalle:
-        '/inmueble/venta-apartamento-medellin-castropol-2-habitaciones-2-banos-2-garajes/687-M2458366',
-    },
-    mnombreconstructor: null,
-    mnombreproyecto: null,
-    midempresa: '2669',
-    mestadoinmueble: 'Usado',
-  },
-  {
-    contactPhone: '3182458380',
-    whatsapp: '+573182458380',
-    title: 'Apartamento en Venta, EL POBLADO, Medellín',
-    link:
-      '/inmueble/venta-apartamento-medellin-la-florida-3-habitaciones-4-banos-2-garajes/687-M2497005',
-    imageLink:
-      'https://metrocuadrado.blob.core.windows.net/inmuebles/687-M2497005/687-M2497005_1_p.jpg',
-    whatsappMessage:
-      'Hola, Estoy interesado en anuncio con ID: 687-M2497005 que encontre en www.metrocuadrado.com  - Apartamento en Venta, EL POBLADO, Medellín y quiero  más información - https://www.metrocuadrado.com',
-    badge: null,
-    midinmueble: '687-M2497005',
-    mtipoinmueble: {
-      id: '1',
-      nombre: 'Apartamento',
-    },
-    mtiponegocio: 'venta',
-    mvalorventa: 1250000000,
-    mvalorarriendo: 0,
-    marea: 292,
-    mareac: 292,
-    mnrocuartos: '3',
-    mnrobanos: '4',
-    mnrogarajes: '2',
-    mciudad: {
-      id: '3',
-      nombre: 'Medellín',
-    },
-    mzona: {
-      id: '38',
-      nombre: 'Suroriente',
-    },
-    mbarrio: 'LA FLORIDA',
-    mnombrecomunbarrio: 'EL POBLADO',
-    data: {
-      mprimerafotoinmueble: '687-M2497005_1',
-      murldetalle:
-        '/inmueble/venta-apartamento-medellin-la-florida-3-habitaciones-4-banos-2-garajes/687-M2497005',
-    },
-    mnombreconstructor: null,
-    mnombreproyecto: null,
-    midempresa: '2669',
-    mestadoinmueble: 'Usado',
-  },
-  {
-    contactPhone: '3182458380',
-    whatsapp: '+573182458380',
-    title: 'Apartamento en Venta, EL POBLADO, Medellín',
-    link:
-      '/inmueble/venta-apartamento-medellin-las-lomas-no.2-3-habitaciones-4-banos-1-garajes/687-M2636596',
-    imageLink:
-      'https://metrocuadrado.blob.core.windows.net/inmuebles/687-M2636596/687-M2636596_1_p.jpg',
-    whatsappMessage:
-      'Hola, Estoy interesado en anuncio con ID: 687-M2636596 que encontre en www.metrocuadrado.com  - Apartamento en Venta, EL POBLADO, Medellín y quiero  más información - https://www.metrocuadrado.com',
-    badge: null,
-    midinmueble: '687-M2636596',
-    mtipoinmueble: {
-      id: '1',
-      nombre: 'Apartamento',
-    },
-    mtiponegocio: 'venta',
-    mvalorventa: 880000000,
-    mvalorarriendo: 0,
-    marea: 243,
-    mareac: 243,
-    mnrocuartos: '3',
-    mnrobanos: '4',
-    mnrogarajes: '1',
-    mciudad: {
-      id: '3',
-      nombre: 'Medellín',
-    },
-    mzona: {
-      id: '38',
-      nombre: 'Suroriente',
-    },
-    mbarrio: 'LAS LOMAS No.2',
-    mnombrecomunbarrio: 'EL POBLADO',
-    data: {
-      mprimerafotoinmueble: '687-M2636596_1',
-      murldetalle:
-        '/inmueble/venta-apartamento-medellin-las-lomas-no.2-3-habitaciones-4-banos-1-garajes/687-M2636596',
-    },
-    mnombreconstructor: null,
-    mnombreproyecto: null,
-    midempresa: '2669',
-    mestadoinmueble: 'Usado',
-  },
-  {
-    contactPhone: '3182458380',
-    whatsapp: '+573182458380',
-    title: 'Apartamento en Venta, EL POBLADO, Medellín',
-    link:
-      '/inmueble/venta-apartamento-medellin-el-tesoro-3-habitaciones-2-banos-1-garajes/687-M2772170',
-    imageLink:
-      'https://metrocuadrado.blob.core.windows.net/inmuebles/687-M2772170/687-M2772170_1_p.jpg',
-    whatsappMessage:
-      'Hola, Estoy interesado en anuncio con ID: 687-M2772170 que encontre en www.metrocuadrado.com  - Apartamento en Venta, EL POBLADO, Medellín y quiero  más información - https://www.metrocuadrado.com',
-    badge: null,
-    midinmueble: '687-M2772170',
-    mtipoinmueble: {
-      id: '1',
-      nombre: 'Apartamento',
-    },
-    mtiponegocio: 'venta',
-    mvalorventa: 430000000,
-    mvalorarriendo: 0,
-    marea: 98,
-    mareac: 98,
-    mnrocuartos: '3',
-    mnrobanos: '2',
-    mnrogarajes: '1',
-    mciudad: {
-      id: '3',
-      nombre: 'Medellín',
-    },
-    mzona: {
-      id: '38',
-      nombre: 'Suroriente',
-    },
-    mbarrio: 'EL TESORO',
-    mnombrecomunbarrio: 'EL POBLADO',
-    data: {
-      mprimerafotoinmueble: '687-M2772170_1',
-      murldetalle:
-        '/inmueble/venta-apartamento-medellin-el-tesoro-3-habitaciones-2-banos-1-garajes/687-M2772170',
-    },
-    mnombreconstructor: null,
-    mnombreproyecto: null,
-    midempresa: '2669',
-    mestadoinmueble: 'Usado',
-  },
-  {
-    contactPhone: '3182458380',
-    whatsapp: '+573182458380',
-    title: 'Apartamento en Venta, EL POBLADO, Medellín',
-    link:
-      '/inmueble/venta-apartamento-medellin-las-lomas-no.2-3-habitaciones-3-banos-2-garajes/687-M2564540',
-    imageLink:
-      'https://metrocuadrado.blob.core.windows.net/inmuebles/687-M2564540/687-M2564540_1_p.jpg',
-    whatsappMessage:
-      'Hola, Estoy interesado en anuncio con ID: 687-M2564540 que encontre en www.metrocuadrado.com  - Apartamento en Venta, EL POBLADO, Medellín y quiero  más información - https://www.metrocuadrado.com',
-    badge: null,
-    midinmueble: '687-M2564540',
-    mtipoinmueble: {
-      id: '1',
-      nombre: 'Apartamento',
-    },
-    mtiponegocio: 'venta',
-    mvalorventa: 490000000,
-    mvalorarriendo: 0,
-    marea: 125,
-    mareac: 125,
-    mnrocuartos: '3',
-    mnrobanos: '3',
-    mnrogarajes: '2',
-    mciudad: {
-      id: '3',
-      nombre: 'Medellín',
-    },
-    mzona: {
-      id: '38',
-      nombre: 'Suroriente',
-    },
-    mbarrio: 'LAS LOMAS No.2',
-    mnombrecomunbarrio: 'EL POBLADO',
-    data: {
-      mprimerafotoinmueble: '687-M2564540_1',
-      murldetalle:
-        '/inmueble/venta-apartamento-medellin-las-lomas-no.2-3-habitaciones-3-banos-2-garajes/687-M2564540',
-    },
-    mnombreconstructor: null,
-    mnombreproyecto: null,
-    midempresa: '2669',
-    mestadoinmueble: 'Usado',
-  },
-  {
-    contactPhone: '3182458380',
-    whatsapp: '+573182458380',
-    title: 'Apartamento en Venta, EL POBLADO, Medellín',
-    link:
-      '/inmueble/venta-apartamento-medellin-castropol-4-habitaciones-3-banos-2-garajes/687-M2625220',
-    imageLink:
-      'https://metrocuadrado.blob.core.windows.net/inmuebles/687-M2625220/687-M2625220_1_p.jpg',
-    whatsappMessage:
-      'Hola, Estoy interesado en anuncio con ID: 687-M2625220 que encontre en www.metrocuadrado.com  - Apartamento en Venta, EL POBLADO, Medellín y quiero  más información - https://www.metrocuadrado.com',
-    badge: null,
-    midinmueble: '687-M2625220',
-    mtipoinmueble: {
-      id: '1',
-      nombre: 'Apartamento',
-    },
-    mtiponegocio: 'venta',
-    mvalorventa: 555000000,
-    mvalorarriendo: 0,
-    marea: 186,
-    mareac: 186,
-    mnrocuartos: '4',
-    mnrobanos: '3',
-    mnrogarajes: '2',
-    mciudad: {
-      id: '3',
-      nombre: 'Medellín',
-    },
-    mzona: {
-      id: '38',
-      nombre: 'Suroriente',
-    },
-    mbarrio: 'CASTROPOL',
-    mnombrecomunbarrio: 'EL POBLADO',
-    data: {
-      mprimerafotoinmueble: '687-M2625220_1',
-      murldetalle:
-        '/inmueble/venta-apartamento-medellin-castropol-4-habitaciones-3-banos-2-garajes/687-M2625220',
-    },
-    mnombreconstructor: null,
-    mnombreproyecto: null,
-    midempresa: '2669',
-    mestadoinmueble: 'Usado',
-  },
-  {
-    contactPhone: '3182458380',
-    whatsapp: '+573182458380',
-    title: 'Apartamento en Venta, EL POBLADO, Medellín',
-    link:
-      '/inmueble/venta-apartamento-medellin-el-castillo-3-habitaciones-2-banos-1-garajes/687-M2772137',
-    imageLink:
-      'https://metrocuadrado.blob.core.windows.net/inmuebles/687-M2772137/687-M2772137_1_p.jpg',
-    whatsappMessage:
-      'Hola, Estoy interesado en anuncio con ID: 687-M2772137 que encontre en www.metrocuadrado.com  - Apartamento en Venta, EL POBLADO, Medellín y quiero  más información - https://www.metrocuadrado.com',
-    badge: null,
-    midinmueble: '687-M2772137',
-    mtipoinmueble: {
-      id: '1',
-      nombre: 'Apartamento',
-    },
-    mtiponegocio: 'venta',
-    mvalorventa: 660000000,
-    mvalorarriendo: 0,
-    marea: 158,
-    mareac: 158,
-    mnrocuartos: '3',
-    mnrobanos: '2',
-    mnrogarajes: '1',
-    mciudad: {
-      id: '3',
-      nombre: 'Medellín',
-    },
-    mzona: {
-      id: '38',
-      nombre: 'Suroriente',
-    },
-    mbarrio: 'EL CASTILLO',
-    mnombrecomunbarrio: 'EL POBLADO',
-    data: {
-      mprimerafotoinmueble: '687-M2772137_1',
-      murldetalle:
-        '/inmueble/venta-apartamento-medellin-el-castillo-3-habitaciones-2-banos-1-garajes/687-M2772137',
-    },
-    mnombreconstructor: null,
-    mnombreproyecto: null,
-    midempresa: '2669',
-    mestadoinmueble: 'Usado',
-  },
-  {
-    contactPhone: '3182458380',
-    whatsapp: '+573182458380',
-    title: 'Apartamento en Venta y Arriendo, EL POBLADO, Medellín',
-    link:
-      '/inmueble/venta-apartamento-medellin-el-tesoro-3-habitaciones-4-banos-3-garajes/687-M2441673',
-    imageLink:
-      'https://metrocuadrado.blob.core.windows.net/inmuebles/687-M2441673/687-M2441673_21_p.jpg',
-    whatsappMessage:
-      'Hola, Estoy interesado en anuncio con ID: 687-M2441673 que encontre en www.metrocuadrado.com  - Apartamento en Venta y Arriendo, EL POBLADO, Medellín y quiero  más información - https://www.metrocuadrado.com',
-    badge: null,
-    midinmueble: '687-M2441673',
-    mtipoinmueble: {
-      id: '1',
-      nombre: 'Apartamento',
-    },
-    mtiponegocio: 'Venta y Arriendo',
-    mvalorventa: 1400000000,
-    mvalorarriendo: 6900000,
-    marea: 281,
-    mareac: 281,
-    mnrocuartos: '3',
-    mnrobanos: '4',
-    mnrogarajes: '3',
-    mciudad: {
-      id: '3',
-      nombre: 'Medellín',
-    },
-    mzona: {
-      id: '38',
-      nombre: 'Suroriente',
-    },
-    mbarrio: 'EL TESORO',
-    mnombrecomunbarrio: 'EL POBLADO',
-    data: {
-      mprimerafotoinmueble: '687-M2441673_21',
-      murldetalle:
-        '/inmueble/venta-apartamento-medellin-el-tesoro-3-habitaciones-4-banos-3-garajes/687-M2441673',
-    },
-    mnombreconstructor: null,
-    mnombreproyecto: null,
-    midempresa: '2669',
-    mestadoinmueble: 'Usado',
-  },
-  {
-    contactPhone: '3182458380',
-    whatsapp: '+573182458380',
-    title: 'Apartamento en Venta, EL POBLADO, Medellín',
-    link:
-      '/inmueble/venta-apartamento-medellin-castropol-3-habitaciones-3-banos-2-garajes/687-M2578408',
-    imageLink:
-      'https://metrocuadrado.blob.core.windows.net/inmuebles/687-M2578408/687-M2578408_1_p.jpg',
-    whatsappMessage:
-      'Hola, Estoy interesado en anuncio con ID: 687-M2578408 que encontre en www.metrocuadrado.com  - Apartamento en Venta, EL POBLADO, Medellín y quiero  más información - https://www.metrocuadrado.com',
-    badge: null,
-    midinmueble: '687-M2578408',
-    mtipoinmueble: {
-      id: '1',
-      nombre: 'Apartamento',
-    },
-    mtiponegocio: 'venta',
-    mvalorventa: 580000000,
-    mvalorarriendo: 0,
-    marea: 105,
-    mareac: 105,
-    mnrocuartos: '3',
-    mnrobanos: '3',
-    mnrogarajes: '2',
-    mciudad: {
-      id: '3',
-      nombre: 'Medellín',
-    },
-    mzona: {
-      id: '38',
-      nombre: 'Suroriente',
-    },
-    mbarrio: 'CASTROPOL',
-    mnombrecomunbarrio: 'EL POBLADO',
-    data: {
-      mprimerafotoinmueble: '687-M2578408_1',
-      murldetalle:
-        '/inmueble/venta-apartamento-medellin-castropol-3-habitaciones-3-banos-2-garajes/687-M2578408',
-    },
-    mnombreconstructor: null,
-    mnombreproyecto: null,
-    midempresa: '2669',
-    mestadoinmueble: 'Usado',
-  },
-  {
-    contactPhone: '3182458380',
-    whatsapp: '+573182458380',
-    title: 'Apartamento en Venta, EL POBLADO, Medellín',
-    link:
-      '/inmueble/venta-apartamento-medellin-castropol-3-habitaciones-3-banos-2-garajes/687-M2578334',
-    imageLink:
-      'https://metrocuadrado.blob.core.windows.net/inmuebles/687-M2578334/687-M2578334_1_p.jpg',
-    whatsappMessage:
-      'Hola, Estoy interesado en anuncio con ID: 687-M2578334 que encontre en www.metrocuadrado.com  - Apartamento en Venta, EL POBLADO, Medellín y quiero  más información - https://www.metrocuadrado.com',
-    badge: null,
-    midinmueble: '687-M2578334',
-    mtipoinmueble: {
-      id: '1',
-      nombre: 'Apartamento',
-    },
-    mtiponegocio: 'venta',
-    mvalorventa: 630000000,
-    mvalorarriendo: 0,
-    marea: 127,
-    mareac: 127,
-    mnrocuartos: '3',
-    mnrobanos: '3',
-    mnrogarajes: '2',
-    mciudad: {
-      id: '3',
-      nombre: 'Medellín',
-    },
-    mzona: {
-      id: '38',
-      nombre: 'Suroriente',
-    },
-    mbarrio: 'CASTROPOL',
-    mnombrecomunbarrio: 'EL POBLADO',
-    data: {
-      mprimerafotoinmueble: '687-M2578334_1',
-      murldetalle:
-        '/inmueble/venta-apartamento-medellin-castropol-3-habitaciones-3-banos-2-garajes/687-M2578334',
-    },
-    mnombreconstructor: null,
-    mnombreproyecto: null,
-    midempresa: '2669',
-    mestadoinmueble: 'Usado',
-  },
-  {
-    contactPhone: '3182458380',
-    whatsapp: '+573182458380',
-    title: 'Casa en Venta y Arriendo, EL POBLADO LAS PALMAS, Medellín',
-    link:
-      '/inmueble/venta-casa-medellin-na-5-habitaciones-5-banos-2-garajes/687-M2458317',
-    imageLink:
-      'https://metrocuadrado.blob.core.windows.net/inmuebles/687-M2458317/687-M2458317_1_p.jpg',
-    whatsappMessage:
-      'Hola, Estoy interesado en anuncio con ID: 687-M2458317 que encontre en www.metrocuadrado.com  - Casa en Venta y Arriendo, EL POBLADO LAS PALMAS, Medellín y quiero  más información - https://www.metrocuadrado.com',
-    badge: null,
-    midinmueble: '687-M2458317',
-    mtipoinmueble: {
-      id: '2',
-      nombre: 'Casa',
-    },
-    mtiponegocio: 'Venta y Arriendo',
-    mvalorventa: 5200000000,
-    mvalorarriendo: 25000000,
-    marea: 540,
-    mareac: 540,
-    mnrocuartos: '5',
-    mnrobanos: '5',
-    mnrogarajes: '2',
-    mciudad: {
-      id: '3',
-      nombre: 'Medellín',
-    },
-    mzona: null,
-    mbarrio: 'NA',
-    mnombrecomunbarrio: 'EL POBLADO LAS PALMAS',
-    data: {
-      mprimerafotoinmueble: '687-M2458317_1',
-      murldetalle:
-        '/inmueble/venta-casa-medellin-na-5-habitaciones-5-banos-2-garajes/687-M2458317',
-    },
-    mnombreconstructor: null,
-    mnombreproyecto: null,
-    midempresa: '2669',
-    mestadoinmueble: 'Usado',
-  },
-  {
-    contactPhone: '3182458380',
-    whatsapp: '+573182458380',
-    title: 'Apartamento en Venta, EL POBLADO, Medellín',
-    link:
-      '/inmueble/venta-apartamento-medellin-la-florida-3-habitaciones-4-banos-2-garajes/687-M2441642',
-    imageLink:
-      'https://metrocuadrado.blob.core.windows.net/inmuebles/687-M2441642/687-M2441642_1_p.jpg',
-    whatsappMessage:
-      'Hola, Estoy interesado en anuncio con ID: 687-M2441642 que encontre en www.metrocuadrado.com  - Apartamento en Venta, EL POBLADO, Medellín y quiero  más información - https://www.metrocuadrado.com',
-    badge: null,
-    midinmueble: '687-M2441642',
-    mtipoinmueble: {
-      id: '1',
-      nombre: 'Apartamento',
-    },
-    mtiponegocio: 'venta',
-    mvalorventa: 710000000,
-    mvalorarriendo: 0,
-    marea: 200,
-    mareac: 200,
-    mnrocuartos: '3',
-    mnrobanos: '4',
-    mnrogarajes: '2',
-    mciudad: {
-      id: '3',
-      nombre: 'Medellín',
-    },
-    mzona: {
-      id: '38',
-      nombre: 'Suroriente',
-    },
-    mbarrio: 'LA FLORIDA',
-    mnombrecomunbarrio: 'EL POBLADO',
-    data: {
-      mprimerafotoinmueble: '687-M2441642_1',
-      murldetalle:
-        '/inmueble/venta-apartamento-medellin-la-florida-3-habitaciones-4-banos-2-garajes/687-M2441642',
-    },
-    mnombreconstructor: null,
-    mnombreproyecto: null,
-    midempresa: '2669',
-    mestadoinmueble: 'Usado',
-  },
-  {
-    contactPhone: '3182458380',
-    whatsapp: '+573182458380',
-    title: 'Apartamento en Venta, EL POBLADO, Medellín',
-    link:
-      '/inmueble/venta-apartamento-medellin-altos-del-poblado-3-habitaciones-4-banos-3-garajes/687-M2497018',
-    imageLink:
-      'https://metrocuadrado.blob.core.windows.net/inmuebles/687-M2497018/687-M2497018_1_p.jpg',
-    whatsappMessage:
-      'Hola, Estoy interesado en anuncio con ID: 687-M2497018 que encontre en www.metrocuadrado.com  - Apartamento en Venta, EL POBLADO, Medellín y quiero  más información - https://www.metrocuadrado.com',
-    badge: null,
-    midinmueble: '687-M2497018',
-    mtipoinmueble: {
-      id: '1',
-      nombre: 'Apartamento',
-    },
-    mtiponegocio: 'venta',
-    mvalorventa: 1100000000,
-    mvalorarriendo: 0,
-    marea: 227,
-    mareac: 227,
-    mnrocuartos: '3',
-    mnrobanos: '4',
-    mnrogarajes: '3',
-    mciudad: {
-      id: '3',
-      nombre: 'Medellín',
-    },
-    mzona: {
-      id: '38',
-      nombre: 'Suroriente',
-    },
-    mbarrio: 'ALTOS DEL POBLADO',
-    mnombrecomunbarrio: 'EL POBLADO',
-    data: {
-      mprimerafotoinmueble: '687-M2497018_1',
-      murldetalle:
-        '/inmueble/venta-apartamento-medellin-altos-del-poblado-3-habitaciones-4-banos-3-garajes/687-M2497018',
-    },
-    mnombreconstructor: null,
-    mnombreproyecto: null,
-    midempresa: '2669',
-    mestadoinmueble: 'Usado',
-  },
-  {
-    contactPhone: '3182458380',
-    whatsapp: '+573182458380',
-    title: 'Apartamento en Venta, EL POBLADO, Medellín',
-    link:
-      '/inmueble/venta-apartamento-medellin-castropol-3-habitaciones-4-banos-2-garajes/687-M2625229',
-    imageLink:
-      'https://metrocuadrado.blob.core.windows.net/inmuebles/687-M2625229/687-M2625229_1_p.jpg',
-    whatsappMessage:
-      'Hola, Estoy interesado en anuncio con ID: 687-M2625229 que encontre en www.metrocuadrado.com  - Apartamento en Venta, EL POBLADO, Medellín y quiero  más información - https://www.metrocuadrado.com',
-    badge: null,
-    midinmueble: '687-M2625229',
-    mtipoinmueble: {
-      id: '1',
-      nombre: 'Apartamento',
-    },
-    mtiponegocio: 'venta',
-    mvalorventa: 545000000,
-    mvalorarriendo: 0,
-    marea: 180,
-    mareac: 180,
-    mnrocuartos: '3',
-    mnrobanos: '4',
-    mnrogarajes: '2',
-    mciudad: {
-      id: '3',
-      nombre: 'Medellín',
-    },
-    mzona: {
-      id: '38',
-      nombre: 'Suroriente',
-    },
-    mbarrio: 'CASTROPOL',
-    mnombrecomunbarrio: 'EL POBLADO',
-    data: {
-      mprimerafotoinmueble: '687-M2625229_1',
-      murldetalle:
-        '/inmueble/venta-apartamento-medellin-castropol-3-habitaciones-4-banos-2-garajes/687-M2625229',
-    },
-    mnombreconstructor: null,
-    mnombreproyecto: null,
-    midempresa: '2669',
-    mestadoinmueble: 'Usado',
-  },
-  {
-    contactPhone: '3104145763',
-    whatsapp: '+573104145763',
-    title: 'Apartamento en Venta, Prado, Medellín',
-    link:
-      '/inmueble/venta-apartamento-medellin-los-angeles-4-habitaciones-3-banos/4673-31793',
-    imageLink:
-      'https://metrocuadrado.blob.core.windows.net/inmuebles/4673-31793/4673-31793_19_p.jpg',
-    whatsappMessage:
-      'Hola, Estoy interesado en anuncio con ID: 4673-31793 que encontre en www.metrocuadrado.com  - Apartamento en Venta, Prado, Medellín y quiero  más información - https://www.metrocuadrado.com',
-    badge: null,
-    midinmueble: '4673-31793',
-    mtipoinmueble: {
-      id: '1',
-      nombre: 'Apartamento',
-    },
-    mtiponegocio: 'venta',
-    mvalorventa: 250000000,
-    mvalorarriendo: null,
-    marea: 104.12,
-    mareac: 104.12,
-    mnrocuartos: '4',
-    mnrobanos: '3',
-    mnrogarajes: '0',
-    mciudad: {
-      id: '3',
-      nombre: 'Medellín',
-    },
-    mzona: {
-      id: '36',
-      nombre: 'Nororiente',
-    },
-    mbarrio: 'LOS ANGELES',
-    mnombrecomunbarrio: 'Prado',
-    data: {
-      mprimerafotoinmueble: '4673-31793_19',
-      murldetalle:
-        '/inmueble/venta-apartamento-medellin-los-angeles-4-habitaciones-3-banos/4673-31793',
-    },
-    mnombreconstructor: null,
-    mnombreproyecto: null,
-    midempresa: '3640',
-    mestadoinmueble: 'Usado',
-  },
-  {
-    contactPhone: '3043722305',
-    whatsapp: '+573043722305',
-    title: 'Apartamento en Venta, SANTA MARIA DE LOS ANGELES, Medellín',
-    link:
-      '/inmueble/venta-apartamento-medellin-santa-maria-de-los-angeles-3-habitaciones-3-banos/497-11973',
-    imageLink:
-      'https://metrocuadrado.blob.core.windows.net/inmuebles/497-11973/497-11973_1_p.jpg',
-    whatsappMessage:
-      'Hola, Estoy interesado en anuncio con ID: 497-11973 que encontre en www.metrocuadrado.com  - Apartamento en Venta, SANTA MARIA DE LOS ANGELES, Medellín y quiero  más información - https://www.metrocuadrado.com',
-    badge: null,
-    midinmueble: '497-11973',
-    mtipoinmueble: {
-      id: '1',
-      nombre: 'Apartamento',
-    },
-    mtiponegocio: 'venta',
-    mvalorventa: 610000000,
-    mvalorarriendo: null,
-    marea: 120,
-    mareac: 120,
-    mnrocuartos: '3',
-    mnrobanos: '3',
-    mnrogarajes: '0',
-    mciudad: {
-      id: '3',
-      nombre: 'Medellín',
-    },
-    mzona: {
-      id: '38',
-      nombre: 'Suroriente',
-    },
-    mbarrio: 'SANTA MARIA DE LOS ANGELES',
-    mnombrecomunbarrio: 'SANTA MARIA DE LOS ANGELES',
-    data: {
-      mprimerafotoinmueble: '497-11973_1',
-      murldetalle:
-        '/inmueble/venta-apartamento-medellin-santa-maria-de-los-angeles-3-habitaciones-3-banos/497-11973',
-    },
-    mnombreconstructor: null,
-    mnombreproyecto: null,
-    midempresa: '3244',
-    mestadoinmueble: 'Usado',
-  },
-  {
-    contactPhone: '3104513722',
-    whatsapp: null,
-    title: 'Casa en Venta, Velódromo, Medellín',
-    link:
-      '/inmueble/venta-casa-medellin-el-velodromo-4-habitaciones-3-banos-1-garajes/5076-209134',
-    imageLink:
-      'https://metrocuadrado.blob.core.windows.net/inmuebles/5076-209134/5076-209134_1_p.jpg',
-    whatsappMessage: null,
-    badge: null,
-    midinmueble: '5076-209134',
-    mtipoinmueble: {
-      id: '2',
-      nombre: 'Casa',
-    },
-    mtiponegocio: 'venta',
-    mvalorventa: 850000000,
-    mvalorarriendo: null,
-    marea: 184,
-    mareac: 174,
-    mnrocuartos: '4',
-    mnrobanos: '3',
-    mnrogarajes: '1',
-    mciudad: {
-      id: '3',
-      nombre: 'Medellín',
-    },
-    mzona: {
-      id: '35',
-      nombre: 'Noroccidente',
-    },
-    mbarrio: 'EL VELODROMO',
-    mnombrecomunbarrio: 'Velódromo',
-    data: {
-      mprimerafotoinmueble: '5076-209134_1',
-      murldetalle:
-        '/inmueble/venta-casa-medellin-el-velodromo-4-habitaciones-3-banos-1-garajes/5076-209134',
-    },
-    mnombreconstructor: null,
-    mnombreproyecto: null,
-    midempresa: '3477',
-    mestadoinmueble: 'Usado',
-  },
-  {
-    contactPhone: '3216199641',
-    whatsapp: '+573216199641',
-    title: 'Casa en Venta, El Tesoro - Cola del Zorro, Medellín',
-    link:
-      '/inmueble/venta-casa-medellin-el-tesoro-4-habitaciones-5-banos-2-garajes/3267-11975',
-    imageLink:
-      'https://metrocuadrado.blob.core.windows.net/inmuebles/3267-11975/3267-11975_1_p.jpg',
-    whatsappMessage:
-      'Hola, Estoy interesado en anuncio con ID: 3267-11975 que encontre en www.metrocuadrado.com  - Casa en Venta, El Tesoro - Cola del Zorro, Medellín y quiero  más información - https://www.metrocuadrado.com',
-    badge: null,
-    midinmueble: '3267-11975',
-    mtipoinmueble: {
-      id: '2',
-      nombre: 'Casa',
-    },
-    mtiponegocio: 'venta',
-    mvalorventa: 3200000000,
-    mvalorarriendo: null,
-    marea: 520,
-    mareac: 520,
-    mnrocuartos: '4',
-    mnrobanos: '5',
-    mnrogarajes: '2',
-    mciudad: {
-      id: '3',
-      nombre: 'Medellín',
-    },
-    mzona: {
-      id: '38',
-      nombre: 'Suroriente',
-    },
-    mbarrio: 'EL TESORO',
-    mnombrecomunbarrio: 'El Tesoro - Cola del Zorro',
-    data: {
-      mprimerafotoinmueble: '3267-11975_1',
-      murldetalle:
-        '/inmueble/venta-casa-medellin-el-tesoro-4-habitaciones-5-banos-2-garajes/3267-11975',
-    },
-    mnombreconstructor: null,
-    mnombreproyecto: null,
-    midempresa: '2969',
-    mestadoinmueble: 'Usado',
-  },
-  {
-    contactPhone: '3216199641',
-    whatsapp: '+573216199641',
-    title: 'Apartamento en Venta, Laureles, Medellín',
-    link:
-      '/inmueble/venta-apartamento-medellin-las-acacias-3-habitaciones-2-banos-1-garajes/3267-12129',
-    imageLink:
-      'https://metrocuadrado.blob.core.windows.net/inmuebles/3267-12129/3267-12129_1_p.jpg',
-    whatsappMessage:
-      'Hola, Estoy interesado en anuncio con ID: 3267-12129 que encontre en www.metrocuadrado.com  - Apartamento en Venta, Laureles, Medellín y quiero  más información - https://www.metrocuadrado.com',
-    badge: null,
-    midinmueble: '3267-12129',
-    mtipoinmueble: {
-      id: '1',
-      nombre: 'Apartamento',
-    },
-    mtiponegocio: 'venta',
-    mvalorventa: 460000000,
-    mvalorarriendo: null,
-    marea: 120,
-    mareac: 120,
-    mnrocuartos: '3',
-    mnrobanos: '2',
-    mnrogarajes: '1',
-    mciudad: {
-      id: '3',
-      nombre: 'Medellín',
-    },
-    mzona: {
-      id: '35',
-      nombre: 'Noroccidente',
-    },
-    mbarrio: 'LAS ACACIAS',
-    mnombrecomunbarrio: 'Laureles',
-    data: {
-      mprimerafotoinmueble: '3267-12129_1',
-      murldetalle:
-        '/inmueble/venta-apartamento-medellin-las-acacias-3-habitaciones-2-banos-1-garajes/3267-12129',
-    },
-    mnombreconstructor: null,
-    mnombreproyecto: null,
-    midempresa: '2969',
-    mestadoinmueble: 'Usado',
-  },
-  {
-    contactPhone: '3137169179',
-    whatsapp: '+573137169179',
-    title: 'Apartamento en Venta, La Inferior, Medellín',
-    link:
-      '/inmueble/venta-apartamento-medellin-la-florida-3-habitaciones-5-banos-1-garajes/2364-15555',
-    imageLink:
-      'https://metrocuadrado.blob.core.windows.net/inmuebles/2364-15555/2364-15555_12_p.jpg',
-    whatsappMessage:
-      'Hola, Estoy interesado en anuncio con ID: 2364-15555 que encontre en www.metrocuadrado.com  - Apartamento en Venta, La Inferior, Medellín y quiero  más información - https://www.metrocuadrado.com',
-    badge: null,
-    midinmueble: '2364-15555',
-    mtipoinmueble: {
-      id: '1',
-      nombre: 'Apartamento',
-    },
-    mtiponegocio: 'venta',
-    mvalorventa: 985000000,
-    mvalorarriendo: null,
-    marea: 159,
-    mareac: 159,
-    mnrocuartos: '3',
-    mnrobanos: '5',
-    mnrogarajes: '1',
-    mciudad: {
-      id: '3',
-      nombre: 'Medellín',
-    },
-    mzona: {
-      id: '38',
-      nombre: 'Suroriente',
-    },
-    mbarrio: 'LA FLORIDA',
-    mnombrecomunbarrio: 'La Inferior',
-    data: {
-      mprimerafotoinmueble: '2364-15555_12',
-      murldetalle:
-        '/inmueble/venta-apartamento-medellin-la-florida-3-habitaciones-5-banos-1-garajes/2364-15555',
-    },
-    mnombreconstructor: null,
-    mnombreproyecto: null,
-    midempresa: '3106',
-    mestadoinmueble: 'Usado',
-  },
-  {
-    contactPhone: '3174011728',
-    whatsapp: '+573174011728',
-    title: 'Apartamento en Venta, San Lucas, Medellín',
-    link:
-      '/inmueble/venta-apartamento-medellin-san-lucas-2-habitaciones-3-banos-2-garajes/5175-50171',
-    imageLink:
-      'https://metrocuadrado.blob.core.windows.net/inmuebles/5175-50171/5175-50171_13_p.jpg',
-    whatsappMessage:
-      'Hola, Estoy interesado en anuncio con ID: 5175-50171 que encontre en www.metrocuadrado.com  - Apartamento en Venta, San Lucas, Medellín y quiero  más información - https://www.metrocuadrado.com',
-    badge: null,
-    midinmueble: '5175-50171',
-    mtipoinmueble: {
-      id: '1',
-      nombre: 'Apartamento',
-    },
-    mtiponegocio: 'venta',
-    mvalorventa: 833000000,
-    mvalorarriendo: null,
-    marea: 160,
-    mareac: 160,
-    mnrocuartos: '2',
-    mnrobanos: '3',
-    mnrogarajes: '2',
-    mciudad: {
-      id: '3',
-      nombre: 'Medellín',
-    },
-    mzona: {
-      id: '38',
-      nombre: 'Suroriente',
-    },
-    mbarrio: 'SAN LUCAS',
-    mnombrecomunbarrio: 'San Lucas',
-    data: {
-      mprimerafotoinmueble: '5175-50171_13',
-      murldetalle:
-        '/inmueble/venta-apartamento-medellin-san-lucas-2-habitaciones-3-banos-2-garajes/5175-50171',
-    },
-    mnombreconstructor: null,
-    mnombreproyecto: null,
-    midempresa: '3526',
-    mestadoinmueble: 'Usado',
-  },
-  {
-    contactPhone: '3174011728',
-    whatsapp: '+573174011728',
-    title: 'Apartamento en Venta, Altos del Poblado, Medellín',
-    link:
-      '/inmueble/venta-apartamento-medellin-altos-del-poblado-3-habitaciones-4-banos-3-garajes/5175-50169',
-    imageLink:
-      'https://metrocuadrado.blob.core.windows.net/inmuebles/5175-50169/5175-50169_1_p.jpg',
-    whatsappMessage:
-      'Hola, Estoy interesado en anuncio con ID: 5175-50169 que encontre en www.metrocuadrado.com  - Apartamento en Venta, Altos del Poblado, Medellín y quiero  más información - https://www.metrocuadrado.com',
-    badge: null,
-    midinmueble: '5175-50169',
-    mtipoinmueble: {
-      id: '1',
-      nombre: 'Apartamento',
-    },
-    mtiponegocio: 'venta',
-    mvalorventa: 1816000000,
-    mvalorarriendo: null,
-    marea: 250,
-    mareac: 250,
-    mnrocuartos: '3',
-    mnrobanos: '4',
-    mnrogarajes: '3',
-    mciudad: {
-      id: '3',
-      nombre: 'Medellín',
-    },
-    mzona: null,
-    mbarrio: 'ALTOS DEL POBLADO',
-    mnombrecomunbarrio: 'Altos del Poblado',
-    data: {
-      mprimerafotoinmueble: '5175-50169_1',
-      murldetalle:
-        '/inmueble/venta-apartamento-medellin-altos-del-poblado-3-habitaciones-4-banos-3-garajes/5175-50169',
-    },
-    mnombreconstructor: null,
-    mnombreproyecto: null,
-    midempresa: '3526',
-    mestadoinmueble: 'Usado',
-  },
-  {
-    contactPhone: '3187081503',
-    whatsapp: '+573187081503',
-    title: 'Casa en Venta, El Rodeo, Medellín',
-    link:
-      '/inmueble/venta-casa-medellin-la-mota-3-habitaciones-2-banos-1-garajes/4534-2283',
-    imageLink:
-      'https://metrocuadrado.blob.core.windows.net/inmuebles/4534-2283/4534-2283_1_p.jpg',
-    whatsappMessage:
-      'Hola, Estoy interesado en anuncio con ID: 4534-2283 que encontre en www.metrocuadrado.com  - Casa en Venta, El Rodeo, Medellín y quiero  más información - https://www.metrocuadrado.com',
-    badge: null,
-    midinmueble: '4534-2283',
-    mtipoinmueble: {
-      id: '2',
-      nombre: 'Casa',
-    },
-    mtiponegocio: 'venta',
-    mvalorventa: 650000000,
-    mvalorarriendo: null,
-    marea: 240,
-    mareac: 240,
-    mnrocuartos: '3',
-    mnrobanos: '2',
-    mnrogarajes: '1',
-    mciudad: {
-      id: '3',
-      nombre: 'Medellín',
-    },
-    mzona: {
-      id: '37',
-      nombre: 'Suroccidente',
-    },
-    mbarrio: 'LA MOTA',
-    mnombrecomunbarrio: 'El Rodeo',
-    data: {
-      mprimerafotoinmueble: '4534-2283_1',
-      murldetalle:
-        '/inmueble/venta-casa-medellin-la-mota-3-habitaciones-2-banos-1-garajes/4534-2283',
-    },
-    mnombreconstructor: null,
-    mnombreproyecto: null,
-    midempresa: '3181',
-    mestadoinmueble: 'Usado',
-  },
-  {
-    contactPhone: '3187081503',
-    whatsapp: '+573187081503',
-    title: 'Apartamento en Venta, Castropol, Medellín',
-    link:
-      '/inmueble/venta-apartamento-medellin-castropol-3-habitaciones-4-banos-2-garajes/4534-1775',
-    imageLink:
-      'https://metrocuadrado.blob.core.windows.net/inmuebles/4534-1775/4534-1775_1_p.jpg',
-    whatsappMessage:
-      'Hola, Estoy interesado en anuncio con ID: 4534-1775 que encontre en www.metrocuadrado.com  - Apartamento en Venta, Castropol, Medellín y quiero  más información - https://www.metrocuadrado.com',
-    badge: null,
-    midinmueble: '4534-1775',
-    mtipoinmueble: {
-      id: '1',
-      nombre: 'Apartamento',
-    },
-    mtiponegocio: 'venta',
-    mvalorventa: 339900000,
-    mvalorarriendo: null,
-    marea: 146,
-    mareac: 146,
-    mnrocuartos: '3',
-    mnrobanos: '4',
-    mnrogarajes: '2',
-    mciudad: {
-      id: '3',
-      nombre: 'Medellín',
-    },
-    mzona: {
-      id: '38',
-      nombre: 'Suroriente',
-    },
-    mbarrio: 'CASTROPOL',
-    mnombrecomunbarrio: 'Castropol',
-    data: {
-      mprimerafotoinmueble: '4534-1775_1',
-      murldetalle:
-        '/inmueble/venta-apartamento-medellin-castropol-3-habitaciones-4-banos-2-garajes/4534-1775',
-    },
-    mnombreconstructor: null,
-    mnombreproyecto: null,
-    midempresa: '3181',
-    mestadoinmueble: 'Usado',
-  },
-  {
-    contactPhone: '3187081503',
-    whatsapp: '+573187081503',
-    title: 'Apartamento en Venta, Poblado, Medellín',
-    link:
-      '/inmueble/venta-apartamento-medellin-patio-bonito-2-habitaciones-2-banos-1-garajes/4534-2288',
-    imageLink:
-      'https://metrocuadrado.blob.core.windows.net/inmuebles/4534-2288/4534-2288_1_p.jpg',
-    whatsappMessage:
-      'Hola, Estoy interesado en anuncio con ID: 4534-2288 que encontre en www.metrocuadrado.com  - Apartamento en Venta, Poblado, Medellín y quiero  más información - https://www.metrocuadrado.com',
-    badge: null,
-    midinmueble: '4534-2288',
-    mtipoinmueble: {
-      id: '1',
-      nombre: 'Apartamento',
-    },
-    mtiponegocio: 'venta',
-    mvalorventa: 580000000,
-    mvalorarriendo: null,
-    marea: 105,
-    mareac: 105,
-    mnrocuartos: '2',
-    mnrobanos: '2',
-    mnrogarajes: '1',
-    mciudad: {
-      id: '3',
-      nombre: 'Medellín',
-    },
-    mzona: {
-      id: '38',
-      nombre: 'Suroriente',
-    },
-    mbarrio: 'PATIO BONITO',
-    mnombrecomunbarrio: 'Poblado',
-    data: {
-      mprimerafotoinmueble: '4534-2288_1',
-      murldetalle:
-        '/inmueble/venta-apartamento-medellin-patio-bonito-2-habitaciones-2-banos-1-garajes/4534-2288',
-    },
-    mnombreconstructor: null,
-    mnombreproyecto: null,
-    midempresa: '3181',
-    mestadoinmueble: 'Usado',
-  },
-  {
-    contactPhone: '3137169179',
-    whatsapp: '+573137169179',
-    title: 'Apartamento en Venta, Laureles, Medellín',
-    link:
-      '/inmueble/venta-apartamento-medellin-lorena-2-habitaciones-2-banos-1-garajes/2364-D15556',
-    imageLink:
-      'https://metrocuadrado.blob.core.windows.net/inmuebles/2364-D15556/2364-D15556_21_p.jpg',
-    whatsappMessage:
-      'Hola, Estoy interesado en anuncio con ID: 2364-D15556 que encontre en www.metrocuadrado.com  - Apartamento en Venta, Laureles, Medellín y quiero  más información - https://www.metrocuadrado.com',
-    badge: null,
-    midinmueble: '2364-D15556',
-    mtipoinmueble: {
-      id: '1',
-      nombre: 'Apartamento',
-    },
-    mtiponegocio: 'venta',
-    mvalorventa: 380000000,
-    mvalorarriendo: null,
-    marea: 107,
-    mareac: 80,
-    mnrocuartos: '2',
-    mnrobanos: '2',
-    mnrogarajes: '1',
-    mciudad: {
-      id: '3',
-      nombre: 'Medellín',
-    },
-    mzona: {
-      id: '35',
-      nombre: 'Noroccidente',
-    },
-    mbarrio: 'LORENA',
-    mnombrecomunbarrio: 'Laureles',
-    data: {
-      mprimerafotoinmueble: '2364-D15556_21',
-      murldetalle:
-        '/inmueble/venta-apartamento-medellin-lorena-2-habitaciones-2-banos-1-garajes/2364-D15556',
-    },
-    mnombreconstructor: null,
-    mnombreproyecto: null,
-    midempresa: '3106',
-    mestadoinmueble: 'Usado',
-  },
-  {
-    contactPhone: '3242030883',
-    whatsapp: '+573242030883',
-    title: 'Apartamento en Venta, LAURELES, Medellín',
-    link:
-      '/inmueble/venta-apartamento-medellin-laureles-1-habitaciones-1-banos/887-M2653362',
-    imageLink:
-      'https://metrocuadrado.blob.core.windows.net/inmuebles/887-M2653362/887-M2653362_5_p.jpg',
-    whatsappMessage:
-      'Hola, Estoy interesado en anuncio con ID: 887-M2653362 que encontre en www.metrocuadrado.com  - Apartamento en Venta, LAURELES, Medellín y quiero  más información - https://www.metrocuadrado.com',
-    badge: null,
-    midinmueble: '887-M2653362',
-    mtipoinmueble: {
-      id: '1',
-      nombre: 'Apartamento',
-    },
-    mtiponegocio: 'venta',
-    mvalorventa: 230000000,
-    mvalorarriendo: 0,
-    marea: 44,
-    mareac: 44,
-    mnrocuartos: '1',
-    mnrobanos: '1',
-    mnrogarajes: '0',
-    mciudad: {
-      id: '3',
-      nombre: 'Medellín',
-    },
-    mzona: {
-      id: '35',
-      nombre: 'Noroccidente',
-    },
-    mbarrio: 'LAURELES',
-    mnombrecomunbarrio: 'LAURELES',
-    data: {
-      mprimerafotoinmueble: '887-M2653362_5',
-      murldetalle:
-        '/inmueble/venta-apartamento-medellin-laureles-1-habitaciones-1-banos/887-M2653362',
-    },
-    mnombreconstructor: null,
-    mnombreproyecto: null,
-    midempresa: '4730',
-    mestadoinmueble: 'Usado',
-  },
+  // {
+  //   contactPhone: '3108372887',
+  //   whatsapp: '+573108372887',
+  //   title: 'Apartamento en Venta, Robledo El Diamante, Medellín',
+  //   link:
+  //     '/inmueble/venta-apartamento-medellin-el-diamante-5-habitaciones-2-banos/MC2856601',
+  //   imageLink:
+  //     'https://metrocuadrado.blob.core.windows.net/inmuebles/MC2856601/MC2856601_2_p.jpg',
+  //   whatsappMessage:
+  //     'Hola, Estoy interesado en anuncio con ID: MC2856601 que encontre en www.metrocuadrado.com  - Apartamento en Venta, Robledo El Diamante, Medellín y quiero  más información - https://www.metrocuadrado.com',
+  //   badge: null,
+  //   midinmueble: 'MC2856601',
+  //   mtipoinmueble: {
+  //     id: '1',
+  //     nombre: 'Apartamento',
+  //   },
+  //   mtiponegocio: 'venta',
+  //   mvalorventa: 260000000,
+  //   mvalorarriendo: null,
+  //   marea: 123,
+  //   mareac: 123,
+  //   mnrocuartos: '5',
+  //   mnrobanos: '2',
+  //   mnrogarajes: '0',
+  //   mciudad: {
+  //     id: '3',
+  //     nombre: 'Medellín',
+  //   },
+  //   mzona: {
+  //     id: '35',
+  //     nombre: 'Noroccidente',
+  //   },
+  //   mbarrio: 'EL DIAMANTE',
+  //   mnombrecomunbarrio: 'Robledo El Diamante',
+  //   data: {
+  //     mprimerafotoinmueble: 'MC2856601_2',
+  //     murldetalle:
+  //       '/inmueble/venta-apartamento-medellin-el-diamante-5-habitaciones-2-banos/MC2856601',
+  //   },
+  //   mnombreconstructor: null,
+  //   mnombreproyecto: null,
+  //   midempresa: null,
+  //   mestadoinmueble: 'Usado',
+  // },
+  // {
+  //   contactPhone: '3182458380',
+  //   whatsapp: '+573182458380',
+  //   title: 'Apartamento en Venta, Poblado, Medellín',
+  //   link:
+  //     '/inmueble/venta-apartamento-medellin-el-poblado-3-habitaciones-5-banos-3-garajes/687-1820746',
+  //   imageLink:
+  //     'https://metrocuadrado.blob.core.windows.net/inmuebles/687-1820746/687-1820746_21_p.jpg',
+  //   whatsappMessage:
+  //     'Hola, Estoy interesado en anuncio con ID: 687-1820746 que encontre en www.metrocuadrado.com  - Apartamento en Venta, Poblado, Medellín y quiero  más información - https://www.metrocuadrado.com',
+  //   badge: null,
+  //   midinmueble: '687-1820746',
+  //   mtipoinmueble: {
+  //     id: '1',
+  //     nombre: 'Apartamento',
+  //   },
+  //   mtiponegocio: 'venta',
+  //   mvalorventa: 1350000000,
+  //   mvalorarriendo: 0,
+  //   marea: 240,
+  //   mareac: 240,
+  //   mnrocuartos: '3',
+  //   mnrobanos: '5',
+  //   mnrogarajes: '3',
+  //   mciudad: {
+  //     id: '3',
+  //     nombre: 'Medellín',
+  //   },
+  //   mzona: {
+  //     id: '38',
+  //     nombre: 'Suroriente',
+  //   },
+  //   mbarrio: 'EL POBLADO',
+  //   mnombrecomunbarrio: 'Poblado',
+  //   data: {
+  //     mprimerafotoinmueble: '687-1820746_21',
+  //     murldetalle:
+  //       '/inmueble/venta-apartamento-medellin-el-poblado-3-habitaciones-5-banos-3-garajes/687-1820746',
+  //   },
+  //   mnombreconstructor: null,
+  //   mnombreproyecto: null,
+  //   midempresa: '2669',
+  //   mestadoinmueble: 'Usado',
+  // },
+  // {
+  //   contactPhone: '3145438665',
+  //   whatsapp: '+573145438665',
+  //   title: 'Casa en Venta, Las Palmas, Medellín',
+  //   link:
+  //     '/inmueble/venta-casa-medellin-asomadera-no.2-5-habitaciones-5-banos/12133-1112',
+  //   imageLink:
+  //     'https://metrocuadrado.blob.core.windows.net/inmuebles/12133-1112/12133-1112_41_p.jpg',
+  //   whatsappMessage:
+  //     'Hola, Estoy interesado en anuncio con ID: 12133-1112 que encontre en www.metrocuadrado.com  - Casa en Venta, Las Palmas, Medellín y quiero  más información - https://www.metrocuadrado.com',
+  //   badge: null,
+  //   midinmueble: '12133-1112',
+  //   mtipoinmueble: {
+  //     id: '2',
+  //     nombre: 'Casa',
+  //   },
+  //   mtiponegocio: 'venta',
+  //   mvalorventa: 2700000000,
+  //   mvalorarriendo: null,
+  //   marea: 1000,
+  //   mareac: 492,
+  //   mnrocuartos: '5',
+  //   mnrobanos: '5',
+  //   mnrogarajes: '0',
+  //   mciudad: {
+  //     id: '3',
+  //     nombre: 'Medellín',
+  //   },
+  //   mzona: {
+  //     id: '36',
+  //     nombre: 'Nororiente',
+  //   },
+  //   mbarrio: 'ASOMADERA No.2',
+  //   mnombrecomunbarrio: 'Las Palmas',
+  //   data: {
+  //     mprimerafotoinmueble: '12133-1112_41',
+  //     murldetalle:
+  //       '/inmueble/venta-casa-medellin-asomadera-no.2-5-habitaciones-5-banos/12133-1112',
+  //   },
+  //   mnombreconstructor: null,
+  //   mnombreproyecto: null,
+  //   midempresa: '5544',
+  //   mestadoinmueble: 'Usado',
+  // },
+  // {
+  //   contactPhone: '3192476357',
+  //   whatsapp: '+573192476357',
+  //   title: 'Apartamento en Venta, Robledo, Medellín',
+  //   link:
+  //     '/inmueble/venta-apartamento-medellin-nazareth-3-habitaciones-2-banos-1-garajes/MC2797972',
+  //   imageLink:
+  //     'https://metrocuadrado.blob.core.windows.net/inmuebles/MC2797972/MC2797972_16_p.jpg',
+  //   whatsappMessage:
+  //     'Hola, Estoy interesado en anuncio con ID: MC2797972 que encontre en www.metrocuadrado.com  - Apartamento en Venta, Robledo, Medellín y quiero  más información - https://www.metrocuadrado.com',
+  //   badge: null,
+  //   midinmueble: 'MC2797972',
+  //   mtipoinmueble: {
+  //     id: '1',
+  //     nombre: 'Apartamento',
+  //   },
+  //   mtiponegocio: 'venta',
+  //   mvalorventa: 195000000,
+  //   mvalorarriendo: null,
+  //   marea: 47,
+  //   mareac: 52,
+  //   mnrocuartos: '3',
+  //   mnrobanos: '2',
+  //   mnrogarajes: '1',
+  //   mciudad: {
+  //     id: '3',
+  //     nombre: 'Medellín',
+  //   },
+  //   mzona: {
+  //     id: '35',
+  //     nombre: 'Noroccidente',
+  //   },
+  //   mbarrio: 'NAZARETH',
+  //   mnombrecomunbarrio: 'Robledo',
+  //   data: {
+  //     mprimerafotoinmueble: 'MC2797972_16',
+  //     murldetalle:
+  //       '/inmueble/venta-apartamento-medellin-nazareth-3-habitaciones-2-banos-1-garajes/MC2797972',
+  //   },
+  //   mnombreconstructor: null,
+  //   mnombreproyecto: null,
+  //   midempresa: null,
+  //   mestadoinmueble: 'Usado',
+  // },
+  // {
+  //   contactPhone: '3207683172',
+  //   whatsapp: '+573207683172',
+  //   title: 'Apartamento en Venta, LOS LAURELES - Nororiente, Medellín',
+  //   link:
+  //     '/inmueble/venta-apartamento-medellin-laureles-3-habitaciones-2-banos-1-garajes/MC2797757',
+  //   imageLink:
+  //     'https://metrocuadrado.blob.core.windows.net/inmuebles/MC2797757/MC2797757_1_p.jpg',
+  //   whatsappMessage:
+  //     'Hola, Estoy interesado en anuncio con ID: MC2797757 que encontre en www.metrocuadrado.com  - Apartamento en Venta, LOS LAURELES - Nororiente, Medellín y quiero  más información - https://www.metrocuadrado.com',
+  //   badge: null,
+  //   midinmueble: 'MC2797757',
+  //   mtipoinmueble: {
+  //     id: '1',
+  //     nombre: 'Apartamento',
+  //   },
+  //   mtiponegocio: 'venta',
+  //   mvalorventa: 585909117,
+  //   mvalorarriendo: null,
+  //   marea: 96.62,
+  //   mareac: 96.62,
+  //   mnrocuartos: '3',
+  //   mnrobanos: '2',
+  //   mnrogarajes: '1',
+  //   mciudad: {
+  //     id: '3',
+  //     nombre: 'Medellín',
+  //   },
+  //   mzona: {
+  //     id: '35',
+  //     nombre: 'Noroccidente',
+  //   },
+  //   mbarrio: 'LAURELES',
+  //   mnombrecomunbarrio: 'LOS LAURELES - Nororiente',
+  //   data: {
+  //     mprimerafotoinmueble: 'MC2797757_1',
+  //     murldetalle:
+  //       '/inmueble/venta-apartamento-medellin-laureles-3-habitaciones-2-banos-1-garajes/MC2797757',
+  //   },
+  //   mnombreconstructor: null,
+  //   mnombreproyecto: null,
+  //   midempresa: null,
+  //   mestadoinmueble: 'Usado',
+  // },
+  // {
+  //   contactPhone: '3006170401',
+  //   whatsapp: '+573006170401',
+  //   title: 'Apartamento en Venta, EL POBLADO SAN LUCAS, Medellín',
+  //   link:
+  //     '/inmueble/venta-apartamento-medellin-el-diamante-no.2-3-habitaciones-2-banos-1-garajes/11086-M2856552',
+  //   imageLink:
+  //     'https://metrocuadrado.blob.core.windows.net/inmuebles/11086-M2856552/11086-M2856552_1_p.jpg',
+  //   whatsappMessage:
+  //     'Hola, Estoy interesado en anuncio con ID: 11086-M2856552 que encontre en www.metrocuadrado.com  - Apartamento en Venta, EL POBLADO SAN LUCAS, Medellín y quiero  más información - https://www.metrocuadrado.com',
+  //   badge: null,
+  //   midinmueble: '11086-M2856552',
+  //   mtipoinmueble: {
+  //     id: '1',
+  //     nombre: 'Apartamento',
+  //   },
+  //   mtiponegocio: 'venta',
+  //   mvalorventa: 440000000,
+  //   mvalorarriendo: 0,
+  //   marea: 118,
+  //   mareac: 118,
+  //   mnrocuartos: '3',
+  //   mnrobanos: '2',
+  //   mnrogarajes: '1',
+  //   mciudad: {
+  //     id: '3',
+  //     nombre: 'Medellín',
+  //   },
+  //   mzona: {
+  //     id: '38',
+  //     nombre: 'Suroriente',
+  //   },
+  //   mbarrio: 'EL DIAMANTE No.2',
+  //   mnombrecomunbarrio: 'EL POBLADO SAN LUCAS',
+  //   data: {
+  //     mprimerafotoinmueble: '11086-M2856552_1',
+  //     murldetalle:
+  //       '/inmueble/venta-apartamento-medellin-el-diamante-no.2-3-habitaciones-2-banos-1-garajes/11086-M2856552',
+  //   },
+  //   mnombreconstructor: null,
+  //   mnombreproyecto: null,
+  //   midempresa: '5162',
+  //   mestadoinmueble: 'Usado',
+  // },
+  // {
+  //   contactPhone: '3182458380',
+  //   whatsapp: '+573182458380',
+  //   title: 'Apartamento en Venta, EL POBLADO, Medellín',
+  //   link:
+  //     '/inmueble/venta-apartamento-medellin-el-diamante-no.2-3-habitaciones-3-banos-2-garajes/687-M2772161',
+  //   imageLink:
+  //     'https://metrocuadrado.blob.core.windows.net/inmuebles/687-M2772161/687-M2772161_1_p.jpg',
+  //   whatsappMessage:
+  //     'Hola, Estoy interesado en anuncio con ID: 687-M2772161 que encontre en www.metrocuadrado.com  - Apartamento en Venta, EL POBLADO, Medellín y quiero  más información - https://www.metrocuadrado.com',
+  //   badge: null,
+  //   midinmueble: '687-M2772161',
+  //   mtipoinmueble: {
+  //     id: '1',
+  //     nombre: 'Apartamento',
+  //   },
+  //   mtiponegocio: 'venta',
+  //   mvalorventa: 460000000,
+  //   mvalorarriendo: 0,
+  //   marea: 122,
+  //   mareac: 122,
+  //   mnrocuartos: '3',
+  //   mnrobanos: '3',
+  //   mnrogarajes: '2',
+  //   mciudad: {
+  //     id: '3',
+  //     nombre: 'Medellín',
+  //   },
+  //   mzona: {
+  //     id: '38',
+  //     nombre: 'Suroriente',
+  //   },
+  //   mbarrio: 'EL DIAMANTE No.2',
+  //   mnombrecomunbarrio: 'EL POBLADO',
+  //   data: {
+  //     mprimerafotoinmueble: '687-M2772161_1',
+  //     murldetalle:
+  //       '/inmueble/venta-apartamento-medellin-el-diamante-no.2-3-habitaciones-3-banos-2-garajes/687-M2772161',
+  //   },
+  //   mnombreconstructor: null,
+  //   mnombreproyecto: null,
+  //   midempresa: '2669',
+  //   mestadoinmueble: 'Usado',
+  // },
+  // {
+  //   contactPhone: '3182458380',
+  //   whatsapp: '+573182458380',
+  //   title: 'Apartamento en Venta y Arriendo, POBLADO, Medellín',
+  //   link:
+  //     '/inmueble/venta-apartamento-medellin-castropol-2-habitaciones-2-banos-2-garajes/687-M2458366',
+  //   imageLink:
+  //     'https://metrocuadrado.blob.core.windows.net/inmuebles/687-M2458366/687-M2458366_1_p.jpg',
+  //   whatsappMessage:
+  //     'Hola, Estoy interesado en anuncio con ID: 687-M2458366 que encontre en www.metrocuadrado.com  - Apartamento en Venta y Arriendo, POBLADO, Medellín y quiero  más información - https://www.metrocuadrado.com',
+  //   badge: null,
+  //   midinmueble: '687-M2458366',
+  //   mtipoinmueble: {
+  //     id: '1',
+  //     nombre: 'Apartamento',
+  //   },
+  //   mtiponegocio: 'Venta y Arriendo',
+  //   mvalorventa: 398000000,
+  //   mvalorarriendo: 1850000,
+  //   marea: 73,
+  //   mareac: 73,
+  //   mnrocuartos: '2',
+  //   mnrobanos: '2',
+  //   mnrogarajes: '2',
+  //   mciudad: {
+  //     id: '3',
+  //     nombre: 'Medellín',
+  //   },
+  //   mzona: {
+  //     id: '38',
+  //     nombre: 'Suroriente',
+  //   },
+  //   mbarrio: 'CASTROPOL',
+  //   mnombrecomunbarrio: 'POBLADO',
+  //   data: {
+  //     mprimerafotoinmueble: '687-M2458366_1',
+  //     murldetalle:
+  //       '/inmueble/venta-apartamento-medellin-castropol-2-habitaciones-2-banos-2-garajes/687-M2458366',
+  //   },
+  //   mnombreconstructor: null,
+  //   mnombreproyecto: null,
+  //   midempresa: '2669',
+  //   mestadoinmueble: 'Usado',
+  // },
+  // {
+  //   contactPhone: '3182458380',
+  //   whatsapp: '+573182458380',
+  //   title: 'Apartamento en Venta, EL POBLADO, Medellín',
+  //   link:
+  //     '/inmueble/venta-apartamento-medellin-la-florida-3-habitaciones-4-banos-2-garajes/687-M2497005',
+  //   imageLink:
+  //     'https://metrocuadrado.blob.core.windows.net/inmuebles/687-M2497005/687-M2497005_1_p.jpg',
+  //   whatsappMessage:
+  //     'Hola, Estoy interesado en anuncio con ID: 687-M2497005 que encontre en www.metrocuadrado.com  - Apartamento en Venta, EL POBLADO, Medellín y quiero  más información - https://www.metrocuadrado.com',
+  //   badge: null,
+  //   midinmueble: '687-M2497005',
+  //   mtipoinmueble: {
+  //     id: '1',
+  //     nombre: 'Apartamento',
+  //   },
+  //   mtiponegocio: 'venta',
+  //   mvalorventa: 1250000000,
+  //   mvalorarriendo: 0,
+  //   marea: 292,
+  //   mareac: 292,
+  //   mnrocuartos: '3',
+  //   mnrobanos: '4',
+  //   mnrogarajes: '2',
+  //   mciudad: {
+  //     id: '3',
+  //     nombre: 'Medellín',
+  //   },
+  //   mzona: {
+  //     id: '38',
+  //     nombre: 'Suroriente',
+  //   },
+  //   mbarrio: 'LA FLORIDA',
+  //   mnombrecomunbarrio: 'EL POBLADO',
+  //   data: {
+  //     mprimerafotoinmueble: '687-M2497005_1',
+  //     murldetalle:
+  //       '/inmueble/venta-apartamento-medellin-la-florida-3-habitaciones-4-banos-2-garajes/687-M2497005',
+  //   },
+  //   mnombreconstructor: null,
+  //   mnombreproyecto: null,
+  //   midempresa: '2669',
+  //   mestadoinmueble: 'Usado',
+  // },
+  // {
+  //   contactPhone: '3182458380',
+  //   whatsapp: '+573182458380',
+  //   title: 'Apartamento en Venta, EL POBLADO, Medellín',
+  //   link:
+  //     '/inmueble/venta-apartamento-medellin-las-lomas-no.2-3-habitaciones-4-banos-1-garajes/687-M2636596',
+  //   imageLink:
+  //     'https://metrocuadrado.blob.core.windows.net/inmuebles/687-M2636596/687-M2636596_1_p.jpg',
+  //   whatsappMessage:
+  //     'Hola, Estoy interesado en anuncio con ID: 687-M2636596 que encontre en www.metrocuadrado.com  - Apartamento en Venta, EL POBLADO, Medellín y quiero  más información - https://www.metrocuadrado.com',
+  //   badge: null,
+  //   midinmueble: '687-M2636596',
+  //   mtipoinmueble: {
+  //     id: '1',
+  //     nombre: 'Apartamento',
+  //   },
+  //   mtiponegocio: 'venta',
+  //   mvalorventa: 880000000,
+  //   mvalorarriendo: 0,
+  //   marea: 243,
+  //   mareac: 243,
+  //   mnrocuartos: '3',
+  //   mnrobanos: '4',
+  //   mnrogarajes: '1',
+  //   mciudad: {
+  //     id: '3',
+  //     nombre: 'Medellín',
+  //   },
+  //   mzona: {
+  //     id: '38',
+  //     nombre: 'Suroriente',
+  //   },
+  //   mbarrio: 'LAS LOMAS No.2',
+  //   mnombrecomunbarrio: 'EL POBLADO',
+  //   data: {
+  //     mprimerafotoinmueble: '687-M2636596_1',
+  //     murldetalle:
+  //       '/inmueble/venta-apartamento-medellin-las-lomas-no.2-3-habitaciones-4-banos-1-garajes/687-M2636596',
+  //   },
+  //   mnombreconstructor: null,
+  //   mnombreproyecto: null,
+  //   midempresa: '2669',
+  //   mestadoinmueble: 'Usado',
+  // },
+  // {
+  //   contactPhone: '3182458380',
+  //   whatsapp: '+573182458380',
+  //   title: 'Apartamento en Venta, EL POBLADO, Medellín',
+  //   link:
+  //     '/inmueble/venta-apartamento-medellin-el-tesoro-3-habitaciones-2-banos-1-garajes/687-M2772170',
+  //   imageLink:
+  //     'https://metrocuadrado.blob.core.windows.net/inmuebles/687-M2772170/687-M2772170_1_p.jpg',
+  //   whatsappMessage:
+  //     'Hola, Estoy interesado en anuncio con ID: 687-M2772170 que encontre en www.metrocuadrado.com  - Apartamento en Venta, EL POBLADO, Medellín y quiero  más información - https://www.metrocuadrado.com',
+  //   badge: null,
+  //   midinmueble: '687-M2772170',
+  //   mtipoinmueble: {
+  //     id: '1',
+  //     nombre: 'Apartamento',
+  //   },
+  //   mtiponegocio: 'venta',
+  //   mvalorventa: 430000000,
+  //   mvalorarriendo: 0,
+  //   marea: 98,
+  //   mareac: 98,
+  //   mnrocuartos: '3',
+  //   mnrobanos: '2',
+  //   mnrogarajes: '1',
+  //   mciudad: {
+  //     id: '3',
+  //     nombre: 'Medellín',
+  //   },
+  //   mzona: {
+  //     id: '38',
+  //     nombre: 'Suroriente',
+  //   },
+  //   mbarrio: 'EL TESORO',
+  //   mnombrecomunbarrio: 'EL POBLADO',
+  //   data: {
+  //     mprimerafotoinmueble: '687-M2772170_1',
+  //     murldetalle:
+  //       '/inmueble/venta-apartamento-medellin-el-tesoro-3-habitaciones-2-banos-1-garajes/687-M2772170',
+  //   },
+  //   mnombreconstructor: null,
+  //   mnombreproyecto: null,
+  //   midempresa: '2669',
+  //   mestadoinmueble: 'Usado',
+  // },
+  // {
+  //   contactPhone: '3182458380',
+  //   whatsapp: '+573182458380',
+  //   title: 'Apartamento en Venta, EL POBLADO, Medellín',
+  //   link:
+  //     '/inmueble/venta-apartamento-medellin-las-lomas-no.2-3-habitaciones-3-banos-2-garajes/687-M2564540',
+  //   imageLink:
+  //     'https://metrocuadrado.blob.core.windows.net/inmuebles/687-M2564540/687-M2564540_1_p.jpg',
+  //   whatsappMessage:
+  //     'Hola, Estoy interesado en anuncio con ID: 687-M2564540 que encontre en www.metrocuadrado.com  - Apartamento en Venta, EL POBLADO, Medellín y quiero  más información - https://www.metrocuadrado.com',
+  //   badge: null,
+  //   midinmueble: '687-M2564540',
+  //   mtipoinmueble: {
+  //     id: '1',
+  //     nombre: 'Apartamento',
+  //   },
+  //   mtiponegocio: 'venta',
+  //   mvalorventa: 490000000,
+  //   mvalorarriendo: 0,
+  //   marea: 125,
+  //   mareac: 125,
+  //   mnrocuartos: '3',
+  //   mnrobanos: '3',
+  //   mnrogarajes: '2',
+  //   mciudad: {
+  //     id: '3',
+  //     nombre: 'Medellín',
+  //   },
+  //   mzona: {
+  //     id: '38',
+  //     nombre: 'Suroriente',
+  //   },
+  //   mbarrio: 'LAS LOMAS No.2',
+  //   mnombrecomunbarrio: 'EL POBLADO',
+  //   data: {
+  //     mprimerafotoinmueble: '687-M2564540_1',
+  //     murldetalle:
+  //       '/inmueble/venta-apartamento-medellin-las-lomas-no.2-3-habitaciones-3-banos-2-garajes/687-M2564540',
+  //   },
+  //   mnombreconstructor: null,
+  //   mnombreproyecto: null,
+  //   midempresa: '2669',
+  //   mestadoinmueble: 'Usado',
+  // },
+  // {
+  //   contactPhone: '3182458380',
+  //   whatsapp: '+573182458380',
+  //   title: 'Apartamento en Venta, EL POBLADO, Medellín',
+  //   link:
+  //     '/inmueble/venta-apartamento-medellin-castropol-4-habitaciones-3-banos-2-garajes/687-M2625220',
+  //   imageLink:
+  //     'https://metrocuadrado.blob.core.windows.net/inmuebles/687-M2625220/687-M2625220_1_p.jpg',
+  //   whatsappMessage:
+  //     'Hola, Estoy interesado en anuncio con ID: 687-M2625220 que encontre en www.metrocuadrado.com  - Apartamento en Venta, EL POBLADO, Medellín y quiero  más información - https://www.metrocuadrado.com',
+  //   badge: null,
+  //   midinmueble: '687-M2625220',
+  //   mtipoinmueble: {
+  //     id: '1',
+  //     nombre: 'Apartamento',
+  //   },
+  //   mtiponegocio: 'venta',
+  //   mvalorventa: 555000000,
+  //   mvalorarriendo: 0,
+  //   marea: 186,
+  //   mareac: 186,
+  //   mnrocuartos: '4',
+  //   mnrobanos: '3',
+  //   mnrogarajes: '2',
+  //   mciudad: {
+  //     id: '3',
+  //     nombre: 'Medellín',
+  //   },
+  //   mzona: {
+  //     id: '38',
+  //     nombre: 'Suroriente',
+  //   },
+  //   mbarrio: 'CASTROPOL',
+  //   mnombrecomunbarrio: 'EL POBLADO',
+  //   data: {
+  //     mprimerafotoinmueble: '687-M2625220_1',
+  //     murldetalle:
+  //       '/inmueble/venta-apartamento-medellin-castropol-4-habitaciones-3-banos-2-garajes/687-M2625220',
+  //   },
+  //   mnombreconstructor: null,
+  //   mnombreproyecto: null,
+  //   midempresa: '2669',
+  //   mestadoinmueble: 'Usado',
+  // },
+  // {
+  //   contactPhone: '3182458380',
+  //   whatsapp: '+573182458380',
+  //   title: 'Apartamento en Venta, EL POBLADO, Medellín',
+  //   link:
+  //     '/inmueble/venta-apartamento-medellin-el-castillo-3-habitaciones-2-banos-1-garajes/687-M2772137',
+  //   imageLink:
+  //     'https://metrocuadrado.blob.core.windows.net/inmuebles/687-M2772137/687-M2772137_1_p.jpg',
+  //   whatsappMessage:
+  //     'Hola, Estoy interesado en anuncio con ID: 687-M2772137 que encontre en www.metrocuadrado.com  - Apartamento en Venta, EL POBLADO, Medellín y quiero  más información - https://www.metrocuadrado.com',
+  //   badge: null,
+  //   midinmueble: '687-M2772137',
+  //   mtipoinmueble: {
+  //     id: '1',
+  //     nombre: 'Apartamento',
+  //   },
+  //   mtiponegocio: 'venta',
+  //   mvalorventa: 660000000,
+  //   mvalorarriendo: 0,
+  //   marea: 158,
+  //   mareac: 158,
+  //   mnrocuartos: '3',
+  //   mnrobanos: '2',
+  //   mnrogarajes: '1',
+  //   mciudad: {
+  //     id: '3',
+  //     nombre: 'Medellín',
+  //   },
+  //   mzona: {
+  //     id: '38',
+  //     nombre: 'Suroriente',
+  //   },
+  //   mbarrio: 'EL CASTILLO',
+  //   mnombrecomunbarrio: 'EL POBLADO',
+  //   data: {
+  //     mprimerafotoinmueble: '687-M2772137_1',
+  //     murldetalle:
+  //       '/inmueble/venta-apartamento-medellin-el-castillo-3-habitaciones-2-banos-1-garajes/687-M2772137',
+  //   },
+  //   mnombreconstructor: null,
+  //   mnombreproyecto: null,
+  //   midempresa: '2669',
+  //   mestadoinmueble: 'Usado',
+  // },
+  // {
+  //   contactPhone: '3182458380',
+  //   whatsapp: '+573182458380',
+  //   title: 'Apartamento en Venta y Arriendo, EL POBLADO, Medellín',
+  //   link:
+  //     '/inmueble/venta-apartamento-medellin-el-tesoro-3-habitaciones-4-banos-3-garajes/687-M2441673',
+  //   imageLink:
+  //     'https://metrocuadrado.blob.core.windows.net/inmuebles/687-M2441673/687-M2441673_21_p.jpg',
+  //   whatsappMessage:
+  //     'Hola, Estoy interesado en anuncio con ID: 687-M2441673 que encontre en www.metrocuadrado.com  - Apartamento en Venta y Arriendo, EL POBLADO, Medellín y quiero  más información - https://www.metrocuadrado.com',
+  //   badge: null,
+  //   midinmueble: '687-M2441673',
+  //   mtipoinmueble: {
+  //     id: '1',
+  //     nombre: 'Apartamento',
+  //   },
+  //   mtiponegocio: 'Venta y Arriendo',
+  //   mvalorventa: 1400000000,
+  //   mvalorarriendo: 6900000,
+  //   marea: 281,
+  //   mareac: 281,
+  //   mnrocuartos: '3',
+  //   mnrobanos: '4',
+  //   mnrogarajes: '3',
+  //   mciudad: {
+  //     id: '3',
+  //     nombre: 'Medellín',
+  //   },
+  //   mzona: {
+  //     id: '38',
+  //     nombre: 'Suroriente',
+  //   },
+  //   mbarrio: 'EL TESORO',
+  //   mnombrecomunbarrio: 'EL POBLADO',
+  //   data: {
+  //     mprimerafotoinmueble: '687-M2441673_21',
+  //     murldetalle:
+  //       '/inmueble/venta-apartamento-medellin-el-tesoro-3-habitaciones-4-banos-3-garajes/687-M2441673',
+  //   },
+  //   mnombreconstructor: null,
+  //   mnombreproyecto: null,
+  //   midempresa: '2669',
+  //   mestadoinmueble: 'Usado',
+  // },
+  // {
+  //   contactPhone: '3182458380',
+  //   whatsapp: '+573182458380',
+  //   title: 'Apartamento en Venta, EL POBLADO, Medellín',
+  //   link:
+  //     '/inmueble/venta-apartamento-medellin-castropol-3-habitaciones-3-banos-2-garajes/687-M2578408',
+  //   imageLink:
+  //     'https://metrocuadrado.blob.core.windows.net/inmuebles/687-M2578408/687-M2578408_1_p.jpg',
+  //   whatsappMessage:
+  //     'Hola, Estoy interesado en anuncio con ID: 687-M2578408 que encontre en www.metrocuadrado.com  - Apartamento en Venta, EL POBLADO, Medellín y quiero  más información - https://www.metrocuadrado.com',
+  //   badge: null,
+  //   midinmueble: '687-M2578408',
+  //   mtipoinmueble: {
+  //     id: '1',
+  //     nombre: 'Apartamento',
+  //   },
+  //   mtiponegocio: 'venta',
+  //   mvalorventa: 580000000,
+  //   mvalorarriendo: 0,
+  //   marea: 105,
+  //   mareac: 105,
+  //   mnrocuartos: '3',
+  //   mnrobanos: '3',
+  //   mnrogarajes: '2',
+  //   mciudad: {
+  //     id: '3',
+  //     nombre: 'Medellín',
+  //   },
+  //   mzona: {
+  //     id: '38',
+  //     nombre: 'Suroriente',
+  //   },
+  //   mbarrio: 'CASTROPOL',
+  //   mnombrecomunbarrio: 'EL POBLADO',
+  //   data: {
+  //     mprimerafotoinmueble: '687-M2578408_1',
+  //     murldetalle:
+  //       '/inmueble/venta-apartamento-medellin-castropol-3-habitaciones-3-banos-2-garajes/687-M2578408',
+  //   },
+  //   mnombreconstructor: null,
+  //   mnombreproyecto: null,
+  //   midempresa: '2669',
+  //   mestadoinmueble: 'Usado',
+  // },
+  // {
+  //   contactPhone: '3182458380',
+  //   whatsapp: '+573182458380',
+  //   title: 'Apartamento en Venta, EL POBLADO, Medellín',
+  //   link:
+  //     '/inmueble/venta-apartamento-medellin-castropol-3-habitaciones-3-banos-2-garajes/687-M2578334',
+  //   imageLink:
+  //     'https://metrocuadrado.blob.core.windows.net/inmuebles/687-M2578334/687-M2578334_1_p.jpg',
+  //   whatsappMessage:
+  //     'Hola, Estoy interesado en anuncio con ID: 687-M2578334 que encontre en www.metrocuadrado.com  - Apartamento en Venta, EL POBLADO, Medellín y quiero  más información - https://www.metrocuadrado.com',
+  //   badge: null,
+  //   midinmueble: '687-M2578334',
+  //   mtipoinmueble: {
+  //     id: '1',
+  //     nombre: 'Apartamento',
+  //   },
+  //   mtiponegocio: 'venta',
+  //   mvalorventa: 630000000,
+  //   mvalorarriendo: 0,
+  //   marea: 127,
+  //   mareac: 127,
+  //   mnrocuartos: '3',
+  //   mnrobanos: '3',
+  //   mnrogarajes: '2',
+  //   mciudad: {
+  //     id: '3',
+  //     nombre: 'Medellín',
+  //   },
+  //   mzona: {
+  //     id: '38',
+  //     nombre: 'Suroriente',
+  //   },
+  //   mbarrio: 'CASTROPOL',
+  //   mnombrecomunbarrio: 'EL POBLADO',
+  //   data: {
+  //     mprimerafotoinmueble: '687-M2578334_1',
+  //     murldetalle:
+  //       '/inmueble/venta-apartamento-medellin-castropol-3-habitaciones-3-banos-2-garajes/687-M2578334',
+  //   },
+  //   mnombreconstructor: null,
+  //   mnombreproyecto: null,
+  //   midempresa: '2669',
+  //   mestadoinmueble: 'Usado',
+  // },
+  // {
+  //   contactPhone: '3182458380',
+  //   whatsapp: '+573182458380',
+  //   title: 'Casa en Venta y Arriendo, EL POBLADO LAS PALMAS, Medellín',
+  //   link:
+  //     '/inmueble/venta-casa-medellin-na-5-habitaciones-5-banos-2-garajes/687-M2458317',
+  //   imageLink:
+  //     'https://metrocuadrado.blob.core.windows.net/inmuebles/687-M2458317/687-M2458317_1_p.jpg',
+  //   whatsappMessage:
+  //     'Hola, Estoy interesado en anuncio con ID: 687-M2458317 que encontre en www.metrocuadrado.com  - Casa en Venta y Arriendo, EL POBLADO LAS PALMAS, Medellín y quiero  más información - https://www.metrocuadrado.com',
+  //   badge: null,
+  //   midinmueble: '687-M2458317',
+  //   mtipoinmueble: {
+  //     id: '2',
+  //     nombre: 'Casa',
+  //   },
+  //   mtiponegocio: 'Venta y Arriendo',
+  //   mvalorventa: 5200000000,
+  //   mvalorarriendo: 25000000,
+  //   marea: 540,
+  //   mareac: 540,
+  //   mnrocuartos: '5',
+  //   mnrobanos: '5',
+  //   mnrogarajes: '2',
+  //   mciudad: {
+  //     id: '3',
+  //     nombre: 'Medellín',
+  //   },
+  //   mzona: null,
+  //   mbarrio: 'NA',
+  //   mnombrecomunbarrio: 'EL POBLADO LAS PALMAS',
+  //   data: {
+  //     mprimerafotoinmueble: '687-M2458317_1',
+  //     murldetalle:
+  //       '/inmueble/venta-casa-medellin-na-5-habitaciones-5-banos-2-garajes/687-M2458317',
+  //   },
+  //   mnombreconstructor: null,
+  //   mnombreproyecto: null,
+  //   midempresa: '2669',
+  //   mestadoinmueble: 'Usado',
+  // },
+  // {
+  //   contactPhone: '3182458380',
+  //   whatsapp: '+573182458380',
+  //   title: 'Apartamento en Venta, EL POBLADO, Medellín',
+  //   link:
+  //     '/inmueble/venta-apartamento-medellin-la-florida-3-habitaciones-4-banos-2-garajes/687-M2441642',
+  //   imageLink:
+  //     'https://metrocuadrado.blob.core.windows.net/inmuebles/687-M2441642/687-M2441642_1_p.jpg',
+  //   whatsappMessage:
+  //     'Hola, Estoy interesado en anuncio con ID: 687-M2441642 que encontre en www.metrocuadrado.com  - Apartamento en Venta, EL POBLADO, Medellín y quiero  más información - https://www.metrocuadrado.com',
+  //   badge: null,
+  //   midinmueble: '687-M2441642',
+  //   mtipoinmueble: {
+  //     id: '1',
+  //     nombre: 'Apartamento',
+  //   },
+  //   mtiponegocio: 'venta',
+  //   mvalorventa: 710000000,
+  //   mvalorarriendo: 0,
+  //   marea: 200,
+  //   mareac: 200,
+  //   mnrocuartos: '3',
+  //   mnrobanos: '4',
+  //   mnrogarajes: '2',
+  //   mciudad: {
+  //     id: '3',
+  //     nombre: 'Medellín',
+  //   },
+  //   mzona: {
+  //     id: '38',
+  //     nombre: 'Suroriente',
+  //   },
+  //   mbarrio: 'LA FLORIDA',
+  //   mnombrecomunbarrio: 'EL POBLADO',
+  //   data: {
+  //     mprimerafotoinmueble: '687-M2441642_1',
+  //     murldetalle:
+  //       '/inmueble/venta-apartamento-medellin-la-florida-3-habitaciones-4-banos-2-garajes/687-M2441642',
+  //   },
+  //   mnombreconstructor: null,
+  //   mnombreproyecto: null,
+  //   midempresa: '2669',
+  //   mestadoinmueble: 'Usado',
+  // },
+  // {
+  //   contactPhone: '3182458380',
+  //   whatsapp: '+573182458380',
+  //   title: 'Apartamento en Venta, EL POBLADO, Medellín',
+  //   link:
+  //     '/inmueble/venta-apartamento-medellin-altos-del-poblado-3-habitaciones-4-banos-3-garajes/687-M2497018',
+  //   imageLink:
+  //     'https://metrocuadrado.blob.core.windows.net/inmuebles/687-M2497018/687-M2497018_1_p.jpg',
+  //   whatsappMessage:
+  //     'Hola, Estoy interesado en anuncio con ID: 687-M2497018 que encontre en www.metrocuadrado.com  - Apartamento en Venta, EL POBLADO, Medellín y quiero  más información - https://www.metrocuadrado.com',
+  //   badge: null,
+  //   midinmueble: '687-M2497018',
+  //   mtipoinmueble: {
+  //     id: '1',
+  //     nombre: 'Apartamento',
+  //   },
+  //   mtiponegocio: 'venta',
+  //   mvalorventa: 1100000000,
+  //   mvalorarriendo: 0,
+  //   marea: 227,
+  //   mareac: 227,
+  //   mnrocuartos: '3',
+  //   mnrobanos: '4',
+  //   mnrogarajes: '3',
+  //   mciudad: {
+  //     id: '3',
+  //     nombre: 'Medellín',
+  //   },
+  //   mzona: {
+  //     id: '38',
+  //     nombre: 'Suroriente',
+  //   },
+  //   mbarrio: 'ALTOS DEL POBLADO',
+  //   mnombrecomunbarrio: 'EL POBLADO',
+  //   data: {
+  //     mprimerafotoinmueble: '687-M2497018_1',
+  //     murldetalle:
+  //       '/inmueble/venta-apartamento-medellin-altos-del-poblado-3-habitaciones-4-banos-3-garajes/687-M2497018',
+  //   },
+  //   mnombreconstructor: null,
+  //   mnombreproyecto: null,
+  //   midempresa: '2669',
+  //   mestadoinmueble: 'Usado',
+  // },
+  // {
+  //   contactPhone: '3182458380',
+  //   whatsapp: '+573182458380',
+  //   title: 'Apartamento en Venta, EL POBLADO, Medellín',
+  //   link:
+  //     '/inmueble/venta-apartamento-medellin-castropol-3-habitaciones-4-banos-2-garajes/687-M2625229',
+  //   imageLink:
+  //     'https://metrocuadrado.blob.core.windows.net/inmuebles/687-M2625229/687-M2625229_1_p.jpg',
+  //   whatsappMessage:
+  //     'Hola, Estoy interesado en anuncio con ID: 687-M2625229 que encontre en www.metrocuadrado.com  - Apartamento en Venta, EL POBLADO, Medellín y quiero  más información - https://www.metrocuadrado.com',
+  //   badge: null,
+  //   midinmueble: '687-M2625229',
+  //   mtipoinmueble: {
+  //     id: '1',
+  //     nombre: 'Apartamento',
+  //   },
+  //   mtiponegocio: 'venta',
+  //   mvalorventa: 545000000,
+  //   mvalorarriendo: 0,
+  //   marea: 180,
+  //   mareac: 180,
+  //   mnrocuartos: '3',
+  //   mnrobanos: '4',
+  //   mnrogarajes: '2',
+  //   mciudad: {
+  //     id: '3',
+  //     nombre: 'Medellín',
+  //   },
+  //   mzona: {
+  //     id: '38',
+  //     nombre: 'Suroriente',
+  //   },
+  //   mbarrio: 'CASTROPOL',
+  //   mnombrecomunbarrio: 'EL POBLADO',
+  //   data: {
+  //     mprimerafotoinmueble: '687-M2625229_1',
+  //     murldetalle:
+  //       '/inmueble/venta-apartamento-medellin-castropol-3-habitaciones-4-banos-2-garajes/687-M2625229',
+  //   },
+  //   mnombreconstructor: null,
+  //   mnombreproyecto: null,
+  //   midempresa: '2669',
+  //   mestadoinmueble: 'Usado',
+  // },
+  // {
+  //   contactPhone: '3104145763',
+  //   whatsapp: '+573104145763',
+  //   title: 'Apartamento en Venta, Prado, Medellín',
+  //   link:
+  //     '/inmueble/venta-apartamento-medellin-los-angeles-4-habitaciones-3-banos/4673-31793',
+  //   imageLink:
+  //     'https://metrocuadrado.blob.core.windows.net/inmuebles/4673-31793/4673-31793_19_p.jpg',
+  //   whatsappMessage:
+  //     'Hola, Estoy interesado en anuncio con ID: 4673-31793 que encontre en www.metrocuadrado.com  - Apartamento en Venta, Prado, Medellín y quiero  más información - https://www.metrocuadrado.com',
+  //   badge: null,
+  //   midinmueble: '4673-31793',
+  //   mtipoinmueble: {
+  //     id: '1',
+  //     nombre: 'Apartamento',
+  //   },
+  //   mtiponegocio: 'venta',
+  //   mvalorventa: 250000000,
+  //   mvalorarriendo: null,
+  //   marea: 104.12,
+  //   mareac: 104.12,
+  //   mnrocuartos: '4',
+  //   mnrobanos: '3',
+  //   mnrogarajes: '0',
+  //   mciudad: {
+  //     id: '3',
+  //     nombre: 'Medellín',
+  //   },
+  //   mzona: {
+  //     id: '36',
+  //     nombre: 'Nororiente',
+  //   },
+  //   mbarrio: 'LOS ANGELES',
+  //   mnombrecomunbarrio: 'Prado',
+  //   data: {
+  //     mprimerafotoinmueble: '4673-31793_19',
+  //     murldetalle:
+  //       '/inmueble/venta-apartamento-medellin-los-angeles-4-habitaciones-3-banos/4673-31793',
+  //   },
+  //   mnombreconstructor: null,
+  //   mnombreproyecto: null,
+  //   midempresa: '3640',
+  //   mestadoinmueble: 'Usado',
+  // },
+  // {
+  //   contactPhone: '3043722305',
+  //   whatsapp: '+573043722305',
+  //   title: 'Apartamento en Venta, SANTA MARIA DE LOS ANGELES, Medellín',
+  //   link:
+  //     '/inmueble/venta-apartamento-medellin-santa-maria-de-los-angeles-3-habitaciones-3-banos/497-11973',
+  //   imageLink:
+  //     'https://metrocuadrado.blob.core.windows.net/inmuebles/497-11973/497-11973_1_p.jpg',
+  //   whatsappMessage:
+  //     'Hola, Estoy interesado en anuncio con ID: 497-11973 que encontre en www.metrocuadrado.com  - Apartamento en Venta, SANTA MARIA DE LOS ANGELES, Medellín y quiero  más información - https://www.metrocuadrado.com',
+  //   badge: null,
+  //   midinmueble: '497-11973',
+  //   mtipoinmueble: {
+  //     id: '1',
+  //     nombre: 'Apartamento',
+  //   },
+  //   mtiponegocio: 'venta',
+  //   mvalorventa: 610000000,
+  //   mvalorarriendo: null,
+  //   marea: 120,
+  //   mareac: 120,
+  //   mnrocuartos: '3',
+  //   mnrobanos: '3',
+  //   mnrogarajes: '0',
+  //   mciudad: {
+  //     id: '3',
+  //     nombre: 'Medellín',
+  //   },
+  //   mzona: {
+  //     id: '38',
+  //     nombre: 'Suroriente',
+  //   },
+  //   mbarrio: 'SANTA MARIA DE LOS ANGELES',
+  //   mnombrecomunbarrio: 'SANTA MARIA DE LOS ANGELES',
+  //   data: {
+  //     mprimerafotoinmueble: '497-11973_1',
+  //     murldetalle:
+  //       '/inmueble/venta-apartamento-medellin-santa-maria-de-los-angeles-3-habitaciones-3-banos/497-11973',
+  //   },
+  //   mnombreconstructor: null,
+  //   mnombreproyecto: null,
+  //   midempresa: '3244',
+  //   mestadoinmueble: 'Usado',
+  // },
+  // {
+  //   contactPhone: '3104513722',
+  //   whatsapp: null,
+  //   title: 'Casa en Venta, Velódromo, Medellín',
+  //   link:
+  //     '/inmueble/venta-casa-medellin-el-velodromo-4-habitaciones-3-banos-1-garajes/5076-209134',
+  //   imageLink:
+  //     'https://metrocuadrado.blob.core.windows.net/inmuebles/5076-209134/5076-209134_1_p.jpg',
+  //   whatsappMessage: null,
+  //   badge: null,
+  //   midinmueble: '5076-209134',
+  //   mtipoinmueble: {
+  //     id: '2',
+  //     nombre: 'Casa',
+  //   },
+  //   mtiponegocio: 'venta',
+  //   mvalorventa: 850000000,
+  //   mvalorarriendo: null,
+  //   marea: 184,
+  //   mareac: 174,
+  //   mnrocuartos: '4',
+  //   mnrobanos: '3',
+  //   mnrogarajes: '1',
+  //   mciudad: {
+  //     id: '3',
+  //     nombre: 'Medellín',
+  //   },
+  //   mzona: {
+  //     id: '35',
+  //     nombre: 'Noroccidente',
+  //   },
+  //   mbarrio: 'EL VELODROMO',
+  //   mnombrecomunbarrio: 'Velódromo',
+  //   data: {
+  //     mprimerafotoinmueble: '5076-209134_1',
+  //     murldetalle:
+  //       '/inmueble/venta-casa-medellin-el-velodromo-4-habitaciones-3-banos-1-garajes/5076-209134',
+  //   },
+  //   mnombreconstructor: null,
+  //   mnombreproyecto: null,
+  //   midempresa: '3477',
+  //   mestadoinmueble: 'Usado',
+  // },
+  // {
+  //   contactPhone: '3216199641',
+  //   whatsapp: '+573216199641',
+  //   title: 'Casa en Venta, El Tesoro - Cola del Zorro, Medellín',
+  //   link:
+  //     '/inmueble/venta-casa-medellin-el-tesoro-4-habitaciones-5-banos-2-garajes/3267-11975',
+  //   imageLink:
+  //     'https://metrocuadrado.blob.core.windows.net/inmuebles/3267-11975/3267-11975_1_p.jpg',
+  //   whatsappMessage:
+  //     'Hola, Estoy interesado en anuncio con ID: 3267-11975 que encontre en www.metrocuadrado.com  - Casa en Venta, El Tesoro - Cola del Zorro, Medellín y quiero  más información - https://www.metrocuadrado.com',
+  //   badge: null,
+  //   midinmueble: '3267-11975',
+  //   mtipoinmueble: {
+  //     id: '2',
+  //     nombre: 'Casa',
+  //   },
+  //   mtiponegocio: 'venta',
+  //   mvalorventa: 3200000000,
+  //   mvalorarriendo: null,
+  //   marea: 520,
+  //   mareac: 520,
+  //   mnrocuartos: '4',
+  //   mnrobanos: '5',
+  //   mnrogarajes: '2',
+  //   mciudad: {
+  //     id: '3',
+  //     nombre: 'Medellín',
+  //   },
+  //   mzona: {
+  //     id: '38',
+  //     nombre: 'Suroriente',
+  //   },
+  //   mbarrio: 'EL TESORO',
+  //   mnombrecomunbarrio: 'El Tesoro - Cola del Zorro',
+  //   data: {
+  //     mprimerafotoinmueble: '3267-11975_1',
+  //     murldetalle:
+  //       '/inmueble/venta-casa-medellin-el-tesoro-4-habitaciones-5-banos-2-garajes/3267-11975',
+  //   },
+  //   mnombreconstructor: null,
+  //   mnombreproyecto: null,
+  //   midempresa: '2969',
+  //   mestadoinmueble: 'Usado',
+  // },
+  // {
+  //   contactPhone: '3216199641',
+  //   whatsapp: '+573216199641',
+  //   title: 'Apartamento en Venta, Laureles, Medellín',
+  //   link:
+  //     '/inmueble/venta-apartamento-medellin-las-acacias-3-habitaciones-2-banos-1-garajes/3267-12129',
+  //   imageLink:
+  //     'https://metrocuadrado.blob.core.windows.net/inmuebles/3267-12129/3267-12129_1_p.jpg',
+  //   whatsappMessage:
+  //     'Hola, Estoy interesado en anuncio con ID: 3267-12129 que encontre en www.metrocuadrado.com  - Apartamento en Venta, Laureles, Medellín y quiero  más información - https://www.metrocuadrado.com',
+  //   badge: null,
+  //   midinmueble: '3267-12129',
+  //   mtipoinmueble: {
+  //     id: '1',
+  //     nombre: 'Apartamento',
+  //   },
+  //   mtiponegocio: 'venta',
+  //   mvalorventa: 460000000,
+  //   mvalorarriendo: null,
+  //   marea: 120,
+  //   mareac: 120,
+  //   mnrocuartos: '3',
+  //   mnrobanos: '2',
+  //   mnrogarajes: '1',
+  //   mciudad: {
+  //     id: '3',
+  //     nombre: 'Medellín',
+  //   },
+  //   mzona: {
+  //     id: '35',
+  //     nombre: 'Noroccidente',
+  //   },
+  //   mbarrio: 'LAS ACACIAS',
+  //   mnombrecomunbarrio: 'Laureles',
+  //   data: {
+  //     mprimerafotoinmueble: '3267-12129_1',
+  //     murldetalle:
+  //       '/inmueble/venta-apartamento-medellin-las-acacias-3-habitaciones-2-banos-1-garajes/3267-12129',
+  //   },
+  //   mnombreconstructor: null,
+  //   mnombreproyecto: null,
+  //   midempresa: '2969',
+  //   mestadoinmueble: 'Usado',
+  // },
+  // {
+  //   contactPhone: '3137169179',
+  //   whatsapp: '+573137169179',
+  //   title: 'Apartamento en Venta, La Inferior, Medellín',
+  //   link:
+  //     '/inmueble/venta-apartamento-medellin-la-florida-3-habitaciones-5-banos-1-garajes/2364-15555',
+  //   imageLink:
+  //     'https://metrocuadrado.blob.core.windows.net/inmuebles/2364-15555/2364-15555_12_p.jpg',
+  //   whatsappMessage:
+  //     'Hola, Estoy interesado en anuncio con ID: 2364-15555 que encontre en www.metrocuadrado.com  - Apartamento en Venta, La Inferior, Medellín y quiero  más información - https://www.metrocuadrado.com',
+  //   badge: null,
+  //   midinmueble: '2364-15555',
+  //   mtipoinmueble: {
+  //     id: '1',
+  //     nombre: 'Apartamento',
+  //   },
+  //   mtiponegocio: 'venta',
+  //   mvalorventa: 985000000,
+  //   mvalorarriendo: null,
+  //   marea: 159,
+  //   mareac: 159,
+  //   mnrocuartos: '3',
+  //   mnrobanos: '5',
+  //   mnrogarajes: '1',
+  //   mciudad: {
+  //     id: '3',
+  //     nombre: 'Medellín',
+  //   },
+  //   mzona: {
+  //     id: '38',
+  //     nombre: 'Suroriente',
+  //   },
+  //   mbarrio: 'LA FLORIDA',
+  //   mnombrecomunbarrio: 'La Inferior',
+  //   data: {
+  //     mprimerafotoinmueble: '2364-15555_12',
+  //     murldetalle:
+  //       '/inmueble/venta-apartamento-medellin-la-florida-3-habitaciones-5-banos-1-garajes/2364-15555',
+  //   },
+  //   mnombreconstructor: null,
+  //   mnombreproyecto: null,
+  //   midempresa: '3106',
+  //   mestadoinmueble: 'Usado',
+  // },
+  // {
+  //   contactPhone: '3174011728',
+  //   whatsapp: '+573174011728',
+  //   title: 'Apartamento en Venta, San Lucas, Medellín',
+  //   link:
+  //     '/inmueble/venta-apartamento-medellin-san-lucas-2-habitaciones-3-banos-2-garajes/5175-50171',
+  //   imageLink:
+  //     'https://metrocuadrado.blob.core.windows.net/inmuebles/5175-50171/5175-50171_13_p.jpg',
+  //   whatsappMessage:
+  //     'Hola, Estoy interesado en anuncio con ID: 5175-50171 que encontre en www.metrocuadrado.com  - Apartamento en Venta, San Lucas, Medellín y quiero  más información - https://www.metrocuadrado.com',
+  //   badge: null,
+  //   midinmueble: '5175-50171',
+  //   mtipoinmueble: {
+  //     id: '1',
+  //     nombre: 'Apartamento',
+  //   },
+  //   mtiponegocio: 'venta',
+  //   mvalorventa: 833000000,
+  //   mvalorarriendo: null,
+  //   marea: 160,
+  //   mareac: 160,
+  //   mnrocuartos: '2',
+  //   mnrobanos: '3',
+  //   mnrogarajes: '2',
+  //   mciudad: {
+  //     id: '3',
+  //     nombre: 'Medellín',
+  //   },
+  //   mzona: {
+  //     id: '38',
+  //     nombre: 'Suroriente',
+  //   },
+  //   mbarrio: 'SAN LUCAS',
+  //   mnombrecomunbarrio: 'San Lucas',
+  //   data: {
+  //     mprimerafotoinmueble: '5175-50171_13',
+  //     murldetalle:
+  //       '/inmueble/venta-apartamento-medellin-san-lucas-2-habitaciones-3-banos-2-garajes/5175-50171',
+  //   },
+  //   mnombreconstructor: null,
+  //   mnombreproyecto: null,
+  //   midempresa: '3526',
+  //   mestadoinmueble: 'Usado',
+  // },
+  // {
+  //   contactPhone: '3174011728',
+  //   whatsapp: '+573174011728',
+  //   title: 'Apartamento en Venta, Altos del Poblado, Medellín',
+  //   link:
+  //     '/inmueble/venta-apartamento-medellin-altos-del-poblado-3-habitaciones-4-banos-3-garajes/5175-50169',
+  //   imageLink:
+  //     'https://metrocuadrado.blob.core.windows.net/inmuebles/5175-50169/5175-50169_1_p.jpg',
+  //   whatsappMessage:
+  //     'Hola, Estoy interesado en anuncio con ID: 5175-50169 que encontre en www.metrocuadrado.com  - Apartamento en Venta, Altos del Poblado, Medellín y quiero  más información - https://www.metrocuadrado.com',
+  //   badge: null,
+  //   midinmueble: '5175-50169',
+  //   mtipoinmueble: {
+  //     id: '1',
+  //     nombre: 'Apartamento',
+  //   },
+  //   mtiponegocio: 'venta',
+  //   mvalorventa: 1816000000,
+  //   mvalorarriendo: null,
+  //   marea: 250,
+  //   mareac: 250,
+  //   mnrocuartos: '3',
+  //   mnrobanos: '4',
+  //   mnrogarajes: '3',
+  //   mciudad: {
+  //     id: '3',
+  //     nombre: 'Medellín',
+  //   },
+  //   mzona: null,
+  //   mbarrio: 'ALTOS DEL POBLADO',
+  //   mnombrecomunbarrio: 'Altos del Poblado',
+  //   data: {
+  //     mprimerafotoinmueble: '5175-50169_1',
+  //     murldetalle:
+  //       '/inmueble/venta-apartamento-medellin-altos-del-poblado-3-habitaciones-4-banos-3-garajes/5175-50169',
+  //   },
+  //   mnombreconstructor: null,
+  //   mnombreproyecto: null,
+  //   midempresa: '3526',
+  //   mestadoinmueble: 'Usado',
+  // },
+  // {
+  //   contactPhone: '3187081503',
+  //   whatsapp: '+573187081503',
+  //   title: 'Casa en Venta, El Rodeo, Medellín',
+  //   link:
+  //     '/inmueble/venta-casa-medellin-la-mota-3-habitaciones-2-banos-1-garajes/4534-2283',
+  //   imageLink:
+  //     'https://metrocuadrado.blob.core.windows.net/inmuebles/4534-2283/4534-2283_1_p.jpg',
+  //   whatsappMessage:
+  //     'Hola, Estoy interesado en anuncio con ID: 4534-2283 que encontre en www.metrocuadrado.com  - Casa en Venta, El Rodeo, Medellín y quiero  más información - https://www.metrocuadrado.com',
+  //   badge: null,
+  //   midinmueble: '4534-2283',
+  //   mtipoinmueble: {
+  //     id: '2',
+  //     nombre: 'Casa',
+  //   },
+  //   mtiponegocio: 'venta',
+  //   mvalorventa: 650000000,
+  //   mvalorarriendo: null,
+  //   marea: 240,
+  //   mareac: 240,
+  //   mnrocuartos: '3',
+  //   mnrobanos: '2',
+  //   mnrogarajes: '1',
+  //   mciudad: {
+  //     id: '3',
+  //     nombre: 'Medellín',
+  //   },
+  //   mzona: {
+  //     id: '37',
+  //     nombre: 'Suroccidente',
+  //   },
+  //   mbarrio: 'LA MOTA',
+  //   mnombrecomunbarrio: 'El Rodeo',
+  //   data: {
+  //     mprimerafotoinmueble: '4534-2283_1',
+  //     murldetalle:
+  //       '/inmueble/venta-casa-medellin-la-mota-3-habitaciones-2-banos-1-garajes/4534-2283',
+  //   },
+  //   mnombreconstructor: null,
+  //   mnombreproyecto: null,
+  //   midempresa: '3181',
+  //   mestadoinmueble: 'Usado',
+  // },
+  // {
+  //   contactPhone: '3187081503',
+  //   whatsapp: '+573187081503',
+  //   title: 'Apartamento en Venta, Castropol, Medellín',
+  //   link:
+  //     '/inmueble/venta-apartamento-medellin-castropol-3-habitaciones-4-banos-2-garajes/4534-1775',
+  //   imageLink:
+  //     'https://metrocuadrado.blob.core.windows.net/inmuebles/4534-1775/4534-1775_1_p.jpg',
+  //   whatsappMessage:
+  //     'Hola, Estoy interesado en anuncio con ID: 4534-1775 que encontre en www.metrocuadrado.com  - Apartamento en Venta, Castropol, Medellín y quiero  más información - https://www.metrocuadrado.com',
+  //   badge: null,
+  //   midinmueble: '4534-1775',
+  //   mtipoinmueble: {
+  //     id: '1',
+  //     nombre: 'Apartamento',
+  //   },
+  //   mtiponegocio: 'venta',
+  //   mvalorventa: 339900000,
+  //   mvalorarriendo: null,
+  //   marea: 146,
+  //   mareac: 146,
+  //   mnrocuartos: '3',
+  //   mnrobanos: '4',
+  //   mnrogarajes: '2',
+  //   mciudad: {
+  //     id: '3',
+  //     nombre: 'Medellín',
+  //   },
+  //   mzona: {
+  //     id: '38',
+  //     nombre: 'Suroriente',
+  //   },
+  //   mbarrio: 'CASTROPOL',
+  //   mnombrecomunbarrio: 'Castropol',
+  //   data: {
+  //     mprimerafotoinmueble: '4534-1775_1',
+  //     murldetalle:
+  //       '/inmueble/venta-apartamento-medellin-castropol-3-habitaciones-4-banos-2-garajes/4534-1775',
+  //   },
+  //   mnombreconstructor: null,
+  //   mnombreproyecto: null,
+  //   midempresa: '3181',
+  //   mestadoinmueble: 'Usado',
+  // },
+  // {
+  //   contactPhone: '3187081503',
+  //   whatsapp: '+573187081503',
+  //   title: 'Apartamento en Venta, Poblado, Medellín',
+  //   link:
+  //     '/inmueble/venta-apartamento-medellin-patio-bonito-2-habitaciones-2-banos-1-garajes/4534-2288',
+  //   imageLink:
+  //     'https://metrocuadrado.blob.core.windows.net/inmuebles/4534-2288/4534-2288_1_p.jpg',
+  //   whatsappMessage:
+  //     'Hola, Estoy interesado en anuncio con ID: 4534-2288 que encontre en www.metrocuadrado.com  - Apartamento en Venta, Poblado, Medellín y quiero  más información - https://www.metrocuadrado.com',
+  //   badge: null,
+  //   midinmueble: '4534-2288',
+  //   mtipoinmueble: {
+  //     id: '1',
+  //     nombre: 'Apartamento',
+  //   },
+  //   mtiponegocio: 'venta',
+  //   mvalorventa: 580000000,
+  //   mvalorarriendo: null,
+  //   marea: 105,
+  //   mareac: 105,
+  //   mnrocuartos: '2',
+  //   mnrobanos: '2',
+  //   mnrogarajes: '1',
+  //   mciudad: {
+  //     id: '3',
+  //     nombre: 'Medellín',
+  //   },
+  //   mzona: {
+  //     id: '38',
+  //     nombre: 'Suroriente',
+  //   },
+  //   mbarrio: 'PATIO BONITO',
+  //   mnombrecomunbarrio: 'Poblado',
+  //   data: {
+  //     mprimerafotoinmueble: '4534-2288_1',
+  //     murldetalle:
+  //       '/inmueble/venta-apartamento-medellin-patio-bonito-2-habitaciones-2-banos-1-garajes/4534-2288',
+  //   },
+  //   mnombreconstructor: null,
+  //   mnombreproyecto: null,
+  //   midempresa: '3181',
+  //   mestadoinmueble: 'Usado',
+  // },
+  // {
+  //   contactPhone: '3137169179',
+  //   whatsapp: '+573137169179',
+  //   title: 'Apartamento en Venta, Laureles, Medellín',
+  //   link:
+  //     '/inmueble/venta-apartamento-medellin-lorena-2-habitaciones-2-banos-1-garajes/2364-D15556',
+  //   imageLink:
+  //     'https://metrocuadrado.blob.core.windows.net/inmuebles/2364-D15556/2364-D15556_21_p.jpg',
+  //   whatsappMessage:
+  //     'Hola, Estoy interesado en anuncio con ID: 2364-D15556 que encontre en www.metrocuadrado.com  - Apartamento en Venta, Laureles, Medellín y quiero  más información - https://www.metrocuadrado.com',
+  //   badge: null,
+  //   midinmueble: '2364-D15556',
+  //   mtipoinmueble: {
+  //     id: '1',
+  //     nombre: 'Apartamento',
+  //   },
+  //   mtiponegocio: 'venta',
+  //   mvalorventa: 380000000,
+  //   mvalorarriendo: null,
+  //   marea: 107,
+  //   mareac: 80,
+  //   mnrocuartos: '2',
+  //   mnrobanos: '2',
+  //   mnrogarajes: '1',
+  //   mciudad: {
+  //     id: '3',
+  //     nombre: 'Medellín',
+  //   },
+  //   mzona: {
+  //     id: '35',
+  //     nombre: 'Noroccidente',
+  //   },
+  //   mbarrio: 'LORENA',
+  //   mnombrecomunbarrio: 'Laureles',
+  //   data: {
+  //     mprimerafotoinmueble: '2364-D15556_21',
+  //     murldetalle:
+  //       '/inmueble/venta-apartamento-medellin-lorena-2-habitaciones-2-banos-1-garajes/2364-D15556',
+  //   },
+  //   mnombreconstructor: null,
+  //   mnombreproyecto: null,
+  //   midempresa: '3106',
+  //   mestadoinmueble: 'Usado',
+  // },
+  // {
+  //   contactPhone: '3242030883',
+  //   whatsapp: '+573242030883',
+  //   title: 'Apartamento en Venta, LAURELES, Medellín',
+  //   link:
+  //     '/inmueble/venta-apartamento-medellin-laureles-1-habitaciones-1-banos/887-M2653362',
+  //   imageLink:
+  //     'https://metrocuadrado.blob.core.windows.net/inmuebles/887-M2653362/887-M2653362_5_p.jpg',
+  //   whatsappMessage:
+  //     'Hola, Estoy interesado en anuncio con ID: 887-M2653362 que encontre en www.metrocuadrado.com  - Apartamento en Venta, LAURELES, Medellín y quiero  más información - https://www.metrocuadrado.com',
+  //   badge: null,
+  //   midinmueble: '887-M2653362',
+  //   mtipoinmueble: {
+  //     id: '1',
+  //     nombre: 'Apartamento',
+  //   },
+  //   mtiponegocio: 'venta',
+  //   mvalorventa: 230000000,
+  //   mvalorarriendo: 0,
+  //   marea: 44,
+  //   mareac: 44,
+  //   mnrocuartos: '1',
+  //   mnrobanos: '1',
+  //   mnrogarajes: '0',
+  //   mciudad: {
+  //     id: '3',
+  //     nombre: 'Medellín',
+  //   },
+  //   mzona: {
+  //     id: '35',
+  //     nombre: 'Noroccidente',
+  //   },
+  //   mbarrio: 'LAURELES',
+  //   mnombrecomunbarrio: 'LAURELES',
+  //   data: {
+  //     mprimerafotoinmueble: '887-M2653362_5',
+  //     murldetalle:
+  //       '/inmueble/venta-apartamento-medellin-laureles-1-habitaciones-1-banos/887-M2653362',
+  //   },
+  //   mnombreconstructor: null,
+  //   mnombreproyecto: null,
+  //   midempresa: '4730',
+  //   mestadoinmueble: 'Usado',
+  // },
   {
     contactPhone: '3205178956',
     whatsapp: '+573205178956',
