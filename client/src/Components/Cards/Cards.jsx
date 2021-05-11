@@ -10,7 +10,7 @@ function Cards({ principalState, principal }) {
   }, []);
   const list = principalState?.map((e) => (
     <Card
-      image={e.images[0]?.photo}
+      image={e.images[0]?.photo[0]}
       postName={e.post_name}
       propType={e.prop_type}
       neighborhood={e.neighborhood}
