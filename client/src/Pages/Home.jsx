@@ -22,7 +22,7 @@ export default function Home() {
       </div>
       <div className={style.main}>
         <div className={style.search_order}>
-          {/* <Order /> */}
+          <Order />
           <Searchbar />
         </div>
         {count && <Paginacion count={count} paginaActual={page} limit={limit} />}
