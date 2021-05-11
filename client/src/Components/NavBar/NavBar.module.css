@@ -30,8 +30,8 @@ nav {
 }
 
 .logo {
-  height: 25%;
-  width: 25%;
+  height: 50%;
+  width: 50%;
   margin: 1%;
   color: var(--white);
 }
@@ -46,7 +46,7 @@ nav {
   border-radius: 25px;
   padding: 1% 2%;
   transition: all .3s ease-in-out;
-} 
+}
 .signin:hover {
   transition: all .3s ease-in-out;
   background-color: var(--dark);
