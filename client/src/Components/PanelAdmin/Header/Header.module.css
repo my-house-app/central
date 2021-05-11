@@ -1,0 +1,8 @@
+.ctn {
+  margin-top: 7px;
+  background-color: var(--white);
+  padding: 10px;
+}
+.ctn label{
+  cursor: pointer;
+}
