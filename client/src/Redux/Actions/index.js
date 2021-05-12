@@ -1,13 +1,12 @@
 /* eslint-disable no-console */
 /* eslint-disable func-names */
 import axios from 'axios';
-import { getFilteredPropiertiesService, getAllPostsService, getNextOrPreviousPageService } from '../../Services/properties.service';
+import { getFilteredPropiertiesService, getAllPostsService } from '../../Services/properties.service';
 // actipon types
 import {
   PROPERTIES,
   GET_FILTERED_PROPERTIES,
   GET_SEARCHED_POST,
-  GET_NEXT_OR_PREVIOUS_PAGE,
   GET_COORDINATES,
 } from './types';
 
@@ -48,21 +47,6 @@ export function searchedPost(payload) {
         payload,
       },
     );
-  };
-}
-
-export function getNextOrPreviousPage(link) {
-  return async function (dispatch) {
-    return getNextOrPreviousPageService(link)
-      .then((res) => {
-        dispatch(
-          {
-            type: GET_NEXT_OR_PREVIOUS_PAGE,
-            payload: res.data,
-          },
-        );
-      })
-      .catch((e) => console.log('Pagina, error del pedido: ', e));
   };
 }
 

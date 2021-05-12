@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { FaSearch } from 'react-icons/fa';
 import { searchedPost } from '../../Redux/Actions';
@@ -6,6 +6,8 @@ import style from './Searchbar.module.css';
 
 function Searchbar({ find }) {
   const [search, setSearch] = useState('');
+  // const querystring = window.location.search;
+  // const params = new URLSearchParams(querystring);
 
   function handleChange(e) {
     setSearch(e.target.value);
