@@ -8,7 +8,7 @@ const premiumRate = 0.2;
 const posts = rawData.map(
   ({
     mtipoinmueble,
-    mciudad,
+    /* mciudad, */
     title,
     mzona,
     mbarrio,
@@ -23,12 +23,13 @@ const posts = rawData.map(
     post_name: title,
     premium: Math.random() < premiumRate,
     prop_type: mtipoinmueble.nombre,
-    city: mciudad.nombre,
-    street_number: 'To be determined',
-    zip_code: 'To be determined',
+    department: 'Antioquia' /* 'To be determined' */,
+    city: 'Medellín' /* mciudad.nombre */,
+    street_number: 'CC 15B N 25D 2S' /* 'To be determined' */,
+    // zip_code: 'To be determined',
     description: title,
     stratum: mzona && mzona.id,
-    neighborhood: mbarrio || 'To be determined',
+    neighborhood: mbarrio || '' /* 'To be determined' */,
     price: mvalorventa,
     m2: mareac,
     rooms: mnrocuartos,

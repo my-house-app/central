@@ -1,6 +1,11 @@
+// actipon types
 import {
-  PROPERTIES, GET_FILTERED_PROPERTIES, GET_NEXT_OR_PREVIOUS_PAGE, GET_SEARCHED_POST,
-} from '../Actions/index';// para importar las variales de cada caso
+  PROPERTIES,
+  GET_FILTERED_PROPERTIES,
+  GET_SEARCHED_POST,
+  GET_NEXT_OR_PREVIOUS_PAGE,
+  GET_COORDINATES,
+} from '../Actions/types';
 
 const initialState = {
   principal: [],
@@ -8,6 +13,7 @@ const initialState = {
   count: '',
   currentPage: '',
   selfEndpoint: '',
+  coordinates: {},
 };
 
 export default function rootReducer(state = initialState, action) {
@@ -41,7 +47,11 @@ export default function rootReducer(state = initialState, action) {
       ...state,
       searched: action.payload,
     };
-
+  case GET_COORDINATES:
+    return {
+      ...state,
+      coordinates: action.payload,
+    };
   default:
     return state;
   }
