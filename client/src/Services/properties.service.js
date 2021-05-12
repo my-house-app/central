@@ -3,16 +3,16 @@
 import axios from 'axios';
 
 const { REACT_APP_API_BASE_ENDPOINT } = process.env;
-const LOCALHOST = 'http://localhost:3001';
+
 
 export async function getFilteredPropiertiesService() {
-  let endpoint = `${LOCALHOST}/posts`;
+  let endpoint = `${REACT_APP_API_BASE_ENDPOINT}/posts`;
   endpoint += window.location.search;
   return await axios.get(endpoint);
 }
 
 export async function getAllPostsService(limit = 10) {
-  let endpoint = `${LOCALHOST}/posts`;
+  let endpoint = `${REACT_APP_API_BASE_ENDPOINT}/posts`;
   if (limit) endpoint += `?limit=${limit}`;
   return await axios.get(endpoint);
 }
