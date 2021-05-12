@@ -87,5 +87,9 @@ module.exports = (sequelize) => {
     security: {
       type: DataTypes.BOOLEAN,
     },
+    status: {
+      type: DataTypes.STRING,
+      isIn: [['Available', 'Expired', 'Not-available']],
+    },
   });
 };
