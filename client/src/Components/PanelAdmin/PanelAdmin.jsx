@@ -2,7 +2,7 @@ import React from 'react';
 import { Route } from 'react-router-dom';
 import style from './PanelAdmin.module.css';
 import Nav from './Nav/Nav';
-import Header from './Header/Header';
+import Header from './ButtonsBar/ButtonsBar';
 import Dashboard from './Dashboard/Dashboard';
 import Posts from './Posts/Posts';
 import Users from './Users/Users';
@@ -18,12 +18,6 @@ function PanelAdmin() {
         }
       />
       <div className={style.divScroll}>
-        <Route
-          path="/admin"
-          component={
-            Header
-          }
-        />
         <Route
           exact
           path="/admin"

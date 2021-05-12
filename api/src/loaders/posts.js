@@ -1,6 +1,7 @@
 const { v4: uuidv4 } = require('uuid');
 const rawData = require('./rawData');
 const users = require('./users');
+const addresses = require('./addresses');
 
 const userIdList = users.map((u) => u.id);
 const premiumRate = 0.2;
@@ -25,7 +26,7 @@ const posts = rawData.map(
     prop_type: mtipoinmueble.nombre,
     department: 'Antioquia' /* 'To be determined' */,
     city: 'Medellín' /* mciudad.nombre */,
-    street_number: 'CC 15B N 25D 2S' /* 'To be determined' */,
+    street_number: 'CC 15B N 25D 2S' /* addresses.shift()'To be determined' */,
     // zip_code: 'To be determined',
     description: title,
     stratum: mzona && mzona.id,

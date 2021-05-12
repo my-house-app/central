@@ -1,10 +1,16 @@
-.ctn {
-  position: fixed;
+.ctn{
+  position: absolute;
+  /* background-color: blue; */
   width: 20%;
-  min-height: 100vh;
+  height: 100%;
   background-color: var(--blue);
   color: var(--white);
   padding: 10px;
+  font-size: 14px;
+}
+.ctnFixed {
+  position: fixed;
+  top:0;
 }
 .ctn label{
   color: #dadada;
@@ -13,4 +19,7 @@
 a {
   text-decoration: none;
   color: black
+}
+.divTitle {
+  margin: 15px 0;
 }
