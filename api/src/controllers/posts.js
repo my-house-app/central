@@ -5,7 +5,7 @@ const { v4: uuidv4 } = require('uuid');
 const axios = require('axios');
 const { Post, Image } = require('../db.js');
 const {
-  buidlWhere, getCurrentPage, getCurrentEndPoint,
+  buidlWhere, getCurrentPage,
 } = require('../utils');
 
 function addPost(req, res) {
@@ -96,7 +96,8 @@ function addPost(req, res) {
 // http://localhost:3001/posts?city=med&neighborhood=pol&priceMin=0&priceMax=100000000
 async function getPosts(req, res) {
   const limit =  Number(req.query.limit)  || 10;
-  const offset = Number(req.query.offset) || 0;
+  const page = Number(req.query.page) || 1;// falta una validacion
+  const offset = (page * limit) - limit;
   const atributo = req.query.atributo || null;
   const orden =    req.query          || null;
   const block = {
@@ -146,7 +147,6 @@ async function getPosts(req, res) {
       count,
       posts: rows,
       currentPage: getCurrentPage(offset, limit),
-      selfEndpoint: getCurrentEndPoint(block, limit, offset),
     },
   );
 }

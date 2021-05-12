@@ -1,12 +1,21 @@
+/* eslint-disable no-plusplus */
+/* eslint-disable guard-for-in */
+/* eslint-disable no-restricted-syntax */
+/* eslint-disable prefer-const */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { FaRegTimesCircle } from 'react-icons/fa';
+import { useHistory } from 'react-router-dom';
 import style from './Filter.module.css';
 import { getFilteredPropierties } from '../../Redux/Actions';
 
 function Filter({ searched, filter }) {
+  const history = useHistory();
+  const querystring = window.location.search;// '?post_name=cas&rooms=3&page=4&bathrooms=0'
+  const params = new URLSearchParams(querystring);
+  const [URL, setURL] = useState('');
   const initialState = {
     post_name: searched, // search by postName
     prop_type: '', // select
@@ -31,21 +40,42 @@ function Filter({ searched, filter }) {
   };
   const [queryBlock, setQueryBlock] = useState(initialState);
 
-  function handlerQuery(event) {
-    setQueryBlock(
-      {
-        ...queryBlock,
-        [event.target.name]: event.target.value,
-        searched,
-      },
-    );
-    filter({
-      ...queryBlock,
-      [event.target.name]: event.target.value,
-    });
+  function changeURL(event) {
+    // console.log('window.location.search: ', window.location);
+    params.set(event.target.name, event.target.value);
+    history.push(`/home?${params.toString()}`);
+    setURL(window.location.href);
   }
 
   useEffect(() => {
+    params.set('post_name', searched);
+    if (!params.get('post_name')) {
+      params.delete('post_name');
+    }
+    history.push(`/home?${params.toString()}`);
+    setQueryBlock({
+      ...queryBlock,
+      post_name: searched,
+    });// filter busca a la api externa
+    filter({
+      ...queryBlock,
+      post_name: searched,
+    });
+  }, [searched]);
+
+  useEffect(() => {
+    console.log('Hay cambios en la URL: ', URL);
+    const paramsKeys = Object.keys(queryBlock);
+    // traigo todos los valores del path y los pongo en mi queryBlock
+    for (let i = 0; i < paramsKeys.length; i++) {
+      queryBlock[paramsKeys[i]] = params.get(paramsKeys[i]);
+      // elimino una query en el params si es null
+      if (!params.get(paramsKeys[i])) {
+        params.delete(paramsKeys[i]);
+        history.push(`/home?${params.toString()}`);
+      }
+    }
+
     setQueryBlock({
       ...queryBlock,
       post_name: searched,
@@ -54,10 +84,12 @@ function Filter({ searched, filter }) {
       ...queryBlock,
       post_name: searched,
     });
-  }, [searched]);
+  }, [URL]);
 
   function clear() {
+    history.push('/home');
     setQueryBlock(initialState);
+    filter({});
     document.getElementById('form').reset();
   }
 
@@ -79,7 +111,7 @@ function Filter({ searched, filter }) {
               name="city"
               placeholder="City"
               value={queryBlock.city}
-              onChange={handlerQuery}
+              onChange={changeURL}
             />
           </label>
         </div>
@@ -94,7 +126,7 @@ function Filter({ searched, filter }) {
               name="neighborhood"
               placeholder="Neighborhood"
               value={queryBlock.neighborhood}
-              onChange={handlerQuery}
+              onChange={changeURL}
             />
           </label>
         </div>
@@ -110,7 +142,7 @@ function Filter({ searched, filter }) {
               name="priceMin"
               placeholder="min"
               value={queryBlock.priceMin}
-              onChange={handlerQuery}
+              onChange={changeURL}
             />
             &nbsp;to&nbsp;
             <input
@@ -119,7 +151,7 @@ function Filter({ searched, filter }) {
               name="priceMax"
               placeholder="max"
               value={queryBlock.priceMax}
-              onChange={handlerQuery}
+              onChange={changeURL}
             />
           </div>
         </div>
@@ -134,7 +166,7 @@ function Filter({ searched, filter }) {
               name="rooms"
               placeholder="0"
               value={queryBlock.rooms}
-              onChange={handlerQuery}
+              onChange={changeURL}
             />
           </label>
         </div>
@@ -149,7 +181,7 @@ function Filter({ searched, filter }) {
               name="bathrooms"
               placeholder="0"
               value={queryBlock.bathrooms}
-              onChange={handlerQuery}
+              onChange={changeURL}
             />
           </label>
         </div>
@@ -165,7 +197,7 @@ function Filter({ searched, filter }) {
               name="areaMin"
               placeholder="min"
               value={queryBlock.areaMin}
-              onChange={handlerQuery}
+              onChange={changeURL}
             />
             &nbsp;to&nbsp;
             <input
@@ -174,7 +206,7 @@ function Filter({ searched, filter }) {
               name="areaMax"
               placeholder="max"
               value={queryBlock.areaMax}
-              onChange={handlerQuery}
+              onChange={changeURL}
             />
           </div>
         </div>
@@ -192,18 +224,16 @@ function Filter({ searched, filter }) {
               min="0"
               max="6"
               value={queryBlock.stratum}
-              onChange={handlerQuery}
+              onChange={changeURL}
             />
           </label>
         </div>
 
         {/* Type of property */}
         <div className={style.field}>
-          <select className={style.selectFilter} name="prop_type" value={queryBlock.prop_type} onChange={handlerQuery}>
+          <select className={style.selectFilter} name="prop_type" value={queryBlock.prop_type} onChange={changeURL}>
             <option value="">Type of property</option>
             {['Casa', 'Apartamento'].map((type) => (<option value={type}>{type}</option>))}
-            {/* {['Barrio', 'Antigüedad'].map((g) =>
-            (<option key={g.id} value={g.name}>{g.name}</option>))} */}
           </select>
         </div>
 
@@ -216,8 +246,8 @@ function Filter({ searched, filter }) {
               type="number"
               name="years"
               value={queryBlock.years}
-              onChange={handlerQuery}
               min="0"
+              onChange={changeURL}
             />
           </label>
         </div>
@@ -229,28 +259,28 @@ function Filter({ searched, filter }) {
           </p>
         </div>
         <div className={display ? style.facilities : style.noFacilities}>
-          <input type="checkbox" onChange={handlerQuery} name="pool" value={!queryBlock.pool} />
+          <input type="checkbox" onChange={changeURL} name="pool" value={!queryBlock.pool} />
           <label htmlFor="pool"> Swimming pool</label>
           <br />
-          <input type="checkbox" onChange={handlerQuery} name="backyard" value={!queryBlock.backyard} />
+          <input type="checkbox" onChange={changeURL} name="backyard" value={!queryBlock.backyard} />
           <label htmlFor="backyard"> Backyard</label>
           <br />
-          <input type="checkbox" onChange={handlerQuery} name="gym" value={!queryBlock.gym} />
+          <input type="checkbox" onChange={changeURL} name="gym" value={!queryBlock.gym} />
           <label htmlFor="gym"> Gym</label>
           <br />
-          <input type="checkbox" onChange={handlerQuery} name="bbq" value={!queryBlock.bbq} />
+          <input type="checkbox" onChange={changeURL} name="bbq" value={!queryBlock.bbq} />
           <label htmlFor="bbq"> Barbecue</label>
           <br />
-          <input type="checkbox" onChange={handlerQuery} name="parking_lot" value={!queryBlock.parking_lot} />
+          <input type="checkbox" onChange={changeURL} name="parking_lot" value={!queryBlock.parking_lot} />
           <label htmlFor="parking_lot"> Parking lot</label>
           <br />
-          <input type="checkbox" onChange={handlerQuery} name="elevator" value={!queryBlock.elevator} />
+          <input type="checkbox" onChange={changeURL} name="elevator" value={!queryBlock.elevator} />
           <label htmlFor="elevator"> Elevator</label>
           <br />
-          <input type="checkbox" onChange={handlerQuery} name="security" value={!queryBlock.security} />
+          <input type="checkbox" onChange={changeURL} name="security" value={!queryBlock.security} />
           <label htmlFor="secutiry"> Security</label>
           <br />
-          <input type="checkbox" onChange={handlerQuery} name="garden" value={!queryBlock.garden} />
+          <input type="checkbox" onChange={changeURL} name="garden" value={!queryBlock.garden} />
           <label htmlFor="garden"> Garden</label>
         </div>
       </form>

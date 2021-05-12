@@ -30,7 +30,7 @@ const visitDates = require('./src/loaders/visitDates');
 const images = require('./src/loaders/images');
 
 // Syncing all the models at once.
-conn.sync({ force: true }).then(() => {
+conn.sync({ force: false }).then(() => {
   User.bulkCreate(users);
   Post.bulkCreate(posts);
   Comment.bulkCreate(comments);

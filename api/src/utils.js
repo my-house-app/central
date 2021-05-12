@@ -76,42 +76,10 @@ function getCurrentPage(offset, limit) {
   return (offset + limit) / limit;
 }
 
-/**
- * Reconstruye el Enpoint utilizado desde el front
- * @param {* block es un objeto con los atributos que se usaron para los filtro} block
- * @param {* offset es de tipo integer y es desde donde empiezo a traer los datos} offset
- * @returns Un string (endpoint) con todas las re.query que se usaron
- */
-function getCurrentEndPoint(block, limit, offset) {
-  let endpoint = `http://localhost:3001/posts?offset=${offset}`;
-  if (block.post_name) endpoint += `&post_name=${block.post_name}`;
-  if (block.city) endpoint += `&city=${block.city}`;
-  if (block.neighborhood) endpoint += `&neighborhood=${block.neighborhood}`;
-  if (block.priceMin) endpoint += `&priceMin=${block.priceMin}`;
-  if (block.priceMax) endpoint += `&priceMax=${block.priceMax}`;
-  if (block.areaMin) endpoint += `&areaMin=${block.areaMin}`;
-  if (block.areaMax) endpoint += `&areaMax=${block.areaMax}`;
-  if (block.stratum) endpoint += `&stratum=${block.stratum}`;
-  if (block.rooms) endpoint += `&rooms=${block.rooms}`;
-  if (block.bathrooms) endpoint += `&bathrooms=${block.bathrooms}`;
-  if (block.years) endpoint += `&years=${block.years}`;
-  if (block.prop_type) endpoint += `&prop_type=${block.prop_type}`;
-  if (block.pool) endpoint += `&pool=${block.pool}`;
-  if (block.backyard) endpoint += `&backyard=${block.backyard}`;
-  if (block.gym) endpoint += `&gym=${block.gym}`;
-  if (block.bbq) endpoint += `&bbq=${block.bbq}`;
-  if (block.parking_lot) endpoint += `&parking_lot=${block.parking_lot}`;
-  if (block.elevator) endpoint += `&elevator=${block.elevator}`;
-  if (block.security) endpoint += `&security=${block.security}`;
-  if (block.garden) endpoint += `&garden=${block.garden}`;
-  return endpoint;
-}
-
 module.exports = {
   buidlWhere,
   buildEqual,
   buildIlike,
   buildMinMax,
   getCurrentPage,
-  getCurrentEndPoint,
 };

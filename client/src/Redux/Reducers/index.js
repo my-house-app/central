@@ -3,7 +3,6 @@ import {
   PROPERTIES,
   GET_FILTERED_PROPERTIES,
   GET_SEARCHED_POST,
-  GET_NEXT_OR_PREVIOUS_PAGE,
   GET_COORDINATES,
 } from '../Actions/types';
 
@@ -27,14 +26,6 @@ export default function rootReducer(state = initialState, action) {
       selfEndpoint: action.payload.selfEndpoint,
     };
   case GET_FILTERED_PROPERTIES:
-    return {
-      ...state,
-      principal: action.payload.posts,
-      count: action.payload.count,
-      currentPage: action.payload.currentPage,
-      selfEndpoint: action.payload.selfEndpoint,
-    };
-  case GET_NEXT_OR_PREVIOUS_PAGE:
     return {
       ...state,
       principal: action.payload.posts,
