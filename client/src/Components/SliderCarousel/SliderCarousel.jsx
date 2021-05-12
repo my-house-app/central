@@ -32,18 +32,22 @@ const SliderCarousel = ({ elements }) => {
 
   return (
     <section className={slider}>
-      <FontAwesomeIcon
-        size="5x"
-        icon={faAngleLeft}
-        onClick={previous}
-        className={leftArrow}
-      />
-      <FontAwesomeIcon
-        size="5x"
-        icon={faAngleRight}
-        onClick={next}
-        className={rightArrow}
-      />
+      {elementsLength > 1(
+        <>
+          <FontAwesomeIcon
+            size="5x"
+            icon={faAngleLeft}
+            onClick={previous}
+            className={leftArrow}
+          />
+          <FontAwesomeIcon
+            size="5x"
+            icon={faAngleRight}
+            onClick={next}
+            className={rightArrow}
+          />
+        </>,
+      )}
       {elements[0].photo.map((element, index) => (
         <div
           className={index === current ? `${slide} ${active}` : `${slide}`}

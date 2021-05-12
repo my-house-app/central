@@ -2,12 +2,14 @@
 /* eslint-disable func-names */
 import axios from 'axios';
 import { getFilteredPropiertiesService, getAllPostsService, getNextOrPreviousPageService } from '../../Services/properties.service';
-
-// variables que se exportan para el reducer
-export const PROPERTIES = 'properties';
-export const GET_FILTERED_PROPERTIES = 'GET_FILTERED_PROPERTIES';
-export const GET_SEARCHED_POST = 'GET_SEARCHED_POST';
-export const GET_NEXT_OR_PREVIOUS_PAGE = 'GET_NEXT_OR_PREVIOUS_PAGE';
+// actipon types
+import {
+  PROPERTIES,
+  GET_FILTERED_PROPERTIES,
+  GET_SEARCHED_POST,
+  GET_NEXT_OR_PREVIOUS_PAGE,
+  GET_COORDINATES,
+} from './types';
 
 // Actions
 export const getAllPost = () => async function (dispatch) {
@@ -61,5 +63,22 @@ export function getNextOrPreviousPage(link) {
         );
       })
       .catch((e) => console.log('Pagina, error del pedido: ', e));
+  };
+}
+
+export function getCoordinates(adress) {
+  return function (dispatch) {
+    return axios.get(`https://geocode.search.hereapi.com/v1/geocode?q=${adress}`)
+      .then((r) => {
+        const coordinates = {
+          longitude: r.data.items[1].position.lng,
+          latitude: r.data.items[1].position.lat,
+        };
+        dispatch({
+          type: GET_COORDINATES,
+          payload: coordinates,
+        });
+      })
+      .catch((e) => console.error("Couldn't fetch data", e));
   };
 }

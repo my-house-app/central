@@ -22,6 +22,10 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
       isIn: [['Casa', 'Apartamento']],
     },
+    department: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     city: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -30,9 +34,11 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    zip_code: {
+    latitude: {
       type: DataTypes.STRING,
-      allowNull: false,
+    },
+    longitude: {
+      type: DataTypes.STRING,
     },
     description: {
       type: DataTypes.STRING,
