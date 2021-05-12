@@ -2,6 +2,7 @@
   margin-top: 7px;
   background-color: var(--white);
   padding: 10px;
+  position: relative;
 }
 .ctn label{
   cursor: pointer;

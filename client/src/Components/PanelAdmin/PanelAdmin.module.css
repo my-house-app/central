@@ -1,5 +1,6 @@
 .ctn{
   height: 100vh;
+  overflow: hidden;
 }
 .divScroll {
   margin-left: 20%;
