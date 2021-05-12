@@ -28,7 +28,7 @@ const posts = require('./src/loaders/posts');
 const comments = require('./src/loaders/comments');
 const visitDates = require('./src/loaders/visitDates');
 const images = require('./src/loaders/images');
-
+const PORT = process.env.PORT || 3001
 // Syncing all the models at once.
 conn.sync({ force: false }).then(() => {
   User.bulkCreate(users);
@@ -36,7 +36,7 @@ conn.sync({ force: false }).then(() => {
   Comment.bulkCreate(comments);
   VisitDate.bulkCreate(visitDates);
   Image.bulkCreate(images);
-  server.listen(3001, () => {
-    console.log('%s listening at 3001'); // eslint-disable-line no-console
+  server.listen(PORT, () => {
+    console.log(`%s listening at ${PORT}`); // eslint-disable-line no-console
   });
 });
