@@ -32,7 +32,7 @@ const SliderCarousel = ({ elements }) => {
 
   return (
     <section className={slider}>
-      {elementsLength > 1(
+      {elementsLength > 1 && (
         <>
           <FontAwesomeIcon
             size="5x"
@@ -46,7 +46,7 @@ const SliderCarousel = ({ elements }) => {
             onClick={next}
             className={rightArrow}
           />
-        </>,
+        </>
       )}
       {elements[0].photo.map((element, index) => (
         <div
