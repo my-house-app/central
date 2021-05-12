@@ -9,7 +9,7 @@ import SliderCarousel from '../SliderCarousel/SliderCarousel';
 import Map from '../Map/Map';
 import styles from './Details.module.css';
 
-function Details({ routerProps, getCoordinates }) {
+export default function Details({ routerProps, getCoordinates }) {
   const { id } = routerProps.match.params;
 
   const [property, setProperty] = useState('');
@@ -79,10 +79,10 @@ function Details({ routerProps, getCoordinates }) {
           <section className={styles.map_facilities}>
             <article className={styles.map_container}>
               <div>
-                {/* <Map
+                <Map
                   lat={property.latitude}
                   lon={property.longitude}
-                /> */}
+                />
               </div>
             </article>
             <article className={styles.facilities_container}>
@@ -145,17 +145,3 @@ function Details({ routerProps, getCoordinates }) {
     </div>
   );
 }
-
-const mapStateToProps = (state) => ({
-  coordinates: state.coordinates,
-});
-
-function mapDispatchToProps(dispatch) {
-  return {
-    getCoordinates(adress) {
-      dispatch(getCoordinates(adress));
-    },
-  };
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Details);

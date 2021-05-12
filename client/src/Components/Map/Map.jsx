@@ -8,13 +8,14 @@ import style from './Map.module.css';
 import MAP_STYLE from './map-style-basic-v8.json';
 
 export default function Map({ lat, lon }) {
+  console.log(lat, lon);
   const [viewport, setViewport] = useState({
     latitude: lat,
     longitude: lon,
     zoom: 12,
-    width: window.innerWidth,
-    height: window.innerHeight,
-    pitch: 50,
+    width: window.innerWidth / 2,
+    height: window.innerHeight / 2.5,
+    pitch: 40,
   });
   return (
     <div className={style.container}>
@@ -27,9 +28,11 @@ export default function Map({ lat, lon }) {
         <Marker
           latitude={lat}
           longitude={lon}
+          offsetTop={-viewport.zoom * 5 / 3}
         >
           <span
             className={style.marker}
+            styles={{ width: viewport.zoom * 6, height: viewport.zoom * 6 }}
           >
             <FaMapMarkerAlt />
           </span>

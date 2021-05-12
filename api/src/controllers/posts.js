@@ -48,8 +48,8 @@ function addPost(req, res) {
       /* console.log('Longitude: ', r.data.items[0].position.lng);
       console.log('Latitude: ', r.data.items[0].position.lat); */
       const coordinates = {
-        longitude: r.data.items[0].position.lng,
-        latitude: r.data.items[0].position.lat,
+        longitude: parseFloat(r.data.items[0].position.lng),
+        latitude: parseFloat(r.data.items[0].position.lat),
       };
       const newPost = {
         id,
