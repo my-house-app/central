@@ -35,10 +35,10 @@ module.exports = (sequelize) => {
       allowNull: false,
     },
     latitude: {
-      type: DataTypes.STRING,
+      type: DataTypes.FLOAT,
     },
     longitude: {
-      type: DataTypes.STRING,
+      type: DataTypes.FLOAT,
     },
     description: {
       type: DataTypes.STRING,
@@ -92,6 +92,10 @@ module.exports = (sequelize) => {
     },
     security: {
       type: DataTypes.BOOLEAN,
+    },
+    status: {
+      type: DataTypes.STRING,
+      isIn: [['Available', 'Expired', 'Not-available']],
     },
   });
 };
