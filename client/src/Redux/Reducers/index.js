@@ -4,6 +4,8 @@ import {
   GET_FILTERED_PROPERTIES,
   GET_SEARCHED_POST,
   GET_COORDINATES,
+  PROPERTIES_PANEL,
+  GET_ALL_POST_PANEL_NEXT,
 } from '../Actions/types';
 
 const initialState = {
@@ -13,6 +15,7 @@ const initialState = {
   currentPage: '',
   selfEndpoint: '',
   coordinates: {},
+  renderPanel: {},
 };
 
 export default function rootReducer(state = initialState, action) {
@@ -42,6 +45,26 @@ export default function rootReducer(state = initialState, action) {
     return {
       ...state,
       coordinates: action.payload,
+    };
+  case PROPERTIES_PANEL:
+    return {
+      ...state,
+      renderPanel: {
+        render: action.payload.posts,
+        count: action.payload.count,
+        currentPage: action.payload.currentPage,
+        selfEndpoint: action.payload.selfEndpoint,
+      },
+    };
+  case GET_ALL_POST_PANEL_NEXT:
+    return {
+      ...state,
+      renderPanel: {
+        render: action.payload.posts,
+        count: action.payload.count,
+        currentPage: action.payload.currentPage,
+        selfEndpoint: action.payload.selfEndpoint,
+      },
     };
   default:
     return state;
