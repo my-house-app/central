@@ -11,7 +11,7 @@ import style from './Nav.module.css';
 function Nav() {
   const [state, setState] = useState(false);
   window.onscroll = () => {
-    const scroll = document.getElementById('navPanel').getBoundingClientRect().top;
+    const scroll = (() => (document.getElementById('navPanel') ? document.getElementById('navPanel').getBoundingClientRect().top : document.getElementById('navPanel')))();
     const scrollWindow = window.scrollY;
     if (scroll < scrollWindow) setState(true);
     else setState(false);
