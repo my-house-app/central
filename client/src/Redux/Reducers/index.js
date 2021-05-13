@@ -3,7 +3,6 @@ import {
   PROPERTIES,
   GET_FILTERED_PROPERTIES,
   GET_SEARCHED_POST,
-  GET_COORDINATES,
   PROPERTIES_PANEL,
   GET_ALL_POST_PANEL_NEXT,
 } from '../Actions/types';
@@ -15,7 +14,7 @@ const initialState = {
   currentPage: '',
   selfEndpoint: '',
   coordinates: {},
-  renderPanel: { renderDetails: [] },
+  renderPanel: { renderDetails: [], render: [] },
 };
 
 export default function rootReducer(state = initialState, action) {
@@ -40,11 +39,6 @@ export default function rootReducer(state = initialState, action) {
     return {
       ...state,
       searched: action.payload,
-    };
-  case GET_COORDINATES:
-    return {
-      ...state,
-      coordinates: action.payload,
     };
   case PROPERTIES_PANEL:
     return {

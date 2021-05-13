@@ -6,9 +6,9 @@ import {
   faHouseUser,
   faComments,
 } from '@fortawesome/free-solid-svg-icons';
-import style from './Nav.module.css';
+import style from './SideMenu.module.css';
 
-function Nav() {
+function SideMenu() {
   const [state, setState] = useState(false);
   window.onscroll = () => {
     const scroll = (() => (document.getElementById('navPanel') ? document.getElementById('navPanel').getBoundingClientRect().top : document.getElementById('navPanel')))();
@@ -21,7 +21,7 @@ function Nav() {
       <label>NAVIGATION</label>
       <div className={style.divTitle}>
         <h3>Users Management</h3>
-        <NavLink to="/admin/users" activeStyle={{ color: '#dadada' }}>
+        <NavLink to="/panel/admin/users" activeStyle={{ color: '#dadada' }}>
           <h3>
             <FontAwesomeIcon icon={faUser} />
             {' Users'}
@@ -30,13 +30,13 @@ function Nav() {
       </div>
       <div className={style.divTitle}>
         <h3>Posts Management</h3>
-        <NavLink to="/admin/posts" activeStyle={{ color: '#dadada' }}>
+        <NavLink to="/panel/admin/posts" activeStyle={{ color: '#dadada' }}>
           <h3>
             <FontAwesomeIcon icon={faHouseUser} />
             {' Posts'}
           </h3>
         </NavLink>
-        <NavLink to="/admin/comments" activeStyle={{ color: '#dadada' }}>
+        <NavLink to="/panel/admin/comments" activeStyle={{ color: '#dadada' }}>
           <h3>
             <FontAwesomeIcon icon={faComments} />
             {' Comments'}
@@ -47,4 +47,4 @@ function Nav() {
   );
 }
 
-export default Nav;
+export default SideMenu;

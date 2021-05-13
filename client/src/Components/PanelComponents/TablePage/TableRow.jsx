@@ -1,28 +1,27 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import ButtonOptions from '../ButtonOptions/ButtonOptions';
-import style from './TableRow.module.css';
+import style from './TablePage.module.css';
 
-function TableRow({
-  column1, column2Link, column3, path, id,
+export default function TableRow({
+  column1, column2Link, column3, path, buttonPath, id, buttonRole,
 }) {
   return (
     <tr>
       <td>{column1}</td>
       <td>
-        <NavLink to={`/admin/${path}/${column2Link}`} className={style.link}>
+        <NavLink to={`/panel/${buttonRole}/${path}/${column2Link}`} className={style.link}>
           {column2Link}
         </NavLink>
       </td>
       <td>{column3}</td>
       <td>
         <ButtonOptions
+          buttonRole={buttonRole}
           id={id}
-          path="posts"
+          buttonPath={buttonPath}
         />
       </td>
     </tr>
   );
 }
-
-export default TableRow;
