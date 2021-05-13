@@ -7,6 +7,7 @@ import Dashboard from './Dashboard/Dashboard';
 import Posts from './Posts/Posts';
 import Users from './Users/Users';
 import Comments from './Comments/Comments';
+import DetailsPanel from './DetailsPanel/DetailsPanel';
 
 function PanelAdmin() {
   return (
@@ -44,6 +45,13 @@ function PanelAdmin() {
           path="/admin/comments"
           component={
             Comments
+          }
+        />
+        <Route
+          exact
+          path="/admin/:path/:id" // example the path: post, user, reservations, comments
+          component={
+            DetailsPanel
           }
         />
       </div>
