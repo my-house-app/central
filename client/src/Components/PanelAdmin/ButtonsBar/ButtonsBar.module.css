@@ -2,6 +2,7 @@
   margin-top: 7px;
   background-color: var(--white);
   padding: 10px;
+  position: relative;
 }
 .ctn label{
   cursor: pointer;
@@ -30,6 +31,7 @@
   transition: all 0.3s ease-in-out;
   width: 45%;
   text-align: center;
+  border: none;
 }
 
 .btnBar:hover {

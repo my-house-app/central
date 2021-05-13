@@ -22,6 +22,10 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
       isIn: [['Casa', 'Apartamento']],
     },
+    department: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     city: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -30,9 +34,11 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    zip_code: {
-      type: DataTypes.STRING,
-      allowNull: false,
+    latitude: {
+      type: DataTypes.FLOAT,
+    },
+    longitude: {
+      type: DataTypes.FLOAT,
     },
     description: {
       type: DataTypes.STRING,
@@ -86,6 +92,10 @@ module.exports = (sequelize) => {
     },
     security: {
       type: DataTypes.BOOLEAN,
+    },
+    status: {
+      type: DataTypes.STRING,
+      isIn: [['Available', 'Expired', 'Not-available']],
     },
   });
 };

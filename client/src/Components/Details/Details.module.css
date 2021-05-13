@@ -26,8 +26,26 @@ article.address_detail {
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
-  margin: 0;
   width: 20%;
+}
+article.address_detail p{
+  margin: 0.5rem 0;
+}
+article.address_detail .price {
+  font-size: 2em;
+}
+
+article.address_detail .details {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  width: 100%;
+  margin: 5% auto;
+}
+
+.dicon{
+  margin-left: 1em;
+  color: var(--dark);
 }
 
 /* article.hero_carousel {

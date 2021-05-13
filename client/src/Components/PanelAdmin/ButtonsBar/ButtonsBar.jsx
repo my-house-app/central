@@ -6,6 +6,11 @@ import {
 import { NavLink } from 'react-router-dom';
 import Filter from './Filter/Filter';
 import style from './ButtonsBar.module.css';
+import '../globalFilters.css';
+
+function openFilters() {
+  document.getElementById('filters').className = 'openFilter';
+}
 
 function Header() {
   return (
@@ -22,13 +27,13 @@ function Header() {
             <FontAwesomeIcon icon={faPlus} />
             {' Create'}
           </NavLink>
-          <span className={style.btnBar}>
+          <button type="button" className={style.btnBar} onClick={openFilters}>
             <FontAwesomeIcon icon={faSlidersH} />
             {' Filter'}
-          </span>
+          </button>
         </div>
       </div>
-      {/* <Filter /> */}
+      <Filter />
     </div>
   );
 }

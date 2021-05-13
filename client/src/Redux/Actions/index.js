@@ -1,13 +1,16 @@
 /* eslint-disable no-console */
 /* eslint-disable func-names */
 import axios from 'axios';
-import { getFilteredPropiertiesService, getAllPostsService, getNextOrPreviousPageService } from '../../Services/properties.service';
-
-// variables que se exportan para el reducer
-export const PROPERTIES = 'properties';
-export const GET_FILTERED_PROPERTIES = 'GET_FILTERED_PROPERTIES';
-export const GET_SEARCHED_POST = 'GET_SEARCHED_POST';
-export const GET_NEXT_OR_PREVIOUS_PAGE = 'GET_NEXT_OR_PREVIOUS_PAGE';
+import { getFilteredPropiertiesService, getAllPostsService } from '../../Services/properties.service';
+// actipon types
+import {
+  PROPERTIES,
+  GET_FILTERED_PROPERTIES,
+  GET_SEARCHED_POST,
+  GET_COORDINATES,
+  PROPERTIES_PANEL,
+  GET_ALL_POST_PANEL_NEXT,
+} from './types';
 
 // Actions
 export const getAllPost = () => async function (dispatch) {
@@ -49,17 +52,47 @@ export function searchedPost(payload) {
   };
 }
 
-export function getNextOrPreviousPage(link) {
+export function getCoordinates(adress) {
+  return function (dispatch) {
+    return axios.get(`https://geocode.search.hereapi.com/v1/geocode?q=${adress}`)
+      .then((r) => {
+        const coordinates = {
+          longitude: r.data.items[1].position.lng,
+          latitude: r.data.items[1].position.lat,
+        };
+        dispatch({
+          type: GET_COORDINATES,
+          payload: coordinates,
+        });
+      })
+      .catch((e) => console.error("Couldn't fetch data", e));
+  };
+}
+
+export const getAllPostPanel = () => async function (dispatch) {
+  return getAllPostsService()
+    .then((res) => {
+      dispatch(
+        {
+          type: PROPERTIES_PANEL,
+          payload: res.data,
+        },
+      );
+    })
+    .catch((e) => console.log('Error getAllPost: ', e));
+};
+
+export function getAllPostPanelNext(queryBlock) {
   return async function (dispatch) {
-    return getNextOrPreviousPageService(link)
+    return getFilteredPropiertiesService(queryBlock)
       .then((res) => {
         dispatch(
           {
-            type: GET_NEXT_OR_PREVIOUS_PAGE,
+            type: GET_ALL_POST_PANEL_NEXT,
             payload: res.data,
           },
         );
       })
-      .catch((e) => console.log('Pagina, error del pedido: ', e));
+      .catch((e) => console.log('Error getFilteredPropiertiesService: ', e));
   };
 }

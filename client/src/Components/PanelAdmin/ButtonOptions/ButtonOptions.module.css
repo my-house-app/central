@@ -1,0 +1,32 @@
+.ctn {
+  width: 50px;
+  text-align: center;
+}
+.checkbox {
+  display: none;
+}
+.checkbox:hover ~ .nav{
+  visibility: visible;
+}
+.nav{
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  width: 90px;
+  transition: all 0.5s ease-in-out;
+  transform: translate(-90%, -20%);
+  visibility: hidden;
+  z-index: 10;
+  background-color: var(--white);
+  padding: 5px;
+  width: auto;
+}
+.nav:hover {
+  visibility: visible;
+}
+.NavLink {
+  /* padding: 3px; */
+}
+.NavLink:hover {
+  color: var(--blue);
+}

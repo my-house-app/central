@@ -1,34 +1,26 @@
-/* eslint-disable no-plusplus */
-/* eslint-disable guard-for-in */
-/* eslint-disable no-restricted-syntax */
-/* eslint-disable prefer-const */
-/* eslint-disable jsx-a11y/no-static-element-interactions */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import { FaRegTimesCircle } from 'react-icons/fa';
-import { useHistory } from 'react-router-dom';
-import style from './Filter.module.css';
-import { getFilteredPropierties } from '../../Redux/Actions';
+// eslint-disable-next-line import/extensions
+import { getFilteredPropierties } from '../../../../../Redux/Actions/index.js';
+import style from './FilterPosts.module.css';
 
-function Filter({ searched, filter }) {
-  const history = useHistory();
-  const querystring = window.location.search;// '?post_name=cas&rooms=3&page=4&bathrooms=0'
-  const params = new URLSearchParams(querystring);
-  const [URL, setURL] = useState('');
+function FilterPosts({ searched, filter }) {
   const initialState = {
-    post_name: searched, // search by postName
-    prop_type: '', // select
-    city: '', // input
-    stratum: '', // select es un numero
-    neighborhood: '', // input
+    post_name: searched,
+    prop_type: '',
+    city: '',
+    stratum: '',
+    neighborhood: '',
     priceMin: '',
     priceMax: '',
     areaMin: '',
     areaMax: '',
-    rooms: '', // input number
-    bathrooms: '', // input number
-    years: '', // input number
+    rooms: '',
+    bathrooms: '',
+    years: '',
     pool: false,
     backyard: false,
     gym: false,
@@ -38,58 +30,36 @@ function Filter({ searched, filter }) {
     security: false,
     garden: false,
   };
+
   const [queryBlock, setQueryBlock] = useState(initialState);
 
-  function changeURL(event) {
-    // console.log('window.location.search: ', window.location);
-    params.set(event.target.name, event.target.value);
-    history.push(`/home?${params.toString()}`);
-    setURL(window.location.href);
+  function handlerQuery(event) {
+    setQueryBlock(
+      {
+        ...queryBlock,
+        [event.target.name]: event.target.value,
+        searched,
+      },
+    );
+    filter({
+      ...queryBlock,
+      [event.target.name]: event.target.value,
+    });
   }
 
   useEffect(() => {
-    params.set('post_name', searched);
-    if (!params.get('post_name')) {
-      params.delete('post_name');
-    }
-    history.push(`/home?${params.toString()}`);
     setQueryBlock({
       ...queryBlock,
       post_name: searched,
-    });// filter busca a la api externa
+    });
     filter({
       ...queryBlock,
       post_name: searched,
     });
   }, [searched]);
 
-  useEffect(() => {
-    console.log('Hay cambios en la URL: ', URL);
-    const paramsKeys = Object.keys(queryBlock);
-    // traigo todos los valores del path y los pongo en mi queryBlock
-    for (let i = 0; i < paramsKeys.length; i++) {
-      queryBlock[paramsKeys[i]] = params.get(paramsKeys[i]);
-      // elimino una query en el params si es null
-      if (!params.get(paramsKeys[i])) {
-        params.delete(paramsKeys[i]);
-        history.push(`/home?${params.toString()}`);
-      }
-    }
-
-    setQueryBlock({
-      ...queryBlock,
-      post_name: searched,
-    });
-    filter({
-      ...queryBlock,
-      post_name: searched,
-    });
-  }, [URL]);
-
   function clear() {
-    history.push('/home');
     setQueryBlock(initialState);
-    filter({});
     document.getElementById('form').reset();
   }
 
@@ -97,9 +67,9 @@ function Filter({ searched, filter }) {
 
   return (
     <div className={style.filter}>
-      <div type="button" className={style.closeIcon} onClick={clear}>
+      {/* <div type="button" className={style.closeIcon} onClick={clear}>
         <FaRegTimesCircle />
-      </div>
+      </div> */}
       <form id="form" className={style.form}>
         {/* City */}
         <div className={style.field}>
@@ -111,7 +81,7 @@ function Filter({ searched, filter }) {
               name="city"
               placeholder="City"
               value={queryBlock.city}
-              onChange={changeURL}
+              onChange={handlerQuery}
             />
           </label>
         </div>
@@ -126,7 +96,7 @@ function Filter({ searched, filter }) {
               name="neighborhood"
               placeholder="Neighborhood"
               value={queryBlock.neighborhood}
-              onChange={changeURL}
+              onChange={handlerQuery}
             />
           </label>
         </div>
@@ -134,24 +104,26 @@ function Filter({ searched, filter }) {
         {/* Price min y max */}
         <div className={style.field}>
           Price:&nbsp;
-          <div className={style.from_to}>
-            from&nbsp;
+          <div className={style.from_to_ctn}>
+            <div className={style.from_to}>
+              from&nbsp;
+              &nbsp;to&nbsp;
+            </div>
             <input
               className={style.inputMinMax}
               type="text"
               name="priceMin"
               placeholder="min"
               value={queryBlock.priceMin}
-              onChange={changeURL}
+              onChange={handlerQuery}
             />
-            &nbsp;to&nbsp;
             <input
               className={style.inputMinMax}
               type="text"
               name="priceMax"
               placeholder="max"
               value={queryBlock.priceMax}
-              onChange={changeURL}
+              onChange={handlerQuery}
             />
           </div>
         </div>
@@ -166,7 +138,7 @@ function Filter({ searched, filter }) {
               name="rooms"
               placeholder="0"
               value={queryBlock.rooms}
-              onChange={changeURL}
+              onChange={handlerQuery}
             />
           </label>
         </div>
@@ -181,7 +153,7 @@ function Filter({ searched, filter }) {
               name="bathrooms"
               placeholder="0"
               value={queryBlock.bathrooms}
-              onChange={changeURL}
+              onChange={handlerQuery}
             />
           </label>
         </div>
@@ -189,30 +161,31 @@ function Filter({ searched, filter }) {
         {/* Area min y max */}
         <div className={style.field}>
           Area:&nbsp;
-          <div className={style.from_to}>
-            from&nbsp;
+          <div className={style.from_to_ctn}>
+            <div className={style.from_to}>
+              from&nbsp;
+              &nbsp;to&nbsp;
+            </div>
             <input
               className={style.inputMinMax}
               type="text"
               name="areaMin"
               placeholder="min"
               value={queryBlock.areaMin}
-              onChange={changeURL}
+              onChange={handlerQuery}
             />
-            &nbsp;to&nbsp;
             <input
               className={style.inputMinMax}
               type="text"
               name="areaMax"
               placeholder="max"
               value={queryBlock.areaMax}
-              onChange={changeURL}
+              onChange={handlerQuery}
             />
           </div>
         </div>
 
         {/* Stratum */}
-        {/* Hay que cambiarlo debería ser un input type number */}
         <div className={style.field}>
           <label>
             Stratum:  &nbsp;
@@ -224,16 +197,18 @@ function Filter({ searched, filter }) {
               min="0"
               max="6"
               value={queryBlock.stratum}
-              onChange={changeURL}
+              onChange={handlerQuery}
             />
           </label>
         </div>
 
         {/* Type of property */}
         <div className={style.field}>
-          <select className={style.selectFilter} name="prop_type" value={queryBlock.prop_type} onChange={changeURL}>
+          <select className={style.selectFilter} name="prop_type" value={queryBlock.prop_type} onChange={handlerQuery}>
             <option value="">Type of property</option>
             {['Casa', 'Apartamento'].map((type) => (<option value={type}>{type}</option>))}
+            {/* {['Barrio', 'Antigüedad'].map((g) =>
+            (<option key={g.id} value={g.name}>{g.name}</option>))} */}
           </select>
         </div>
 
@@ -246,8 +221,8 @@ function Filter({ searched, filter }) {
               type="number"
               name="years"
               value={queryBlock.years}
+              onChange={handlerQuery}
               min="0"
-              onChange={changeURL}
             />
           </label>
         </div>
@@ -259,28 +234,28 @@ function Filter({ searched, filter }) {
           </p>
         </div>
         <div className={display ? style.facilities : style.noFacilities}>
-          <input type="checkbox" onChange={changeURL} name="pool" value={!queryBlock.pool} />
+          <input type="checkbox" onChange={handlerQuery} name="pool" value={!queryBlock.pool} />
           <label htmlFor="pool"> Swimming pool</label>
           <br />
-          <input type="checkbox" onChange={changeURL} name="backyard" value={!queryBlock.backyard} />
+          <input type="checkbox" onChange={handlerQuery} name="backyard" value={!queryBlock.backyard} />
           <label htmlFor="backyard"> Backyard</label>
           <br />
-          <input type="checkbox" onChange={changeURL} name="gym" value={!queryBlock.gym} />
+          <input type="checkbox" onChange={handlerQuery} name="gym" value={!queryBlock.gym} />
           <label htmlFor="gym"> Gym</label>
           <br />
-          <input type="checkbox" onChange={changeURL} name="bbq" value={!queryBlock.bbq} />
+          <input type="checkbox" onChange={handlerQuery} name="bbq" value={!queryBlock.bbq} />
           <label htmlFor="bbq"> Barbecue</label>
           <br />
-          <input type="checkbox" onChange={changeURL} name="parking_lot" value={!queryBlock.parking_lot} />
+          <input type="checkbox" onChange={handlerQuery} name="parking_lot" value={!queryBlock.parking_lot} />
           <label htmlFor="parking_lot"> Parking lot</label>
           <br />
-          <input type="checkbox" onChange={changeURL} name="elevator" value={!queryBlock.elevator} />
+          <input type="checkbox" onChange={handlerQuery} name="elevator" value={!queryBlock.elevator} />
           <label htmlFor="elevator"> Elevator</label>
           <br />
-          <input type="checkbox" onChange={changeURL} name="security" value={!queryBlock.security} />
+          <input type="checkbox" onChange={handlerQuery} name="security" value={!queryBlock.security} />
           <label htmlFor="secutiry"> Security</label>
           <br />
-          <input type="checkbox" onChange={changeURL} name="garden" value={!queryBlock.garden} />
+          <input type="checkbox" onChange={handlerQuery} name="garden" value={!queryBlock.garden} />
           <label htmlFor="garden"> Garden</label>
         </div>
       </form>
@@ -296,4 +271,4 @@ const mapDispatchToProps = (dispatch) => ({
   filter: (queryBlock) => dispatch(getFilteredPropierties(queryBlock)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Filter);
+export default connect(mapStateToProps, mapDispatchToProps)(FilterPosts);

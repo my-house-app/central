@@ -3,16 +3,22 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable no-use-before-define */
 import React, { useState, useEffect, Fragment } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { getNextOrPreviousPage } from '../../Redux/Actions/index';
+import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+import { getFilteredPropierties } from '../../Redux/Actions/index';
 import './Paginacion.css';
 
-function Paginacion({ count, paginaActual, limit }) {
-  const { selfEndpoint } = useSelector((state) => state);
+function Paginacion({
+  count, paginaActual, limit, functionNext = getFilteredPropierties, path = '/home',
+}) {
   const dispatch = useDispatch();
   const ultimaPagina = Math.ceil(count / limit);
   const [listaDePaginas, setListaDePaginas] = useState(range(ultimaPagina));
   const primeraPagina = 1;
+  const history = useHistory();
+
+  const querystring = window.location.search;
+  const params = new URLSearchParams(querystring);
 
   // endpoint = `http://localhost:3001/posts?offset=45`;
   useEffect(() => {
@@ -20,23 +26,19 @@ function Paginacion({ count, paginaActual, limit }) {
     setListaDePaginas(range(ultimaPagina));// [1,2,3,4,...,100]
   }, [count]);
 
-  // console.log("componente paginacion")
   function paginate(numero) {
     const offset = (numero * limit) - limit;
-    let link = selfEndpoint.slice(0, selfEndpoint.indexOf('=') + 1) + offset; // si es la unica query
-
-    if (selfEndpoint.indexOf('&') !== -1) { // si tiene mas queries
-      link += selfEndpoint.slice(selfEndpoint.indexOf('&'));
-    }
-
-    dispatch(getNextOrPreviousPage(link));
+    params.set('page', numero);
+    history.push(`${path}?${params.toString()}`);
+    dispatch(functionNext());
+    window.scrollTo(0, 0);
   }
 
   // intentar mejorarlo
   // intentar usar use memo
   // eslint-disable-next-line consistent-return
   function updateNumeroDePaginas(numero) {
-    console.log('updateNumeroDePaginas');
+    console.log('updateNumeroDePaginas: ', numero);
     if (numero === 1 || numero === 2) {
       return listaDePaginas.slice(0, 5);
     }

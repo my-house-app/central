@@ -1,0 +1,14 @@
+.ctnList {
+  width: 95%;
+  margin: 15px auto;
+  background-color: var(--white);
+  text-align: justify;
+  padding: 15px;
+  box-shadow: 2px 4px 6px 3px var(--blackShadow);
+}
+.ctnList tr{
+  height: 40px;
+}
+.ctnList tr:hover{
+  background-color: #dadada;
+}
