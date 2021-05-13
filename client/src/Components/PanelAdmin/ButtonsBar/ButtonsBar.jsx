@@ -27,10 +27,10 @@ function Header() {
             <FontAwesomeIcon icon={faPlus} />
             {' Create'}
           </NavLink>
-          <span className={style.btnBar}>
-            <FontAwesomeIcon icon={faSlidersH} onClick={openFilters} />
+          <button type="button" className={style.btnBar} onClick={openFilters}>
+            <FontAwesomeIcon icon={faSlidersH} />
             {' Filter'}
-          </span>
+          </button>
         </div>
       </div>
       <Filter />

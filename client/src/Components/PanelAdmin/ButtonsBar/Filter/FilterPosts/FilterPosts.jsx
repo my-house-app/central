@@ -9,18 +9,18 @@ import style from './FilterPosts.module.css';
 
 function FilterPosts({ searched, filter }) {
   const initialState = {
-    post_name: searched, // search by postName
-    prop_type: '', // select
-    city: '', // input
-    stratum: '', // select es un numero
-    neighborhood: '', // input
+    post_name: searched,
+    prop_type: '',
+    city: '',
+    stratum: '',
+    neighborhood: '',
     priceMin: '',
     priceMax: '',
     areaMin: '',
     areaMax: '',
-    rooms: '', // input number
-    bathrooms: '', // input number
-    years: '', // input number
+    rooms: '',
+    bathrooms: '',
+    years: '',
     pool: false,
     backyard: false,
     gym: false,
@@ -67,9 +67,9 @@ function FilterPosts({ searched, filter }) {
 
   return (
     <div className={style.filter}>
-      <div type="button" className={style.closeIcon} onClick={clear}>
+      {/* <div type="button" className={style.closeIcon} onClick={clear}>
         <FaRegTimesCircle />
-      </div>
+      </div> */}
       <form id="form" className={style.form}>
         {/* City */}
         <div className={style.field}>
@@ -104,8 +104,11 @@ function FilterPosts({ searched, filter }) {
         {/* Price min y max */}
         <div className={style.field}>
           Price:&nbsp;
-          <div className={style.from_to}>
-            from&nbsp;
+          <div className={style.from_to_ctn}>
+            <div className={style.from_to}>
+              from&nbsp;
+              &nbsp;to&nbsp;
+            </div>
             <input
               className={style.inputMinMax}
               type="text"
@@ -114,7 +117,6 @@ function FilterPosts({ searched, filter }) {
               value={queryBlock.priceMin}
               onChange={handlerQuery}
             />
-            &nbsp;to&nbsp;
             <input
               className={style.inputMinMax}
               type="text"
@@ -159,8 +161,11 @@ function FilterPosts({ searched, filter }) {
         {/* Area min y max */}
         <div className={style.field}>
           Area:&nbsp;
-          <div className={style.from_to}>
-            from&nbsp;
+          <div className={style.from_to_ctn}>
+            <div className={style.from_to}>
+              from&nbsp;
+              &nbsp;to&nbsp;
+            </div>
             <input
               className={style.inputMinMax}
               type="text"
@@ -169,7 +174,6 @@ function FilterPosts({ searched, filter }) {
               value={queryBlock.areaMin}
               onChange={handlerQuery}
             />
-            &nbsp;to&nbsp;
             <input
               className={style.inputMinMax}
               type="text"
@@ -182,7 +186,6 @@ function FilterPosts({ searched, filter }) {
         </div>
 
         {/* Stratum */}
-        {/* Hay que cambiarlo debería ser un input type number */}
         <div className={style.field}>
           <label>
             Stratum:  &nbsp;
