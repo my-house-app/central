@@ -14,7 +14,7 @@ function Filter() {
   return (
     <div className={style.ctn}>
       <div id="filters">
-        <button type="button" onClick={closeFilters}>
+        <button type="button" className={style.btnFilter} onClick={closeFilters}>
           <FontAwesomeIcon icon={faChevronCircleRight} />
           {' Filters '}
         </button>

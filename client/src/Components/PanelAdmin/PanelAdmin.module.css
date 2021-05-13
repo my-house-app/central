@@ -1,6 +1,7 @@
 .ctn{
   min-height: 100vh;
   background-color: #dadada;
+  overflow: hidden;
 
 }
 .divScroll {
