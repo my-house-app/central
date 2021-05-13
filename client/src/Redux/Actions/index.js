@@ -8,6 +8,8 @@ import {
   GET_FILTERED_PROPERTIES,
   GET_SEARCHED_POST,
   GET_COORDINATES,
+  PROPERTIES_PANEL,
+  GET_ALL_POST_PANEL_NEXT,
 } from './types';
 
 // Actions
@@ -64,5 +66,33 @@ export function getCoordinates(adress) {
         });
       })
       .catch((e) => console.error("Couldn't fetch data", e));
+  };
+}
+
+export const getAllPostPanel = () => async function (dispatch) {
+  return getAllPostsService()
+    .then((res) => {
+      dispatch(
+        {
+          type: PROPERTIES_PANEL,
+          payload: res.data,
+        },
+      );
+    })
+    .catch((e) => console.log('Error getAllPost: ', e));
+};
+
+export function getAllPostPanelNext(queryBlock) {
+  return async function (dispatch) {
+    return getFilteredPropiertiesService(queryBlock)
+      .then((res) => {
+        dispatch(
+          {
+            type: GET_ALL_POST_PANEL_NEXT,
+            payload: res.data,
+          },
+        );
+      })
+      .catch((e) => console.log('Error getFilteredPropiertiesService: ', e));
   };
 }

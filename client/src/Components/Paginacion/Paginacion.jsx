@@ -8,7 +8,9 @@ import { useHistory } from 'react-router-dom';
 import { getFilteredPropierties } from '../../Redux/Actions/index';
 import './Paginacion.css';
 
-function Paginacion({ count, paginaActual, limit }) {
+function Paginacion({
+  count, paginaActual, limit, functionNext = getFilteredPropierties, path = '/home',
+}) {
   const dispatch = useDispatch();
   const ultimaPagina = Math.ceil(count / limit);
   const [listaDePaginas, setListaDePaginas] = useState(range(ultimaPagina));
@@ -27,8 +29,9 @@ function Paginacion({ count, paginaActual, limit }) {
   function paginate(numero) {
     const offset = (numero * limit) - limit;
     params.set('page', numero);
-    history.push(`/home?${params.toString()}`);
-    dispatch(getFilteredPropierties());
+    history.push(`${path}?${params.toString()}`);
+    dispatch(functionNext());
+    window.scrollTo(0, 0);
   }
 
   // intentar mejorarlo
