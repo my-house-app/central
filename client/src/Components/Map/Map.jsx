@@ -8,14 +8,13 @@ import style from './Map.module.css';
 import MAP_STYLE from './map-style-basic-v8.json';
 
 export default function Map({ lat, lon }) {
-  console.log(lat, lon);
   const [viewport, setViewport] = useState({
     latitude: lat,
     longitude: lon,
-    zoom: 12,
+    zoom: 15,
     width: window.innerWidth / 2,
     height: window.innerHeight / 2.5,
-    pitch: 40,
+    pitch: 50,
   });
   return (
     <div className={style.container}>

@@ -7,7 +7,6 @@ import {
   PROPERTIES,
   GET_FILTERED_PROPERTIES,
   GET_SEARCHED_POST,
-  GET_COORDINATES,
   PROPERTIES_PANEL,
   GET_ALL_POST_PANEL_NEXT,
 } from './types';
@@ -49,23 +48,6 @@ export function searchedPost(payload) {
         payload,
       },
     );
-  };
-}
-
-export function getCoordinates(adress) {
-  return function (dispatch) {
-    return axios.get(`https://geocode.search.hereapi.com/v1/geocode?q=${adress}`)
-      .then((r) => {
-        const coordinates = {
-          longitude: r.data.items[1].position.lng,
-          latitude: r.data.items[1].position.lat,
-        };
-        dispatch({
-          type: GET_COORDINATES,
-          payload: coordinates,
-        });
-      })
-      .catch((e) => console.error("Couldn't fetch data", e));
   };
 }
 
