@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import ButtonsBar from '../ButtonsBar/ButtonsBar';
 import { getAllPostPanel, getAllPostPanelNext } from '../../../Redux/Actions/index';
 import Paginacion from '../../Paginacion/Paginacion';
-import PostCard from './PostCard/PostCard';
+import TableRow from '../TableRow/TableRow';
 import style from './Posts.module.css';
 
 function Posts({ renderPanel, AllPost }) {
@@ -14,11 +14,12 @@ function Posts({ renderPanel, AllPost }) {
     if (!render) AllPost();
   }, []);
   const list = render?.map((e) => (
-    <PostCard
-      name={e.post_name}
-      userId={e.userId}
-      city={e.city}
+    <TableRow
+      column1={e.post_name}
+      column2Link={e.userId}
+      column3={e.city}
       id={e.id}
+      path="user"
     />
   ));
   return (

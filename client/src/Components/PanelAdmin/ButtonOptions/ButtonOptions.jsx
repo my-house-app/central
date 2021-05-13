@@ -9,7 +9,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import style from './ButtonOptions.module.css';
 
-function ButtonOptions({ id }) {
+function ButtonOptions({ id, path }) {
   return (
     <div className={style.ctn}>
       <input type="checkbox" id={id} className={style.checkbox} />
@@ -17,15 +17,15 @@ function ButtonOptions({ id }) {
         <FontAwesomeIcon icon={faEllipsisH} />
       </label>
       <nav className={style.nav}>
-        <NavLink to="/admin/posts/show">
+        <NavLink to={`/admin/${path}/${id}`} className={style.NavLink}>
           <FontAwesomeIcon icon={faEye} />
           {' Show'}
         </NavLink>
-        <NavLink to="/admin/posts/edit">
+        <NavLink to="/admin/posts/edit" className={style.NavLink}>
           <FontAwesomeIcon icon={faEdit} />
           {' Edit'}
         </NavLink>
-        <NavLink to="/admin/posts/edit">
+        <NavLink to="/admin/posts/delete" className={style.NavLink}>
           <FontAwesomeIcon icon={faTrashAlt} />
           {' Delete'}
         </NavLink>

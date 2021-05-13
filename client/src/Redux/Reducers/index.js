@@ -15,7 +15,7 @@ const initialState = {
   currentPage: '',
   selfEndpoint: '',
   coordinates: {},
-  renderPanel: {},
+  renderPanel: { renderDetails: [] },
 };
 
 export default function rootReducer(state = initialState, action) {
@@ -50,6 +50,7 @@ export default function rootReducer(state = initialState, action) {
     return {
       ...state,
       renderPanel: {
+        ...state.renderPanel,
         render: action.payload.posts,
         count: action.payload.count,
         currentPage: action.payload.currentPage,
@@ -60,6 +61,7 @@ export default function rootReducer(state = initialState, action) {
     return {
       ...state,
       renderPanel: {
+        ...state.renderPanel,
         render: action.payload.posts,
         count: action.payload.count,
         currentPage: action.payload.currentPage,
