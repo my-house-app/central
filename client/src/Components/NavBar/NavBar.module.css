@@ -36,7 +36,7 @@ nav {
   color: var(--white);
 }
 
-.signin {
+/* .signin {
   color: var(--white);
   text-decoration: none;
   font-size: 1rem;
@@ -51,4 +51,4 @@ nav {
   transition: all .3s ease-in-out;
   background-color: var(--dark);
   box-shadow: 1px 1px 0px #bdbdbd;
-}
+} */
