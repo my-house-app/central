@@ -4,7 +4,6 @@ import axios from 'axios';
 
 const { REACT_APP_API_BASE_ENDPOINT } = process.env;
 
-
 export async function getFilteredPropiertiesService() {
   let endpoint = `${REACT_APP_API_BASE_ENDPOINT}/posts`;
   endpoint += window.location.search;
