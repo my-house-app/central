@@ -38,7 +38,7 @@ function PostsAdmin({ renderPanel, AllPost }) {
         limit={10}
         functionNext={getAllPostPanelNext}
         self={selfEndpoint}
-        pagsPath="panel/admin/posts"
+        pagsPath="/panel/admin/posts"
       />
     </div>
   );
