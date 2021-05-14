@@ -8,7 +8,19 @@ import TableRows from './TableRow';
 import style from './TablePage.module.css';
 
 function TablePage({
-  tableName, columns, data, buttonRole, buttonPath,
+  tableName,
+  columns,
+  data,
+  buttonRole,
+  buttonPath,
+  path,
+  count,
+  paginaActual,
+  limit,
+  functionNext,
+  selfEndpoint,
+  pagsPath,
+
 }) {
   return (
     <>
@@ -30,10 +42,21 @@ function TablePage({
               id={e.id}
               buttonPath={buttonPath}
               buttonRole={buttonRole}
+              path={path}
             />
           ))}
         </tbody>
       </table>
+      {count && (
+        <Paginacion
+          count={count}
+          paginaActual={paginaActual}
+          limit={limit}
+          functionNext={functionNext}
+          self={selfEndpoint}
+          path={pagsPath}
+        />
+      )}
     </>
   );
 }
