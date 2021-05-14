@@ -5,12 +5,12 @@ import {
   Switch,
   Redirect,
 } from 'react-router-dom';
-import Home from './Pages/Home';
+import Home from './Pages/Home/Home';
 import NavBar from './Components/NavBar/NavBar';
-import Details from './Components/Details/Details';
-import About from './Components/About/About';
-import Signin from './Components/Signin/Signin';
-import PanelAdmin from './Components/PanelAdmin/PanelAdmin';
+import Details from './Pages/Details/Details';
+import About from './Pages/About/About';
+import Signin from './Pages/Signin/Signin';
+import PanelRoutes from './Pages/Panel/PanelRoutes';
 
 export default function MyHouseRoutes() {
   return (
@@ -35,8 +35,8 @@ export default function MyHouseRoutes() {
             component={Signin}
           />
           <Route
-            path="/admin"
-            component={PanelAdmin}
+            path="/panel"
+            component={PanelRoutes}
           />
         </Switch>
         {/* <Footer/> */}
