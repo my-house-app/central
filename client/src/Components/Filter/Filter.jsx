@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 /* eslint-disable no-plusplus */
 /* eslint-disable guard-for-in */
 /* eslint-disable no-restricted-syntax */
@@ -11,7 +12,9 @@ import { useHistory } from 'react-router-dom';
 import style from './Filter.module.css';
 import { getFilteredPropierties } from '../../Redux/Actions';
 
-function Filter({ searched, filter }) {
+function Filter({
+  searched, filter, orderProp, orderType,
+}) {
   const history = useHistory();
   const querystring = window.location.search;// '?post_name=cas&rooms=3&page=4&bathrooms=0'
   const params = new URLSearchParams(querystring);
@@ -37,6 +40,8 @@ function Filter({ searched, filter }) {
     elevator: false,
     security: false,
     garden: false,
+    atributo: orderProp, // tipo de propiedad para ordenar
+    orden: orderType, // modo a ordenar
   };
   const [queryBlock, setQueryBlock] = useState(initialState);
 
@@ -49,19 +54,31 @@ function Filter({ searched, filter }) {
 
   useEffect(() => {
     params.set('post_name', searched);
+    params.set('orden', orderType);
+    params.set('atributo', orderProp);
     if (!params.get('post_name')) {
       params.delete('post_name');
+    }
+    if (!params.get('orden')) {
+      params.delete('orden');
+    }
+    if (!params.get('atributo')) {
+      params.delete('atributo');
     }
     history.push(`/home?${params.toString()}`);
     setQueryBlock({
       ...queryBlock,
       post_name: searched,
+      atributo: orderProp,
+      orden: orderType,
     });// filter busca a la api externa
     filter({
       ...queryBlock,
       post_name: searched,
+      atributo: orderProp,
+      orden: orderType,
     });
-  }, [searched]);
+  }, [searched, orderProp, orderType]);
 
   useEffect(() => {
     console.log('Hay cambios en la URL: ', URL);
@@ -79,10 +96,14 @@ function Filter({ searched, filter }) {
     setQueryBlock({
       ...queryBlock,
       post_name: searched,
+      atributo: orderProp,
+      orden: orderType,
     });
     filter({
       ...queryBlock,
       post_name: searched,
+      atributo: orderProp,
+      orden: orderType,
     });
   }, [URL]);
 
@@ -165,6 +186,7 @@ function Filter({ searched, filter }) {
               type="number"
               name="rooms"
               placeholder="0"
+              min="0"
               value={queryBlock.rooms}
               onChange={changeURL}
             />
@@ -180,6 +202,7 @@ function Filter({ searched, filter }) {
               type="number"
               name="bathrooms"
               placeholder="0"
+              min="0"
               value={queryBlock.bathrooms}
               onChange={changeURL}
             />
@@ -232,8 +255,8 @@ function Filter({ searched, filter }) {
         {/* Type of property */}
         <div className={style.field}>
           <select className={style.selectFilter} name="prop_type" value={queryBlock.prop_type} onChange={changeURL}>
-            <option value="">Type of property</option>
-            {['Casa', 'Apartamento'].map((type) => (<option value={type}>{type}</option>))}
+            <option>Type of property</option>
+            {['Casa', 'Apartamento'].map((type, i) => (<option key={i} value={type}>{type}</option>))}
           </select>
         </div>
 
@@ -290,6 +313,8 @@ function Filter({ searched, filter }) {
 
 const mapStateToProps = (state) => ({
   searched: state.searched,
+  orderProp: state.orderProp,
+  orderType: state.orderType,
 });
 
 const mapDispatchToProps = (dispatch) => ({

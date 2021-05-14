@@ -99,7 +99,7 @@ async function getPosts(req, res) {
   const page = Number(req.query.page) || 1;// falta una validacion
   const offset = (page * limit) - limit;
   const atributo = req.query.atributo || null;
-  const orden =    req.query          || null;
+  const orden =    req.query.orden          || null;
   const block = {
     post_name:    req.query.post_name      || '',
     city:         req.query.city           || '',
@@ -114,7 +114,7 @@ async function getPosts(req, res) {
     bathrooms: Number(req.query.bathrooms) || null,
     years:     Number(req.query.years)     || null,
     pool:        req.query.pool || null,
-    backyard:    req.query.pool || null,
+    backyard:    req.query.backyard || null,
     gym:         req.query.gym  || null,
     bbq:         req.query.bbq  || null,
     parking_lot: req.query.parking_lot || null,

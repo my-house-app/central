@@ -27,7 +27,19 @@ function Paginacion({
   }, [count]);
 
   function paginate(numero) {
+    const parameters = window.location.search.slice(1).split('&');
     const offset = (numero * limit) - limit;
+    // console.log('window.location.search:', window.location.search);
+    // console.log('parameters:', parameters);
+    if (parameters.length) {
+      parameters.forEach((param) => {
+        // console.log('param.split("=")[0]: ', param.split('=')[0]);
+        // console.log('param.split("=")[1]: ', param.split('=')[1]);
+        if (param.split('=')[0] === 'orden' || param.split('=')[0] === 'atributo') {
+          params.set(`${param.split('=')[0]}`, param.split('=')[1]);
+        }
+      });
+    }
     params.set('page', numero);
     history.push(`${path}?${params.toString()}`);
     dispatch(functionNext());

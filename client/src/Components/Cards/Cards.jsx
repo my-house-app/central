@@ -10,6 +10,7 @@ function Cards({ principalState, principal }) {
   }, []);
   const list = principalState?.map((e) => (
     <Card
+      key={e.id}
       image={e.images[0]?.photo[0]}
       postName={e.post_name}
       propType={e.prop_type}
