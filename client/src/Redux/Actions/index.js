@@ -9,6 +9,7 @@ import {
   GET_SEARCHED_POST,
   PROPERTIES_PANEL,
   GET_ALL_POST_PANEL_NEXT,
+  ORDER_BY,
 } from './types';
 
 // Actions
@@ -76,5 +77,16 @@ export function getAllPostPanelNext(queryBlock) {
         );
       })
       .catch((e) => console.log('Error getFilteredPropiertiesService: ', e));
+  };
+}
+
+export function orderBy(payload) {
+  return function (dispatch) {
+    dispatch(
+      {
+        type: ORDER_BY,
+        payload,
+      },
+    );
   };
 }

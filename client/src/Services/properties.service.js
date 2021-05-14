@@ -2,11 +2,13 @@
 /* eslint-disable no-return-await */
 import axios from 'axios';
 
-const { REACT_APP_API_BASE_ENDPOINT } = process.env;
+// const { REACT_APP_API_BASE_ENDPOINT } = process.env;
+const REACT_APP_API_BASE_ENDPOINT = 'http://localhost:3001';
 
 export async function getFilteredPropiertiesService() {
   let endpoint = `${REACT_APP_API_BASE_ENDPOINT}/posts`;
   endpoint += window.location.search;
+  // console.log('endpoint: ', endpoint);
   return await axios.get(endpoint);
 }
 

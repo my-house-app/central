@@ -5,6 +5,7 @@ import {
   GET_SEARCHED_POST,
   PROPERTIES_PANEL,
   GET_ALL_POST_PANEL_NEXT,
+  ORDER_BY,
 } from '../Actions/types';
 
 const initialState = {
@@ -13,6 +14,8 @@ const initialState = {
   count: '',
   currentPage: '',
   selfEndpoint: '',
+  orderProp: '',
+  orderType: '',
   coordinates: {},
   renderPanel: { renderDetails: [], render: [] },
 };
@@ -61,6 +64,12 @@ export default function rootReducer(state = initialState, action) {
         currentPage: action.payload.currentPage,
         selfEndpoint: action.payload.selfEndpoint,
       },
+    };
+  case ORDER_BY:
+    return {
+      ...state,
+      orderProp: action.payload.prop,
+      orderType: action.payload.type,
     };
   default:
     return state;

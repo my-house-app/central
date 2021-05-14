@@ -48,18 +48,17 @@ article.address_detail .details {
   color: var(--dark);
 }
 
-/* article.hero_carousel {
-  width: 60%;
+article.hero_carousel {
+  width: 700px;
   height: 100%;
   position: relative;
-} */
+}
 
 article.tour_schedule {
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: flex-start;
-  float: right;
-  width: 40%;
+  width: 350px;
   height: 100%;
 }
 
@@ -89,8 +88,9 @@ div.details > * {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  justify-content: space-evenly;
-  margin: 0 auto;
+/*   justify-content: space-evenly; */
+/*   align-items: flex-end; */
+  margin: 0;
   height: 60%;
   width: 60%;
   text-align: center;
@@ -100,15 +100,15 @@ div.details > * {
   box-shadow: 0px 3px 6px 0px var(--blackShadow);
 }
 
-.hero_carousel {
+/* .hero_carousel {
   width: 620px;
   height: 380px;
-}
+} */
 
-.photo_gallery {
+/* .photo_gallery {
   width: 620px;
   height: 380px;
-}
+} */
 
 .facilities_container {
   text-align: center;
