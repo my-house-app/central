@@ -4,7 +4,6 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import ButtonsBar from '../../ButtonsBar/ButtonsBar';
 import { getAllPostPanel, getAllPostPanelNext } from '../../../../Redux/Actions/index';
-import Paginacion from '../../../Paginacion/Paginacion';
 import TablePage from '../../TablePage/TablePage';
 import style from './PostsAdmin.module.css';
 
@@ -34,6 +33,12 @@ function PostsAdmin({ renderPanel, AllPost }) {
         path="users"
         buttonPath="posts"
         buttonRole="admin"
+        count={count}
+        paginaActual={currentPage}
+        limit={10}
+        functionNext={getAllPostPanelNext}
+        self={selfEndpoint}
+        pagsPath="panel/admin/posts"
       />
     </div>
   );
