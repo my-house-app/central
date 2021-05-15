@@ -26,6 +26,7 @@
 }
 .NavLink {
   /* padding: 3px; */
+  cursor: pointer;
 }
 .NavLink:hover {
   color: var(--blue);

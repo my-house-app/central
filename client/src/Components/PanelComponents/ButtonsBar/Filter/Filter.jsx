@@ -19,7 +19,7 @@ function Filter() {
           {' Filters '}
         </button>
         <div>
-          <FilterPosts />
+          {/* <FilterPosts /> */}
         </div>
       </div>
     </div>

@@ -10,7 +10,7 @@ import { connect } from 'react-redux';
 import { FaRegTimesCircle } from 'react-icons/fa';
 import { useHistory } from 'react-router-dom';
 import style from './Filter.module.css';
-import { getFilteredPropierties } from '../../Redux/Actions';
+import { getAvailableFilteredPropierties } from '../../Redux/Actions';
 
 function Filter({
   searched, filter, orderProp, orderType,
@@ -318,7 +318,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  filter: (queryBlock) => dispatch(getFilteredPropierties(queryBlock)),
+  filter: (queryBlock) => dispatch(getAvailableFilteredPropierties(queryBlock)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Filter);

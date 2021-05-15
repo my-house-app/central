@@ -6,8 +6,8 @@ import style from './Searchbar.module.css';
 
 function Searchbar({ find }) {
   const [search, setSearch] = useState('');
-  // const querystring = window.location.search;
-  // const params = new URLSearchParams(querystring);
+  /* const querystring = window.location.search;
+  const params = new URLSearchParams(querystring); */
 
   function handleChange(e) {
     setSearch(e.target.value);

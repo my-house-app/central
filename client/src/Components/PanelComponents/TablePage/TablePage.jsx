@@ -1,13 +1,11 @@
-/* eslint-disable no-restricted-syntax */
-/* eslint-disable guard-for-in */
 import React from 'react';
-import { NavLink } from 'react-router-dom';
 import Paginacion from '../../Paginacion/Paginacion';
-import ButtonOptions from '../ButtonOptions/ButtonOptions';
+import ButtonsBar from '../ButtonsBar/ButtonsBar';
 import TableRows from './TableRow';
 import style from './TablePage.module.css';
 
 function TablePage({
+  deleteAction,
   tableName,
   columns,
   data,
@@ -20,10 +18,10 @@ function TablePage({
   functionNext,
   selfEndpoint,
   pagsPath,
-
 }) {
   return (
     <>
+      <ButtonsBar role={buttonRole} tableName={tableName} />
       <table className={style.ctnList}>
         <caption>{tableName}</caption>
         <thead>
@@ -36,9 +34,12 @@ function TablePage({
         <tbody>
           {data?.map((e) => (
             <TableRows
-              column1={e.post_name}
-              column2Link={e.userId}
-              column3={e.city}
+              deleteAction={deleteAction}
+              column1={e.column1}
+              displayLink={e.displayLink}
+              link={e.link}
+              column2={e.column2}
+              column3={e.column3}
               id={e.id}
               buttonPath={buttonPath}
               buttonRole={buttonRole}
@@ -47,7 +48,7 @@ function TablePage({
           ))}
         </tbody>
       </table>
-      {count && (
+      {/*  {count && (
         <Paginacion
           count={count}
           paginaActual={paginaActual}
@@ -56,7 +57,7 @@ function TablePage({
           self={selfEndpoint}
           path={pagsPath}
         />
-      )}
+      )} */}
     </>
   );
 }

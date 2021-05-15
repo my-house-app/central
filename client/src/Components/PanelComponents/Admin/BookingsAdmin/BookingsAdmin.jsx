@@ -4,23 +4,23 @@ import { connect } from 'react-redux';
 import { getAdminData, getPanelFilteredProperties } from '../../../../Redux/Actions/index';
 import TablePage from '../../TablePage/TablePage';
 
-function PostsAdmin({ panelAdmin, getAdminData, getPanelFilteredProperties }) {
+function BookingsAdmin({ panelAdmin, getAdminData, getPanelFilteredProperties }) {
   const {
     render, count, currentPage, selfEndpoint,
   } = panelAdmin;
-  const { users } = render;
+  const { bookings } = render;
   useEffect(() => {
     getAdminData();
   }, []);
   const list = () => {
     const data = [];
-    users.forEach((e) => {
+    bookings.forEach((e) => {
       data.push({
-        column1: e.email,
+        column1: e.name,
         displayLink: true,
-        link: e.userId,
-        column2: e.name,
-        column3: e.phone,
+        link: e.postId,
+        column2: e.post_name,
+        column3: e.date,
         id: e.id,
       });
     });
@@ -29,18 +29,18 @@ function PostsAdmin({ panelAdmin, getAdminData, getPanelFilteredProperties }) {
   return (
     <div>
       <TablePage
-        tableName="users"
-        columns={['E-mail', 'User name', 'Phone']}
+        tableName="bookings"
+        columns={['User owner', 'Post', 'Date']}
         data={list()}
         path="users"
-        buttonPath="users"
+        buttonPath="bookings"
         buttonRole="admin"
         count={count}
         paginaActual={currentPage}
         limit={10}
         functionNext={getPanelFilteredProperties}
         self={selfEndpoint}
-        pagsPath="/panel/admin/users"
+        pagsPath="/panel/admin/bookings"
       />
     </div>
   );
@@ -54,4 +54,4 @@ const mapDispatchToProps = (dispatch) => ({
   getPanelFilteredProperties: () => dispatch(getPanelFilteredProperties()),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(PostsAdmin);
+export default connect(mapStateToProps, mapDispatchToProps)(BookingsAdmin);

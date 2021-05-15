@@ -12,18 +12,18 @@ function openFilters() {
   document.getElementById('filters').className = 'openFilter';
 }
 
-function Header() {
+function Header({ role, tableName }) {
   return (
     <div className={style.ctn}>
       <div className={style.elementsCtn}>
-        <NavLink to="/panel">
+        <NavLink to={`panel/${role}`}>
           <label>
             <FontAwesomeIcon icon={faArrowLeft} />
             {' Dashboard'}
           </label>
         </NavLink>
         <div className={style.btnCtn}>
-          <NavLink to="/panel" className={style.btnBar}>
+          <NavLink to={`panel/${role}/${tableName}/create`} className={style.btnBar}>
             <FontAwesomeIcon icon={faPlus} />
             {' Create'}
           </NavLink>
