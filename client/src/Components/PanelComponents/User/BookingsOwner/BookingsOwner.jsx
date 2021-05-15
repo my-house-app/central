@@ -1,29 +1,27 @@
 /* eslint-disable no-shadow */
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { getUserData, deletePost } from '../../../../Redux/Actions/index';
+import { getUserData, getPanelFilteredProperties } from '../../../../Redux/Actions/index';
 import TablePage from '../../TablePage/TablePage';
 
-function PostsUser({
-  panelUser, getUserData, match, deletePost,
-}) {
+function BookingsOwner({ panelUser, getUserData, match }) {
   const {
     render, count, currentPage, selfEndpoint,
   } = panelUser;
-  const { posts } = render;
+  const { bookingsOwner } = render;
   const { userId } = match.params;
   useEffect(() => {
     getUserData(userId);
   }, []);
   const list = () => {
     const data = [];
-    posts.forEach((e) => {
+    bookingsOwner.forEach((e) => {
       data.push({
-        column1: new Intl.NumberFormat('de-DE').format(e.price),
+        column1: e.date,
         displayLink: true,
-        link: e.id,
+        link: e.postId,
         column2: e.post_name,
-        column3: e.city,
+        column3: e.name,
         id: e.id,
       });
     });
@@ -32,19 +30,18 @@ function PostsUser({
   return (
     <div>
       <TablePage
-        deleteAction={deletePost}
-        tableName="posts"
-        columns={['Price', 'Title', 'City']}
+        tableName="bookingsOwner"
+        columns={['Date', 'Post', 'User interested']}
         data={list()}
         path="posts"
-        buttonPath="posts"
+        buttonPath="bookingsOwner"
         buttonRole="user"
         count={count}
         paginaActual={currentPage}
         limit={10}
-        // functionNext={getPanelFilteredProperties}
+        functionNext={getPanelFilteredProperties}
         self={selfEndpoint}
-        pagsPath={`/panel/user/:${userId}/posts`}
+        pagsPath={`/panel/user/:${userId}/bookingsOwner`}
       />
     </div>
   );
@@ -55,7 +52,6 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   getUserData: (userId) => dispatch(getUserData(userId)),
-  deletePost: (post) => dispatch(deletePost(post)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(PostsUser);
+export default connect(mapStateToProps, mapDispatchToProps)(BookingsOwner);

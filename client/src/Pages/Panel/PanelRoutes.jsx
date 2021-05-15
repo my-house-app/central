@@ -3,7 +3,11 @@ import { Route } from 'react-router-dom';
 import Dashboard from '../../Components/PanelComponents/Dashboard/Dashboard';
 import PostsAdmin from '../../Components/PanelComponents/Admin/PostsAdmin/PostsAdmin';
 import UsersAdmin from '../../Components/PanelComponents/Admin/UsersAdmin/UsersAdmin';
-import CommentsAdmin from '../../Components/PanelComponents/Admin/CommentsAdmin/CommentsAdmin';
+// import CommentsAdmin from '../../Components/PanelComponents/Admin/CommentsAdmin/CommentsAdmin';
+import PostsUser from '../../Components/PanelComponents/User/PostsUser/PostsUser';
+import BookingsUser from '../../Components/PanelComponents/User/BookingsUser/BookingsUser';
+import BookingsOwner from '../../Components/PanelComponents/User/BookingsOwner/BookingsOwner';
+import EditForm from '../../Components/PanelComponents/Edit/EditForm';
 import DetailsPanelAdmin from '../../Components/PanelComponents/Admin/DetailsPanelAdmin/DetailsPanelAdmin';
 import style from './Panel.module.css';
 import SideMenu from '../../Components/PanelComponents/SideMenu/SideMenu';
@@ -24,6 +28,11 @@ export default function PanelRoutes() {
           />
           <Route
             exact
+            path="/panel/admin"
+            component={Dashboard}
+          />
+          <Route
+            exact
             path="/panel/admin/posts"
             component={PostsAdmin}
           />
@@ -32,11 +41,11 @@ export default function PanelRoutes() {
             path="/panel/admin/users"
             component={UsersAdmin}
           />
-          <Route
+          {/* <Route
             exact
             path="/panel/admin/comments"
             component={CommentsAdmin}
-          />
+          /> */}
           <Route
             exact
             path="/panel/admin/:path/:id" // example for any detail page paths: post, user, booking
@@ -44,24 +53,34 @@ export default function PanelRoutes() {
           />
           <Route
             exact
-            path="/panel/admin/:path/:id/edit" // example for any detail page paths: post, user, booking
-            component={DetailsPanelAdmin}
+            path="/panel/:path/:id/edit" // example for any detail page paths: post, user, booking
+            component={EditForm}
           />
-          {/*  <Route
-          exact
-          path="/panel/user/:userId/posts"
-          component={PostsUser}
-        />
-        <Route
-          exact
-          path="/panel/user/:userId/Bookings"
-          component={BookingsUser}
-        />
-        <Route
-          exact
-          path="/panel/user/:userId/:path/:id" example for any detail path: posts, bookings, pofile
-          component={DetailsPanelUser}
-        /> */}
+          <Route
+            exact
+            path="/panel/user"
+            component={Dashboard}
+          />
+          <Route
+            exact
+            path="/panel/user/:userId/posts"
+            component={PostsUser}
+          />
+          <Route
+            exact
+            path="/panel/user/:userId/bookings"
+            component={BookingsUser}
+          />
+          <Route
+            exact
+            path="/panel/user/:userId/bookingsowner"
+            component={BookingsOwner}
+          />
+          {/* <Route
+            exact
+            path="/panel/user/:userId/:path/:id"example for any detail path: posts, bookings, pofile
+            component={DetailsPanelUser}
+          /> */}
         </div>
       </div>
     </>

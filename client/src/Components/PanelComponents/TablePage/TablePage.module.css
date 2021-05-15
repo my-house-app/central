@@ -9,6 +9,11 @@
   padding: 15px;
   box-shadow: 2px 4px 6px 3px var(--blackShadow);
 }
+
+.ctnList caption {
+  font-size: 1.5em;
+  text-transform: uppercase;
+}
 .ctnList tr{
   height: 40px;
 }

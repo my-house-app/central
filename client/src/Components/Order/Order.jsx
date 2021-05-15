@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { FaSearch } from 'react-icons/fa';
 import { useHistory } from 'react-router-dom';
-import { getFilteredPropierties, orderBy } from '../../Redux/Actions';
+import { getAvailableFilteredPropierties, orderBy } from '../../Redux/Actions';
 import style from './Order.module.css';
 
 function Orders({ sorting, filter }) {
@@ -64,7 +64,7 @@ function Orders({ sorting, filter }) {
 function mapDispatchToProps(dispatch) {
   return {
     sorting: (order) => dispatch(orderBy(order)),
-    filter: (queryBlock) => dispatch(getFilteredPropierties(queryBlock)),
+    filter: (queryBlock) => dispatch(getAvailableFilteredPropierties(queryBlock)),
   };
 }
 

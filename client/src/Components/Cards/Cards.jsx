@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import Card from '../Card/Card';
-import { getAllPost } from '../../Redux/Actions/index';
+import { getAvailablePosts } from '../../Redux/Actions/index';
 // import style from './Cards.module.css';
 
 function Cards({ principalState, principal }) {
@@ -34,7 +34,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  principal: () => dispatch(getAllPost()),
+  principal: () => dispatch(getAvailablePosts()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Cards);

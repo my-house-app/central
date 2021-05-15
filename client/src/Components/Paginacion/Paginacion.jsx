@@ -5,11 +5,11 @@
 import React, { useState, useEffect, Fragment } from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { getFilteredPropierties } from '../../Redux/Actions/index';
+import { getAvailableFilteredPropierties } from '../../Redux/Actions/index';
 import './Paginacion.css';
 
 function Paginacion({
-  count, paginaActual, limit, functionNext = getFilteredPropierties, path = '/home',
+  count, paginaActual, limit, functionNext = getAvailableFilteredPropierties, path = '/home',
 }) {
   const dispatch = useDispatch();
   const ultimaPagina = Math.ceil(count / limit);

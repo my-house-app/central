@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import { FaRegTimesCircle } from 'react-icons/fa';
 // eslint-disable-next-line import/extensions
-import { getFilteredPropierties } from '../../../../../Redux/Actions/index.js';
+import { getPanelFilteredProperties } from '../../../../../Redux/Actions/index.js';
 import style from './FilterPosts.module.css';
 
 function FilterPosts({ searched, filter }) {
@@ -268,7 +268,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  filter: (queryBlock) => dispatch(getFilteredPropierties(queryBlock)),
+  filter: (queryBlock) => dispatch(getPanelFilteredProperties(queryBlock)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(FilterPosts);

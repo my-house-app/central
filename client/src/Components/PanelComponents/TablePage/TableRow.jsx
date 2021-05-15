@@ -4,19 +4,28 @@ import ButtonOptions from '../ButtonOptions/ButtonOptions';
 import style from './TablePage.module.css';
 
 export default function TableRow({
-  column1, column2Link, column3, path, buttonPath, id, buttonRole,
+  column1, displayLink, link, column2, column3, path, buttonPath, id, buttonRole, deleteAction,
 }) {
   return (
     <tr>
       <td>{column1}</td>
-      <td>
-        <NavLink to={`/panel/${buttonRole}/${path}/${column2Link}`} className={style.link}>
-          {column2Link}
-        </NavLink>
-      </td>
+      {displayLink
+        ? (
+          <td>
+            <NavLink to={`/panel/${buttonRole}/${path}/${link}`} className={style.link}>
+              {column2}
+            </NavLink>
+          </td>
+        )
+        : (
+          <td>
+            { column2 }
+          </td>
+        )}
       <td>{column3}</td>
       <td>
         <ButtonOptions
+          deleteAction={deleteAction}
           buttonRole={buttonRole}
           id={id}
           buttonPath={buttonPath}
