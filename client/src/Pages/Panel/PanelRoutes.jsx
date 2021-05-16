@@ -9,6 +9,7 @@ import PostsUser from '../../Components/PanelComponents/User/PostsUser/PostsUser
 import BookingsUser from '../../Components/PanelComponents/User/BookingsUser/BookingsUser';
 import BookingsOwner from '../../Components/PanelComponents/User/BookingsOwner/BookingsOwner';
 import EditForm from '../../Components/PanelComponents/Edit/EditForm';
+import CreateForm from '../../Components/PanelComponents/Create/CreateForm';
 import DetailsPanel from '../../Components/PanelComponents/DetailsPanel/DetailsPanel';
 import style from './Panel.module.css';
 import SideMenu from '../../Components/PanelComponents/SideMenu/SideMenu';
@@ -59,8 +60,13 @@ export default function PanelRoutes() {
           />
           <Route
             exact
-            path="/panel/:path/:id/:action" // example for any detail page paths: post, user, booking
+            path="/panel/:path/:id/edit" // example for any detail page paths: post, user, booking
             component={EditForm}
+          />
+          <Route
+            exact
+            path="/panel/:path/create" // example for any detail page paths: post, user, booking
+            component={CreateForm}
           />
           <Route
             exact

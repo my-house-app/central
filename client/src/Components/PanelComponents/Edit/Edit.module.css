@@ -43,6 +43,7 @@
     border: none;
     cursor: pointer;
     text-align: center;
+    color: var(--dark);
 }
 
 .ctn input:disabled {
