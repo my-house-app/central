@@ -40,6 +40,7 @@ import {
   EDIT_BOOKING,
   DELETE_BOOKING,
   GET_ADMIN_USERS_DATA,
+  CHANGE_URL,
 } from './types';
 
 // Actions
@@ -98,8 +99,9 @@ export function orderBy(payload) {
   };
 }
 
-// ALL ADMIN DATA
+// ALL ADMIN POSTS DATA
 export const getAdminData = (id) => async function (dispatch) {
+  console.log('ID en action getAdminData: ', id);
   return getAdminDataService(id)
     .then((res) => {
       dispatch(
@@ -341,5 +343,17 @@ export function getBooking(bookingId) {
         );
       })
       .catch((e) => console.log('Error getBookingService: ', e));
+  };
+}
+
+// CHANGE_URL
+export function changeURL(url) {
+  return function (dispatch) {
+    return dispatch(
+      {
+        type: CHANGE_URL,
+        payload: url,
+      },
+    );
   };
 }
