@@ -8,14 +8,14 @@ function Bookings({ panelUser, getUserData, match }) {
   const {
     render, count, currentPage, selfEndpoint,
   } = panelUser;
-  const { bookings } = render;
-  const { userId } = match.params;
+  const { visitDates } = render;
+  const { id } = match.params;
   useEffect(() => {
-    getUserData(userId);
+    getUserData(id);
   }, []);
   const list = () => {
     const data = [];
-    bookings.forEach((e) => {
+    visitDates?.forEach((e) => {
       data.push({
         column1: e.date,
         displayLink: true,
@@ -41,7 +41,7 @@ function Bookings({ panelUser, getUserData, match }) {
         limit={10}
         functionNext={getPanelFilteredProperties}
         self={selfEndpoint}
-        pagsPath={`/panel/user/:${userId}/bookings`}
+        pagsPath={`/panel/user/:${id}/bookings`}
       />
     </div>
   );

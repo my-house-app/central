@@ -2,8 +2,8 @@
 /* eslint-disable no-return-await */
 import axios from 'axios';
 
-const { REACT_APP_API_BASE_ENDPOINT } = process.env;
-// const REACT_APP_API_BASE_ENDPOINT = 'http://localhost:3001';
+// const { REACT_APP_API_BASE_ENDPOINT } = process.env;
+const REACT_APP_API_BASE_ENDPOINT = 'http://localhost:3001';
 
 // una funcion trae publicaciones disponible
 // otra funcion trae todas
@@ -14,6 +14,7 @@ export async function getFilteredPropiertiesService() {
   return await axios.get(endpoint);
 }
 
+// homework
 // TODAS LAS PUBLICACIONES
 export async function getPostsService(limit = 10) {
   let endpoint = `${REACT_APP_API_BASE_ENDPOINT}/posts`;
@@ -22,9 +23,32 @@ export async function getPostsService(limit = 10) {
 }
 
 // TODAS LA INFO DEL ADMIN
-export async function getAdminDataService(limit = 10) {
-  let endpoint = `${REACT_APP_API_BASE_ENDPOINT}/admin`;
-  if (limit) endpoint += `?limit=${limit}`;
+// export async function getAdminDataService(id, limit = 10) {
+//   let endpoint = `${REACT_APP_API_BASE_ENDPOINT}/admin`;
+//   if (limit) endpoint += `?limit=${limit}&id=${id}`;
+//   return await axios.get(endpoint);
+// }
+// user no registrado id = undefined
+// user registrado comun id = "977fb1a4-5c67-4180-863c-8b8465b2c06b"
+// user registrado SuperAdmin id = "062cad5e-8820-4bf3-bd8f-a5f13fade2e3"
+// todas las publicaciones para el admin
+export async function getAdminDataService(id = '062cad5e-8820-4bf3-bd8f-a5f13fade2e3', limit = 10) {
+  let endpoint = `${REACT_APP_API_BASE_ENDPOINT}/posts`;
+  if (limit) endpoint += `?limit=${limit}&id=${id}`;
+  return await axios.get(endpoint);
+}
+// el id por el momento no es necesario
+// todos los usuarios para el admin
+export async function getAdminUsersDataService(id = '062cad5e-8820-4bf3-bd8f-a5f13fade2e3', limit = 10) {
+  let endpoint = `${REACT_APP_API_BASE_ENDPOINT}/users`;
+  if (limit) endpoint += `?limit=${limit}&id=${id}`;
+  return await axios.get(endpoint);
+}
+// el id por el momento no es necesario
+// todos las reservas para el admin
+export async function getAdminBookingsDataService(id = '062cad5e-8820-4bf3-bd8f-a5f13fade2e3', limit = 10) {
+  let endpoint = `${REACT_APP_API_BASE_ENDPOINT}/users/bookings`;
+  if (limit) endpoint += `?limit=${limit}&id=${id}`;
   return await axios.get(endpoint);
 }
 
