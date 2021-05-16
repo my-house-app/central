@@ -11,10 +11,7 @@ function Bookings({
   useEffect(() => {
     getUserData(userId);
   }, []);
-  const {
-    render, count, currentPage, selfEndpoint,
-  } = panelUser;
-  const { visitDates } = render;
+
   const list = () => {
     const data = [];
     visitDates?.forEach((e) => {

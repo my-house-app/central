@@ -3,16 +3,18 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { deleteUser, getAdminUsersData, getPanelFilteredProperties } from '../../../../Redux/Actions/index';
 import TablePage from '../../TablePage/TablePage';
+import Paginacion from '../../../Paginacion/Paginacion';
 
 function PostsAdmin({
-  panelAdmin, getAdminData, deleteUser, getPanelFilteredProperties,
+  panelAdmin, match, getAdminData, deleteUser, getPanelFilteredProperties,
 }) {
   const {
     render, count, currentPage, selfEndpoint,
   } = panelAdmin;
   const { users } = render;
+  const { userId: adminId } = match.params;
   useEffect(() => {
-    getAdminData();
+    getAdminData(adminId);
   }, []);
   const list = () => {
     const data = [];
@@ -36,14 +38,20 @@ function PostsAdmin({
         data={list()}
         path="user"
         buttonPath="user"
-        count={count}
-        paginaActual={currentPage}
-        limit={10}
-        functionNext={getPanelFilteredProperties}
-        self={selfEndpoint}
-        pagsPath="/panel/admin/users"
         deleteAction={deleteUser}/// arreglar!!!
       />
+      {/* <Paginacion /> */}
+      {
+        count && (
+          <Paginacion
+            count={count}
+            paginaActual={currentPage}
+            limit={10}
+            path="/panel/admin/users"
+            functionNext={() => getAdminData(adminId)}
+          />
+        )
+      }
     </div>
   );
 }
@@ -53,7 +61,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   deleteUser: () => dispatch(deleteUser()),
-  getAdminData: () => dispatch(getAdminUsersData()),
+  getAdminData: (adminId) => dispatch(getAdminUsersData(adminId)),
   getPanelFilteredProperties: () => dispatch(getPanelFilteredProperties()),
 });
 

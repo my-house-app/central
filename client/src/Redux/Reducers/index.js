@@ -16,9 +16,13 @@ import {
   EDIT_BOOKING,
   DELETE_BOOKING,
   GET_ADMIN_USERS_DATA,
+  CHANGE_URL,
 } from '../Actions/types';
 
 const initialState = {
+  panelAdmin: { render: { posts: [], visitDates: [] } },
+  panelUser: { render: { posts: [], visitDates: [] } },
+  url: '',
   principal: [],
   count: '',
   searched: '',
@@ -28,8 +32,6 @@ const initialState = {
   selfEndpoint: '',
   message: '',
   detail: {},
-  panelAdmin: { render: { posts: [], visitDates: [] } },
-  panelUser: { render: { posts: [], visitDates: [] } },
 };
 
 export default function rootReducer(state = initialState, action) {
@@ -144,6 +146,11 @@ export default function rootReducer(state = initialState, action) {
     return {
       ...state,
       message: action.payload,
+    };
+  case CHANGE_URL:
+    return {
+      ...state,
+      url: action.payload,
     };
   default:
     return state;

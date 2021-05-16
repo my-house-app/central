@@ -1,15 +1,21 @@
+/* eslint-disable no-use-before-define */
 /* eslint-disable no-multi-spaces */
 /* eslint-disable no-return-await */
 import axios from 'axios';
 
-// const { REACT_APP_API_BASE_ENDPOINT } = process.env;
-const REACT_APP_API_BASE_ENDPOINT = 'http://localhost:3001';
+const { REACT_APP_API_BASE_ENDPOINT } = process.env;
+// const REACT_APP_API_BASE_ENDPOINT = 'http://localhost:3001';
 
 // una funcion trae publicaciones disponible
 // otra funcion trae todas
-export async function getFilteredPropiertiesService() {
+export async function getFilteredPropiertiesService(id = '062cad5e-8820-4bf3-bd8f-a5f13fade2e3', limit = 10) {
   let endpoint = `${REACT_APP_API_BASE_ENDPOINT}/posts`;
-  endpoint += window.location.search;
+  // if (limit) endpoint += `?limit=${limit}`;
+  // const querystring = window.location.search;
+  // const params = new URLSearchParams(querystring);
+  // console.log('params.toString(): ', params.toString());
+  // endpoint += `&${params.toString()}`; // window.location.search;
+  endpoint += getQuerysStrings(limit, id);
   // console.log('endpoint: ', endpoint);
   return await axios.get(endpoint);
 }
@@ -34,21 +40,23 @@ export async function getPostsService(limit = 10) {
 // todas las publicaciones para el admin
 export async function getAdminDataService(id = '062cad5e-8820-4bf3-bd8f-a5f13fade2e3', limit = 10) {
   let endpoint = `${REACT_APP_API_BASE_ENDPOINT}/posts`;
-  if (limit) endpoint += `?limit=${limit}&id=${id}`;
+  endpoint += getQuerysStrings(limit, id);
   return await axios.get(endpoint);
 }
 // el id por el momento no es necesario
 // todos los usuarios para el admin
 export async function getAdminUsersDataService(id = '062cad5e-8820-4bf3-bd8f-a5f13fade2e3', limit = 10) {
   let endpoint = `${REACT_APP_API_BASE_ENDPOINT}/users`;
-  if (limit) endpoint += `?limit=${limit}&id=${id}`;
+  // if (limit) endpoint += `?limit=${limit}&id=${id}`;
+  endpoint += getQuerysStrings(limit, id);
   return await axios.get(endpoint);
 }
 // el id por el momento no es necesario
 // todos las reservas para el admin
 export async function getAdminBookingsDataService(id = '062cad5e-8820-4bf3-bd8f-a5f13fade2e3', limit = 10) {
   let endpoint = `${REACT_APP_API_BASE_ENDPOINT}/users/bookings`;
-  if (limit) endpoint += `?limit=${limit}&id=${id}`;
+  // if (limit) endpoint += `?limit=${limit}&id=${id}`;
+  endpoint += getQuerysStrings(limit, id);
   return await axios.get(endpoint);
 }
 
@@ -123,4 +131,17 @@ export async function editBookingService(bookingId, booking) {
 export async function deleteBookingService(bookingId) {
   const endpoint = `${REACT_APP_API_BASE_ENDPOINT}/booking/${bookingId}`;
   return await axios.delete(endpoint);
+}
+
+// FUNCION AUXILIAR
+// &id=bc6b5eff-d880-4048-8c37-24e446a1962b&page=6
+function getQuerysStrings(limit, id) {
+  let endpoint = '';
+  if (limit) endpoint += `?limit=${limit}`;
+  if (id) endpoint += `&id=${id}`;
+  const querystring = window.location.search;
+  const params = new URLSearchParams(querystring);
+  endpoint += `&${params.toString()}`;
+  return endpoint;
+  // return `&${params.toString()}`; // window.location.search;
 }
