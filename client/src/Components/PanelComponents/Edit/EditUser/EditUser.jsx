@@ -146,6 +146,7 @@ function EditUser({
         </div>
         <div className={style.btnReset}>
           <button className={style.btn} type="button" onClick={resetForm}>Reset</button>
+          <button className={style.btn} type="submit" onClick={handleSubmit}>Save changes</button>
         </div>
       </form>
     </div>

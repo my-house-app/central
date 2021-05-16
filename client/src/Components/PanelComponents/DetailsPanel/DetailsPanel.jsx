@@ -1,18 +1,32 @@
 import React from 'react';
 import PostDetails from './PostDetails/PostDetails';
+import UserDetails from './UserDetails/UserDetails';
+import BookingDetails from './BookingDetails/BookingDetails';
 
 function DetailsPanel({ match }) {
   const { path, id } = match.params;
   function display() {
-    if (path === 'posts') {
+    if (path === 'post') {
       return (
         <>
           <PostDetails id={id} />
         </>
       );
     }
-    /* if (path === 'user') return <UserDetails />;
-    if (path === 'booking') return <BookingDetails />; */
+    if (path === 'user') {
+      return (
+        <>
+          <UserDetails id={id} />
+        </>
+      );
+    }
+    if (path === 'booking') {
+      return (
+        <>
+          <BookingDetails id={id} />
+        </>
+      );
+    }
     return null;
   }
   return (

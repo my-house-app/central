@@ -36,9 +36,8 @@ function Bookings({
         tableName="bookings"
         columns={['Date', 'Post', 'City']}
         data={list()}
-        path="posts"
-        buttonPath="bookings"
-        buttonRole="user"
+        path="post"
+        buttonPath="booking"
         count={count}
         paginaActual={currentPage}
         limit={10}

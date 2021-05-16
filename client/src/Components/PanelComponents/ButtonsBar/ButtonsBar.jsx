@@ -16,7 +16,7 @@ function Header({ role, tableName }) {
   return (
     <div className={style.ctn}>
       <div className={style.elementsCtn}>
-        <NavLink to={`panel/${role}`}>
+        <NavLink to={`/panel/${role}`}>
           <label>
             <FontAwesomeIcon icon={faArrowLeft} />
             {' Dashboard'}

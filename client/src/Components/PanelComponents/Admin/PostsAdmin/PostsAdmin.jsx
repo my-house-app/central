@@ -35,13 +35,12 @@ function PostsAdmin({
         tableName="posts"
         columns={['Title', 'User', 'City']}
         data={list()}
-        path="users"
-        buttonPath="posts"
-        buttonRole="admin"
+        path="user"
+        buttonPath="post"
         count={count}
         paginaActual={currentPage}
         limit={10}
-        functionNext={getPanelFilteredProperties}
+        // functionNext={getPanelFilteredProperties}
         self={selfEndpoint}
         pagsPath="/panel/admin/posts"
         deleteAction={deletePost}

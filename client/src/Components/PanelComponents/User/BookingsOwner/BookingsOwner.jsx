@@ -36,13 +36,12 @@ function BookingsOwner({
         tableName="owner bookings"
         columns={['Date', 'Post', 'City']}
         data={list()}
-        path="posts"
-        buttonPath="bookingsowner"
-        buttonRole="posts"
+        path="post"
+        buttonPath="booking"
         count={count}
         paginaActual={currentPage}
         limit={10}
-        functionNext={getPanelFilteredProperties}
+        // functionNext={getPanelFilteredProperties}
         self={selfEndpoint}
         pagsPath={`/panel/user/:${userId}/bookings`}
       />

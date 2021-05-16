@@ -5,7 +5,7 @@ import style from './TablePage.module.css';
 
 export default function TableRow({
   column1, displayLink, link, column2, column3,
-  path, buttonPath, id, buttonRole, deleteAction,
+  path, id, buttonPath, deleteAction,
 }) {
   return (
     <tr>
@@ -13,7 +13,7 @@ export default function TableRow({
       {displayLink
         ? (
           <td>
-            <NavLink to={`/panel/${buttonRole}/${path}/${link}`} className={style.link}>
+            <NavLink to={`/panel/${path}/${link}`} className={style.link}>
               {column2}
             </NavLink>
           </td>
@@ -27,9 +27,8 @@ export default function TableRow({
       <td>
         <ButtonOptions
           deleteAction={deleteAction}
-          buttonRole={buttonRole}
-          id={id}
           buttonPath={buttonPath}
+          id={id}
         />
       </td>
     </tr>

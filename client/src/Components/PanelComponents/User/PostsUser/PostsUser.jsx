@@ -36,9 +36,8 @@ function PostsUser({
         tableName="posts"
         columns={['Price', 'Title', 'City']}
         data={list()}
-        path="posts"
-        buttonPath="posts"
-        buttonRole="user"
+        path="post"
+        buttonPath="post"
         count={count}
         paginaActual={currentPage}
         limit={10}

@@ -16,13 +16,14 @@ export default function Details({ routerProps }) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    async function fetchApi(propertyId) {
-      const propertyFetch = await getPostService(propertyId);
-      setProperty(propertyFetch);
+    async function fetchApi(id) {
+      const propertyFetch = await getPostService(id);
+      setProperty(propertyFetch.data);
       setLoading(false);
     }
     fetchApi(id);
   }, []);
+  console.log(property);
   return (
     <div>
       {!loading && (

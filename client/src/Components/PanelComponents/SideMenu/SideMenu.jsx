@@ -11,7 +11,7 @@ import { FaRegCalendar } from 'react-icons/fa';
 import style from './SideMenu.module.css';
 
 function SideMenu() {
-  const isAdmin = true;
+  const isAdmin = false;
   const userId = 'bc6b5eff-d880-4048-8c37-24e446a1962b';
   const [state, setState] = useState(false);
   window.onscroll = () => {

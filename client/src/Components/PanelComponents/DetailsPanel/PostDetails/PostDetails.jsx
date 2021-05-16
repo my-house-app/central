@@ -15,7 +15,7 @@ export default function PostDetails({ id }) {
   useEffect(() => {
     async function fetchApi(propertyId) {
       const propertyFetch = await getPostService(propertyId);
-      setProperty(propertyFetch);
+      setProperty(propertyFetch.data);
       setLoading(false);
     }
     fetchApi(id);

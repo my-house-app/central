@@ -35,9 +35,8 @@ function BookingsAdmin({
         tableName="bookings"
         columns={['User owner', 'Post', 'Date']}
         data={list()}
-        path="users"
-        buttonPath="bookings"
-        buttonRole="admin"
+        path="user"
+        buttonPath="booking"
         count={count}
         paginaActual={currentPage}
         limit={10}
