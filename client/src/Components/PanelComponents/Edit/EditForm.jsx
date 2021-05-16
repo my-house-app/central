@@ -4,11 +4,11 @@ import EditPosts from './EditPost/EditPost';
 import EditBooking from './EditBooking/EditBooking';
 
 function EditForm({ match }) {
-  const { path, id, action } = match.params;
+  const { path, id } = match.params;
   function display() {
-    if (path === 'user') return <EditUser action={action} id={id} />;
-    if (path === 'post') return <EditPosts action={action} path={path} id={id} />;
-    if (path === 'booking') return <EditBooking action={action} path={path} id={id} />;
+    if (path === 'user') return <EditUser path={path} action="edit" id={id} />;
+    if (path === 'post') return <EditPosts path={path} action="edit" id={id} />;
+    if (path === 'booking') return <EditBooking path={path} action="edit" id={id} />;
     return null;
   }
   return (

@@ -38,12 +38,6 @@ function PostsUser({
         data={list()}
         path="post"
         buttonPath="post"
-        count={count}
-        paginaActual={currentPage}
-        limit={10}
-        // functionNext={getPanelFilteredProperties}
-        self={selfEndpoint}
-        pagsPath={`/panel/user/:${userId}/posts`}
       />
     </div>
   );

@@ -11,16 +11,9 @@ function TablePage({
   data,
   buttonPath,
   path,
-  count,
-  paginaActual,
-  limit,
-  functionNext,
-  selfEndpoint,
-  pagsPath,
 }) {
   return (
     <>
-      <ButtonsBar tableName={tableName} />
       <table className={style.ctnList}>
         <caption>{tableName}</caption>
         <thead>
@@ -46,16 +39,6 @@ function TablePage({
           ))}
         </tbody>
       </table>
-      {/*  {count && (
-        <Paginacion
-          count={count}
-          paginaActual={paginaActual}
-          limit={limit}
-          functionNext={functionNext}
-          self={selfEndpoint}
-          path={pagsPath}
-        />
-      )} */}
     </>
   );
 }

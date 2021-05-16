@@ -37,12 +37,6 @@ function BookingsAdmin({
         data={list()}
         path="user"
         buttonPath="booking"
-        count={count}
-        paginaActual={currentPage}
-        limit={10}
-        functionNext={getPanelFilteredProperties}
-        self={selfEndpoint}
-        pagsPath="/panel/admin/bookings"
       />
     </div>
   );

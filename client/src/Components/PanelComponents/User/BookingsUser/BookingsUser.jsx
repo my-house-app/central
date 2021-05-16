@@ -11,7 +11,7 @@ function Bookings({
   useEffect(() => {
     getUserData(userId);
   }, []);
-
+  const { visitDates } = panelUser.render;
   const list = () => {
     const data = [];
     visitDates?.forEach((e) => {
@@ -35,12 +35,6 @@ function Bookings({
         data={list()}
         path="post"
         buttonPath="booking"
-        count={count}
-        paginaActual={currentPage}
-        limit={10}
-        functionNext={getPanelFilteredProperties}
-        self={selfEndpoint}
-        pagsPath={`/panel/user/:${userId}/bookings`}
       />
     </div>
   );

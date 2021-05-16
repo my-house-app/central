@@ -38,12 +38,6 @@ function BookingsOwner({
         data={list()}
         path="post"
         buttonPath="booking"
-        count={count}
-        paginaActual={currentPage}
-        limit={10}
-        // functionNext={getPanelFilteredProperties}
-        self={selfEndpoint}
-        pagsPath={`/panel/user/:${userId}/bookings`}
       />
     </div>
   );

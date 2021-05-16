@@ -4,12 +4,12 @@
 /* eslint-disable no-shadow */
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
-import { editPost, getPost } from '../../../../Redux/Actions/index';
+import { addPost, editPost, getPost } from '../../../../Redux/Actions/index';
 import ButtonsBar from '../../ButtonsBar/ButtonsBar';
 import style from '../Edit.module.css';
 
 function EditPosts({
-  editPost, getPost, postDetail, msg, id, action,
+  addPost, editPost, getPost, postDetail, msg, id, action,
 }) {
   useEffect(() => {
     getPost(id);
@@ -83,9 +83,16 @@ function EditPosts({
       [name]: value,
     });
   }
+  console.log('React state input in EditPost ', input);
   function handleSubmit(e) {
     e.preventDefault();
-    editPost(id, input);
+    if (action === 'edit') {
+      editPost(id, input);
+      console.log('Edited post ', input.post_name);
+    } else if (action === 'create') {
+      addPost(input);
+      console.log('Created this post ', input);
+    }
     alert(msg);
   }
 
@@ -300,6 +307,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   getPost: (postId) => dispatch(getPost(postId)),
   editPost: (postId) => dispatch(editPost(postId)),
+  addPost: (post) => dispatch(addPost(post)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(EditPosts);
