@@ -14,12 +14,12 @@ function PostsAdmin({ panelAdmin, getAdminData, getPanelFilteredProperties }) {
   }, []);
   const list = () => {
     const data = [];
-    posts.forEach((e) => {
+    posts?.forEach((e) => {
       data.push({
         column1: e.post_name,
         displayLink: true,
         link: e.userId,
-        column2: e.name,
+        column2: e.user.name,
         column3: e.city,
         id: e.id,
       });
@@ -41,6 +41,7 @@ function PostsAdmin({ panelAdmin, getAdminData, getPanelFilteredProperties }) {
         functionNext={getPanelFilteredProperties}
         self={selfEndpoint}
         pagsPath="/panel/admin/posts"
+        deleteAction={(e) => console.log('estoy eliminando')}/// arreglar!!!
       />
     </div>
   );
@@ -50,7 +51,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  getAdminData: () => dispatch(getAdminData()),
+  getAdminData: (id) => dispatch(getAdminData(id)),
   getPanelFilteredProperties: () => dispatch(getPanelFilteredProperties()),
 });
 
