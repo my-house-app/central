@@ -1,10 +1,12 @@
 /* eslint-disable no-shadow */
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { getAdminBookingsData, getPanelFilteredProperties } from '../../../../Redux/Actions/index';
+import { deleteBooking, getAdminBookingsData, getPanelFilteredProperties } from '../../../../Redux/Actions/index';
 import TablePage from '../../TablePage/TablePage';
 
-function BookingsAdmin({ panelAdmin, getAdminData, getPanelFilteredProperties }) {
+function BookingsAdmin({
+  panelAdmin, getAdminData, deleteBooking, getPanelFilteredProperties,
+}) {
   const {
     render, count, currentPage, selfEndpoint,
   } = panelAdmin;
@@ -29,6 +31,7 @@ function BookingsAdmin({ panelAdmin, getAdminData, getPanelFilteredProperties })
   return (
     <div>
       <TablePage
+        deleteAction={deleteBooking}
         tableName="bookings"
         columns={['User owner', 'Post', 'Date']}
         data={list()}
@@ -52,6 +55,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   getAdminData: () => dispatch(getAdminBookingsData()),
+  deleteBooking: (booking) => dispatch(deleteBooking(booking)),
   getPanelFilteredProperties: () => dispatch(getPanelFilteredProperties()),
 });
 
