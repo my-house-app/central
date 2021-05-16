@@ -14,7 +14,7 @@
     height: 100vh;
     overflow-y: auto;
     z-index: 100;
-    background: #0578ac;
+    background: var(--blue);
     width: 400px;
     transition: all 0.3s ease-in-out;
 }

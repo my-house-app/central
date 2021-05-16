@@ -5,11 +5,11 @@ import { getAdminData, deletePost, getPanelFilteredProperties } from '../../../.
 import TablePage from '../../TablePage/TablePage';
 
 function PostsAdmin({
-  panelAdmin, match, getAdminData, deletePost, getPanelFilteredProperties,
+  panelAdmin, getAdminData, deletePost, getPanelFilteredProperties,
 }) {
-  const { adminId } = match.params;
   useEffect(() => {
-    getAdminData(adminId);
+    console.log('Im here');
+    getAdminData();
   }, []);
   const {
     render, count, currentPage, selfEndpoint,
@@ -22,7 +22,7 @@ function PostsAdmin({
         column1: e.post_name,
         displayLink: true,
         link: e.userId,
-        column2: e.user.name,
+        column2: e.userId,
         column3: e.city,
         id: e.id,
       });
@@ -44,7 +44,7 @@ function PostsAdmin({
         functionNext={getPanelFilteredProperties}
         self={selfEndpoint}
         pagsPath="/panel/admin/posts"
-        deleteAction={(e) => console.log('estoy eliminando')}/// arreglar!!!
+        deleteAction={deletePost}
       />
     </div>
   );
@@ -54,7 +54,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  getAdminData: (adminId) => dispatch(getAdminData(adminId)),
+  getAdminData: () => dispatch(getAdminData()),
   deletePost: (post) => dispatch(deletePost(post)),
   getPanelFilteredProperties: () => dispatch(getPanelFilteredProperties()),
 });

@@ -7,9 +7,9 @@ import {
   GET_USER_DATA,
   GET_PANEL_FILTERED_PROPERTIES,
   ORDER_BY,
-  GET_USER,
   EDIT_USER,
   DELETE_USER,
+  GET_POST,
   EDIT_POST,
   DELETE_POST,
   GET_BOOKING,
@@ -28,7 +28,7 @@ const initialState = {
   selfEndpoint: '',
   message: '',
   detail: {},
-  panelAdmin: '',
+  panelAdmin: { render: { posts: [], visitDates: [] } },
   panelUser: { render: { posts: [], visitDates: [] } },
 };
 
@@ -105,6 +105,11 @@ export default function rootReducer(state = initialState, action) {
         selfEndpoint: action.payload.selfEndpoint,
       },
     };
+  case GET_POST:
+    return {
+      ...state,
+      detail: action.payload,
+    };
   case EDIT_POST:
     return {
       ...state,
@@ -114,11 +119,6 @@ export default function rootReducer(state = initialState, action) {
     return {
       ...state,
       message: action.payload,
-    };
-  case GET_USER:
-    return {
-      ...state,
-      detail: action.payload,
     };
   case EDIT_USER:
     return {

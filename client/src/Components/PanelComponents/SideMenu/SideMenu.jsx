@@ -11,7 +11,7 @@ import { FaRegCalendar } from 'react-icons/fa';
 import style from './SideMenu.module.css';
 
 function SideMenu() {
-  const isAdmin = false;
+  const isAdmin = true;
   const userId = 'bc6b5eff-d880-4048-8c37-24e446a1962b';
   const [state, setState] = useState(false);
   window.onscroll = () => {
@@ -27,7 +27,7 @@ function SideMenu() {
         <>
           <div className={style.divTitle}>
             <h3>Users Management</h3>
-            <NavLink to={`/panel/admin/${userId}/users`} activeStyle={{ color: 'var(--white)' }}>
+            <NavLink to="/panel/admin/users" activeStyle={{ color: 'var(--white)' }}>
               <h4>
                 <FontAwesomeIcon icon={faUser} />
                 {' Users'}
@@ -36,7 +36,7 @@ function SideMenu() {
           </div>
           <div className={style.divTitle}>
             <h3>Posts Management</h3>
-            <NavLink to={`/panel/admin/${userId}/posts`} activeStyle={{ color: 'var(--white)' }}>
+            <NavLink to="/panel/admin/posts" activeStyle={{ color: 'var(--white)' }}>
               <h4>
                 <FontAwesomeIcon icon={faHouseUser} />
                 {' Posts'}
@@ -48,7 +48,7 @@ function SideMenu() {
               {' Comments'}
             </h3>
           </NavLink> */}
-            <NavLink to={`/panel/admin/${userId}/bookings`} activeStyle={{ color: 'var(--white)' }}>
+            <NavLink to="/panel/admin/bookings" activeStyle={{ color: 'var(--white)' }}>
               <h4>
                 <FontAwesomeIcon icon={faCalendarAlt} />
                 {' Bookings'}

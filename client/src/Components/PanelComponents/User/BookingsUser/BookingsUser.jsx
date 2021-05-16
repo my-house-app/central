@@ -7,13 +7,9 @@ import TablePage from '../../TablePage/TablePage';
 function Bookings({
   panelUser, getUserData, match, deleteBooking,
 }) {
-  const {
-    render, count, currentPage, selfEndpoint,
-  } = panelUser;
-  const { visitDates } = render;
   const { userId } = match.params;
   useEffect(() => {
-    getUserData(id);
+    getUserData(userId);
   }, []);
   const {
     render, count, currentPage, selfEndpoint,
@@ -48,7 +44,7 @@ function Bookings({
         limit={10}
         functionNext={getPanelFilteredProperties}
         self={selfEndpoint}
-        pagsPath={`/panel/user/:${id}/bookings`}
+        pagsPath={`/panel/user/:${userId}/bookings`}
       />
     </div>
   );

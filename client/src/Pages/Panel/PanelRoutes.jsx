@@ -9,7 +9,7 @@ import PostsUser from '../../Components/PanelComponents/User/PostsUser/PostsUser
 import BookingsUser from '../../Components/PanelComponents/User/BookingsUser/BookingsUser';
 import BookingsOwner from '../../Components/PanelComponents/User/BookingsOwner/BookingsOwner';
 import EditForm from '../../Components/PanelComponents/Edit/EditForm';
-import DetailsPanel from '../../Components/PanelComponents/Admin/DetailsPanel/DetailsPanel';
+import DetailsPanel from '../../Components/PanelComponents/DetailsPanel/DetailsPanel';
 import style from './Panel.module.css';
 import SideMenu from '../../Components/PanelComponents/SideMenu/SideMenu';
 
@@ -34,17 +34,17 @@ export default function PanelRoutes() {
           />
           <Route
             exact
-            path="/panel/admin/:userId/posts"
+            path="/panel/admin/posts"
             component={PostsAdmin}
           />
           <Route
             exact
-            path="/panel/admin/:userId/users"
+            path="/panel/admin/users"
             component={UsersAdmin}
           />
           <Route
             exact
-            path="/panel/admin/:userId/bookings"
+            path="/panel/admin/bookings"
             component={BookingsAdmin}
           />
           {/* <Route
@@ -59,7 +59,7 @@ export default function PanelRoutes() {
           />
           <Route
             exact
-            path="/panel/:path/:id/edit" // example for any detail page paths: post, user, booking
+            path="/panel/:path/:id/:action" // example for any detail page paths: post, user, booking
             component={EditForm}
           />
           <Route
@@ -82,11 +82,6 @@ export default function PanelRoutes() {
             path="/panel/user/:userId/bookingsowner"
             component={BookingsOwner}
           />
-          {/* <Route
-            exact
-            path="/panel/user/:userId/:path/:id"example for any detail path: posts, bookings, pofile
-            component={DetailsPanelUser}
-          /> */}
         </div>
       </div>
     </>

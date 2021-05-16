@@ -44,7 +44,6 @@ function BookingsAdmin({
         functionNext={getPanelFilteredProperties}
         self={selfEndpoint}
         pagsPath="/panel/admin/bookings"
-        deleteAction={(e) => console.log('estoy eliminando')}/// arreglar!!!
       />
     </div>
   );

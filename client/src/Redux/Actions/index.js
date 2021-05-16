@@ -5,10 +5,10 @@ import {
   getFilteredPropiertiesService,
   getAdminDataService,
   getUserDataService,
+  getPostService,
   addPostService,
   editPostService,
   deletePostService,
-  getUserService,
   addUserService,
   editUserService,
   deleteUserService,
@@ -28,10 +28,10 @@ import {
   GET_SEARCHED_POST,
   GET_PANEL_FILTERED_PROPERTIES,
   ORDER_BY,
-  GET_USER,
   ADD_USER,
   EDIT_USER,
   DELETE_USER,
+  GET_POST,
   ADD_POST,
   EDIT_POST,
   DELETE_POST,
@@ -168,6 +168,22 @@ export function getPanelFilteredProperties(queryBlock) {
   };
 }
 
+// GET POST
+export function getPost(postId) {
+  return async function (dispatch) {
+    return getPostService(postId)
+      .then((res) => {
+        dispatch(
+          {
+            type: GET_POST,
+            payload: res.data,
+          },
+        );
+      })
+      .catch((e) => console.log('Error addPostService: ', e));
+  };
+}
+
 // ADD POST
 export function addPost(postId, post) {
   return async function (dispatch) {
@@ -176,7 +192,7 @@ export function addPost(postId, post) {
         dispatch(
           {
             type: ADD_POST,
-            payload: res.data,
+            payload: res.data.message,
           },
         );
       })
@@ -208,27 +224,11 @@ export function deletePost(postId) {
         dispatch(
           {
             type: DELETE_POST,
-            payload: res.data,
+            payload: res.data.message,
           },
         );
       })
       .catch((e) => console.log('Error deletePostService: ', e));
-  };
-}
-
-// GET USER
-export function getUser(userId) {
-  return async function (dispatch) {
-    return getUserService(userId)
-      .then((res) => {
-        dispatch(
-          {
-            type: GET_USER,
-            payload: res.data,
-          },
-        );
-      })
-      .catch((e) => console.log('Error getUserService: ', e));
   };
 }
 
