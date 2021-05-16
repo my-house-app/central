@@ -5,7 +5,7 @@
 import React, { useState, useEffect, Fragment } from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { getAvailableFilteredPropierties } from '../../Redux/Actions/index';
+import { getAvailableFilteredPropierties, changeURL } from '../../Redux/Actions/index';
 import './Paginacion.css';
 
 function Paginacion({
@@ -23,6 +23,12 @@ function Paginacion({
   // endpoint = `http://localhost:3001/posts?offset=45`;
   useEffect(() => {
     // console.log("object 3")
+    // console.log('window.location: ', window.location);
+    // params.set('page', 2);
+    // console.log('history: ', history);
+    // history.push(`${window.location.pathname}/${params.toString()}`);
+    // console.log('window.location: ', window.location);
+    // console.log('params href: ', window.location.href);// me da la url actual
     setListaDePaginas(range(ultimaPagina));// [1,2,3,4,...,100]
   }, [count]);
 
@@ -40,9 +46,15 @@ function Paginacion({
         }
       });
     }
+    console.log('window.location.search: ', window.location);
+    console.log('window.location.search: ', history);
     params.set('page', numero);
-    history.push(`${path}?${params.toString()}`);
-    dispatch(functionNext());
+    history.push(`${window.location.pathname}?${params.toString()}`);
+    // history.push(`${path}?${params.toString()}`);
+    functionNext();
+    // tiene que ser de este estilo
+    // functionNext = dispatch(getAvailableFilteredPropierties());
+    dispatch(changeURL(window.location.href));
     window.scrollTo(0, 0);
   }
 

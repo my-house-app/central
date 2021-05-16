@@ -13,12 +13,9 @@ function Bookings({
   const { visitDates } = render;
   const { userId } = match.params;
   useEffect(() => {
-    getUserData(id);
+    getUserData(userId);
   }, []);
-  const {
-    render, count, currentPage, selfEndpoint,
-  } = panelUser;
-  const { visitDates } = render;
+
   const list = () => {
     const data = [];
     visitDates?.forEach((e) => {
@@ -48,7 +45,7 @@ function Bookings({
         limit={10}
         functionNext={getPanelFilteredProperties}
         self={selfEndpoint}
-        pagsPath={`/panel/user/:${id}/bookings`}
+        pagsPath={`/panel/user/:${userId}/bookings`}
       />
     </div>
   );
