@@ -15,6 +15,7 @@ import {
   GET_BOOKING,
   EDIT_BOOKING,
   DELETE_BOOKING,
+  GET_ADMIN_USERS_DATA,
 } from '../Actions/types';
 
 const initialState = {
@@ -61,6 +62,17 @@ export default function rootReducer(state = initialState, action) {
       orderType: action.payload.type,
     };
   case GET_ADMIN_DATA:
+    return {
+      ...state,
+      panelAdmin: {
+        ...state.panelAdmin,
+        render: action.payload,
+        count: action.payload.count,
+        currentPage: action.payload.currentPage,
+        selfEndpoint: action.payload.selfEndpoint,
+      },
+    };
+  case GET_ADMIN_USERS_DATA:
     return {
       ...state,
       panelAdmin: {

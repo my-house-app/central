@@ -1,7 +1,7 @@
 /* eslint-disable no-shadow */
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { getAdminData, getPanelFilteredProperties } from '../../../../Redux/Actions/index';
+import { getAdminUsersData, getPanelFilteredProperties } from '../../../../Redux/Actions/index';
 import TablePage from '../../TablePage/TablePage';
 
 function PostsAdmin({ panelAdmin, getAdminData, getPanelFilteredProperties }) {
@@ -14,7 +14,7 @@ function PostsAdmin({ panelAdmin, getAdminData, getPanelFilteredProperties }) {
   }, []);
   const list = () => {
     const data = [];
-    users.forEach((e) => {
+    users?.forEach((e) => {
       data.push({
         column1: e.email,
         displayLink: true,
@@ -41,6 +41,7 @@ function PostsAdmin({ panelAdmin, getAdminData, getPanelFilteredProperties }) {
         functionNext={getPanelFilteredProperties}
         self={selfEndpoint}
         pagsPath="/panel/admin/users"
+        deleteAction={(e) => console.log('estoy eliminando')}/// arreglar!!!
       />
     </div>
   );
@@ -50,7 +51,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  getAdminData: () => dispatch(getAdminData()),
+  getAdminData: () => dispatch(getAdminUsersData()),
   getPanelFilteredProperties: () => dispatch(getPanelFilteredProperties()),
 });
 

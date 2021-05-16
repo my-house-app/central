@@ -16,4 +16,5 @@ export const GET_BOOKING = 'GET_BOOKING';
 export const ADD_BOOKING = 'ADD_BOOKING';
 export const EDIT_BOOKING = 'EDIT_BOOKING';
 export const DELETE_BOOKING = 'DELETE_BOOKING';
+export const GET_ADMIN_USERS_DATA = 'GET_ADMIN_USERS_DATA';
 // export const GET_ALL_POST_PANEL_NEXT = 'get_all_post_panel_next';

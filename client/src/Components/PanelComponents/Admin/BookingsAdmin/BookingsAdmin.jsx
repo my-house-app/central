@@ -16,7 +16,7 @@ function BookingsAdmin({
   }, []);
   const list = () => {
     const data = [];
-    bookings.forEach((e) => {
+    bookings?.forEach((e) => {
       data.push({
         column1: e.name,
         displayLink: true,
@@ -44,6 +44,7 @@ function BookingsAdmin({
         functionNext={getPanelFilteredProperties}
         self={selfEndpoint}
         pagsPath="/panel/admin/bookings"
+        deleteAction={(e) => console.log('estoy eliminando')}/// arreglar!!!
       />
     </div>
   );

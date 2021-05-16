@@ -16,6 +16,8 @@ import {
   addBookingService,
   editBookingService,
   deleteBookingService,
+  getAdminUsersDataService,
+  getAdminBookingsDataService,
 } from '../../Services/properties.service';
 // actipon types
 import {
@@ -37,6 +39,7 @@ import {
   ADD_BOOKING,
   EDIT_BOOKING,
   DELETE_BOOKING,
+  GET_ADMIN_USERS_DATA,
 } from './types';
 
 // Actions
@@ -96,12 +99,38 @@ export function orderBy(payload) {
 }
 
 // ALL ADMIN DATA
-export const getAdminData = () => async function (dispatch) {
-  return getAdminDataService()
+export const getAdminData = (id) => async function (dispatch) {
+  return getAdminDataService(id)
     .then((res) => {
       dispatch(
         {
           type: GET_ADMIN_DATA,
+          payload: res.data,
+        },
+      );
+    })
+    .catch((e) => console.log('Error getAdminData: ', e));
+};
+// ALL ADMIN USERS DATA
+export const getAdminUsersData = (id) => async function (dispatch) {
+  return getAdminUsersDataService(id)
+    .then((res) => {
+      dispatch(
+        {
+          type: GET_ADMIN_USERS_DATA,
+          payload: res.data,
+        },
+      );
+    })
+    .catch((e) => console.log('Error getAdminData: ', e));
+};
+// ALL ADMIN BOOKINGS DATA
+export const getAdminBookingsData = (id) => async function (dispatch) {
+  return getAdminBookingsDataService(id)
+    .then((res) => {
+      dispatch(
+        {
+          type: GET_ADMIN_USERS_DATA,
           payload: res.data,
         },
       );
