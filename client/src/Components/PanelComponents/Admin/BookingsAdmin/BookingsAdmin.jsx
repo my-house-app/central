@@ -1,7 +1,7 @@
 /* eslint-disable no-shadow */
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { deleteBooking, getAdminData, getPanelFilteredProperties } from '../../../../Redux/Actions/index';
+import { deleteBooking, getAdminBookingsData, getPanelFilteredProperties } from '../../../../Redux/Actions/index';
 import TablePage from '../../TablePage/TablePage';
 
 function BookingsAdmin({
@@ -54,7 +54,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  getAdminData: () => dispatch(getAdminData()),
+  getAdminData: () => dispatch(getAdminBookingsData()),
   deleteBooking: (booking) => dispatch(deleteBooking(booking)),
   getPanelFilteredProperties: () => dispatch(getPanelFilteredProperties()),
 });
