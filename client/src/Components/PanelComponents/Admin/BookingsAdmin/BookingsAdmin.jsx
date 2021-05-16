@@ -35,16 +35,14 @@ function BookingsAdmin({
         tableName="bookings"
         columns={['User owner', 'Post', 'Date']}
         data={list()}
-        path="users"
-        buttonPath="bookings"
-        buttonRole="admin"
+        path="user"
+        buttonPath="booking"
         count={count}
         paginaActual={currentPage}
         limit={10}
         functionNext={getPanelFilteredProperties}
         self={selfEndpoint}
         pagsPath="/panel/admin/bookings"
-        // deleteAction={(e) => console.log('estoy eliminando')}/// arreglar!!!
       />
     </div>
   );

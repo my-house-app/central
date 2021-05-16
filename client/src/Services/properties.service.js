@@ -68,10 +68,9 @@ export async function getUserDataService(userId, limit = 10) {
 }
 
 // DETALLES DE UN POST
-export async function getPropertyDetails(id) {
-  const response = await fetch(`${REACT_APP_API_BASE_ENDPOINT}/post/${id}`);
-  const propertyFetched = await response.json();
-  return propertyFetched;
+export async function getPostService(id) {
+  const endpoint = `${REACT_APP_API_BASE_ENDPOINT}/post/${id}`;
+  return await axios.get(endpoint);
 }
 
 // AGREGAR UN POST
@@ -90,12 +89,6 @@ export async function editPostService(postId, post) {
 export async function deletePostService(postId) {
   const endpoint = `${REACT_APP_API_BASE_ENDPOINT}/post/${postId}`;
   return await axios.delete(endpoint);
-}
-
-// DETALLES DE UN USUARIO
-export async function getUserService(userId) {
-  const endpoint = `${REACT_APP_API_BASE_ENDPOINT}/user/${userId}`;
-  return await axios.get(endpoint);
 }
 
 // AGREGAR UN USUARIO

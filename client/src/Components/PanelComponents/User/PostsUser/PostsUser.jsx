@@ -11,9 +11,9 @@ function PostsUser({
     render, count, currentPage, selfEndpoint,
   } = panelUser;
   const { posts } = render;
-  const { id } = match.params;
+  const { userId } = match.params;
   useEffect(() => {
-    getUserData(id);
+    getUserData(userId);
   }, []);
   const list = () => {
     const data = [];
@@ -36,15 +36,14 @@ function PostsUser({
         tableName="posts"
         columns={['Price', 'Title', 'City']}
         data={list()}
-        path="posts"
-        buttonPath="posts"
-        buttonRole="user"
+        path="post"
+        buttonPath="post"
         count={count}
         paginaActual={currentPage}
         limit={10}
         // functionNext={getPanelFilteredProperties}
         self={selfEndpoint}
-        pagsPath={`/panel/user/:${id}/posts`}
+        pagsPath={`/panel/user/:${userId}/posts`}
       />
     </div>
   );

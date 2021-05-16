@@ -6,11 +6,13 @@ import TablePage from '../../TablePage/TablePage';
 import Paginacion from '../../../Paginacion/Paginacion';
 
 function PostsAdmin({
-  panelAdmin, match, getAdminData, deletePost, getPanelFilteredProperties,
+  panelAdmin, getAdminData, deletePost, getPanelFilteredProperties,
 }) {
+
   const { userId: adminId } = match.params;
   useEffect(() => {
-    getAdminData(adminId);
+    console.log('Im here');
+    getAdminData();
   }, []);
   const {
     render, count, currentPage, selfEndpoint,
@@ -38,16 +40,9 @@ function PostsAdmin({
         tableName="posts"
         columns={['Title', 'User', 'City']}
         data={list()}
-        path="users"
-        buttonPath="posts"
-        buttonRole="admin"
-        count={count}
-        paginaActual={currentPage}
-        limit={10}
-        functionNext={() => getPanelFilteredProperties}
-        self={selfEndpoint}
-        pagsPath="/panel/admin/posts"
-        deleteAction={(e) => console.log('estoy eliminando')}/// arreglar!!!
+        path="user"
+        buttonPath="post"
+        deleteAction={deletePost}
       />
       {
         count && (
@@ -68,7 +63,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  getAdminData: (adminId) => dispatch(getAdminData(adminId)),
+  getAdminData: () => dispatch(getAdminData()),
   deletePost: (post) => dispatch(deletePost(post)),
   getPanelFilteredProperties: () => dispatch(getPanelFilteredProperties()),
 });

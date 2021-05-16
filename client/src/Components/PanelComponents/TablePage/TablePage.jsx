@@ -9,7 +9,6 @@ function TablePage({
   tableName,
   columns,
   data,
-  buttonRole,
   buttonPath,
   path,
   count,
@@ -21,7 +20,7 @@ function TablePage({
 }) {
   return (
     <>
-      <ButtonsBar role={buttonRole} tableName={tableName} />
+      <ButtonsBar tableName={tableName} />
       <table className={style.ctnList}>
         <caption>{tableName}</caption>
         <thead>
@@ -42,7 +41,6 @@ function TablePage({
               column3={e.column3}
               id={e.id}
               buttonPath={buttonPath}
-              buttonRole={buttonRole}
               path={path}
             />
           ))}

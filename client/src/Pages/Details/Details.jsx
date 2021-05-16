@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBed, faBath, faRulerCombined } from '@fortawesome/free-solid-svg-icons';
 import SliderCarousel from '../../Components/SliderCarousel/SliderCarousel';
 import Map from '../../Components/Map/Map'; // esta no se esta usando, se puede eliminar? @rennygalindez
-import { getPropertyDetails } from '../../Services/properties.service';
+import { getPostService } from '../../Services/properties.service';
 import styles from './Details.module.css';
 
 export default function Details({ routerProps }) {
@@ -16,13 +16,14 @@ export default function Details({ routerProps }) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    async function fetchApi(propertyId) {
-      const propertyFetch = await getPropertyDetails(propertyId);
-      setProperty(propertyFetch);
+    async function fetchApi(id) {
+      const propertyFetch = await getPostService(id);
+      setProperty(propertyFetch.data);
       setLoading(false);
     }
     fetchApi(id);
   }, []);
+  console.log(property);
   return (
     <div>
       {!loading && (

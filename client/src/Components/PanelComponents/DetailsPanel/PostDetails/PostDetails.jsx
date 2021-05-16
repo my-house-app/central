@@ -3,9 +3,9 @@ import { useState, useEffect } from 'react';
 import { FaCheck } from 'react-icons/fa';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBed, faBath, faRulerCombined } from '@fortawesome/free-solid-svg-icons';
-import SliderCarousel from '../../../../SliderCarousel/SliderCarousel';
-import Map from '../../../../Map/Map'; // esta no se esta usando, se puede eliminar? @rennygalindez
-import { getPropertyDetails } from '../../../../../Services/properties.service';
+import SliderCarousel from '../../../SliderCarousel/SliderCarousel';
+import Map from '../../../Map/Map'; // esta no se esta usando, se puede eliminar? @rennygalindez
+import { getPostService } from '../../../../Services/properties.service';
 import styles from './PostDetails.module.css';
 
 export default function PostDetails({ id }) {
@@ -14,8 +14,8 @@ export default function PostDetails({ id }) {
 
   useEffect(() => {
     async function fetchApi(propertyId) {
-      const propertyFetch = await getPropertyDetails(propertyId);
-      setProperty(propertyFetch);
+      const propertyFetch = await getPostService(propertyId);
+      setProperty(propertyFetch.data);
       setLoading(false);
     }
     fetchApi(id);

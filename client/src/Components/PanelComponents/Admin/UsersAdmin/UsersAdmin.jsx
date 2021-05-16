@@ -1,12 +1,12 @@
 /* eslint-disable no-shadow */
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { getAdminUsersData, getPanelFilteredProperties } from '../../../../Redux/Actions/index';
+import { deleteUser, getAdminUsersData, getPanelFilteredProperties } from '../../../../Redux/Actions/index';
 import TablePage from '../../TablePage/TablePage';
 import Paginacion from '../../../Paginacion/Paginacion';
 
 function PostsAdmin({
-  panelAdmin, match, getAdminData, getPanelFilteredProperties,
+  panelAdmin, match, getAdminData, deleteUser, getPanelFilteredProperties,
 }) {
   const {
     render, count, currentPage, selfEndpoint,
@@ -36,16 +36,9 @@ function PostsAdmin({
         tableName="users"
         columns={['E-mail', 'User name', 'Phone']}
         data={list()}
-        path="users"
-        buttonPath="users"
-        buttonRole="admin"
-        count={count}
-        paginaActual={currentPage}
-        limit={10}
-        functionNext={getPanelFilteredProperties}
-        self={selfEndpoint}
-        pagsPath="/panel/admin/users"
-        deleteAction={(e) => console.log('estoy eliminando')}/// arreglar!!!
+        path="user"
+        buttonPath="user"
+        deleteAction={deleteUser}/// arreglar!!!
       />
       {/* <Paginacion /> */}
       {
@@ -67,6 +60,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
+  deleteUser: () => dispatch(deleteUser()),
   getAdminData: (adminId) => dispatch(getAdminUsersData(adminId)),
   getPanelFilteredProperties: () => dispatch(getPanelFilteredProperties()),
 });

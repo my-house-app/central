@@ -7,10 +7,6 @@ import TablePage from '../../TablePage/TablePage';
 function Bookings({
   panelUser, getUserData, match, deleteBooking,
 }) {
-  const {
-    render, count, currentPage, selfEndpoint,
-  } = panelUser;
-  const { visitDates } = render;
   const { userId } = match.params;
   useEffect(() => {
     getUserData(userId);
@@ -37,9 +33,8 @@ function Bookings({
         tableName="bookings"
         columns={['Date', 'Post', 'City']}
         data={list()}
-        path="posts"
-        buttonPath="bookings"
-        buttonRole="user"
+        path="post"
+        buttonPath="booking"
         count={count}
         paginaActual={currentPage}
         limit={10}

@@ -1,15 +1,15 @@
 import React from 'react';
 import EditUser from './EditUser/EditUser';
-/* import EditPost from './EditPost/EditPost';
-import EditBooking from './EditBooking/EditBooking'; */
+import EditPosts from './EditPost/EditPost';
+import EditBooking from './EditBooking/EditBooking';
 
 function EditForm({ match }) {
-  const { path } = match.params;
+  const { path, id, action } = match.params;
   function display() {
-    if (path === 'users') return <EditUser />;
-    /* if (path === 'posts') return <EditPost />;
-    if (path === 'bookings') return <EditBooking />; */
-    return <span>Nothing to edit, sorry</span>;
+    if (path === 'user') return <EditUser action={action} id={id} />;
+    if (path === 'post') return <EditPosts action={action} path={path} id={id} />;
+    if (path === 'booking') return <EditBooking action={action} path={path} id={id} />;
+    return null;
   }
   return (
     <div>

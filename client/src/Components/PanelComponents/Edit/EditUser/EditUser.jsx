@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 /* eslint-disable no-shadow */
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
@@ -6,26 +7,50 @@ import ButtonsBar from '../../ButtonsBar/ButtonsBar';
 import style from '../Edit.module.css';
 
 function EditUser({
-  match, editUser, getUser, userDetail, msg,
+  editUser, getUser, userDetail, msg, id, action,
 }) {
-  const { id } = match.params;
   useEffect(() => {
     getUser(id);
   }, []);
 
   const [input, setInput] = useState({
-    name: userDetail.name,
-    email: userDetail.email,
-    phone: userDetail.phone,
-    photo: userDetail.phone,
-    city: userDetail.city,
-    street_number: userDetail.street_number,
-    zip_code: userDetail.zip_code,
+    name: action === 'edit' ? userDetail.name : '',
+    email: action === 'edit' ? userDetail.email : '',
+    phone: action === 'edit' ? userDetail.phone : '',
+    photo: action === 'edit' ? userDetail.phone : '',
+    city: action === 'edit' ? userDetail.city : '',
+    street_number: action === 'edit' ? userDetail.street_number : '',
+    zip_code: action === 'edit' ? userDetail.zip_code : '',
+    // role: action === 'edit' ? userDetail.role : '',
+    status: action === 'edit' ? userDetail.status : '',
+    type: action === 'edit' ? userDetail.type : '',
   });
+
+  const [errors, setErrors] = React.useState({});
+
+  const isAdmin = true;
+
+  function validate(input) {
+    const regEmail = /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}/g;
+    const errors = {};
+    if (!input.name) {
+      errors.name = 'Name is required';
+    } else if (!input.email) {
+      errors.email = 'Email is required';
+    } else if (!regEmail.test(input.email)) {
+      errors.email = 'Email is not valid';
+    }
+    return errors;
+  }
   function handleChange(e) {
+    const { name, value } = e.target;
+    setErrors(validate({
+      ...input,
+      [name]: value,
+    }));
     setInput({
       ...input,
-      [e.target.name]: e.target.value,
+      [name]: value,
     });
   }
   function handleSubmit(e) {
@@ -34,36 +59,45 @@ function EditUser({
     alert(msg);
   }
 
+  function resetForm() {
+    setInput({
+      phone: '', photo: '', city: '', street_number: '', zip_code: '',
+    });
+    document.getElementById('form').reset();
+  }
+
   return (
-    <div>
+    <div className={style.ctn}>
       <ButtonsBar />
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className={style.form} id="form">
         <div className={style.field}>
           <label htmlFor="name">Name</label>
           <input
-            disabled
+            disabled={!isAdmin}
             type="text"
             value={input.name}
             name="name"
             onChange={handleChange}
           />
         </div>
+        {errors.name && (<p className={style.pdanger}>{errors.name}</p>)}
+        <div className={style.field}>
+          <label htmlFor="email">E-mail</label>
+          <input
+            disabled={!isAdmin}
+            type="text"
+            value={input.email}
+            name="email"
+            onChange={handleChange}
+          />
+        </div>
+        {errors.email && (<p className={style.pdanger}>{errors.email}</p>)}
         <div className={style.field}>
           <label htmlFor="phone">Phone number</label>
           <input
             type="text"
             value={input.phone}
             name="phone"
-            onChange={handleChange}
-          />
-        </div>
-        <div className={style.field}>
-          <label htmlFor="email">E-mail</label>
-          <input
-            disabled
-            type="text"
-            value={input.email}
-            name="email"
             onChange={handleChange}
           />
         </div>
@@ -95,6 +129,13 @@ function EditUser({
           />
         </div>
         <div className={style.field}>
+          <label htmlFor="type">Role</label>
+          <select className={style.selectFilter} name="type" value={input.type} onChange={handleChange}>
+            <option>Role</option>
+            {['User', 'Admin', 'SuperAdmin'].map((type, i) => (<option key={i} value={type}>{type}</option>))}
+          </select>
+        </div>
+        <div className={style.field}>
           <label htmlFor="photo">Picture URL</label>
           <input
             type="text"
@@ -103,13 +144,17 @@ function EditUser({
             onChange={handleChange}
           />
         </div>
+        <div className={style.btnReset}>
+          <button className={style.btn} type="button" onClick={resetForm}>Reset</button>
+          <button className={style.btn} type="submit" onClick={handleSubmit}>Save changes</button>
+        </div>
       </form>
     </div>
   );
 }
 
 const mapStateToProps = (state) => ({
-  userDetail: state.detail,
+  userDetail: state.panelUser.render,
   msg: state.message,
 });
 
