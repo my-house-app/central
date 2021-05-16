@@ -1,27 +1,29 @@
 /* eslint-disable no-shadow */
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { getUserData, getPanelFilteredProperties } from '../../../../Redux/Actions/index';
+import { getUserData, getPanelFilteredProperties, deleteBooking } from '../../../../Redux/Actions/index';
 import TablePage from '../../TablePage/TablePage';
 
-function Bookings({ panelUser, getUserData, match }) {
-  const {
-    render, count, currentPage, selfEndpoint,
-  } = panelUser;
-  const { bookings } = render;
+function Bookings({
+  panelUser, getUserData, match, deleteBooking,
+}) {
   const { userId } = match.params;
   useEffect(() => {
     getUserData(userId);
   }, []);
+  const {
+    render, count, currentPage, selfEndpoint,
+  } = panelUser;
+  const { visitDates } = render;
   const list = () => {
     const data = [];
-    bookings.forEach((e) => {
+    visitDates.forEach((e) => {
       data.push({
         column1: e.date,
         displayLink: true,
         link: e.postId,
-        column2: e.post_name,
-        column3: e.city,
+        column2: e.post.post_name,
+        column3: e.post.city,
         id: e.id,
       });
     });
@@ -30,6 +32,7 @@ function Bookings({ panelUser, getUserData, match }) {
   return (
     <div>
       <TablePage
+        deleteAction={deleteBooking}
         tableName="bookings"
         columns={['Date', 'Post', 'City']}
         data={list()}
@@ -52,6 +55,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   getUserData: (userId) => dispatch(getUserData(userId)),
+  deleteBooking: (booking) => dispatch(deleteBooking(booking)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Bookings);

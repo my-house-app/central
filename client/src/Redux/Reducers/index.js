@@ -27,8 +27,8 @@ const initialState = {
   selfEndpoint: '',
   message: '',
   detail: {},
-  panelAdmin: { render: { posts: [], users: [], bookings: [] } },
-  panelUser: { render: { posts: [], bookings: [], ownerBookings: [] } },
+  panelAdmin: '',
+  panelUser: { render: { posts: [], visitDates: [] } },
 };
 
 export default function rootReducer(state = initialState, action) {

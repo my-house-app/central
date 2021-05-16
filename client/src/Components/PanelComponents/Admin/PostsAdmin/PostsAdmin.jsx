@@ -1,17 +1,20 @@
 /* eslint-disable no-shadow */
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { getAdminData, getPanelFilteredProperties } from '../../../../Redux/Actions/index';
+import { getAdminData, deletePost, getPanelFilteredProperties } from '../../../../Redux/Actions/index';
 import TablePage from '../../TablePage/TablePage';
 
-function PostsAdmin({ panelAdmin, getAdminData, getPanelFilteredProperties }) {
+function PostsAdmin({
+  panelAdmin, match, getAdminData, deletePost, getPanelFilteredProperties,
+}) {
+  const { adminId } = match.params;
+  useEffect(() => {
+    getAdminData(adminId);
+  }, []);
   const {
     render, count, currentPage, selfEndpoint,
   } = panelAdmin;
   const { posts } = render;
-  useEffect(() => {
-    getAdminData();
-  }, []);
   const list = () => {
     const data = [];
     posts.forEach((e) => {
@@ -50,7 +53,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  getAdminData: () => dispatch(getAdminData()),
+  getAdminData: (adminId) => dispatch(getAdminData(adminId)),
+  deletePost: (post) => dispatch(deletePost(post)),
   getPanelFilteredProperties: () => dispatch(getPanelFilteredProperties()),
 });
 

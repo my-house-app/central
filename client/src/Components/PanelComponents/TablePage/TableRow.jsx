@@ -4,7 +4,8 @@ import ButtonOptions from '../ButtonOptions/ButtonOptions';
 import style from './TablePage.module.css';
 
 export default function TableRow({
-  column1, displayLink, link, column2, column3, path, buttonPath, id, buttonRole, deleteAction,
+  column1, displayLink, link, column2, column3,
+  path, buttonPath, id, buttonRole, deleteAction,
 }) {
   return (
     <tr>
