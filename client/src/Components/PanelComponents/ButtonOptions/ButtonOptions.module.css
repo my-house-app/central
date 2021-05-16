@@ -5,6 +5,9 @@
 .checkbox {
   display: none;
 }
+.ctn label{
+  cursor: pointer;
+}
 .checkbox:hover ~ .nav{
   visibility: visible;
 }
@@ -20,6 +23,7 @@
   background-color: var(--white);
   padding: 5px;
   width: auto;
+  cursor: pointer;
 }
 .nav:hover {
   visibility: visible;

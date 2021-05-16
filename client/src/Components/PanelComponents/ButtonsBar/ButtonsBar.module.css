@@ -6,6 +6,8 @@
 }
 .ctn label{
   cursor: pointer;
+  text-decoration: none;
+  color: var(--dark);
 }
 
 .elementsCtn {
@@ -33,6 +35,7 @@
   text-align: center;
   border: none;
 }
+
 
 .btnBar:hover {
   background: #0f1a28;
