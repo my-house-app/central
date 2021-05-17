@@ -7,30 +7,12 @@ import ButtonsBar from '../../ButtonsBar/ButtonsBar';
 import style from '../Edit.module.css';
 
 function EditUser({
-  editUser, getUser, userDetail, msg, id, action,
+  editUser, getUser, userDetail, msg, id, action, session
 }) {
+  const [input, setInput] = useState({})
   useEffect(() => {
     getUser(id);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  const [input, setInput] = useState({
-    name: action === 'edit' ? userDetail.name : '',
-    email: action === 'edit' ? userDetail.email : '',
-    phone: action === 'edit' ? userDetail.phone : '',
-    photo: action === 'edit' ? userDetail.photo : '',
-    city: action === 'edit' ? userDetail.city : '',
-    street_number: action === 'edit' ? userDetail.street_number : '',
-    zip_code: action === 'edit' ? userDetail.zip_code : '',
-    status: action === 'edit' ? userDetail.status : '',
-    type: action === 'edit' ? userDetail.type : '',
-  });
-
-  const [errors, setErrors] = React.useState({});
-
-  const isAdmin = true;
-  useEffect(() => {
-    setInput({
+    if (id !== session.id) setInput({
       name: action === 'edit' ? userDetail.name : '',
       email: action === 'edit' ? userDetail.email : '',
       phone: action === 'edit' ? userDetail.phone : '',
@@ -41,8 +23,13 @@ function EditUser({
       status: action === 'edit' ? userDetail.status : '',
       type: action === 'edit' ? userDetail.type : '',
     });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+      // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  const [errors, setErrors] = React.useState({});
+  console.log('input -> ', input)
+  const isAdmin = true;
+
   function validate(input) {
     const regEmail = /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}/g;
     const errors = {};
@@ -141,13 +128,15 @@ function EditUser({
             onChange={handleChange}
           />
         </div>
-        <div className={style.field}>
-          <label htmlFor="type">Role</label>
-          <select className={style.selectFilter} name="type" value={input.type} onChange={handleChange}>
-            <option>Role</option>
-            {['User', 'Admin', 'SuperAdmin'].map((type, i) => (<option key={i} value={type}>{type}</option>))}
-          </select>
-        </div>
+        {isAdmin &&
+          <div className={style.field}>
+            <label htmlFor="type">Role</label>
+            <select className={style.selectFilter} name="type" value={input.type} onChange={handleChange}>
+              <option>Role</option>
+              {['User', 'Admin', 'SuperAdmin'].map((type, i) => (<option key={i} value={type}>{type}</option>))}
+            </select>
+          </div>
+        }
         <div className={style.field}>
           <label htmlFor="photo">Picture URL</label>
           <input
@@ -167,6 +156,7 @@ function EditUser({
 }
 
 const mapStateToProps = (state) => ({
+  session: state.session,
   userDetail: state.panelUser.render,
   msg: state.message,
 });

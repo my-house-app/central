@@ -3,13 +3,13 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { useAuth0 } from "@auth0/auth0-react";
 import { Redirect } from 'react-router-dom';
-import { deleteUser, getAdminUsersData, getUserData } from '../../../../Redux/Actions/index';
+import { deleteUser, getAdminUsersData, userSession } from '../../../../Redux/Actions/index';
 import TableButtonBar from '../../ButtonsBar/TableButtonBar/TableButtonBar';
 import TablePage from '../../TablePage/TablePage';
 import Paginacion from '../../../Paginacion/Paginacion';
 
 function PostsAdmin({
-  userInfo, panelAdmin, getUserData, getAdminData, deleteUser,
+  userInfo, panelAdmin, userSession, getAdminData, deleteUser,
 }) {
   const {user} = useAuth0();
   let userId;
@@ -20,7 +20,7 @@ function PostsAdmin({
   }
 
   useEffect(() => {
-    getUserData(userId)
+    userSession(userId)
     getAdminData(userId);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -53,7 +53,7 @@ function PostsAdmin({
         <>
           <TableButtonBar
             rol="admin"
-            path="post"
+            path="user"
           />
           <TablePage
             tableName="users"
@@ -83,13 +83,13 @@ function PostsAdmin({
 }
 const mapStateToProps = (state) => ({
   panelAdmin: state.panelAdmin,
-  userInfo: state.panelUser.render,
+  userInfo: state.session,
 });
 
 const mapDispatchToProps = (dispatch) => ({
   deleteUser: () => dispatch(deleteUser()),
   getAdminData: (adminId) => dispatch(getAdminUsersData(adminId)),
-  getUserData: (id) => dispatch(getUserData(id)),
+  userSession: (id) => dispatch(userSession(id)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(PostsAdmin);
