@@ -1,3 +1,4 @@
+const bcrypt = require('bcrypt');
 const { v4: uuidv4 } = require('uuid');
 
 const firstNames = [
@@ -34,6 +35,7 @@ for (let i = 0; i <= 200; i++) {
 
 const cities = ['Bogotá', 'Medellín', 'Cartagena'];
 const users = [];
+const hashedPassword = bcrypt.hashSync('Housepass.123', 1);
 
 // eslint-disable-next-line no-plusplus
 for (let i = 1; i < mergedNames.length; i++) {
@@ -45,7 +47,7 @@ for (let i = 1; i < mergedNames.length; i++) {
       .normalize('NFD')
       .replace(/[\u0300-\u036f]/g, '')
       .toLowerCase()}${i}@gmail.com`,
-    password: uuidv4(),
+    password: hashedPassword,
     phone: Math.floor(Math.random() * 1000000000),
     photo: '',
     city: cities[Math.floor(Math.random() * cities.length)],
