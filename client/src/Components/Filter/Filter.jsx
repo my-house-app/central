@@ -318,7 +318,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  filter: (queryBlock) => dispatch(getAvailableFilteredPropierties(queryBlock)),
+  filter: () => dispatch(getAvailableFilteredPropierties()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Filter);
