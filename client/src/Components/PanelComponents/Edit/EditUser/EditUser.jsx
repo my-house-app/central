@@ -18,7 +18,7 @@ function EditUser({
     name: action === 'edit' ? userDetail.name : '',
     email: action === 'edit' ? userDetail.email : '',
     phone: action === 'edit' ? userDetail.phone : '',
-    photo: action === 'edit' ? userDetail.phone : '',
+    photo: action === 'edit' ? userDetail.photo : '',
     city: action === 'edit' ? userDetail.city : '',
     street_number: action === 'edit' ? userDetail.street_number : '',
     zip_code: action === 'edit' ? userDetail.zip_code : '',
@@ -29,7 +29,19 @@ function EditUser({
   const [errors, setErrors] = React.useState({});
 
   const isAdmin = true;
-
+  useEffect(() => {
+    setInput({
+      name: action === 'edit' ? userDetail.name : '',
+      email: action === 'edit' ? userDetail.email : '',
+      phone: action === 'edit' ? userDetail.phone : '',
+      photo: action === 'edit' ? userDetail.photo : '',
+      city: action === 'edit' ? userDetail.city : '',
+      street_number: action === 'edit' ? userDetail.street_number : '',
+      zip_code: action === 'edit' ? userDetail.zip_code : '',
+      status: action === 'edit' ? userDetail.status : '',
+      type: action === 'edit' ? userDetail.type : '',
+    });
+  }, []);
   function validate(input) {
     const regEmail = /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}/g;
     const errors = {};
@@ -145,7 +157,7 @@ function EditUser({
           />
         </div>
         <div className={style.btnReset}>
-          <button className={style.btn} type="button" onClick={resetForm}>Reset</button>
+          <button className={style.btn} type="button" onClick={(e) => resetForm(e)}>Reset</button>
           <button className={style.btn} type="submit" onClick={handleSubmit}>Save changes</button>
         </div>
       </form>
