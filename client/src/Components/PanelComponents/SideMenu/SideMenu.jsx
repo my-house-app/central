@@ -9,10 +9,32 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { FaRegCalendar } from 'react-icons/fa';
 import style from './SideMenu.module.css';
+import { useAuth0 } from "@auth0/auth0-react";
+import { useDispatch, useSelector} from 'react-redux';
+import { getUserData } from "../../../Redux/Actions";
+
+
 
 function SideMenu() {
+  const {user} = useAuth0()
+  const dispatch = useDispatch();
+  const {
+    render
+  } = useSelector((store) => store.panelUser);
+   
+    
+   
+  
+  
+  const userId = user.sub.slice(6);
+  
+  useEffect(() => {
+    dispatch(getUserData(userId))
+  }, [])
+
   const isAdmin = false;
-  const userId = 'bc6b5eff-d880-4048-8c37-24e446a1962b';
+
+
   const [state, setState] = useState(false);
   window.onscroll = () => {
     const scroll = (() => (document.getElementById('navPanel') ? document.getElementById('navPanel').getBoundingClientRect().top : document.getElementById('navPanel')))();
@@ -98,3 +120,35 @@ function SideMenu() {
 }
 
 export default SideMenu;
+
+// function login(email, password, callback) {
+//   const { DB_USER, DB_PASSWORD, DB_HOST, DB_NAME } = configuration;
+ 
+//   const DBCONNECTION = `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_NAME}`;
+//   const bcrypt = require('bcrypt');
+//   const postgres = require('pg');
+
+//   postgres.connect(DBCONNECTION, function (err, client, done) {
+//     if (err) return callback(err);
+
+//     const query = 'SELECT id, email, password FROM users WHERE email = $1';
+//     client.query(query, [email], function (err, result) {
+     
+//       done();
+
+//       if (err || result.rows.length === 0) return callback(err || new WrongUsernameOrPasswordError(email));
+
+//       const user = result.rows[0];
+
+//       bcrypt.compare(password, user.password, function (err, isValid) {
+//         if (err || !isValid) return callback(err || new WrongUsernameOrPasswordError(email));
+
+//         return callback(null, {
+//           user_id: user.id,
+//           nickname: user.nickname,
+//           email: user.email
+//         });
+//       });
+//     });
+//   });
+// }
