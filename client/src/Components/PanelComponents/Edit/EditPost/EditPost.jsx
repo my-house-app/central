@@ -5,7 +5,6 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { addPost, editPost, getPost } from '../../../../Redux/Actions/index';
-import ButtonsBar from '../../ButtonsBar/ButtonsBar';
 import style from '../Edit.module.css';
 
 function EditPosts({
@@ -73,8 +72,8 @@ function EditPosts({
       images: action === 'edit' ? postDetail.images : [],
       status: action === 'edit' ? postDetail.status : '',
       createdAt: action === 'edit' ? postDetail.createdAt : '',
-      // eslint-disable-next-line react-hooks/exhaustive-deps
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [postDetail.premium]);
   // const isAdmin = true;
 

@@ -3,7 +3,8 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { useAuth0 } from "@auth0/auth0-react";
 import { Redirect } from 'react-router-dom';
-import { deleteBooking, getAdminBookingsData, getPanelFilteredProperties, getUserData } from '../../../../Redux/Actions/index';
+import { deleteBooking, getAdminBookingsData, getUserData } from '../../../../Redux/Actions/index';
+import TableButtonBar from '../../ButtonsBar/TableButtonBar/TableButtonBar';
 import TablePage from '../../TablePage/TablePage';
 import Paginacion from '../../../Paginacion/Paginacion';
 
@@ -49,16 +50,20 @@ function BookingsAdmin({
   return (
     <div>
       {isAdmin &&
-        <TablePage
-          deleteAction={deleteAndGet}
-          tableName="bookings"
-          columns={['Interested user', 'Post', 'Date']}
-          data={list()}
-          path="user"
-          buttonPath="booking"
-        />}
-        {!isAdmin && <Redirect to="/home" />}
-        {
+        <>
+          <TableButtonBar
+            rol="admin"
+            path="post"
+          />
+          <TablePage
+            deleteAction={deleteAndGet}
+            tableName="bookings"
+            columns={['Interested user', 'Post', 'Date']}
+            data={list()}
+            path="user"
+            buttonPath="booking"
+          />
+           {
             count && (
               <Paginacion
                 count={count}
@@ -69,6 +74,9 @@ function BookingsAdmin({
               />
             )
           }
+        </>
+      }
+        {!isAdmin && <Redirect to="/home" />}
     </div>
   );
 }
@@ -80,7 +88,6 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   getAdminData: () => dispatch(getAdminBookingsData()),
   deleteBooking: (booking) => dispatch(deleteBooking(booking)),
-  getPanelFilteredProperties: () => dispatch(getPanelFilteredProperties()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(BookingsAdmin);
