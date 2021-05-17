@@ -12,7 +12,8 @@ function EditPosts({
   addPost, editPost, getPost, postDetail, msg, id, action,
 }) {
   useEffect(() => {
-    getPost(id);
+    id && getPost(id);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   console.log(postDetail);
   const [input, setInput] = useState({
@@ -39,13 +40,13 @@ function EditPosts({
     images: action === 'edit' ? postDetail.images : [],
     status: action === 'edit' ? postDetail.status : '',
     createdAt: action === 'edit' ? postDetail.createdAt : '',
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   });
   const [errors, setErrors] = React.useState({});
 
-  const isAdmin = true;
+  // const isAdmin = true;
 
   function validate(input) {
-    const regEmail = /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}/g;
     const errors = {};
     if (!input.post_name) {
       errors.post_name = 'Title is required';
@@ -88,17 +89,16 @@ function EditPosts({
     e.preventDefault();
     if (action === 'edit') {
       editPost(id, input);
-      console.log('Edited post ', input.post_name);
+      alert('Edited post ', input.post_name);
     } else if (action === 'create') {
       addPost(input);
-      console.log('Created this post ', input);
+      alert('Created this post ', input);
     }
-    alert(msg);
+    console.log(msg);
   }
 
   function resetForm(e) {
     e.preventDefault()
-
     setInput({
       premium: '',
       title: '',
@@ -126,7 +126,6 @@ function EditPosts({
   const [display, setDisplay] = useState(false);
   return (
     <div className={style.ctn}>
-      <ButtonsBar />
       <form onSubmit={handleSubmit} className={style.form} id="form">
         <div className={style.field}>
           <label htmlFor="post_name">Title</label>
@@ -137,6 +136,7 @@ function EditPosts({
             onChange={handleChange}
           />
         </div>
+        {errors.post_name && (<p className={style.pdanger}>{errors.post_name}</p>)}
         <div className={style.field}>
           <label htmlFor="premium"> Premium post</label>
           <input className={style.check} type="checkbox" onChange={handleChange} name="premium" value={input.premium} />
@@ -151,6 +151,7 @@ function EditPosts({
             onChange={handleChange}
           />
         </div>
+        {errors.department && (<p className={style.pdanger}>{errors.department}</p>)}
         <div className={style.field}>
           <label htmlFor="city">City</label>
           <input
@@ -160,6 +161,7 @@ function EditPosts({
             onChange={handleChange}
           />
         </div>
+        {errors.city && (<p className={style.pdanger}>{errors.city}</p>)}
         <div className={style.field}>
           <label htmlFor="street_number">Address</label>
           <input
@@ -169,6 +171,7 @@ function EditPosts({
             onChange={handleChange}
           />
         </div>
+        {errors.street_number && (<p className={style.pdanger}>{errors.street_number}</p>)}
         <div className={style.field}>
           <label htmlFor="neighborhood">Neighborhood</label>
           <input
@@ -178,6 +181,7 @@ function EditPosts({
             onChange={handleChange}
           />
         </div>
+        {errors.neighborhood && (<p className={style.pdanger}>{errors.neighborhood}</p>)}
         <div className={style.field}>
           <label htmlFor="price">Price</label>
           <input
@@ -187,6 +191,7 @@ function EditPosts({
             onChange={handleChange}
           />
         </div>
+        {errors.price && (<p className={style.pdanger}>{errors.price}</p>)}
         <div className={style.field}>
           <label htmlFor="prop_type">Type of property</label>
           <select className={style.selectFilter} name="prop_type" value={input.prop_type} onChange={handleChange}>
@@ -194,6 +199,7 @@ function EditPosts({
             {['Casa', 'Apartamento'].map((type, i) => (<option key={i} value={type}>{type}</option>))}
           </select>
         </div>
+        {errors.prop_type && (<p className={style.pdanger}>{errors.prop_type}</p>)}
         <div className={style.field}>
           <label htmlFor="m2">Square meters</label>
           <input
@@ -204,6 +210,7 @@ function EditPosts({
             onChange={handleChange}
           />
         </div>
+        {errors.m2 && (<p className={style.pdanger}>{errors.m2}</p>)}
         <div className={style.field}>
           <label htmlFor="rooms">Rooms</label>
           <input
@@ -214,6 +221,7 @@ function EditPosts({
             onChange={handleChange}
           />
         </div>
+        {errors.rooms && (<p className={style.pdanger}>{errors.rooms}</p>)}
         <div className={style.field}>
           <label htmlFor="bathrooms">Bathrooms</label>
           <input
@@ -224,6 +232,7 @@ function EditPosts({
             onChange={handleChange}
           />
         </div>
+        {errors.bathrooms && (<p className={style.pdanger}>{errors.bathrooms}</p>)}
         <div className={style.field}>
           <label htmlFor="stratum">Stratum</label>
           <input
@@ -234,6 +243,7 @@ function EditPosts({
             onChange={handleChange}
           />
         </div>
+        {errors.stratum && (<p className={style.pdanger}>{errors.stratum}</p>)}
         <div className={style.field}>
           <label htmlFor="years">Years</label>
           <input
@@ -293,7 +303,7 @@ function EditPosts({
           <label htmlFor="garden"> Garden</label>
         </div>
         <div className={style.btnReset}>
-          <button className={style.btn} type="button" onClick={(e)=>resetForm(e)}>Reset</button>
+          {/* <button className={style.btn} type="button" onClick={(e)=>resetForm(e)}>Reset</button> */}
           <button className={style.btn} type="submit" onClick={handleSubmit}>Save changes</button>
         </div>
       </form>

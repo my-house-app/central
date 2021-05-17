@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { FaSearch } from 'react-icons/fa';
 import { searchedPost } from '../../Redux/Actions';

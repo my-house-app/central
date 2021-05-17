@@ -4,7 +4,7 @@ import {
   faChevronCircleRight,
 } from '@fortawesome/free-solid-svg-icons';
 import style from './Filter.module.css';
-import FilterPosts from './FilterPosts/FilterPosts';
+// import FilterPosts from './FilterPosts/FilterPosts';
 
 function closeFilters() {
   document.getElementById('filters').className = 'closeFilter';

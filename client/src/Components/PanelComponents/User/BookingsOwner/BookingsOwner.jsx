@@ -1,7 +1,7 @@
 /* eslint-disable no-shadow */
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { getUserData, getPanelFilteredProperties, deleteBooking } from '../../../../Redux/Actions/index';
+import { getUserData, deleteBooking } from '../../../../Redux/Actions/index';
 import TablePage from '../../TablePage/TablePage';
 
 function BookingsOwner({
@@ -10,9 +10,10 @@ function BookingsOwner({
   const { userId } = match.params;
   useEffect(() => {
     getUserData(userId);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   const {
-    render, count, currentPage, selfEndpoint,
+    render,/*  count, currentPage, selfEndpoint, */
   } = panelUser;
   const { posts } = render;
   const list = () => {

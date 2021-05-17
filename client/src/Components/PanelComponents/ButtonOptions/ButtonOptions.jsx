@@ -13,7 +13,7 @@ import {
 import style from './ButtonOptions.module.css';
 
 function ButtonOptions({
-  id, buttonPath, deleteAction, msg,
+  id, buttonPath, deleteAction, msg, userId
 }) {
   return (
     <div className={style.ctn}>
@@ -22,7 +22,7 @@ function ButtonOptions({
         <FontAwesomeIcon icon={faEllipsisH} />
       </label>
       <nav className={style.nav}>
-        <NavLink to={`/panel/${buttonPath}/${id}`} className={style.NavLink}>
+        <NavLink to={`/panel/detail/${buttonPath}/${id}`} className={style.NavLink}>
           <FontAwesomeIcon icon={faEye} />
           {' Show'}
         </NavLink>
@@ -32,7 +32,7 @@ function ButtonOptions({
         </NavLink>
         <span className={style.NavLink} onClick={() => { 
          const resp = window.confirm(`Deleted ${buttonPath} with id ${id}?`)
-         if(resp) deleteAction(id); }}>
+         if(resp) deleteAction(id, userId); console.log(msg); }}>
           <FontAwesomeIcon icon={faTrashAlt} />
           {' Delete'}
         </span>

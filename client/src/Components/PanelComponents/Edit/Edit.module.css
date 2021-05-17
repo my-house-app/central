@@ -21,7 +21,7 @@
 
 .ctn .form .field select {
     background: var(--white);
-    height: 2.8em;
+    height: 2.9em;
     width: 13em;
     font-family: 'Poppins';
     display: flex;
@@ -29,7 +29,7 @@
     align-items: center;
     border-radius: 25px;
     outline:0;
-    padding: 3%;
+    padding: 1%;
     border: none;
     cursor: pointer;
 }

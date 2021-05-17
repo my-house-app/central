@@ -2,7 +2,7 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from 'react-router-dom';
 import {
-  faHeart, faBed, faBath, faRulerCombined,
+  faBed, faBath, faRulerCombined,
 } from '@fortawesome/free-solid-svg-icons';
 import { FaRegHeart } from 'react-icons/fa';
 import style from './Card.module.css';

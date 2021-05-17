@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faUser,
   faHouseUser,
-  faComments,
+  // faComments,
   faCalendarAlt,
 } from '@fortawesome/free-solid-svg-icons';
 import { FaRegCalendar } from 'react-icons/fa';
@@ -18,22 +18,22 @@ import { getUserData } from "../../../Redux/Actions";
 function SideMenu() {
   const {user} = useAuth0()
   const dispatch = useDispatch();
-  const {
-    render
-  } = useSelector((store) => store.panelUser);
-   
-    
-   
+  const { render } = useSelector((store) => store.panelUser);
   
-  
-  const userId = user.sub.slice(6);
-  
+  let userId;
+  if (user.sub.includes('google')){
+    userId = user.sub.slice(14)
+    console.log(user.sub);
+  } else {
+    userId = user.sub.slice(6)
+  }
+
   useEffect(() => {
-    dispatch(getUserData(userId))
+    dispatch(getUserData(userId));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  const isAdmin = false;
-
+  const isAdmin = render.type === 'Admin' || render.type === 'SuperAdmin'
 
   const [state, setState] = useState(false);
   window.onscroll = () => {
@@ -58,7 +58,7 @@ function SideMenu() {
           </div>
           <div className={style.divTitle}>
             <h3>Posts Management</h3>
-            <NavLink to="/panel/admin/posts" activeStyle={{ color: 'var(--white)' }}>
+            <NavLink to={`/panel/admin/posts`} activeStyle={{ color: 'var(--white)' }}>
               <h4>
                 <FontAwesomeIcon icon={faHouseUser} />
                 {' Posts'}

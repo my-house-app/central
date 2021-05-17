@@ -8,12 +8,13 @@ function PostsUser({
   panelUser, getUserData, match, deletePost,
 }) {
   const {
-    render, count, currentPage, selfEndpoint,
+    render,/*  count, currentPage, selfEndpoint, */
   } = panelUser;
   const { posts } = render;
   const { userId } = match.params;
   useEffect(() => {
     getUserData(userId);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   const list = () => {
     const data = [];
@@ -29,10 +30,17 @@ function PostsUser({
     });
     return data;
   };
+  async function deleteAndGet(id, userId) {
+    await deletePost(id)
+    await getUserData(userId)
+  }
+  console.log(panelUser.render)
   return (
     <div>
+      {/* <TableButtonBar /> */}
       <TablePage
-        deleteAction={deletePost}
+        userId={userId}
+        deleteAction={deleteAndGet}
         tableName="posts"
         columns={['Price', 'Title', 'City']}
         data={list()}

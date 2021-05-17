@@ -19,6 +19,7 @@ export default function PostDetails({ id }) {
       setLoading(false);
     }
     fetchApi(id);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
     <div>

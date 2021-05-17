@@ -20,18 +20,18 @@ export default function MyHouseRoutes() {
         <Switch>
           <Route path="/home" component={Home} />
           <Route
-            path="/post/:id"
+            exact path="/post/:id"
             render={(routerPops) => <Details routerProps={routerPops} />}
           />
           <Route exact path="/">
             <Redirect to="/home" />
           </Route>
           <Route
-            path="/about"
+            exact path="/about"
             component={About}
           />
           <Route
-            path="/signin"
+            exact path="/signin"
             component={Signin}
           />
           <Route

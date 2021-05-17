@@ -5,9 +5,11 @@ import { getAvailablePosts } from '../../Redux/Actions/index';
 // import style from './Cards.module.css';
 
 function Cards({ principalState, principal }) {
-  useEffect(() => {
+    useEffect(() => {
     if (!principalState.length) principal();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
   const list = principalState?.map((e) => (
     <Card
       key={e.id}

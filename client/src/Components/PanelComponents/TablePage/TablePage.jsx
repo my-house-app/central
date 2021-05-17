@@ -1,10 +1,9 @@
 import React from 'react';
-import Paginacion from '../../Paginacion/Paginacion';
-import ButtonsBar from '../ButtonsBar/ButtonsBar';
 import TableRows from './TableRow';
 import style from './TablePage.module.css';
 
 function TablePage({
+  userId,
   deleteAction,
   tableName,
   columns,
@@ -18,14 +17,15 @@ function TablePage({
         <caption>{tableName}</caption>
         <thead>
           <tr>
-            {columns && (columns.map((col) => (
-              <td>{col}</td>
+            {columns && (columns.map((col, index) => (
+              <td key={index}>{col}</td>
             )))}
           </tr>
         </thead>
         <tbody>
           {data?.map((e) => (
             <TableRows
+              userId={userId}
               deleteAction={deleteAction}
               column1={e.column1}
               displayLink={e.displayLink}
@@ -37,6 +37,9 @@ function TablePage({
               path={path}
             />
           ))}
+          {data.length < 1 &&
+            <tr><td>You don't have any {tableName} added yet</td></tr>
+          }
         </tbody>
       </table>
     </>

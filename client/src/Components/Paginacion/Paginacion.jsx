@@ -30,11 +30,12 @@ function Paginacion({
     // console.log('window.location: ', window.location);
     // console.log('params href: ', window.location.href);// me da la url actual
     setListaDePaginas(range(ultimaPagina));// [1,2,3,4,...,100]
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [count]);
 
   function paginate(numero) {
     const parameters = window.location.search.slice(1).split('&');
-    const offset = (numero * limit) - limit;
+    //const offset = (numero * limit) - limit;
     // console.log('window.location.search:', window.location.search);
     // console.log('parameters:', parameters);
     if (parameters.length) {

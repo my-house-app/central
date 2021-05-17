@@ -3,7 +3,7 @@
 /* eslint-disable no-shadow */
 import React, { useState } from 'react';
 import ReactMapGL, { Marker } from 'react-map-gl';
-import { FaMapMarkerAlt, FaRProject } from 'react-icons/fa';
+import { FaMapMarkerAlt } from 'react-icons/fa';
 import style from './Map.module.css';
 import MAP_STYLE from './map-style-basic-v8.json';
 
