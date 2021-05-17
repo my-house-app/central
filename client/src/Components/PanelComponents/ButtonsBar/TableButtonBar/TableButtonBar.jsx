@@ -12,7 +12,7 @@ import '../../globalFilters.css';
   document.getElementById('filters').className = 'openFilter';
 }
  */
-function Header({ rol, path }) {
+function TableButtonBar({ rol, path }) {
   return (
     <div className={style.ctn}>
       <div className={style.elementsCtn}>
@@ -38,4 +38,4 @@ function Header({ rol, path }) {
   );
 }
 
-export default Header;
+export default TableButtonBar;

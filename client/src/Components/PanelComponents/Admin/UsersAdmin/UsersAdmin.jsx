@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { useAuth0 } from "@auth0/auth0-react";
 import { Redirect } from 'react-router-dom';
 import { deleteUser, getAdminUsersData, getUserData } from '../../../../Redux/Actions/index';
+import TableButtonBar from '../../ButtonsBar/TableButtonBar/TableButtonBar';
 import TablePage from '../../TablePage/TablePage';
 import Paginacion from '../../../Paginacion/Paginacion';
 
@@ -50,6 +51,10 @@ function PostsAdmin({
     <div>
       {isAdmin &&
         <>
+          <TableButtonBar
+            rol="admin"
+            path="post"
+          />
           <TablePage
             tableName="users"
             columns={['E-mail', 'User name', 'Phone']}

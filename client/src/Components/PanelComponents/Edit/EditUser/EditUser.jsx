@@ -41,6 +41,7 @@ function EditUser({
       status: action === 'edit' ? userDetail.status : '',
       type: action === 'edit' ? userDetail.type : '',
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   function validate(input) {
     const regEmail = /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}/g;
