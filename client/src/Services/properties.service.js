@@ -74,8 +74,8 @@ export async function getPostService(id) {
 }
 
 // AGREGAR UN POST
-export async function addPostService(postId, post) {
-  const endpoint = `${REACT_APP_API_BASE_ENDPOINT}/post/${postId}`;
+export async function addPostService(post) {
+  const endpoint = `${REACT_APP_API_BASE_ENDPOINT}/post`;
   return await axios.post(endpoint, post);
 }
 
@@ -92,8 +92,8 @@ export async function deletePostService(postId) {
 }
 
 // AGREGAR UN USUARIO
-export async function addUserService(userId, user) {
-  const endpoint = `${REACT_APP_API_BASE_ENDPOINT}/user/${userId}`;
+export async function addUserService(user) {
+  const endpoint = `${REACT_APP_API_BASE_ENDPOINT}/user`;
   return await axios.post(endpoint, user);
 }
 

@@ -19,7 +19,7 @@ function SideMenu() {
   const {user} = useAuth0()
   const dispatch = useDispatch();
   const { session } = useSelector((store) => store);
-  
+
   let userId;
   if (user.sub.includes('google')){
     userId = user.sub.slice(14)
@@ -50,6 +50,14 @@ function SideMenu() {
       {isAdmin && (
         <>
           <div className={style.divTitle}>
+            <NavLink to={`/panel/detail/user/${userId}`} activeStyle={{ color: 'var(--white)' }}>
+              <h4>
+                <FontAwesomeIcon icon={faUser} />
+                {'  My profile'}
+              </h4>
+            </NavLink>
+          </div>
+          <div className={style.divTitle}>
             <h3>Users Management</h3>
             <NavLink to="/panel/admin/users" activeStyle={{ color: 'var(--white)' }}>
               <h4>
@@ -57,6 +65,7 @@ function SideMenu() {
                 {' Users'}
               </h4>
             </NavLink>
+
           </div>
           <div className={style.divTitle}>
             <h3>Posts Management</h3>
@@ -125,7 +134,7 @@ export default SideMenu;
 
 // function login(email, password, callback) {
 //   const { DB_USER, DB_PASSWORD, DB_HOST, DB_NAME } = configuration;
- 
+
 //   const DBCONNECTION = `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_NAME}`;
 //   const bcrypt = require('bcrypt');
 //   const postgres = require('pg');
@@ -135,7 +144,7 @@ export default SideMenu;
 
 //     const query = 'SELECT id, email, password FROM users WHERE email = $1';
 //     client.query(query, [email], function (err, result) {
-     
+
 //       done();
 
 //       if (err || result.rows.length === 0) return callback(err || new WrongUsernameOrPasswordError(email));

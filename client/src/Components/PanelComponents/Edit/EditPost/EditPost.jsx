@@ -14,7 +14,7 @@ function EditPosts({
     id && getPost(id);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  
+
   const [input, setInput] = useState({
     premium: action === 'edit' ? postDetail.premium : '',
     title: action === 'edit' ? postDetail.post_name : '',
