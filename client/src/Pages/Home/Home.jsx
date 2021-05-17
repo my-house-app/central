@@ -6,7 +6,7 @@ import Searchbar from '../../Components/Searchbar/Searchbar';
 import Order from '../../Components/Order/Order';
 import style from './Home.module.css';
 import Paginacion from '../../Components/Paginacion/Paginacion';
-import { getAvailableFilteredPropierties, changeURL } from '../../Redux/Actions/index';
+import { getAvailableFilteredPropierties } from '../../Redux/Actions/index';
 
 export default function Home() {
   const limit = 10;

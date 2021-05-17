@@ -1,6 +1,5 @@
 /* eslint-disable no-shadow */
 import { useState, useEffect } from 'react';
-import { connect } from 'react-redux';
 import { FaCheck } from 'react-icons/fa';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBed, faBath, faRulerCombined } from '@fortawesome/free-solid-svg-icons';
@@ -22,6 +21,7 @@ export default function Details({ routerProps }) {
       setLoading(false);
     }
     fetchApi(id);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   console.log(property);
   return (

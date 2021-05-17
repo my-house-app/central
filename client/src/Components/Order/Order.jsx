@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { FaSearch } from 'react-icons/fa';
 import { useHistory } from 'react-router-dom';
 import { getAvailableFilteredPropierties, orderBy } from '../../Redux/Actions';
 import style from './Order.module.css';

@@ -11,6 +11,7 @@ function EditUser({
 }) {
   useEffect(() => {
     getUser(id);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const [input, setInput] = useState({
@@ -21,7 +22,6 @@ function EditUser({
     city: action === 'edit' ? userDetail.city : '',
     street_number: action === 'edit' ? userDetail.street_number : '',
     zip_code: action === 'edit' ? userDetail.zip_code : '',
-    // role: action === 'edit' ? userDetail.role : '',
     status: action === 'edit' ? userDetail.status : '',
     type: action === 'edit' ? userDetail.type : '',
   });

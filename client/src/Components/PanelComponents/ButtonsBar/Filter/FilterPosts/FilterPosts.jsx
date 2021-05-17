@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-import { FaRegTimesCircle } from 'react-icons/fa';
+// import { FaRegTimesCircle } from 'react-icons/fa';
 // eslint-disable-next-line import/extensions
 import { getPanelFilteredProperties } from '../../../../../Redux/Actions/index.js';
 import style from './FilterPosts.module.css';
@@ -56,12 +56,13 @@ function FilterPosts({ searched, filter }) {
       ...queryBlock,
       post_name: searched,
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searched]);
 
-  function clear() {
+ /*  function clear() {
     setQueryBlock(initialState);
     document.getElementById('form').reset();
-  }
+  } */
 
   const [display, setDisplay] = useState(false);
 

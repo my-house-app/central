@@ -78,6 +78,7 @@ function Filter({
       atributo: orderProp,
       orden: orderType,
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searched, orderProp, orderType]);
 
   useEffect(() => {
@@ -105,6 +106,7 @@ function Filter({
       atributo: orderProp,
       orden: orderType,
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [URL]);
 
   function clear() {

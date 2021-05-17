@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { Switch } from 'react-router-dom';
 import Dashboard from '../../Components/PanelComponents/Dashboard/Dashboard';
 import PostsAdmin from '../../Components/PanelComponents/Admin/PostsAdmin/PostsAdmin';
 import UsersAdmin from '../../Components/PanelComponents/Admin/UsersAdmin/UsersAdmin';
@@ -18,76 +18,77 @@ import ProtectedRoute from "../../Components/Auth0/ProtectedRoute/ProtectedRoute
 export default function PanelRoutes() {
   return (
     <>
-      <div className={style.ctn}>
-        <ProtectedRoute  path='/panel' component={SideMenu} />
-        <div className={style.divScroll}>
-          <ProtectedRoute
-            exact
-            path="/panel"
-            component={Dashboard}
-          />
-          <ProtectedRoute
-            exact
-            path="/panel/admin"
-            component={Dashboard}
-          />
-          <ProtectedRoute
-            exact
-            path="/panel/admin/posts"
-            component={PostsAdmin}
-          />
-          <ProtectedRoute
-            exact
-            path="/panel/admin/users"
-            component={UsersAdmin}
-          />
-          <ProtectedRoute
-            exact
-            path="/panel/admin/bookings"
-            component={BookingsAdmin}
-          />
-          {/* <ProtectedRoute
-            exact
-            path="/panel/admin/comments"
-            component={CommentsAdmin}
-          /> */}
-          <ProtectedRoute
-            exact
-            path="/panel/:path/:id" // example for any detail page paths: post, user, booking
-            component={DetailsPanel}
-          />
-          <ProtectedRoute
-            exact
-            path="/panel/:path/:id/edit" // example for any detail page paths: post, user, booking
-            component={EditForm}
-          />
-          <ProtectedRoute
-            exact
-            path="/panel/:path/create" // example for any detail page paths: post, user, booking
-            component={CreateForm}
-          />
-          <ProtectedRoute
-            exact
-            path="/panel/user"
-            component={Dashboard}
-          />
-          <ProtectedRoute
-            exact
-            path="/panel/user/:userId/posts"
-            component={PostsUser}
-          />
-          <ProtectedRoute
-            exact
-            path="/panel/user/:userId/bookings"
-            component={BookingsUser}
-          />
-          <ProtectedRoute
-            exact
-            path="/panel/user/:userId/bookingsowner"
-            component={BookingsOwner}
-          />
+      <Switch>
+        <div className={style.ctn}>
+          <ProtectedRoute  path='/panel' component={SideMenu} />
+          <div className={style.divScroll}>
+            <ProtectedRoute
+              exact
+              path="/panel"
+              component={Dashboard}
+            />
+            <ProtectedRoute
+              exact
+              path="/panel/admin"
+              component={Dashboard}
+            />
+            <ProtectedRoute
+              exact
+              path="/panel/admin/posts"
+              component={PostsAdmin}
+            />
+            <ProtectedRoute
+              exact
+              path="/panel/admin/users"
+              component={UsersAdmin}
+            />
+            <ProtectedRoute
+              exact
+              path="/panel/admin/bookings"
+              component={BookingsAdmin}
+            />
+            {/* <ProtectedRoute
+              exact
+              path="/panel/admin/comments"
+              component={CommentsAdmin}
+            /> */}
+            <ProtectedRoute
+              exact
+              path="/panel/:path/:id/edit" // example for any detail page paths: post, user, booking
+              component={EditForm}
+            />
+            <ProtectedRoute
+              exact
+              path="/panel/:path/create" // example for any detail page paths: post, user, booking
+              component={CreateForm}
+            />
+            <ProtectedRoute
+              exact path="/panel/detail/:path/:id" // example for any detail page paths: post, user, booking
+              component={DetailsPanel}
+            />
+            <ProtectedRoute
+              exact
+              path="/panel/user"
+              component={Dashboard}
+            />
+            <ProtectedRoute
+              exact
+              path="/panel/user/:userId/posts"
+              component={PostsUser}
+            />
+            <ProtectedRoute
+              exact
+              path="/panel/user/:userId/bookings"
+              component={BookingsUser}
+            />
+            <ProtectedRoute
+              exact
+              path="/panel/user/:userId/bookingsowner"
+              component={BookingsOwner}
+            />
+          </div>
         </div>
-      </div>
+      </Switch>
     </>
   );
 }
