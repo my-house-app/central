@@ -13,9 +13,11 @@ function EditPosts({
 }) {
   useEffect(() => {
     id && getPost(id);
+    console.log('useEffect')
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  console.log(postDetail);
+  
+  console.log('postDetail: ', postDetail);
   const [input, setInput] = useState({
     premium: action === 'edit' ? postDetail.premium : '',
     title: action === 'edit' ? postDetail.post_name : '',
@@ -43,7 +45,37 @@ function EditPosts({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   });
   const [errors, setErrors] = React.useState({});
-
+  useEffect(() => {
+    // id && getPost(id);
+    console.log('useEffect')
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    setInput({
+      premium: action === 'edit' ? postDetail.premium : '',
+      title: action === 'edit' ? postDetail.post_name : '',
+      department: action === 'edit' ? postDetail.department : '',
+      city: action === 'edit' ? postDetail.city : '',
+      street_number: action === 'edit' ? postDetail.street_number : '',
+      description: action === 'edit' ? postDetail.description : '',
+      stratum: action === 'edit' ? postDetail.street_number : '',
+      neighborhood: action === 'edit' ? postDetail.neighborhood : '',
+      price: action === 'edit' ? postDetail.price : '',
+      prop_type: action === 'edit' ? postDetail.prop_type : '',
+      m2: action === 'edit' ? postDetail.m2 : '',
+      rooms: action === 'edit' ? postDetail.rooms : '',
+      years: action === 'edit' ? postDetail.years : '',
+      pool: action === 'edit' ? postDetail.pool : '',
+      backyard: action === 'edit' ? postDetail.backyard : '',
+      gym: action === 'edit' ? postDetail.gym : '',
+      parking_lot: action === 'edit' ? postDetail.parking_lot : '',
+      garden: action === 'edit' ? postDetail.garden : '',
+      elevator: action === 'edit' ? postDetail.elevator : '',
+      security: action === 'edit' ? postDetail.security : '',
+      images: action === 'edit' ? postDetail.images : [],
+      status: action === 'edit' ? postDetail.status : '',
+      createdAt: action === 'edit' ? postDetail.createdAt : '',
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+    });
+  }, [postDetail.premium]);
   // const isAdmin = true;
 
   function validate(input) {
@@ -74,6 +106,7 @@ function EditPosts({
     return errors;
   }
   function handleChange(e) {
+    console.log('handleChange')
     const { name, value } = e.target;
     setErrors(validate({
       ...input,
@@ -84,9 +117,10 @@ function EditPosts({
       [name]: value,
     });
   }
-  console.log('React state input in EditPost ', input);
+  console.log('React state INPUT in EditPost ', input);
   function handleSubmit(e) {
     e.preventDefault();
+    console.log('handleSubmit')
     if (action === 'edit') {
       editPost(id, input);
       alert('Edited post ', input.post_name);
@@ -303,7 +337,7 @@ function EditPosts({
           <label htmlFor="garden"> Garden</label>
         </div>
         <div className={style.btnReset}>
-          {/* <button className={style.btn} type="button" onClick={(e)=>resetForm(e)}>Reset</button> */}
+          <button className={style.btn} type="button" onClick={(e)=>resetForm(e)}>Reset</button>
           <button className={style.btn} type="submit" onClick={handleSubmit}>Save changes</button>
         </div>
       </form>

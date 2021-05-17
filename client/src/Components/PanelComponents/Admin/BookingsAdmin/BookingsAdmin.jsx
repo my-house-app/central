@@ -5,6 +5,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import { Redirect } from 'react-router-dom';
 import { deleteBooking, getAdminBookingsData, getPanelFilteredProperties, getUserData } from '../../../../Redux/Actions/index';
 import TablePage from '../../TablePage/TablePage';
+import Paginacion from '../../../Paginacion/Paginacion';
 
 function BookingsAdmin({
   userInfo, panelAdmin, getAdminData, deleteBooking,/*  getPanelFilteredProperties, */
@@ -24,7 +25,7 @@ function BookingsAdmin({
   }, []);
   const isAdmin = userInfo.type === 'Admin' || userInfo.type === 'SuperAdmin';
   const {
-    render/* , count, currentPage, selfEndpoint, */
+    render, count, currentPage,
   } = panelAdmin;
   const { bookings } = render;
   const list = () => {
@@ -57,6 +58,17 @@ function BookingsAdmin({
           buttonPath="booking"
         />}
         {!isAdmin && <Redirect to="/home" />}
+        {
+            count && (
+              <Paginacion
+                count={count}
+                paginaActual={currentPage}
+                limit={10}
+                path="/panel/admin/users"
+                functionNext={() => getAdminData(userId)}
+              />
+            )
+          }
     </div>
   );
 }
