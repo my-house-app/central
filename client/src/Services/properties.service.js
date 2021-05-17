@@ -8,7 +8,7 @@ const { REACT_APP_API_BASE_ENDPOINT } = process.env;
 
 // una funcion trae publicaciones disponible
 // otra funcion trae todas
-export async function getFilteredPropiertiesService(id = '062cad5e-8820-4bf3-bd8f-a5f13fade2e3', limit = 10) {
+export async function getFilteredPropiertiesService(id = '', limit = 10) {
   let endpoint = `${REACT_APP_API_BASE_ENDPOINT}/posts`;
   // if (limit) endpoint += `?limit=${limit}`;
   // const querystring = window.location.search;
@@ -38,14 +38,14 @@ export async function getPostsService(limit = 10) {
 // user registrado comun id = "977fb1a4-5c67-4180-863c-8b8465b2c06b"
 // user registrado SuperAdmin id = "062cad5e-8820-4bf3-bd8f-a5f13fade2e3"
 // todas las publicaciones para el admin
-export async function getAdminDataService(id = '062cad5e-8820-4bf3-bd8f-a5f13fade2e3', limit = 10) {
+export async function getAdminDataService(id = '', limit = 10) {
   let endpoint = `${REACT_APP_API_BASE_ENDPOINT}/posts`;
   endpoint += getQuerysStrings(limit, id);
   return await axios.get(endpoint);
 }
 // el id por el momento no es necesario
 // todos los usuarios para el admin
-export async function getAdminUsersDataService(id = '062cad5e-8820-4bf3-bd8f-a5f13fade2e3', limit = 10) {
+export async function getAdminUsersDataService(id = '', limit = 10) {
   let endpoint = `${REACT_APP_API_BASE_ENDPOINT}/users`;
   // if (limit) endpoint += `?limit=${limit}&id=${id}`;
   endpoint += getQuerysStrings(limit, id);
@@ -53,7 +53,7 @@ export async function getAdminUsersDataService(id = '062cad5e-8820-4bf3-bd8f-a5f
 }
 // el id por el momento no es necesario
 // todos las reservas para el admin
-export async function getAdminBookingsDataService(id = '062cad5e-8820-4bf3-bd8f-a5f13fade2e3', limit = 10) {
+export async function getAdminBookingsDataService(id = '', limit = 10) {
   let endpoint = `${REACT_APP_API_BASE_ENDPOINT}/users/bookings`;
   // if (limit) endpoint += `?limit=${limit}&id=${id}`;
   endpoint += getQuerysStrings(limit, id);

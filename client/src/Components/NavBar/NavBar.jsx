@@ -12,6 +12,7 @@ function NavBar() {
       </NavLink>
       <div className={style.menu}>
         <NavLink to="/about" className={style.link} activeClassName={style.active}>About</NavLink>
+        <NavLink to="/panel/user" className={style.link} activeClassName={style.active}>Perfil</NavLink>
         <AuthNav />
       </div>
     </nav>
