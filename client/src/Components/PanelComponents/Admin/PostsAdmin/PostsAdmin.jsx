@@ -34,6 +34,10 @@ function PostsAdmin({
     });
     return data;
   };
+  async function deleteAndGet(id, userId) {
+    await deletePost(id)
+    await getAdminData(userId)
+  }
   return (
     <div>
       <TableButtonBar
@@ -46,7 +50,7 @@ function PostsAdmin({
         data={list()}
         path="user"
         buttonPath="post"
-        deleteAction={deletePost}
+        deleteAction={deleteAndGet}
       />
       {
         count && (

@@ -96,7 +96,9 @@ function EditPosts({
     alert(msg);
   }
 
-  function resetForm() {
+  function resetForm(e) {
+    e.preventDefault()
+
     setInput({
       premium: '',
       title: '',
@@ -291,7 +293,7 @@ function EditPosts({
           <label htmlFor="garden"> Garden</label>
         </div>
         <div className={style.btnReset}>
-          <button className={style.btn} type="button" onClick={resetForm}>Reset</button>
+          <button className={style.btn} type="button" onClick={(e)=>resetForm(e)}>Reset</button>
           <button className={style.btn} type="submit" onClick={handleSubmit}>Save changes</button>
         </div>
       </form>

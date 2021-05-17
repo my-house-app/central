@@ -30,7 +30,9 @@ function ButtonOptions({
           <FontAwesomeIcon icon={faEdit} />
           {' Edit'}
         </NavLink>
-        <span className={style.NavLink} onClick={() => { deleteAction(id); alert(msg); console.log(`Deleted ${buttonPath} with id ${id}`); }}>
+        <span className={style.NavLink} onClick={() => { 
+         const resp = window.confirm(`Deleted ${buttonPath} with id ${id}?`)
+         if(resp) deleteAction(id); }}>
           <FontAwesomeIcon icon={faTrashAlt} />
           {' Delete'}
         </span>
