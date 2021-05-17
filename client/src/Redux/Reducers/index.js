@@ -17,6 +17,7 @@ import {
   DELETE_BOOKING,
   GET_ADMIN_USERS_DATA,
   CHANGE_URL,
+  USER_SESSION,
 } from '../Actions/types';
 
 const initialState = {
@@ -32,10 +33,16 @@ const initialState = {
   selfEndpoint: '',
   message: '',
   detail: {},
+  session: {},
 };
 
 export default function rootReducer(state = initialState, action) {
   switch (action.type) {
+  case USER_SESSION:
+    return {
+      ...state,
+      session: action.payload
+    }
   case AVAILABLE_PROPERTIES:
     return {
       ...state,

@@ -12,11 +12,9 @@ function EditPosts({
 }) {
   useEffect(() => {
     id && getPost(id);
-    console.log('useEffect')
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   
-  console.log('postDetail: ', postDetail);
   const [input, setInput] = useState({
     premium: action === 'edit' ? postDetail.premium : '',
     title: action === 'edit' ? postDetail.post_name : '',

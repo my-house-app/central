@@ -11,14 +11,14 @@ import { FaRegCalendar } from 'react-icons/fa';
 import style from './SideMenu.module.css';
 import { useAuth0 } from "@auth0/auth0-react";
 import { useDispatch, useSelector} from 'react-redux';
-import { getUserData } from "../../../Redux/Actions";
+import { userSession } from "../../../Redux/Actions";
 
 
 
 function SideMenu() {
   const {user} = useAuth0()
   const dispatch = useDispatch();
-  const { render } = useSelector((store) => store.panelUser);
+  const { session } = useSelector((store) => store);
   
   let userId;
   if (user.sub.includes('google')){
@@ -27,13 +27,15 @@ function SideMenu() {
   } else {
     userId = user.sub.slice(6)
   }
-
+  console.log(user);
+  console.log(userId)
   useEffect(() => {
-    dispatch(getUserData(userId));
+    dispatch(userSession(userId));
+    console.log('SESSION', session)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  const isAdmin = render.type === 'Admin' || render.type === 'SuperAdmin'
+  const isAdmin = session.type === 'Admin' || session.type === 'SuperAdmin'
 
   const [state, setState] = useState(false);
   window.onscroll = () => {
@@ -82,7 +84,7 @@ function SideMenu() {
       {!isAdmin && (
         <>
           <div className={style.divTitle}>
-            <NavLink to={`/panel/user/${userId}`} activeStyle={{ color: 'var(--white)' }}>
+            <NavLink to={`/panel/detail/user/${userId}`} activeStyle={{ color: 'var(--white)' }}>
               <h4>
                 <FontAwesomeIcon icon={faUser} />
                 {'  My profile'}

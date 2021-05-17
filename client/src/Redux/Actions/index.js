@@ -41,9 +41,22 @@ import {
   DELETE_BOOKING,
   GET_ADMIN_USERS_DATA,
   CHANGE_URL,
+  USER_SESSION,
 } from './types';
 
 // Actions
+
+export const userSession = (userId) => async function (dispatch) {
+  return getUserDataService(userId)
+    .then((res) => {
+      dispatch(
+        {
+          type: USER_SESSION,
+          payload: res.data.user,
+        },
+      );
+    })
+}
 
 // ALL AVAILABLE POSTS
 export const getAvailablePosts = () => async function (dispatch) {

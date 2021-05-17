@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { useAuth0 } from "@auth0/auth0-react";
 import { Redirect } from 'react-router-dom';
-import { deleteBooking, getAdminBookingsData, getUserData } from '../../../../Redux/Actions/index';
+import { deleteBooking, getAdminBookingsData, userSession } from '../../../../Redux/Actions/index';
 import TableButtonBar from '../../ButtonsBar/TableButtonBar/TableButtonBar';
 import TablePage from '../../TablePage/TablePage';
 import Paginacion from '../../../Paginacion/Paginacion';
@@ -20,7 +20,7 @@ function BookingsAdmin({
   }
 
   useEffect(() => {
-    getUserData(userId)
+    userSession(userId)
     getAdminData(userId);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -53,7 +53,7 @@ function BookingsAdmin({
         <>
           <TableButtonBar
             rol="admin"
-            path="post"
+            path="booking"
           />
           <TablePage
             deleteAction={deleteAndGet}
@@ -82,12 +82,13 @@ function BookingsAdmin({
 }
 const mapStateToProps = (state) => ({
   panelAdmin: state.panelAdmin,
-  userInfo: state.panelUser.render,
+  userInfo: state.session,
 });
 
 const mapDispatchToProps = (dispatch) => ({
   getAdminData: () => dispatch(getAdminBookingsData()),
   deleteBooking: (booking) => dispatch(deleteBooking(booking)),
+  userSession: (id) => dispatch(userSession(id)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(BookingsAdmin);
