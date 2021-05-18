@@ -11,6 +11,7 @@ import Details from './Pages/Details/Details';
 import About from './Pages/About/About';
 import Signin from './Pages/Signin/Signin';
 import PanelRoutes from './Pages/Panel/PanelRoutes';
+import NotFound from './Pages/NotFound/NotFound';
 
 export default function MyHouseRoutes() {
   return (
@@ -38,8 +39,11 @@ export default function MyHouseRoutes() {
             path="/panel"
             component={PanelRoutes}
           />
+          <Route
+            component={NotFound}
+            />
+          {/* <Footer/> */}
         </Switch>
-        {/* <Footer/> */}
       </div>
     </Router>
   );

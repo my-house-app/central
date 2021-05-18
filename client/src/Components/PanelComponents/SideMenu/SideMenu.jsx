@@ -23,15 +23,15 @@ function SideMenu() {
   let userId;
   if (user.sub.includes('google')){
     userId = user.sub.slice(14)
-    console.log(user.sub);
+    // console.log(user.sub);
   } else {
     userId = user.sub.slice(6)
   }
-  console.log(user);
-  console.log(userId)
+  // console.log(user);
+  // console.log(userId)
   useEffect(() => {
     dispatch(userSession(userId));
-    console.log('SESSION', session)
+    // console.log('SESSION', session)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
@@ -45,88 +45,82 @@ function SideMenu() {
     else setState(false);
   };
   return (
-    <div className={`${style.ctn} ${state && style.ctnFixed}`} id="navPanel">
-      <label>NAVIGATION</label>
-      {isAdmin && (
-        <>
-          <div className={style.divTitle}>
-            <NavLink to={`/panel/detail/user/${userId}`} activeStyle={{ color: 'var(--white)' }}>
-              <h4>
-                <FontAwesomeIcon icon={faUser} />
-                {'  My profile'}
-              </h4>
-            </NavLink>
-          </div>
-          <div className={style.divTitle}>
-            <h3>Users Management</h3>
-            <NavLink to="/panel/admin/users" activeStyle={{ color: 'var(--white)' }}>
-              <h4>
-                <FontAwesomeIcon icon={faUser} />
-                {' Users'}
-              </h4>
-            </NavLink>
-
-          </div>
-          <div className={style.divTitle}>
-            <h3>Posts Management</h3>
-            <NavLink to={`/panel/admin/posts`} activeStyle={{ color: 'var(--white)' }}>
-              <h4>
-                <FontAwesomeIcon icon={faHouseUser} />
-                {' Posts'}
-              </h4>
-            </NavLink>
-            {/* <NavLink to="/panel/admin/comments" activeStyle={{ color: 'var(--white)' }}>
-            <h3>
-              <FontAwesomeIcon icon={faComments} />
-              {' Comments'}
-            </h3>
-          </NavLink> */}
-            <NavLink to="/panel/admin/bookings" activeStyle={{ color: 'var(--white)' }}>
-              <h4>
-                <FontAwesomeIcon icon={faCalendarAlt} />
-                {' Bookings'}
-              </h4>
-            </NavLink>
-          </div>
-        </>
+    <>
+      {isAdmin && 
+        <div className={`${style.ctn} ${state && style.ctnFixed}`} id="navPanel">
+          <label>NAVIGATION</label>
+            <div className={style.divTitle}>
+              <NavLink to={`/panel/detail/user/${userId}`} activeStyle={{ color: 'var(--white)' }}>
+                <h4>
+                  <FontAwesomeIcon icon={faUser} />
+                  {'  My profile'}
+                </h4>
+              </NavLink>
+            </div>
+            <div className={style.divTitle}>
+              <h3>Users Management</h3>
+              <NavLink to="/panel/admin/users" activeStyle={{ color: 'var(--white)' }}>
+                <h4>
+                  <FontAwesomeIcon icon={faUser} />
+                  {' Users'}
+                </h4>
+              </NavLink>
+            </div>
+            <div className={style.divTitle}>
+              <h3>Posts Management</h3>
+              <NavLink to={`/panel/admin/posts`} activeStyle={{ color: 'var(--white)' }}>
+                <h4>
+                  <FontAwesomeIcon icon={faHouseUser} />
+                  {' Posts'}
+                </h4>
+              </NavLink>
+              <NavLink to="/panel/admin/bookings" activeStyle={{ color: 'var(--white)' }}>
+                <h4>
+                  <FontAwesomeIcon icon={faCalendarAlt} />
+                  {' Bookings'}
+                </h4>
+              </NavLink>
+            </div>
+        </div>
+        }
+        {!isAdmin && (
+        <div className={`${style.ctn} ${state && style.ctnFixed}`} id="navPanel">
+          <label>NAVIGATION</label>
+            <div className={style.divTitle}>
+              <NavLink to={`/panel/detail/user/${userId}`} activeStyle={{ color: 'var(--white)' }}>
+                <h4>
+                  <FontAwesomeIcon icon={faUser} />
+                  {'  My profile'}
+                </h4>
+              </NavLink>
+            </div>
+            <div className={style.divTitle}>
+              <h3>Posts</h3>
+              <NavLink to={`/panel/user/${userId}/posts`} activeStyle={{ color: 'var(--white)' }}>
+                <h4>
+                  <FontAwesomeIcon icon={faHouseUser} />
+                  {' My posts'}
+                </h4>
+              </NavLink>
+            </div>
+            <div className={style.divTitle}>
+              <h3>Bookings</h3>
+              <NavLink to={`/panel/user/${userId}/bookings`} activeStyle={{ color: 'var(--white)' }}>
+                <h4>
+                  <FaRegCalendar />
+                  {' My bookings'}
+                </h4>
+              </NavLink>
+              <NavLink to={`/panel/user/${userId}/bookingsowner`} activeStyle={{ color: 'var(--white)' }}>
+                <h4>
+                  <FontAwesomeIcon icon={faCalendarAlt} />
+                  {' Bookings as owner'}
+                </h4>
+              </NavLink>
+            </div>
+        </div>
       )}
-      {!isAdmin && (
-        <>
-          <div className={style.divTitle}>
-            <NavLink to={`/panel/detail/user/${userId}`} activeStyle={{ color: 'var(--white)' }}>
-              <h4>
-                <FontAwesomeIcon icon={faUser} />
-                {'  My profile'}
-              </h4>
-            </NavLink>
-          </div>
-          <div className={style.divTitle}>
-            <h3>Posts</h3>
-            <NavLink to={`/panel/user/${userId}/posts`} activeStyle={{ color: 'var(--white)' }}>
-              <h4>
-                <FontAwesomeIcon icon={faHouseUser} />
-                {' My posts'}
-              </h4>
-            </NavLink>
-          </div>
-          <div className={style.divTitle}>
-            <h3>Bookings</h3>
-            <NavLink to={`/panel/user/${userId}/bookings`} activeStyle={{ color: 'var(--white)' }}>
-              <h4>
-                <FaRegCalendar />
-                {' My bookings'}
-              </h4>
-            </NavLink>
-            <NavLink to={`/panel/user/${userId}/bookingsowner`} activeStyle={{ color: 'var(--white)' }}>
-              <h4>
-                <FontAwesomeIcon icon={faCalendarAlt} />
-                {' Bookings as owner'}
-              </h4>
-            </NavLink>
-          </div>
-        </>
-      )}
-    </div>
+    </>
   );
 }
 

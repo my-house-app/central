@@ -99,8 +99,13 @@ export async function addUserService(user) {
 
 // EDITAR UN USUARIO
 export async function editUserService(userId, user) {
+  console.log('user service', user)
   const endpoint = `${REACT_APP_API_BASE_ENDPOINT}/user/${userId}`;
-  return await axios.put(endpoint, user);
+  return await axios({
+    method:'put',
+    url: endpoint,
+    data: user
+  });
 }
 
 // ELIMINAR UN USUARIO
