@@ -1,17 +1,17 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-  faPlus, /* faSlidersH, */ faArrowLeft,
+  faPlus, faSlidersH, faArrowLeft,
 } from '@fortawesome/free-solid-svg-icons';
 import { NavLink } from 'react-router-dom';
-// import Filter from '../Filter/Filter';
+import Filter from '../Filter/Filter';
 import style from '../ButtonsBar.module.css';
 import '../../globalFilters.css';
 
-/* function openFilters() {
+function openFilters() {
   document.getElementById('filters').className = 'openFilter';
 }
- */
+
 function TableButtonBar({ rol, path }) {
   return (
     <div className={style.ctn}>
@@ -27,13 +27,13 @@ function TableButtonBar({ rol, path }) {
             <FontAwesomeIcon icon={faPlus} />
             {' Create'}
           </NavLink>
-          {/* <button type="button" className={style.btnBar} onClick={openFilters}>
+          <button type="button" className={style.btnBar} onClick={openFilters}>
             <FontAwesomeIcon icon={faSlidersH} />
             {' Filter'}
-          </button> */}
+          </button>
         </div>
       </div>
-      {/* <Filter /> */}
+      <Filter />
     </div>
   );
 }

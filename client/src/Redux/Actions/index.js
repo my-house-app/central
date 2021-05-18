@@ -114,7 +114,6 @@ export function orderBy(payload) {
 
 // ALL ADMIN POSTS DATA
 export const getAdminData = (id) => async function (dispatch) {
-  console.log('ID en action getAdminData: ', id);
   return getAdminDataService(id)
     .then((res) => {
       dispatch(
@@ -248,9 +247,9 @@ export function deletePost(postId) {
 }
 
 // ADD USER
-export function addUser(userId, user) {
+export function addUser(user) {
   return async function (dispatch) {
-    return addUserService(userId, user)
+    return addUserService(user)
       .then((res) => {
         dispatch(
           {
