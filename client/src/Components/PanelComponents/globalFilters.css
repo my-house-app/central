@@ -1,15 +1,18 @@
 .closeFilter {
     transform: translateX(0px);
+    /* transform: translateX(400px); */
 }
 
 .openFilter {
     transform: translateX(-400px);
+    /* transform: translateX(0px); */
 }
 
 #filters {
     position: absolute;
     top: 0;
     right: -400px;
+    /* right: 0px; */
     bottom: 0;
     height: 100vh;
     overflow-y: auto;
@@ -18,3 +21,16 @@
     width: 400px;
     transition: all 0.3s ease-in-out;
 }
+
+/* .keepOpenFilter{
+    position: absolute;
+    top: 0;
+    right: 0px;
+    bottom: 0;
+    height: 100vh;
+    overflow-y: auto;
+    z-index: 100;
+    background: var(--blue);
+    width: 400px;
+    transition: all 0.3s ease-in-out;
+} */

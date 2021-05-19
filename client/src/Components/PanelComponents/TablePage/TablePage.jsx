@@ -11,6 +11,7 @@ function TablePage({
   buttonPath,
   path,
 }) {
+  console.log('Renderizado TablePage')
   return (
     <>
       <table className={style.ctnList}>
@@ -46,4 +47,4 @@ function TablePage({
   );
 }
 
-export default TablePage;
+export default React.memo(TablePage);

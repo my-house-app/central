@@ -19,7 +19,7 @@ function SideMenu() {
   const {user} = useAuth0()
   const dispatch = useDispatch();
   const { session } = useSelector((store) => store);
-
+console.log('renderizado SideMenu')
   let userId;
   if (user.sub.includes('google')){
     userId = user.sub.slice(14)
@@ -30,7 +30,11 @@ function SideMenu() {
   // console.log(user);
   // console.log(userId)
   useEffect(() => {
-    dispatch(userSession(userId));
+    console.log('useEffect sideMenu');
+    if (!session.type) {
+      console.log('llamado a la action!!!! userSession');
+      dispatch(userSession(userId));
+    }
     // console.log('SESSION', session)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
@@ -124,7 +128,7 @@ function SideMenu() {
   );
 }
 
-export default SideMenu;
+export default React.memo(SideMenu);
 
 // function login(email, password, callback) {
 //   const { DB_USER, DB_PASSWORD, DB_HOST, DB_NAME } = configuration;

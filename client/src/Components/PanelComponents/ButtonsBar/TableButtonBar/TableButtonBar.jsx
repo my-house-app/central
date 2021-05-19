@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faPlus, faSlidersH, faArrowLeft,
@@ -9,10 +9,22 @@ import style from '../ButtonsBar.module.css';
 import '../../globalFilters.css';
 
 function openFilters() {
+  console.log('openFilter TableButtonBar')
   document.getElementById('filters').className = 'openFilter';
 }
 
 function TableButtonBar({ rol, path }) {
+  console.log('Renderizado TableButtonBar')
+  // const [openFilter, setOpenFilter] = useState(true);
+
+  // useEffect(() => {
+  //   console.log('Estado openfilter: ', openFilter);
+  //   if (openFilter) {
+  //     document.getElementById('filters').className = 'closeFilter';
+  //   }
+  //   setOpenFilter(false);
+  // }, []);
+  
   return (
     <div className={style.ctn}>
       <div className={style.elementsCtn}>
@@ -38,4 +50,4 @@ function TableButtonBar({ rol, path }) {
   );
 }
 
-export default TableButtonBar;
+export default React.memo(TableButtonBar);

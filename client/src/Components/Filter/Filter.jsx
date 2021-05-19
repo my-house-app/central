@@ -16,22 +16,22 @@ function Filter({
   searched, filter, orderProp, orderType,
 }) {
   const history = useHistory();
-  const querystring = window.location.search;// '?post_name=cas&rooms=3&page=4&bathrooms=0'
+  const querystring = window.location.search;
   const params = new URLSearchParams(querystring);
   const [URL, setURL] = useState('');
   const initialState = {
-    post_name: searched, // search by postName
-    prop_type: '', // select
-    city: '', // input
-    stratum: '', // select es un numero
-    neighborhood: '', // input
+    post_name: searched,
+    prop_type: '',
+    city: '',
+    stratum: '',
+    neighborhood: '',
     priceMin: '',
     priceMax: '',
     areaMin: '',
     areaMax: '',
-    rooms: '', // input number
-    bathrooms: '', // input number
-    years: '', // input number
+    rooms: '',
+    bathrooms: '',
+    years: '',
     pool: false,
     backyard: false,
     gym: false,
@@ -46,9 +46,8 @@ function Filter({
   const [queryBlock, setQueryBlock] = useState(initialState);
 
   function changeURL(event) {
-    // console.log('window.location.search: ', window.location);
     params.set(event.target.name, event.target.value);
-    history.push(`/home?${params.toString()}`);
+    updatePath(params);
     setURL(window.location.href);
   }
 
@@ -65,19 +64,14 @@ function Filter({
     if (!params.get('atributo')) {
       params.delete('atributo');
     }
-    history.push(`/home?${params.toString()}`);
+    updatePath(params);
     setQueryBlock({
       ...queryBlock,
       post_name: searched,
       atributo: orderProp,
       orden: orderType,
     });// filter busca a la api externa
-    filter({
-      ...queryBlock,
-      post_name: searched,
-      atributo: orderProp,
-      orden: orderType,
-    });
+    filter();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searched, orderProp, orderType]);
 
@@ -90,7 +84,7 @@ function Filter({
       // elimino una query en el params si es null
       if (!params.get(paramsKeys[i])) {
         params.delete(paramsKeys[i]);
-        history.push(`/home?${params.toString()}`);
+        updatePath(params);
       }
     }
 
@@ -100,14 +94,13 @@ function Filter({
       atributo: orderProp,
       orden: orderType,
     });
-    filter({
-      ...queryBlock,
-      post_name: searched,
-      atributo: orderProp,
-      orden: orderType,
-    });
+    filter();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [URL]);
+
+  function updatePath(params) {
+    history.push(`${window.location.pathname}?${params.toString()}`);
+  }
 
   function clear() {
     history.push('/home');

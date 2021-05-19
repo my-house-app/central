@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from 'react';
-import { connect } from 'react-redux';
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 // import { FaRegTimesCircle } from 'react-icons/fa';
 // eslint-disable-next-line import/extensions
-import { getPanelFilteredProperties } from '../../../../../Redux/Actions/index.js';
+import { useHistory } from 'react-router-dom';
 import style from './FilterPosts.module.css';
 
-function FilterPosts({ searched, filter }) {
+function FilterPosts() {
+  const history = useHistory();
+  const querystring = window.location.search;
+  const params = new URLSearchParams(querystring);
   const initialState = {
-    post_name: searched,
+    post_name: '',
     prop_type: '',
     city: '',
     stratum: '',
@@ -30,34 +32,8 @@ function FilterPosts({ searched, filter }) {
     security: false,
     garden: false,
   };
-
+  console.log('renderizando FilterPosts:');
   const [queryBlock, setQueryBlock] = useState(initialState);
-
-  function handlerQuery(event) {
-    setQueryBlock(
-      {
-        ...queryBlock,
-        [event.target.name]: event.target.value,
-        searched,
-      },
-    );
-    filter({
-      ...queryBlock,
-      [event.target.name]: event.target.value,
-    });
-  }
-
-  useEffect(() => {
-    setQueryBlock({
-      ...queryBlock,
-      post_name: searched,
-    });
-    filter({
-      ...queryBlock,
-      post_name: searched,
-    });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [searched]);
 
  /*  function clear() {
     setQueryBlock(initialState);
@@ -65,13 +41,88 @@ function FilterPosts({ searched, filter }) {
   } */
 
   const [display, setDisplay] = useState(false);
+  
+  function handlerQueryBlock(event) {
+    setQueryBlock({ 
+      ...queryBlock,
+      [event.target.name]: event.target.value,
+    });
 
+  }
+
+  function sendForm(e) {
+    e.preventDefault();
+    const keysQueryBlock = Object.keys(queryBlock);
+
+    for (let i = 0; i < keysQueryBlock.length; i++) {
+      const key = keysQueryBlock[i];
+
+      if (queryBlock[keysQueryBlock[i]]) {
+        params.set(key, queryBlock[key]);
+        updatePath(params);
+      } else  {
+        params.delete(key);
+        updatePath(params);
+      }
+    }
+
+  }
+  useEffect(() => {
+    for(var key of params.keys()) {
+        queryBlock[key] = params.get(key);
+    }
+    setQueryBlock({ ...queryBlock });
+  }, []);
+
+
+// // forma optimizada para el filtro de home
+//   function changeURL(event) {
+//     console.log("changeURL")
+//     params.set(event.target.name, event.target.value);
+//     updatePath(params);
+//     setURL(window.location.href);
+//   }
+
+//   useEffect(() => {
+//     // document.getElementById('filters').className = 'openFilter';
+//     console.log('Hay cambios en la URL: ', URL);
+//     console.log('params.keys: ', params.keys());
+//     for(var key of params.keys()) {
+//       if (!params.get(key)) {
+//         console.log('eliminando: ', key);
+//         params.delete(key);
+//         updatePath(params);
+//       }
+//         queryBlock[key] = params.get(key);
+//     }
+//     setQueryBlock({ ...queryBlock });
+//   }, [URL]);
+
+
+  function updatePath(params) {
+    history.push(`${window.location.pathname}?${params.toString()}`);
+  }
   return (
     <div className={style.filter}>
       {/* <div type="button" className={style.closeIcon} onClick={clear}>
         <FaRegTimesCircle />
       </div> */}
       <form id="form" className={style.form}>
+      <button type="submit" onClick={sendForm}> Enviar </button>
+        {/* post_name */}
+        <div className={style.field}>
+          <label>
+            Title:&nbsp;
+            <input
+              className={style.inputFilter}
+              type="text"
+              name="post_name"
+              placeholder="title"
+              value={queryBlock.post_name}
+              onChange={handlerQueryBlock}
+            />
+          </label>
+        </div>
         {/* City */}
         <div className={style.field}>
           <label>
@@ -82,7 +133,7 @@ function FilterPosts({ searched, filter }) {
               name="city"
               placeholder="City"
               value={queryBlock.city}
-              onChange={handlerQuery}
+              onChange={handlerQueryBlock}
             />
           </label>
         </div>
@@ -97,7 +148,7 @@ function FilterPosts({ searched, filter }) {
               name="neighborhood"
               placeholder="Neighborhood"
               value={queryBlock.neighborhood}
-              onChange={handlerQuery}
+              onChange={handlerQueryBlock}
             />
           </label>
         </div>
@@ -116,7 +167,7 @@ function FilterPosts({ searched, filter }) {
               name="priceMin"
               placeholder="min"
               value={queryBlock.priceMin}
-              onChange={handlerQuery}
+              onChange={handlerQueryBlock}
             />
             <input
               className={style.inputMinMax}
@@ -124,7 +175,7 @@ function FilterPosts({ searched, filter }) {
               name="priceMax"
               placeholder="max"
               value={queryBlock.priceMax}
-              onChange={handlerQuery}
+              onChange={handlerQueryBlock}
             />
           </div>
         </div>
@@ -139,7 +190,7 @@ function FilterPosts({ searched, filter }) {
               name="rooms"
               placeholder="0"
               value={queryBlock.rooms}
-              onChange={handlerQuery}
+              onChange={handlerQueryBlock}
             />
           </label>
         </div>
@@ -154,7 +205,7 @@ function FilterPosts({ searched, filter }) {
               name="bathrooms"
               placeholder="0"
               value={queryBlock.bathrooms}
-              onChange={handlerQuery}
+              onChange={handlerQueryBlock}
             />
           </label>
         </div>
@@ -173,7 +224,7 @@ function FilterPosts({ searched, filter }) {
               name="areaMin"
               placeholder="min"
               value={queryBlock.areaMin}
-              onChange={handlerQuery}
+              onChange={handlerQueryBlock}
             />
             <input
               className={style.inputMinMax}
@@ -181,7 +232,7 @@ function FilterPosts({ searched, filter }) {
               name="areaMax"
               placeholder="max"
               value={queryBlock.areaMax}
-              onChange={handlerQuery}
+              onChange={handlerQueryBlock}
             />
           </div>
         </div>
@@ -198,18 +249,16 @@ function FilterPosts({ searched, filter }) {
               min="0"
               max="6"
               value={queryBlock.stratum}
-              onChange={handlerQuery}
+              onChange={handlerQueryBlock}
             />
           </label>
         </div>
 
         {/* Type of property */}
         <div className={style.field}>
-          <select className={style.selectFilter} name="prop_type" value={queryBlock.prop_type} onChange={handlerQuery}>
+          <select className={style.selectFilter} name="prop_type" value={queryBlock.prop_type} onChange={handlerQueryBlock}>
             <option value="">Type of property</option>
             {['Casa', 'Apartamento'].map((type) => (<option value={type}>{type}</option>))}
-            {/* {['Barrio', 'Antigüedad'].map((g) =>
-            (<option key={g.id} value={g.name}>{g.name}</option>))} */}
           </select>
         </div>
 
@@ -222,7 +271,7 @@ function FilterPosts({ searched, filter }) {
               type="number"
               name="years"
               value={queryBlock.years}
-              onChange={handlerQuery}
+              onChange={handlerQueryBlock}
               min="0"
             />
           </label>
@@ -235,28 +284,28 @@ function FilterPosts({ searched, filter }) {
           </p>
         </div>
         <div className={display ? style.facilities : style.noFacilities}>
-          <input type="checkbox" onChange={handlerQuery} name="pool" value={!queryBlock.pool} />
+          <input type="checkbox" onChange={handlerQueryBlock} name="pool" value={!queryBlock.pool} />
           <label htmlFor="pool"> Swimming pool</label>
           <br />
-          <input type="checkbox" onChange={handlerQuery} name="backyard" value={!queryBlock.backyard} />
+          <input type="checkbox" onChange={handlerQueryBlock} name="backyard" value={!queryBlock.backyard} />
           <label htmlFor="backyard"> Backyard</label>
           <br />
-          <input type="checkbox" onChange={handlerQuery} name="gym" value={!queryBlock.gym} />
+          <input type="checkbox" onChange={handlerQueryBlock} name="gym" value={!queryBlock.gym} />
           <label htmlFor="gym"> Gym</label>
           <br />
-          <input type="checkbox" onChange={handlerQuery} name="bbq" value={!queryBlock.bbq} />
+          <input type="checkbox" onChange={handlerQueryBlock} name="bbq" value={!queryBlock.bbq} />
           <label htmlFor="bbq"> Barbecue</label>
           <br />
-          <input type="checkbox" onChange={handlerQuery} name="parking_lot" value={!queryBlock.parking_lot} />
+          <input type="checkbox" onChange={handlerQueryBlock} name="parking_lot" value={!queryBlock.parking_lot} />
           <label htmlFor="parking_lot"> Parking lot</label>
           <br />
-          <input type="checkbox" onChange={handlerQuery} name="elevator" value={!queryBlock.elevator} />
+          <input type="checkbox" onChange={handlerQueryBlock} name="elevator" value={!queryBlock.elevator} />
           <label htmlFor="elevator"> Elevator</label>
           <br />
-          <input type="checkbox" onChange={handlerQuery} name="security" value={!queryBlock.security} />
+          <input type="checkbox" onChange={handlerQueryBlock} name="security" value={!queryBlock.security} />
           <label htmlFor="secutiry"> Security</label>
           <br />
-          <input type="checkbox" onChange={handlerQuery} name="garden" value={!queryBlock.garden} />
+          <input type="checkbox" onChange={handlerQueryBlock} name="garden" value={!queryBlock.garden} />
           <label htmlFor="garden"> Garden</label>
         </div>
       </form>
@@ -264,12 +313,4 @@ function FilterPosts({ searched, filter }) {
   );
 }
 
-const mapStateToProps = (state) => ({
-  searched: state.searched,
-});
-
-const mapDispatchToProps = (dispatch) => ({
-  filter: (queryBlock) => dispatch(getPanelFilteredProperties(queryBlock)),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(FilterPosts);
+export default React.memo(FilterPosts);
