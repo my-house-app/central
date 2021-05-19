@@ -9,8 +9,9 @@ import { getAvailableFilteredPropierties, changeURL } from '../../Redux/Actions/
 import './Paginacion.css';
 
 function Paginacion({
-  count, paginaActual, limit, functionNext = getAvailableFilteredPropierties, path = '/home',
+  count, paginaActual, limit, functionNext = getAvailableFilteredPropierties,
 }) {
+  // console.log('renderizado Paginacion')
   const dispatch = useDispatch();
   const ultimaPagina = Math.ceil(count / limit);
   const [listaDePaginas, setListaDePaginas] = useState(range(ultimaPagina));
@@ -20,42 +21,18 @@ function Paginacion({
   const querystring = window.location.search;
   const params = new URLSearchParams(querystring);
 
-  // endpoint = `http://localhost:3001/posts?offset=45`;
+
   useEffect(() => {
-    // console.log("object 3")
-    // console.log('window.location: ', window.location);
-    // params.set('page', 2);
-    // console.log('history: ', history);
-    // history.push(`${window.location.pathname}/${params.toString()}`);
-    // console.log('window.location: ', window.location);
-    // console.log('params href: ', window.location.href);// me da la url actual
     setListaDePaginas(range(ultimaPagina));// [1,2,3,4,...,100]
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [count]);
 
   function paginate(numero) {
-    const parameters = window.location.search.slice(1).split('&');
-    //const offset = (numero * limit) - limit;
-    // console.log('window.location.search:', window.location.search);
-    // console.log('parameters:', parameters);
-    if (parameters.length) {
-      parameters.forEach((param) => {
-        // console.log('param.split("=")[0]: ', param.split('=')[0]);
-        // console.log('param.split("=")[1]: ', param.split('=')[1]);
-        if (param.split('=')[0] === 'orden' || param.split('=')[0] === 'atributo') {
-          params.set(`${param.split('=')[0]}`, param.split('=')[1]);
-        }
-      });
-    }
-    console.log('window.location.search: ', window.location);
-    console.log('window.location.search: ', history);
+
     params.set('page', numero);
     history.push(`${window.location.pathname}?${params.toString()}`);
-    // history.push(`${path}?${params.toString()}`);
     functionNext();
-    // tiene que ser de este estilo
-    // functionNext = dispatch(getAvailableFilteredPropierties());
-    dispatch(changeURL(window.location.href));
+    dispatch(changeURL(window.location.href));// borrar algun dia
     window.scrollTo(0, 0);
   }
 
@@ -65,17 +42,17 @@ function Paginacion({
   function updateNumeroDePaginas(numero) {
     console.log('updateNumeroDePaginas: ', numero);
     if (numero === 1 || numero === 2) {
-      return listaDePaginas.slice(0, 5);
+      return listaDePaginas.slice(0, 5);// (1) (2) 3 4 5
     }
 
     if (numero > 2 && numero !== ultimaPagina) {
-      return listaDePaginas.slice(numero - 3, numero + 2);
+      return listaDePaginas.slice(numero - 3, numero + 2); //  6 7 (8) 9 10
     }
 
     if (numero === ultimaPagina) {
       // si no es mayor que 0 devuelvo 0
       const pagina = (ultimaPagina - 4) >= 0 ? ultimaPagina - 4 : 0;
-      return listaDePaginas.slice(pagina, ultimaPagina);
+      return listaDePaginas.slice(pagina, ultimaPagina);  // 29 30 31 (32)
     }
   }
 

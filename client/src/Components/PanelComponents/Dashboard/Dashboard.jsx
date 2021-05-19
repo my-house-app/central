@@ -12,7 +12,10 @@ function Dashboard() {
   const userId = user.sub.slice(6);
   
   useEffect(() => {
-    dispatch(getUserData(userId))
+    console.log('Renderizado Dashboard');
+    if (!render.type) {
+      dispatch(getUserData(userId));
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
@@ -40,4 +43,4 @@ function Dashboard() {
   );
 }
 
-export default Dashboard;
+export default React.memo(Dashboard);

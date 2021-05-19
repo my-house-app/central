@@ -18,9 +18,9 @@ function PostsAdmin({
   } else {
     userId = user.sub.slice(6)
   }
-
+  console.log('renderizado PostAdmin');
   useEffect(() => {
-    userSession(userId)
+    // userSession(userId)
     getAdminData(userId);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

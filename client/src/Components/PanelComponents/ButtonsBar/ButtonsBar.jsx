@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faPlus, faSlidersH, faArrowLeft,
@@ -8,11 +8,17 @@ import Filter from './Filter/Filter';
 import style from './ButtonsBar.module.css';
 import '../globalFilters.css';
 
-function openFilters() {
-  document.getElementById('filters').className = 'openFilter';
-}
 
 function Header({ role, tableName }) {
+  // const [openFilter, setOpenFilter] = useState(false);
+  console.log('Renderizando Header')
+  function openFilters() {
+    console.log('openFilter Header')
+    document.getElementById('filters').className = 'openFilter';
+    // document.getElementById('filters').className = 'keepOpenFilter';
+    // setOpenFilter(true);
+  }
+  
   return (
     <div className={style.ctn}>
       <div className={style.elementsCtn}>

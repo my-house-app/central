@@ -15,12 +15,15 @@ import style from './Panel.module.css';
 import SideMenu from '../../Components/PanelComponents/SideMenu/SideMenu';
 import ProtectedRoute from "../../Components/Auth0/ProtectedRoute/ProtectedRoute";
 
-export default function PanelRoutes() {
+function PanelRoutes() {
+  console.log('PanelRoutes');
   return (
     <>
       <Switch>
         <div className={style.ctn}>
+          {console.log('PanelRoutes switch')}
           <ProtectedRoute  path='/panel' component={SideMenu} />
+          {/* <SideMenu/> */}
           <div className={style.divScroll}>
             <ProtectedRoute
               exact
@@ -92,3 +95,5 @@ export default function PanelRoutes() {
     </>
   );
 }
+
+export default React.memo(PanelRoutes);

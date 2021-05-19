@@ -10,16 +10,6 @@ function App() {
   if (isLoading) {
     return <Loading />;
   }
-  // {/* <div className="App">
-  //       <Route
-  //         path="/"
-  //         component={NavBar}
-  //       />
-  //       <Route
-  //         path="/about"
-  //         component={About}
-  //       />
-  //     </div> */}
   return (
     <div>
       <MyHouseRoutes />

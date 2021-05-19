@@ -20,7 +20,7 @@ function BookingsAdmin({
   }
 
   useEffect(() => {
-    userSession(userId)
+    // userSession(userId)
     getAdminData(userId);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
