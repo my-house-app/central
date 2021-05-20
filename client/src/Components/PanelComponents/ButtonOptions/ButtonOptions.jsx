@@ -24,17 +24,17 @@ function ButtonOptions({
       <nav className={style.nav}>
         <NavLink to={`/panel/detail/${buttonPath}/${id}`} className={style.NavLink}>
           <FontAwesomeIcon icon={faEye} />
-          {' Show'}
+          {' Ver'}
         </NavLink>
         <NavLink to={`/panel/${buttonPath}/${id}/edit`} className={style.NavLink}>
           <FontAwesomeIcon icon={faEdit} />
-          {' Edit'}
+          {' Editar'}
         </NavLink>
         <span className={style.NavLink} onClick={() => { 
-         const resp = window.confirm(`Deleted ${buttonPath} with id ${id}?`)
-         if(resp) deleteAction(id, userId); console.log(msg); }}>
+          const resp = window.confirm(`¿Quieres eliminar ${buttonPath} con id ${id}?`)
+          if(resp) deleteAction(id, userId);}}>
           <FontAwesomeIcon icon={faTrashAlt} />
-          {' Delete'}
+          {' Eliminar'}
         </span>
       </nav>
     </div>

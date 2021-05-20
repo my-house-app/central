@@ -3,6 +3,7 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { getUserData, deletePost } from '../../../../Redux/Actions/index';
 import TablePage from '../../TablePage/TablePage';
+import TableButtonBar from '../../ButtonsBar/TableButtonBar/TableButtonBar';
 
 function PostsUser({
   panelUser, getUserData, match, deletePost,
@@ -37,7 +38,10 @@ function PostsUser({
   console.log(panelUser.render)
   return (
     <div>
-      {/* <TableButtonBar /> */}
+      <TableButtonBar 
+        rol="user"
+        path="post"
+      />
       <TablePage
         userId={userId}
         deleteAction={deleteAndGet}

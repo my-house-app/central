@@ -2,16 +2,19 @@
 /* eslint-disable no-shadow */
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEraser } from '@fortawesome/free-solid-svg-icons';
 import { getUserDataService, editUserService, addUserService } from '../../../../Services/properties.service';
 import Loading from '../../../Auth0/Loading/loading';
-import ButtonsBar from '../../ButtonsBar/ButtonsBar';
+import EditButtonBar from '../../ButtonsBar/EditButtonBar/EditButtonBar';
 import style from '../Edit.module.css';
 
 function EditUser({ session, id, action }) {
   const [input, setInput] = useState({})
   const [userDetail, setUserDetail] = useState({});
   const [loading, setLoading] = useState(true);
-  const [errors, setErrors] = React.useState({});
+  const [errors, setErrors] = useState('');
 
   const isAdmin = session.type === 'Admin' || session.type === 'SuperAdmin'; 
 
@@ -74,17 +77,30 @@ function EditUser({ session, id, action }) {
   }
   function handleSubmit(e) {
     e.preventDefault();
-    if (!Object.entries(errors).length === 0) {
-      alert('Revisar campos requeridos')
+    if (Object.entries(errors).length > 0) {
+      return alert('Revisar campos requeridos')
     } else {
       if (action === 'edit') {
-        const resp = window.confirm(`¿Quieres editar al usuario ${input.name}?`)
-        resp && editUserService(id, input);
-        alert(`Usuario ${input.name} editado correctamente `);
+        if (errors === '') {
+          <Link to="/panel" />
+          return alert('No se han realizado modificaciones')
+        } else {
+          const resp = window.confirm(`¿Quieres editar al usuario ${input.name}?`)
+          if (resp){
+            editUserService(id, input);
+            alert(`Usuario ${input.name} editado correctamente `);
+          } 
+        }
       } else if (action === 'create') {
-        const resp = window.confirm(`¿Quieres agregar al usuario ${input.name}?`)
-        resp && addUserService(input);
-        alert(`Usuario ${input.name} agregado correctamente `);
+        if (errors === '') {
+          return alert('Revisar campos requeridos')
+        } else {
+          const resp = window.confirm(`¿Quieres agregar al usuario ${input.name}?`)
+          if (resp) {
+            addUserService(input);
+            alert(`Usuario ${input.name} agregado correctamente `);
+          } 
+        }
       }
     }
   }
@@ -100,7 +116,7 @@ function EditUser({ session, id, action }) {
     <div className={style.ctn}>
       {!loading && 
       <>
-        <ButtonsBar />
+        <EditButtonBar rol={session.type} handleSubmit={handleSubmit} element="user" id={id}/>
         <form onSubmit={handleSubmit} className={style.form} id="form">
           <div className={style.field}>
             <label htmlFor="name">Nombre</label>
@@ -202,8 +218,10 @@ function EditUser({ session, id, action }) {
             />
           </div>
           <div className={style.btnReset}>
-            <button className={style.btn} type="button" onClick={(e) => resetForm(e)}>Borrar</button>
-            <button className={style.btn} type="submit" onClick={handleSubmit}>Guardar cambios</button>
+            <button className={style.btn} type="button" onClick={(e)=>resetForm(e)}>
+                <FontAwesomeIcon icon={faEraser} />
+                {'  Borrar'}
+            </button>
           </div>
         </form>
       </>

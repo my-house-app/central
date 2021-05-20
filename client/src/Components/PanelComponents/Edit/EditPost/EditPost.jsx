@@ -4,8 +4,12 @@
 /* eslint-disable no-shadow */
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEraser } from '@fortawesome/free-solid-svg-icons';
 import { getPostService, editPostService, addPostService } from '../../../../Services/properties.service';
 import Loading from '../../../Auth0/Loading/loading';
+import EditButtonBar from '../../ButtonsBar/EditButtonBar/EditButtonBar';
 import style from '../Edit.module.css';
 
 function EditPosts({ id, action, session }) {
@@ -13,7 +17,7 @@ function EditPosts({ id, action, session }) {
   const [input, setInput] = useState({})
   const [postDetail, setPostDetail] = useState({});
   const [loading, setLoading] = useState(true);
-  const [errors, setErrors] = React.useState({});
+  const [errors, setErrors] = React.useState('');
   
   const isAdmin = session.type === 'Admin' || session.type === 'SuperAdmin'; 
 
@@ -54,13 +58,15 @@ function EditPosts({ id, action, session }) {
       createdAt: action === 'edit' ? postDetail.createdAt : '',
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [postDetail.premium]);
+  }, [postDetail.id]);
   
 
   function validate(input) {
     const errors = {};
     if (!input.post_name) {
       errors.post_name = 'El título es requerido';
+    } else if (!input.premium) {
+      errors.depatment = 'El plan contratado es requerido';
     } else if (!input.department) {
       errors.depatment = 'El deparmento es requerido';
     } else if (!input.city) {
@@ -95,17 +101,33 @@ function EditPosts({ id, action, session }) {
       [name]: value,
     });
   }
+  
   function handleSubmit(e) {
     e.preventDefault();
-    if (!Object.entries(errors).length === 0) {
-      alert('Revisar campos requeridos')
+    if (Object.entries(errors).length > 0) {
+      return alert('Revisar campos requeridos')
     } else {
       if (action === 'edit') {
-        editPostService(id, input);
-        alert(`Post '${input.name}' editado correctamente `);
+        if (errors === '') {
+          <Link to="/panel" />
+          return alert('No se han realizado modificaciones')
+        } else {
+          const resp = window.confirm(`¿Quieres editar la publicación ${input.post_name}?`)
+          if (resp) {
+            editPostService(id, input);
+            alert(`Publicación '${input.post_name}' editada correctamente `);
+          } 
+        }
       } else if (action === 'create') {
-        addPostService(input);
-        alert(`Post '${input.name}' creado correctamente `);
+        if (errors === '') {
+          return alert('Revisar campos requeridos')
+        } else {
+          const resp = window.confirm(`¿Quieres crear la publicación ${input.post_name}?`)
+          if (resp) {
+            addPostService(input);
+            alert(`Publicación '${input.post_name}' creada correctamente `);
+          }
+        }
       }
     }
   }
@@ -141,6 +163,7 @@ function EditPosts({ id, action, session }) {
     <div className={style.ctn}>
       {!loading && 
         <>
+          <EditButtonBar rol={session.type} handleSubmit={handleSubmit} element="post" id={id}/>
           <form onSubmit={handleSubmit} className={style.form} id="form">
             <div className={style.field}>
               <label htmlFor="post_name">Título</label>
@@ -155,10 +178,12 @@ function EditPosts({ id, action, session }) {
             <div className={style.field}>
               <label htmlFor="premium"> Plan contratado</label>
               <select className={style.selectFilter} name="premium" value={input.premium} onChange={handleChange}>
-                <option value="" disabled hidden>Elija uno</option>
-                {['Premium', 'Classic'].map((type, i) => (<option key={i} value={input.premium}>{type}</option>))}
+                <option key="0" value="" disabled hidden>Elija uno</option>
+                <option key="1" value="true" >Premium</option>
+                <option key="2" value="false" >Classic</option>
               </select>
             </div>
+            {errors.premium && (<p className={style.pdanger}>{errors.premium}</p>)}
             <div className={style.field}>
               <label htmlFor="department">Departmento</label>
               <input
@@ -320,8 +345,10 @@ function EditPosts({ id, action, session }) {
               <label htmlFor="garden"> Jardín</label>
             </div>
             <div className={style.btnReset}>
-              <button className={style.btn} type="button" onClick={(e)=>resetForm(e)}>Borrar</button>
-              <button className={style.btn} type="submit" onClick={handleSubmit}>Guardar cambios</button>
+              <button className={style.btn} type="button" onClick={(e)=>resetForm(e)}>
+                <FontAwesomeIcon icon={faEraser} />
+                {'  Borrar'}
+              </button>
             </div>
           </form>
         </>
