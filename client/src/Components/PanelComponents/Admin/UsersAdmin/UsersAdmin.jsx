@@ -29,6 +29,7 @@ function PostsAdmin({
     render, count, currentPage,
   } = panelAdmin;
   const { users } = render;
+  console.log(users)
   const list = () => {
     const data = [];
     users?.forEach((e) => {
@@ -37,7 +38,7 @@ function PostsAdmin({
         displayLink: true,
         link: e.userId,
         column2: e.name,
-        column3: e.phone,
+        column3: e.status === null ? 'Available' : e.status,
         id: e.id,
       });
     });
@@ -57,7 +58,7 @@ function PostsAdmin({
           />
           <TablePage
             tableName="users"
-            columns={['E-mail', 'User name', 'Phone']}
+            columns={['E-mail', 'User name', 'Status']}
             data={list()}
             path="user"
             buttonPath="user"

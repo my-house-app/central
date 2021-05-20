@@ -9,7 +9,7 @@ import TablePage from '../../TablePage/TablePage';
 import Paginacion from '../../../Paginacion/Paginacion';
 
 function BookingsAdmin({
-  userInfo, panelAdmin, getAdminData, deleteBooking,/*  getPanelFilteredProperties, */
+  userInfo, panelAdmin, getAdminData, deleteBooking,
 }) {
   const {user} = useAuth0();
   let userId;

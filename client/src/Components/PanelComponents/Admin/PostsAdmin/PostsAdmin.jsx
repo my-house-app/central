@@ -39,7 +39,7 @@ function PostsAdmin({
         displayLink: true,
         link: e.userId,
         column2: e.user?.name,
-        column3: e.city,
+        column3: e.status,
         id: e.id,
       });
     });
@@ -59,7 +59,7 @@ function PostsAdmin({
           />
           <TablePage
             tableName="posts"
-            columns={['Title', 'User', 'City']}
+            columns={['Title', 'User', 'Status']}
             data={list()}
             path="user"
             buttonPath="post"

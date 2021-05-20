@@ -38,7 +38,7 @@ function TablePage({
             />
           ))}
           {data.length < 1 &&
-            <tr><td>You don't have any {tableName} added yet</td></tr>
+            <tr><td>No tienes nada agregado en {tableName} aún</td></tr>
           }
         </tbody>
       </table>

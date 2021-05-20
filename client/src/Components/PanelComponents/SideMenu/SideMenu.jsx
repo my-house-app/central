@@ -1,41 +1,33 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faUser,
-  faHouseUser,
-  // faComments,
-  faCalendarAlt,
-} from '@fortawesome/free-solid-svg-icons';
+import { faUser, faHouseUser, faCalendarAlt } from '@fortawesome/free-solid-svg-icons';
 import { FaRegCalendar } from 'react-icons/fa';
 import style from './SideMenu.module.css';
 import { useAuth0 } from "@auth0/auth0-react";
-import { useDispatch, useSelector} from 'react-redux';
-import { userSession } from "../../../Redux/Actions";
-
-
+import { getUserDataService } from '../../../Services/properties.service';
 
 function SideMenu() {
   const {user} = useAuth0()
-  const dispatch = useDispatch();
-  const { session } = useSelector((store) => store);
+  const [userSession, setUserSession] = useState({});
 
   let userId;
   if (user.sub.includes('google')){
     userId = user.sub.slice(14)
-    // console.log(user.sub);
   } else {
     userId = user.sub.slice(6)
   }
-  // console.log(user);
-  // console.log(userId)
+  
   useEffect(() => {
-    dispatch(userSession(userId));
-    // console.log('SESSION', session)
+    async function fetchUser(id) {
+      const userInfo = await getUserDataService(id);
+      setUserSession(userInfo.data.user);
+    }
+    fetchUser(userId);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
-
-  const isAdmin = session.type === 'Admin' || session.type === 'SuperAdmin'
+  
+  const isAdmin = userSession.type === 'Admin' || userSession.type === 'SuperAdmin';
 
   const [state, setState] = useState(false);
   window.onscroll = () => {
@@ -48,73 +40,73 @@ function SideMenu() {
     <>
       {isAdmin && 
         <div className={`${style.ctn} ${state && style.ctnFixed}`} id="navPanel">
-          <label>NAVIGATION</label>
+          <label>NAVEGACIÓN</label>
             <div className={style.divTitle}>
               <NavLink to={`/panel/detail/user/${userId}`} activeStyle={{ color: 'var(--white)' }}>
                 <h4>
                   <FontAwesomeIcon icon={faUser} />
-                  {'  My profile'}
+                  {'  Mi perfil'}
                 </h4>
               </NavLink>
             </div>
             <div className={style.divTitle}>
-              <h3>Users Management</h3>
+              <h3>Gestión de usuarios</h3>
               <NavLink to="/panel/admin/users" activeStyle={{ color: 'var(--white)' }}>
                 <h4>
                   <FontAwesomeIcon icon={faUser} />
-                  {' Users'}
+                  {' Usuarios'}
                 </h4>
               </NavLink>
             </div>
             <div className={style.divTitle}>
-              <h3>Posts Management</h3>
+              <h3>Gestión de publicaciones</h3>
               <NavLink to={`/panel/admin/posts`} activeStyle={{ color: 'var(--white)' }}>
                 <h4>
                   <FontAwesomeIcon icon={faHouseUser} />
-                  {' Posts'}
+                  {' Publicaciones'}
                 </h4>
               </NavLink>
               <NavLink to="/panel/admin/bookings" activeStyle={{ color: 'var(--white)' }}>
                 <h4>
                   <FontAwesomeIcon icon={faCalendarAlt} />
-                  {' Bookings'}
+                  {' Reservas'}
                 </h4>
               </NavLink>
             </div>
         </div>
         }
         {!isAdmin && (
-        <div className={`${style.ctn} ${state && style.ctnFixed}`} id="navPanel">
-          <label>NAVIGATION</label>
+        <div className={`${style.ctn} ${style.ctnUser} ${state && style.ctnFixed}`} id="navPanel">
+          <label>NAVEGACIÓN</label>
             <div className={style.divTitle}>
               <NavLink to={`/panel/detail/user/${userId}`} activeStyle={{ color: 'var(--white)' }}>
                 <h4>
                   <FontAwesomeIcon icon={faUser} />
-                  {'  My profile'}
+                  {'  Mi perfil'}
                 </h4>
               </NavLink>
             </div>
             <div className={style.divTitle}>
-              <h3>Posts</h3>
+              <h3>Publicaciones</h3>
               <NavLink to={`/panel/user/${userId}/posts`} activeStyle={{ color: 'var(--white)' }}>
                 <h4>
                   <FontAwesomeIcon icon={faHouseUser} />
-                  {' My posts'}
+                  {' Mis publicaciones'}
                 </h4>
               </NavLink>
             </div>
             <div className={style.divTitle}>
-              <h3>Bookings</h3>
+              <h3>Reservas</h3>
               <NavLink to={`/panel/user/${userId}/bookings`} activeStyle={{ color: 'var(--white)' }}>
                 <h4>
                   <FaRegCalendar />
-                  {' My bookings'}
+                  {' Mis reservas'}
                 </h4>
               </NavLink>
               <NavLink to={`/panel/user/${userId}/bookingsowner`} activeStyle={{ color: 'var(--white)' }}>
                 <h4>
                   <FontAwesomeIcon icon={faCalendarAlt} />
-                  {' Bookings as owner'}
+                  {' Reservas como propietario'}
                 </h4>
               </NavLink>
             </div>

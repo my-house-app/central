@@ -3,6 +3,7 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { getUserData, deleteBooking } from '../../../../Redux/Actions/index';
 import TablePage from '../../TablePage/TablePage';
+import TableButtonBar from '../../ButtonsBar/TableButtonBar/TableButtonBar';
 
 function BookingsOwner({
   panelUser, getUserData, match, deleteBooking,
@@ -32,6 +33,10 @@ function BookingsOwner({
   };
   return (
     <div>
+      <TableButtonBar 
+        rol="user"
+        path="booking"
+      />
       <TablePage
         deleteAction={deleteBooking}
         tableName="owner bookings"

@@ -47,8 +47,8 @@ function Paginacion({
         }
       });
     }
-    console.log('window.location.search: ', window.location);
-    console.log('window.location.search: ', history);
+    // console.log('window.location.search: ', window.location);
+    // console.log('window.location.search: ', history);
     params.set('page', numero);
     history.push(`${window.location.pathname}?${params.toString()}`);
     // history.push(`${path}?${params.toString()}`);
@@ -63,7 +63,7 @@ function Paginacion({
   // intentar usar use memo
   // eslint-disable-next-line consistent-return
   function updateNumeroDePaginas(numero) {
-    console.log('updateNumeroDePaginas: ', numero);
+    // console.log('updateNumeroDePaginas: ', numero);
     if (numero === 1 || numero === 2) {
       return listaDePaginas.slice(0, 5);
     }

@@ -49,7 +49,7 @@
 .ctn input:disabled {
     cursor: auto;
     background-color: rgba(128, 128, 128, 0.239);
-    color: rgba(15, 15, 15, 0.048);
+    color: rgba(0, 0, 0, 0.623);
 }
 
 .pdanger {
@@ -87,15 +87,6 @@
     background: var(--dark);
     box-shadow: var(--blackhadow);
     transition: all 0.3s ease-in-out;
-}
-
-input[type=checkbox] {
-  width: 1.5em;
-  height: 1.5em;
-  border-radius: 1%;
-  border: none;
-  outline: 0;
-  color: var(--blue);
 }
 
 .tit_facilities {

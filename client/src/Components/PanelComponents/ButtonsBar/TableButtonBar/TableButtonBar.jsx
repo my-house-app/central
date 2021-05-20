@@ -19,17 +19,17 @@ function TableButtonBar({ rol, path }) {
         <NavLink to={`/panel/${rol}`}>
           <label>
             <FontAwesomeIcon icon={faArrowLeft} />
-            {' Dashboard'}
+            {' Panel'}
           </label>
         </NavLink>
         <div className={style.btnCtn}>
           <NavLink to={`/panel/${path}/create`} className={style.btnBar}>
             <FontAwesomeIcon icon={faPlus} />
-            {' Create'}
+            {' Crear'}
           </NavLink>
           <button type="button" className={style.btnBar} onClick={openFilters}>
             <FontAwesomeIcon icon={faSlidersH} />
-            {' Filter'}
+            {' Filtrar'}
           </button>
         </div>
       </div>
