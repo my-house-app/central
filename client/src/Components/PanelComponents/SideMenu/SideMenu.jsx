@@ -17,7 +17,7 @@ function SideMenu() {
   } else {
     userId = user.sub.slice(6)
   }
-  
+  console.log(useAuth0())
   useEffect(() => {
     async function fetchUser(id) {
       const userInfo = await getUserDataService(id);

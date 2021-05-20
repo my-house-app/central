@@ -19,13 +19,15 @@ function DetailButtonBar({ rol, id, path, userId, deleteAction }) {
           </label>
         </Link>
         <div className={style.btnCtn}>
-            <button type="button" className={style.btnBar} onClick={() => { 
-                const resp = window.confirm(`¿Quieres eliminar ${path} con id ${id}?`)
-                if(resp) deleteAction(id, userId);}}
-            >
-                <FontAwesomeIcon icon={faTrashAlt} />
-                {'  Eliminar'}
-            </button>
+            {id !== userId && 
+              <button type="button" className={style.btnBar} onClick={() => { 
+                  const resp = window.confirm(`¿Quieres eliminar ${path} con id ${id}?`)
+                  if(resp) deleteAction(id, userId);}}
+              >
+                  <FontAwesomeIcon icon={faTrashAlt} />
+                  {'  Eliminar'}
+              </button>
+            }
             <Link to={`/panel/${path}/${id}/edit`} className={style.btnBar}>
                 <FontAwesomeIcon icon={faEdit} />
                 {' Editar'}
