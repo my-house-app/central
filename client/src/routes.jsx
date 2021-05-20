@@ -12,6 +12,7 @@ import About from './Pages/About/About';
 import Signin from './Pages/Signin/Signin';
 import PanelRoutes from './Pages/Panel/PanelRoutes';
 import NotFound from './Pages/NotFound/NotFound';
+import MercadoPago from './Components/MercadoPago/MercadoPago';
 
 export default function MyHouseRoutes() {
   return (
@@ -38,6 +39,10 @@ export default function MyHouseRoutes() {
           <Route
             path="/panel"
             component={PanelRoutes}
+          />
+          <Route
+          path="/mercadopago"
+          component={MercadoPago}
           />
           <Route
             component={NotFound}
