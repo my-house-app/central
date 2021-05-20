@@ -28,7 +28,6 @@ function Paginacion({
   }, [count]);
 
   function paginate(numero) {
-
     params.set('page', numero);
     history.push(`${window.location.pathname}?${params.toString()}`);
     functionNext();
@@ -40,7 +39,7 @@ function Paginacion({
   // intentar usar use memo
   // eslint-disable-next-line consistent-return
   function updateNumeroDePaginas(numero) {
-    console.log('updateNumeroDePaginas: ', numero);
+    // console.log('updateNumeroDePaginas: ', numero);
     if (numero === 1 || numero === 2) {
       return listaDePaginas.slice(0, 5);// (1) (2) 3 4 5
     }

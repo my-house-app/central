@@ -8,6 +8,9 @@
   padding: 1%;
   font-size: 1em;
 }
+.ctnUser {
+  background-color: var(--light-blue);
+}
 .ctnFixed {
   position: fixed;
   top:0;

@@ -1,18 +1,32 @@
 /* eslint-disable no-shadow */
 import { useState, useEffect } from 'react';
-import { FaCheck } from 'react-icons/fa';
+import { connect } from 'react-redux';
+import { userSession } from '../../../../Redux/Actions/index';
+import { useAuth0 } from "@auth0/auth0-react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBed, faBath, faRulerCombined } from '@fortawesome/free-solid-svg-icons';
+import { FaCheck } from 'react-icons/fa';
+import { deletePostService, getPostService } from '../../../../Services/properties.service';
 import SliderCarousel from '../../../SliderCarousel/SliderCarousel';
 import Map from '../../../Map/Map'; // esta no se esta usando, se puede eliminar? @rennygalindez
-import { getPostService } from '../../../../Services/properties.service';
+import DetailButtonBar from '../../ButtonsBar/DetailButtonBar/DetailButtonBar';
 import styles from './PostDetails.module.css';
 
-export default function PostDetails({ id }) {
+function PostDetails({ session, userSession, id }) {
+  const {user} = useAuth0()
+  let sessionId;
+  if (user.sub.includes('google')){
+    sessionId = user.sub.slice(14)
+  } else {
+    sessionId = user.sub.slice(6)
+  }
+
   const [property, setProperty] = useState('');
   const [loading, setLoading] = useState(true);
 
+  
   useEffect(() => {
+    userSession(sessionId);
     async function fetchApi(propertyId) {
       const propertyFetch = await getPostService(propertyId);
       setProperty(propertyFetch.data);
@@ -21,10 +35,15 @@ export default function PostDetails({ id }) {
     fetchApi(id);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
   return (
     <div>
+      <DetailButtonBar rol={session.type} id={id} path='post' userId={sessionId} deleteAction={deletePostService}/>
       {!loading && (
         <main className={styles.container}>
+          <div className={styles.status}>
+            <h4>{property.status}</h4>
+          </div>
           <section className={styles.title}>
             <h1>{property.post_name}</h1>
             <p>{property.prop_type}</p>
@@ -134,3 +153,13 @@ export default function PostDetails({ id }) {
     </div>
   );
 }
+
+const mapStateToProps = (state) => ({
+  session: state.session,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  userSession: (userId) => dispatch(userSession(userId)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(PostDetails);
