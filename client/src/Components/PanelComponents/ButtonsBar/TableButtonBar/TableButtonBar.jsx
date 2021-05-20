@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faPlus, faSlidersH, faArrowLeft,
@@ -9,22 +9,11 @@ import style from '../ButtonsBar.module.css';
 import '../../globalFilters.css';
 
 function openFilters() {
-  console.log('openFilter TableButtonBar')
+  //console.log('openFilter TableButtonBar')
   document.getElementById('filters').className = 'openFilter';
 }
 
-function TableButtonBar({ rol, path }) {
-  console.log('Renderizado TableButtonBar')
-  // const [openFilter, setOpenFilter] = useState(true);
-
-  // useEffect(() => {
-  //   console.log('Estado openfilter: ', openFilter);
-  //   if (openFilter) {
-  //     document.getElementById('filters').className = 'closeFilter';
-  //   }
-  //   setOpenFilter(false);
-  // }, []);
-  
+function TableButtonBar({ rol, path }) {  
   return (
     <div className={style.ctn}>
       <div className={style.elementsCtn}>
@@ -39,10 +28,12 @@ function TableButtonBar({ rol, path }) {
             <FontAwesomeIcon icon={faPlus} />
             {' Crear'}
           </NavLink>
-          <button type="button" className={style.btnBar} onClick={openFilters}>
+          {path === 'post' && 
+            <button type="button" className={style.btnBar} onClick={openFilters}>
             <FontAwesomeIcon icon={faSlidersH} />
             {' Filtrar'}
           </button>
+          }
         </div>
       </div>
       <Filter />

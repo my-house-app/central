@@ -30,7 +30,7 @@ function TablePage({
               deleteAction={deleteAction}
               column1={e.column1}
               displayLink={e.displayLink}
-              link={e.link}
+              link={e.id}
               column2={e.column2}
               column3={e.column3}
               id={e.id}
