@@ -5,6 +5,7 @@ import {
   getFilteredPropiertiesService,
   getAdminDataService,
   getUserDataService,
+  findOrCreateGoogleUserService,
   getPostService,
   addPostService,
   editPostService,
@@ -159,6 +160,20 @@ export const getUserData = (userId) => async function (dispatch) {
       dispatch(
         {
           type: GET_USER_DATA,
+          payload: res.data.user,
+        },
+      );
+    })
+    .catch((e) => console.log('Error getAdminData: ', e));
+};
+
+//ALL GOOGLE USER DATA
+export const getGoogleUserData = (googleUser) => async function (dispatch) {
+  return findOrCreateGoogleUserService(googleUser)
+    .then((res) => {
+      dispatch(
+        {
+          type: USER_SESSION,
           payload: res.data.user,
         },
       );

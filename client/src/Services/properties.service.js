@@ -138,6 +138,12 @@ export async function deleteBookingService(bookingId) {
   return await axios.delete(endpoint);
 }
 
+// AGREGAR USUARIOS LOGUEADOS CON GOOGLE
+export async function findOrCreateGoogleUserService(user) {
+  const endpoint = `${REACT_APP_API_BASE_ENDPOINT}/user/google`;
+  return await axios.post(endpoint, user);
+};
+
 // FUNCION AUXILIAR
 // &id=bc6b5eff-d880-4048-8c37-24e446a1962b&page=6
 function getQuerysStrings(limit, id) {
