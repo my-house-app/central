@@ -11,7 +11,6 @@ function TablePage({
   buttonPath,
   path,
 }) {
-  console.log('Renderizado TablePage')
   return (
     <>
       <table className={style.ctnList}>

@@ -19,7 +19,7 @@ function EditPosts({ id, action, session }) {
   const [loading, setLoading] = useState(true);
   const [errors, setErrors] = React.useState('');
   
-  const isAdmin = session.type === 'Admin' || session.type === 'SuperAdmin'; 
+  // const isAdmin = session.type === 'Admin' || session.type === 'SuperAdmin'; 
 
   useEffect(() => {
     async function fetchPost(id) {

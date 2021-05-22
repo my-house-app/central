@@ -12,6 +12,7 @@ import About from './Pages/About/About';
 import Signin from './Pages/Signin/Signin';
 import PanelRoutes from './Pages/Panel/PanelRoutes';
 import NotFound from './Pages/NotFound/NotFound';
+import Demo from './Pages/NewPost/NewPost';
 import MercadoPago from './Components/MercadoPago/MercadoPago';
 
 export default function MyHouseRoutes() {
@@ -28,6 +29,10 @@ export default function MyHouseRoutes() {
           <Route exact path="/">
             <Redirect to="/home" />
           </Route>
+          <Route
+            exact path="/create"
+            component={Demo}
+          /> 
           <Route
             exact path="/about"
             component={About}

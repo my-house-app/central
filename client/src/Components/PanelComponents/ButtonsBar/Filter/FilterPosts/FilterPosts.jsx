@@ -32,7 +32,7 @@ function FilterPosts() {
     security: false,
     garden: false,
   };
-  console.log('renderizando FilterPosts:');
+  // console.log('renderizando FilterPosts:');
   const [queryBlock, setQueryBlock] = useState(initialState);
 
  /*  function clear() {
@@ -72,6 +72,7 @@ function FilterPosts() {
         queryBlock[key] = params.get(key);
     }
     setQueryBlock({ ...queryBlock });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
 
