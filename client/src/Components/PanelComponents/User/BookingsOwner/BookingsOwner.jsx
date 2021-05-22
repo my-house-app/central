@@ -13,9 +13,7 @@ function BookingsOwner({
     getUserData(userId);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  const {
-    render,/*  count, currentPage, selfEndpoint, */
-  } = panelUser;
+  const { render } = panelUser;
   const { posts } = render;
   const list = () => {
     const data = [];

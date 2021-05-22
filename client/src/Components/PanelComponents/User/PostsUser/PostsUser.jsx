@@ -8,9 +8,7 @@ import TableButtonBar from '../../ButtonsBar/TableButtonBar/TableButtonBar';
 function PostsUser({
   panelUser, getUserData, match, deletePost,
 }) {
-  const {
-    render,/*  count, currentPage, selfEndpoint, */
-  } = panelUser;
+  const { render } = panelUser;
   const { posts } = render;
   const { userId } = match.params;
   useEffect(() => {
@@ -35,7 +33,7 @@ function PostsUser({
     await deletePost(id)
     await getUserData(userId)
   }
-  console.log(panelUser.render)
+  
   return (
     <div>
       <TableButtonBar 

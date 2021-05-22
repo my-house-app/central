@@ -1,8 +1,6 @@
 /* eslint-disable no-shadow */
 import { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
-import { userSession } from '../../../../Redux/Actions/index';
-import { useAuth0 } from "@auth0/auth0-react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBed, faBath, faRulerCombined } from '@fortawesome/free-solid-svg-icons';
 import { FaCheck } from 'react-icons/fa';
@@ -12,21 +10,13 @@ import Map from '../../../Map/Map'; // esta no se esta usando, se puede eliminar
 import DetailButtonBar from '../../ButtonsBar/DetailButtonBar/DetailButtonBar';
 import styles from './PostDetails.module.css';
 
-function PostDetails({ session, userSession, id }) {
-  const {user} = useAuth0()
-  let sessionId;
-  if (user.sub.includes('google')){
-    sessionId = user.sub.slice(14)
-  } else {
-    sessionId = user.sub.slice(6)
-  }
+function PostDetails({ session, id }) {
 
   const [property, setProperty] = useState('');
   const [loading, setLoading] = useState(true);
 
   
   useEffect(() => {
-    userSession(sessionId);
     async function fetchApi(propertyId) {
       const propertyFetch = await getPostService(propertyId);
       setProperty(propertyFetch.data);
@@ -38,7 +28,7 @@ function PostDetails({ session, userSession, id }) {
 
   return (
     <div>
-      <DetailButtonBar rol={session.type} id={id} path='post' userId={sessionId} deleteAction={deletePostService}/>
+      <DetailButtonBar rol={session.type} id={id} path='post' userId={session.id} deleteAction={deletePostService}/>
       {!loading && (
         <main className={styles.container}>
           <div className={styles.status}>
@@ -158,8 +148,4 @@ const mapStateToProps = (state) => ({
   session: state.session,
 });
 
-const mapDispatchToProps = (dispatch) => ({
-  userSession: (userId) => dispatch(userSession(userId)),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(PostDetails);
+export default connect(mapStateToProps)(PostDetails);

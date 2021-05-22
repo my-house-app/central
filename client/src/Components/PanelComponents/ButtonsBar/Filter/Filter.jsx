@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faChevronCircleRight,
@@ -8,16 +8,10 @@ import FilterPosts from './FilterPosts/FilterPosts';
 
 
 function Filter() {
-    const [openFilter, setOpenFilter] = useState(false);
-  console.log('renderizando Filter:');
 
   function closeFilters() {
-    console.log('cerrando filter')
     document.getElementById('filters').className = 'closeFilter';
   }
-  // useEffect(() => {   
-  //   setOpenFilter(open);
-  // }, []);
 
   return (
     <div className={style.ctn}>

@@ -1,25 +1,11 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import style from './Dashboard.module.css';
-import { useAuth0 } from "@auth0/auth0-react";
-import { useDispatch, useSelector} from 'react-redux';
-import { getUserData } from "../../../Redux/Actions";
+import { useSelector} from 'react-redux';
 
 function Dashboard() {
-  const {user} = useAuth0()
-  const dispatch = useDispatch();
-  const { render } = useSelector((store) => store.panelUser);
+  const { session } = useSelector((store) => store);
   
-  const userId = user.sub.slice(6);
-  
-  useEffect(() => {
-    console.log('Renderizado Dashboard');
-    if (!render.type) {
-      dispatch(getUserData(userId));
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
-
-  const isAdmin = render.type === 'Admin' || render.type === 'SuperAdmin'
+  const isAdmin = session.type === 'Admin' || session.type === 'SuperAdmin'
 
   return (
     <div className={style.ctn}>

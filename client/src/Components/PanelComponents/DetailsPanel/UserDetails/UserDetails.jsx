@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
-import { userSession } from '../../../../Redux/Actions/index';
 import photo from '../../../../images/imageProfile.png';
-import { useAuth0 } from "@auth0/auth0-react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPhone, faMapMarkerAlt, faCity, faUserTag } from '@fortawesome/free-solid-svg-icons';
 import style from './UserDetails.module.css';
@@ -10,20 +8,12 @@ import { deleteUserService, getUserDataService } from '../../../../Services/prop
 import Loading from '../../../Auth0/Loading/loading';
 import DetailButtonBar from '../../ButtonsBar/DetailButtonBar/DetailButtonBar';
 
-function UserDetails({ session, userSession, id }) {
-  const {user} = useAuth0()
-  let sessionId;
-  if (user.sub.includes('google')){
-    sessionId = user.sub.slice(14)
-  } else {
-    sessionId = user.sub.slice(6)
-  }
+function UserDetails({ session, id }) {
 
   const [userDetails, setUserDetails] = useState({});
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    userSession(sessionId);
     async function fetchUser (id) {
         const userInfo = await getUserDataService(id);
         setUserDetails(userInfo.data.user);
@@ -45,7 +35,7 @@ function UserDetails({ session, userSession, id }) {
     <>
     {!loading && 
       <>
-        <DetailButtonBar rol={session.type} id={id} path='user' userId={sessionId} deleteAction={deleteUserService}/>
+        <DetailButtonBar rol={session.type} id={id} path='user' userId={session.id} deleteAction={deleteUserService}/>
         <div className={style.ctn}>
           <div className={style.divImg}>
             <img src={userDetails.photo} alt='' className={style.img}/>
@@ -70,8 +60,4 @@ const mapStateToProps = (state) => ({
   session: state.session,
 });
 
-const mapDispatchToProps = (dispatch) => ({
-  userSession: (userId) => dispatch(userSession(userId)),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(UserDetails);
+export default connect(mapStateToProps)(UserDetails);
