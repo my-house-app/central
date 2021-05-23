@@ -5,14 +5,18 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBed, faBath, faRulerCombined } from '@fortawesome/free-solid-svg-icons';
 import SliderCarousel from '../../Components/SliderCarousel/SliderCarousel';
 import Map from '../../Components/Map/Map'; // esta no se esta usando, se puede eliminar? @rennygalindez
-import { getPostService } from '../../Services/properties.service';
+import { getPostService, getUserDataService } from '../../Services/properties.service';
+import { addBookingService } from '../../Services/booking.service';
 import styles from './Details.module.css';
+import { useAuth0 } from "@auth0/auth0-react";
 
 export default function Details({ routerProps }) {
   const { id } = routerProps.match.params;
-
   const [property, setProperty] = useState('');
   const [loading, setLoading] = useState(true);
+  const { user } = useAuth0();
+  const [wasBooking, setWasBooking] = useState(false);
+  const userId = user?.sub.slice(6);
 
   useEffect(() => {
     async function fetchApi(id) {
@@ -23,6 +27,50 @@ export default function Details({ routerProps }) {
     fetchApi(id);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  async function itPostWasBooking() {
+    let userInteresed = await getUserDataService(userId);
+    userInteresed = userInteresed.data.user;
+    if (!userInteresed) return;
+    // console.log('userInteresed: ', userInteresed)
+    const visitDates = userInteresed.visitDates
+    // console.log('visitDates: ', visitDates)
+    // console.log('Fue reservado?: ', !!visitDates.filter(booking=> booking.postId===id && booking.status !== 'Expired').length)
+    if (!!visitDates.filter(booking => booking.postId === id && booking.status !== 'Expired').length) {
+      setWasBooking(true);
+    }
+  }
+  useEffect(() => {
+    itPostWasBooking();
+  }, [])
+
+  async function handleReservar(e) {
+    if (wasBooking) {
+      alert('I had already booked it.')
+      document.getElementById("label-message").style.color = "red";
+      document.getElementById("label-message").style.fontWeight = "bold";
+      return;
+    }
+
+    if (!userId) {
+      alert('Login is required to get a booking.');
+      return;// redirigir a login
+    }
+    // console.log('id user interested..', userId);
+    const booking = {
+      idPost: property.id, 
+      idInterested: userId, 
+      title: 'Primera reserva creada',
+    }
+    try {
+      const respuesta = await addBookingService(booking);
+      alert('Your booking was successfully created!');
+      setWasBooking(true)
+      // console.log('respuesta: ', respuesta);
+    } catch (error) {
+      console.log('respuesta: ', error.message);
+    }
+  }
   
   return (
     <div>
@@ -70,9 +118,9 @@ export default function Details({ routerProps }) {
             <article className={styles.tour_schedule}>
               <div className={styles.details}>
                 <h3>Arrange you tour</h3>
-                <input type="date" name="tour_date" />
-                <input type="time" name="tour_time" />
-                <button type="submit">Select</button>
+                <label>{new Date().toLocaleDateString("es-ES")}</label>
+                {wasBooking && <label id='label-message' style={{color:'green'}}>You have already reserved it!</label>}
+                <button type="submit" onClick={handleReservar}>Select</button>
               </div>
             </article>
           </section>

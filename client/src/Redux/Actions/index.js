@@ -13,13 +13,10 @@ import {
   addUserService,
   editUserService,
   deleteUserService,
-  getBookingService,
-  addBookingService,
-  editBookingService,
-  deleteBookingService,
   getAdminUsersDataService,
   getAdminBookingsDataService,
 } from '../../Services/properties.service';
+import { getBookingService, addBookingService, editBookingService, deleteBookingService} from '../../Services/booking.service'
 // actipon types
 import {
   AVAILABLE_PROPERTIES,
@@ -373,7 +370,7 @@ export function getBooking(bookingId) {
   };
 }
 
-// CHANGE_URL
+// CHANGE_URL borrar
 export function changeURL(url) {
   return function (dispatch) {
     return dispatch(
