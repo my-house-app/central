@@ -4,16 +4,15 @@ import Dashboard from '../../Components/PanelComponents/Dashboard/Dashboard';
 import PostsAdmin from '../../Components/PanelComponents/Admin/PostsAdmin/PostsAdmin';
 import UsersAdmin from '../../Components/PanelComponents/Admin/UsersAdmin/UsersAdmin';
 import BookingsAdmin from '../../Components/PanelComponents/Admin/BookingsAdmin/BookingsAdmin';
-// import CommentsAdmin from '../../Components/PanelComponents/Admin/CommentsAdmin/CommentsAdmin';
 import PostsUser from '../../Components/PanelComponents/User/PostsUser/PostsUser';
 import BookingsUser from '../../Components/PanelComponents/User/BookingsUser/BookingsUser';
 import BookingsOwner from '../../Components/PanelComponents/User/BookingsOwner/BookingsOwner';
 import EditForm from '../../Components/PanelComponents/Edit/EditForm';
-import CreateForm from '../../Components/PanelComponents/Create/CreateForm';
 import DetailsPanel from '../../Components/PanelComponents/DetailsPanel/DetailsPanel';
 import style from './Panel.module.css';
 import SideMenu from '../../Components/PanelComponents/SideMenu/SideMenu';
 import ProtectedRoute from "../../Components/Auth0/ProtectedRoute/ProtectedRoute";
+import CreateForm from '../../Components/PanelComponents/Create/CreateForm';
 
 function PanelRoutes() {
   console.log('PanelRoutes');
@@ -21,7 +20,6 @@ function PanelRoutes() {
     <>
       <Switch>
         <div className={style.ctn}>
-          {console.log('PanelRoutes switch')}
           <ProtectedRoute  path='/panel' component={SideMenu} />
           {/* <SideMenu/> */}
           <div className={style.divScroll}>
@@ -50,11 +48,6 @@ function PanelRoutes() {
               path="/panel/admin/bookings"
               component={BookingsAdmin}
             />
-            {/* <ProtectedRoute
-              exact
-              path="/panel/admin/comments"
-              component={CommentsAdmin}
-            /> */}
             <ProtectedRoute
               exact
               path="/panel/:path/:id/edit" // example for any detail page paths: post, user, booking
