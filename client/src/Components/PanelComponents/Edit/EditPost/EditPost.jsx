@@ -30,10 +30,10 @@ function EditPosts({ id, action, session }) {
     fetchPost(id);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
+  console.log(session.id)
   useEffect(() => {
     setInput({
-      premium: action === 'edit' ? postDetail.premium : '',
+      premium: action === 'edit' ? postDetail.premium : false,
       post_name: action === 'edit' ? postDetail.post_name : '',
       department: action === 'edit' ? postDetail.department : '',
       city: action === 'edit' ? postDetail.city : '',
@@ -46,16 +46,18 @@ function EditPosts({ id, action, session }) {
       m2: action === 'edit' ? postDetail.m2 : '',
       rooms: action === 'edit' ? postDetail.rooms : '',
       years: action === 'edit' ? postDetail.years : '',
-      pool: action === 'edit' ? postDetail.pool : '',
-      backyard: action === 'edit' ? postDetail.backyard : '',
-      gym: action === 'edit' ? postDetail.gym : '',
-      parking_lot: action === 'edit' ? postDetail.parking_lot : '',
-      garden: action === 'edit' ? postDetail.garden : '',
-      elevator: action === 'edit' ? postDetail.elevator : '',
-      security: action === 'edit' ? postDetail.security : '',
+      pool: action === 'edit' ? postDetail.pool : false,
+      backyard: action === 'edit' ? postDetail.backyard : false,
+      gym: action === 'edit' ? postDetail.gym : false,
+      parking_lot: action === 'edit' ? postDetail.parking_lot : false,
+      garden: action === 'edit' ? postDetail.garden : false,
+      elevator: action === 'edit' ? postDetail.elevator : false,
+      security: action === 'edit' ? postDetail.security : false,
+      bbq: action === 'edit' ? postDetail.bbq : false,
       images: action === 'edit' ? postDetail.images : [],
       status: action === 'edit' ? postDetail.status : '',
       createdAt: action === 'edit' ? postDetail.createdAt : '',
+      idUser: session.id,
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [postDetail.id]);
@@ -124,6 +126,7 @@ function EditPosts({ id, action, session }) {
         } else {
           const resp = window.confirm(`¿Quieres crear la publicación ${input.post_name}?`)
           if (resp) {
+            console.log(input)
             addPostService(input);
             alert(`Publicación '${input.post_name}' creada correctamente `);
           }
@@ -136,7 +139,7 @@ function EditPosts({ id, action, session }) {
     e.preventDefault()
     setInput({
       premium: '',
-      title: '',
+      post_name: '',
       department: '',
       city: '',
       street_number: '',
@@ -147,13 +150,14 @@ function EditPosts({ id, action, session }) {
       m2: '',
       rooms: '',
       years: '',
-      pool: '',
-      backyard: '',
-      gym: '',
-      parking_lot: '',
-      garden: '',
-      elevator: '',
-      security: '',
+      pool: false,
+      backyard: false,
+      bbq: false,
+      gym: false,
+      parking_lot: false,
+      garden: false,
+      elevator: false,
+      security: false,
     });
     document.getElementById('form').reset();
   }
@@ -178,9 +182,9 @@ function EditPosts({ id, action, session }) {
             <div className={style.field}>
               <label htmlFor="premium"> Plan contratado</label>
               <select className={style.selectFilter} name="premium" value={input.premium} onChange={handleChange}>
-                <option key="0" value="" disabled hidden>Elija uno</option>
-                <option key="1" value="true" >Premium</option>
-                <option key="2" value="false" >Classic</option>
+                <option key="0" value={input.premium}>Elija uno</option>
+                <option key="1" value={!input.premium} >Premium</option>
+                <option key="2" value={input.premium} >Classic</option>
               </select>
             </div>
             {errors.premium && (<p className={style.pdanger}>{errors.premium}</p>)}
@@ -320,28 +324,28 @@ function EditPosts({ id, action, session }) {
               </p>
             </div>
             <div className={display ? style.facilities : style.noFacilities}>
-              <input type="checkbox" onChange={handleChange} name="pool" value={input.pool} />
+              <input type="checkbox" onChange={handleChange} name="pool" value={!input.pool} />
               <label htmlFor="pool"> Piscina</label>
               <br />
-              <input type="checkbox" onChange={handleChange} name="backyard" value={input.backyard} />
+              <input type="checkbox" onChange={handleChange} name="backyard" value={!input.backyard} />
               <label htmlFor="backyard"> Patio</label>
               <br />
-              <input type="checkbox" onChange={handleChange} name="gym" value={input.gym} />
+              <input type="checkbox" onChange={handleChange} name="gym" value={!input.gym} />
               <label htmlFor="gym"> Gimnasio</label>
               <br />
-              <input type="checkbox" onChange={handleChange} name="bbq" value={input.bbq} />
+              <input type="checkbox" onChange={handleChange} name="bbq" value={!input.bbq} />
               <label htmlFor="bbq"> Barbecue</label>
               <br />
-              <input type="checkbox" onChange={handleChange} name="parking_lot" value={input.parking_lot} />
+              <input type="checkbox" onChange={handleChange} name="parking_lot" value={!input.parking_lot} />
               <label htmlFor="parking_lot"> Cochera</label>
               <br />
-              <input type="checkbox" onChange={handleChange} name="elevator" value={input.elevator} />
+              <input type="checkbox" onChange={handleChange} name="elevator" value={!input.elevator} />
               <label htmlFor="elevator"> Ascensor</label>
               <br />
-              <input type="checkbox" onChange={handleChange} name="security" value={input.security} />
+              <input type="checkbox" onChange={handleChange} name="security" value={!input.security} />
               <label htmlFor="secutiry"> Seguridad</label>
               <br />
-              <input type="checkbox" onChange={handleChange} name="garden" value={input.garden} />
+              <input type="checkbox" onChange={handleChange} name="garden" value={!input.garden} />
               <label htmlFor="garden"> Jardín</label>
             </div>
             <div className={style.btnReset}>

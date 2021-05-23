@@ -9,7 +9,8 @@ import { getGoogleUserData, userSession } from '../../Redux/Actions/index';
 
 function NavBar({ userInfo, getGoogleUser, userSession }) {
   const { user, isAuthenticated } = useAuth0();
-  console.log(user)
+  console.log('userInfo ',userInfo)
+  console.log('user ', user)
   console.log(isAuthenticated)
   useEffect(() => {
     if (isAuthenticated && !Object.keys(userInfo).length) {
@@ -35,6 +36,7 @@ function NavBar({ userInfo, getGoogleUser, userSession }) {
       </NavLink>
       <div className={style.menu}>
         <NavLink to="/about" className={style.link} activeClassName={style.active}>About</NavLink>
+        <NavLink to="/create" className={style.link} activeClassName={style.active}>Publica</NavLink>
         <NavLink to="/panel/user" className={style.link} activeClassName={style.active}>Perfil</NavLink>
         <AuthNav />
       </div>
