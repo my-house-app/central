@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faHouseUser, faCalendarAlt } from '@fortawesome/free-solid-svg-icons';
@@ -7,7 +7,6 @@ import { FaRegCalendar } from 'react-icons/fa';
 import style from './SideMenu.module.css';
 
 function SideMenu({ session }) {
-  
   const isAdmin = session.type === 'Admin' || session.type === 'SuperAdmin';
 
   const [state, setState] = useState(false);
