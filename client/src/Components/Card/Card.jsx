@@ -4,12 +4,14 @@ import { Link } from 'react-router-dom';
 import {
   faBed, faBath, faRulerCombined,
 } from '@fortawesome/free-solid-svg-icons';
-import { FaRegHeart } from 'react-icons/fa';
+// import { FaRegHeart } from 'react-icons/fa';
+import { RiVipCrownLine } from 'react-icons/ri';
+
 import style from './Card.module.css';
 
 // export default function Card(props) {
 export default function Card({
-  image, postName, propType, neighborhood, price, rooms, bathrooms, m2, id,
+  image, postName, propType, neighborhood, price, rooms, bathrooms, m2, id, premium,
 }) {
   return (
     <>
@@ -48,9 +50,17 @@ export default function Card({
             </p>
           </div>
         </div>
-        <div className={style.fav}>
+        {/* <div className={style.fav}>
           <FaRegHeart />
+        </div> */}
+        {premium ? (
+        <div className={style.premium}>
+          <RiVipCrownLine size={20} />
         </div>
+        ) : (
+          <div></div>
+        )    
+        }    
       </div>
     </>
   );
