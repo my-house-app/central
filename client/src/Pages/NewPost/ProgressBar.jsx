@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
 import useCreatePost from './hooks/useCreatePost';
 import { Steps, Button, message } from 'antd';
 import FirstStep from './FirstStep/FirstStep';
@@ -6,7 +7,7 @@ import SecondStep from './SecondStep/SecondStep';
 import ThirdStep from './ThirdStep/ThirdStep';
 import FourthStep from './FourthStep/FourthStep';
 import FifthStep from './FifthStep/FifthStep';
-import { addPostService } from '../../Services/properties.service';
+import { addPostService, sendPaymentEmail } from '../../Services/properties.service';
 import 'antd/dist/antd.css';
 
 const { Step } = Steps;
@@ -34,7 +35,7 @@ const steps = [
   },
 ];
 
-const ProgressBar = () => {
+const ProgressBar = ({userInfo}) => {
   const [current, setCurrent] = useState(0);
 
   const next = () => {
@@ -65,7 +66,20 @@ const ProgressBar = () => {
             const resp = window.confirm(`¿Quieres crear la publicación ${postDetails.post_name}?`)
             if (resp) {
               addPostService(postDetails);
-              message.success(`Tu publicación '${postDetails.post_name}' creada correctamente `);
+              message.success(
+                `Tu publicación '${postDetails.post_name}' creada correctamente `
+              );
+              const post = {
+                name: userInfo.name,
+                email: userInfo.email,
+                title: postDetails.post_name,
+                image: postDetails.images[0] || "No image available",
+                price: postDetails.price,
+                plan: postDetails.premium ? "Premium" : "Basic",
+                date: "",
+              };
+              console.log("POST", post)
+              sendPaymentEmail(post);
             }
           }}>
             Listo
@@ -81,4 +95,8 @@ const ProgressBar = () => {
   );
 };
 
-export default ProgressBar;
+const mapStateToProps = (state) => ({
+  userInfo: state.session,
+});
+
+export default connect(mapStateToProps, null)(ProgressBar);
