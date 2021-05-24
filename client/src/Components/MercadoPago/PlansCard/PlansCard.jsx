@@ -1,9 +1,11 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import axios from 'axios';
 import style from './PlansCard.module.css';
 
 function PlansCard({ plan, price, description, numberPhotos, data, id }) {
   const { REACT_APP_API_BASE_ENDPOINT } = process.env;
+  const { session } = useSelector((store) => store);
   function createCheckoutButton(preference) {
   const script = document.createElement("script");
   const attrDataPreference = document.createAttribute('data-preference-id')
@@ -23,6 +25,8 @@ function PlansCard({ plan, price, description, numberPhotos, data, id }) {
       unit_price: parseInt(price),
       description,
       category_id: id,
+      userEmail: session.email,
+      userName: session.name,
     };
     const dataAxios = await axios.post(`${REACT_APP_API_BASE_ENDPOINT}/mercadopago`, orderData)
     if (document.getElementById(id).innerHTML === 'PUBLICA TU PROPIEDAD'){
