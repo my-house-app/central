@@ -1,13 +1,14 @@
 import React from 'react';
 import useCreatePost from '../hooks/useCreatePost';
+import '../step.css';
 
 const FirstStep = () => {
   const { setCurrentComponent, postDetails } = useCreatePost();
 
   return (
-    <div>
+    <div className="ctn">
       <h3>Tu pago se ha realizado correctamente</h3>
-      <h3>{`Continúa los siguientes pasos para crear tu publicación con el plan ${postDetails.premium ? 'Premium' : 'Classic'}`}</h3>
+      <h3>{`Continúa los siguientes pasos para crear tu publicación con el Plan ${postDetails.premium ? 'Premium' : 'Basic'}`}</h3>
       <div>
        {/*  <button
           onClick={() => {

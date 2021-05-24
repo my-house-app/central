@@ -175,3 +175,15 @@ export async function getGeoDataService() {
   })
   return options;
 }
+
+
+// DATA TYPE PARSER FORM
+export function valueTypes (input) {
+  let values = {}
+  Object.entries(input).forEach(e => {
+     if (e[1] === 'false') e[1] = false;
+     if (e[1] === 'true') e[1] = true;
+     values[e[0]] = e[1];
+   })
+  return values;
+}

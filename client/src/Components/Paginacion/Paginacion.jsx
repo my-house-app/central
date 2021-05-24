@@ -62,16 +62,18 @@ function Paginacion({
       }}
       >
         Page:
+        {' '}
         {paginaActual}
         {' '}
         from
+        {' '}
         {ultimaPagina}
       </b>
       {ultimaPagina > 1
                 && (
                   <ul className="paginacion">
 
-                    <strong style={{ color: '#b4c2cd' }}> Pages:</strong>
+                    {/* <strong style={{ color: '#b4c2cd' }}> Pages:</strong> */}
                     {paginaActual > primeraPagina
                         && (
                           <>

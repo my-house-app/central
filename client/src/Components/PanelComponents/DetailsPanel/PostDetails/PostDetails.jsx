@@ -77,10 +77,12 @@ function PostDetails({ session, id }) {
           <section className={styles.map_facilities}>
             <article className={styles.map_container}>
               <div>
+              {(property.latitude && property.longitude) &&
                 <Map
                   lat={property.latitude}
                   lon={property.longitude}
                 />
+              }
               </div>
             </article>
             <article className={styles.facilities_container}>

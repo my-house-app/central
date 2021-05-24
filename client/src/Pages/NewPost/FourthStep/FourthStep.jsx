@@ -1,24 +1,23 @@
-import useCreatePost from '../hooks/useCreatePost';
-import Form from '../Form/Form';
+import React, { useState } from 'react';
+import style from '../Form/Form.module.css';
+import '../step.css';
 
-const formInputsConfig = [
-  { label: 'Piscina', type: 'checkbox', name: 'pool' },
-  { label: 'Patio', type: 'checkbox', name: 'backyard' },
-  { label: 'Gimnasio', type: 'checkbox', name: 'gym' },
-  { label: 'Barbecue', type: 'checkbox', name: 'bbq' },
-  { label: 'Cochera', type: 'checkbox', name: 'parking_lot' },
-  { label: 'Jardín', type: 'checkbox', name: 'garden' },
-  { label: 'Ascensor', type: 'checkbox', name: 'elevator' },
-  { label: 'Seguridad', type: 'checkbox', name: 'security' },
-];
+const Uploader = () => {
+  const [filesList, setFilesList] = useState([]);
 
-const FourthStep = () => {
-  const { setCurrentComponent } = useCreatePost();
+  const handlerOnChange = (event) => {
+    const { target } = event;
+    const { files } = target;
+    const newFilesList = [...filesList, ...files];
+    setFilesList(newFilesList);
+  };
 
   return (
-    <div>
-      <h1>Marca las facilidades que disponga tu inmueble </h1>
-      <Form config={formInputsConfig}/>
+    <div className='ctn'>
+      <h1>Agrega imágenes de tu inmueble </h1>
+      <div className={style.images}>
+        <input type='file' className={style.images} onChange={handlerOnChange} />
+      </div>
       <div>
         {/* <button
           onClick={() => {
@@ -39,4 +38,4 @@ const FourthStep = () => {
   );
 };
 
-export default FourthStep;
+export default Uploader;
