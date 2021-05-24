@@ -1,21 +1,20 @@
-import useCreatePost from '../hooks/useCreatePost';
+// import useCreatePost from '../hooks/useCreatePost';
 import Form from '../Form/Form';
-import Uploader from '../FourthStep/FourthStep';
 import '../step.css'
 
 const formInputsConfig = [
-  { label: 'Título', type: 'text', name: 'post_name' },
+  { tag: 'textarea', label: 'Título', name: 'post_name' },
   { tag: 'select', label: 'Tipo de inmueble', type: ['Casa', 'Apartamento'], name: 'prop_type' },
-  { label: 'Precio', type: 'number', name: 'price' },
-  { label: 'Metros cuadrados', type: 'number', name: 'm2' },
-  { label: 'Baños', type: 'number', name: 'bathrooms' },
-  { label: 'Habitaciones', type: 'number', name: 'rooms' },
-  { label: 'Antigüedad', type: 'number', name: 'years' },
+  { label: 'Precio', type: 'number', min: 0, name: 'price' },
+  { label: 'Metros cuadrados', type: 'number', min: 0, name: 'm2' },
+  { label: 'Baños', type: 'number', min: 0, name: 'bathrooms' },
+  { label: 'Habitaciones', type: 'number', min: 0, name: 'rooms' },
+  { label: 'Antigüedad', type: 'number', min: 0, name: 'years' },
   { tag: 'textarea', label: 'Descripción', name: 'description' },
 ];
 
 const SecondStep = () => {
-  const { setCurrentComponent } = useCreatePost();
+  // const { setCurrentComponent } = useCreatePost();
 
   return (
     <div className="ctn">

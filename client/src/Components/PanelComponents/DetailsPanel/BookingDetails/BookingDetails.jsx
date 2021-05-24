@@ -17,6 +17,7 @@ export default function BookingDetails({ id }) {
       }
     )
       .catch(e => console.log("Error: ", e.message))
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   if (loading) {

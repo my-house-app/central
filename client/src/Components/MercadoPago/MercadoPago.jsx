@@ -12,6 +12,7 @@ function MercadoPago() {
     .then((r) => {
       setPlans(r.data);
     })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const list = plans.map((e) => {

@@ -1,6 +1,6 @@
 .ctn {
   width: 70%;
-  margin: auto;
+  margin: 5% auto;
   display: flex;
   flex-wrap: wrap;
 }

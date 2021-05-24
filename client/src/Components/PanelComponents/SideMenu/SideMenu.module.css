@@ -9,7 +9,7 @@
   font-size: 1em;
 }
 .ctnUser {
-  background-color: var(--light-blue);
+  background-color: var(--blue);
 }
 .ctnFixed {
   position: fixed;

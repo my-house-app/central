@@ -1,9 +1,9 @@
-import useCreatePost from '../hooks/useCreatePost';
+// import useCreatePost from '../hooks/useCreatePost';
 import Form from '../Form/Form';
 import '../step.css';
 
 const formInputsConfig = [
-  { label: 'País', type: 'text', name: 'country' },
+  { tag: 'select', label: 'País', type: ['Colombia'], name: 'country' },
   { label: 'Departamento', type: 'text', name: 'department' },
   { label: 'Ciudad', type: 'text', name: 'city' },
   { label: 'Dirección', type: 'text', name: 'street_number' },
@@ -11,7 +11,7 @@ const formInputsConfig = [
 ];
 
 const ThirdStep = () => {
-  const { setCurrentComponent } = useCreatePost();
+  // const { setCurrentComponent } = useCreatePost();
 
   return (
     <div className="ctn">

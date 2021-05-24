@@ -42,6 +42,7 @@ export default function Details({ routerProps }) {
   }
   useEffect(() => {
     itPostWasBooking();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   async function handleReservar(e) {
@@ -63,7 +64,7 @@ export default function Details({ routerProps }) {
       title: 'Primera reserva creada',
     }
     try {
-      const respuesta = await addBookingService(booking);
+     /*  const respuesta =  */await addBookingService(booking);
       alert('Your booking was successfully created!');
       setWasBooking(true)
       // console.log('respuesta: ', respuesta);

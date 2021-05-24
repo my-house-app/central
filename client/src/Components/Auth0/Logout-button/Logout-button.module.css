@@ -1,17 +1,20 @@
 .logout {
-    font-family: 'Poppins';
-    color: var(--blue);
-    text-decoration: none;
-    font-size: 1rem;
-    cursor: pointer;
-    margin: 0 10%;
-    border-radius: 10px;
-    padding: 1% 2%;
-    transition: all .3s ease-in-out;
-    border: 2px solid var(--blue);
-    background-color: none;
-  }
-  .logout:hover {
+  width: 150px;
+  height: 30px;
+  font-family: 'Poppins';
+  color: var(--blue);
+  text-decoration: none;
+  font-size: 1rem;
+  cursor: pointer;
+  margin: 0 10%;
+  border-radius: 10px;
+  transition: all .3s ease-in-out;
+  border: 2px solid var(--blue);
+  background-color: none;
+}
+.logout:hover {
     border: none;
-    transition: all .4s ease-in-out;
+    transition: all .3s ease-in-out;
+    background-color: var(--dark);
+    color: var(--white);
 }

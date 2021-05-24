@@ -26,7 +26,7 @@ nav {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  width: 50%;
+  width: 30%;
 }
 
 .logo {
@@ -35,20 +35,3 @@ nav {
   margin: 1%;
   color: var(--white);
 }
-
-/* .signin {
-  color: var(--white);
-  text-decoration: none;
-  font-size: 1rem;
-  cursor: pointer;
-  margin: 0 10%;
-  background-color: var(--blue);
-  border-radius: 25px;
-  padding: 1% 2%;
-  transition: all .3s ease-in-out;
-}
-.signin:hover {
-  transition: all .3s ease-in-out;
-  background-color: var(--dark);
-  box-shadow: 1px 1px 0px #bdbdbd;
-} */

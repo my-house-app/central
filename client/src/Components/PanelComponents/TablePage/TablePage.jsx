@@ -14,8 +14,8 @@ function TablePage({
   // console.log('data.link: ', data[0].link)
   return (
     <>
+      <h3 className={style.title}>{tableName}</h3>
       <table className={style.ctnList}>
-        <caption>{tableName}</caption>
         <thead>
           <tr>
             {columns && (columns.map((col, index) => (

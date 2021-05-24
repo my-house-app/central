@@ -23,6 +23,7 @@ export default function EditBooking({ id, action }) {
       }
     )
       .catch(e => console.log("Error: ", e.message))
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   function handleChange(e) {

@@ -76,7 +76,7 @@ function Filter({
   }, [searched, orderProp, orderType]);
 
   useEffect(() => {
-    console.log('Hay cambios en la URL: ', URL);
+    // console.log('Hay cambios en la URL: ', URL);
     const paramsKeys = Object.keys(queryBlock);
     // traigo todos los valores del path y los pongo en mi queryBlock
     for (let i = 0; i < paramsKeys.length; i++) {
