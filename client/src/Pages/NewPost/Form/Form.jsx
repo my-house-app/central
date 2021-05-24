@@ -9,8 +9,7 @@ const Form = ({ config }) => {
         <FormItem
           key={key}
           {...inputConfig}
-          onChange={handleOnInputsChange}
-          
+          onChange={handleOnInputsChange}          
           stateProperty={postDetails}
         />
       ))}
