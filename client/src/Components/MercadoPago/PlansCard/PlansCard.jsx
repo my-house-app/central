@@ -24,7 +24,7 @@ function PlansCard({ plan, price, description, numberPhotos, data, id }) {
       description,
       category_id: id,
     };
-    const dataAxios = await axios.post(`http://localhost:3001/mercadopago`, orderData)
+    const dataAxios = await axios.post(`${REACT_APP_API_BASE_ENDPOINT}/mercadopago`, orderData)
     if (document.getElementById(id).innerHTML === 'PUBLICA TU PROPIEDAD'){
       createCheckoutButton(dataAxios.data);
     }else{
