@@ -33,7 +33,7 @@ export default function MyHouseRoutes() {
             <Redirect to="/home" />
           </Route>
           <ProtectedRoute
-            exact path='/create/success'
+            exact path='/create/success/:planId/:planTitle'
             component={(routerProps) => (
              <CreatePostContext {...routerProps}>
                 <ProgressBar />

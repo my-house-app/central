@@ -1,21 +1,60 @@
 import { createContext, useState, useCallback, useEffect } from 'react';
-import { useSelector} from 'react-redux';
-// import {useLocation} from "react-router-dom";
+import { useSelector } from 'react-redux';
+import { useLocation } from "react-router-dom";
 import { valueTypes } from '../../../Services/properties.service';
+import axios from 'axios';
 
 export const CreatePostContext = createContext({});
 
-const CreatePostProvider = ({ children, ...routerProps }) => {
+const CreatePostProvider = ({ children, match, ...routerProps }) => {
+  const { REACT_APP_API_BASE_ENDPOINT } = process.env;
   const { session } = useSelector((store) => store);
-  // const search = useLocation().search;
+  const search = useLocation().search;
   // const orderId = new URLSearchParams(search).get('orderId');
   // const plan = new URLSearchParams(search).get('plan');
+  // ======================================================================
+  function query(url) {
+    const obj = {};
+    const array = url.replace('?', '').split('&');
+    for(let i=0; i < array.length; i++){
+      let arr = array[i].split('=');
+      obj[arr[0]] = arr[1];
+    }
+    return obj;
+  };
 
+  const {
+    planId, // id del plan
+    planTitle,// basic o premium
+  } = match.params;
+
+  const {
+    status,// se usa para crear la order (approved)
+    payment_id,// se usa para crear la order
+    external_reference, // va a ser el id de la orden en la db
+  } = query(search);
+
+  const [order, setOrder] = useState('');
+  useEffect(() => {
+    const obj = {
+    userId:session.id,
+    servicePlanId: planId,
+    status: "active",
+    paymentStatus: status,
+    paymentId: payment_id,
+    id: external_reference,
+    }
+    axios.post(`${REACT_APP_API_BASE_ENDPOINT}/mercadopago/order`, obj)
+    .then((r) => {
+      setOrder(r.data.id);
+    })
+  }, []);
+  // ======================================================================
 
   const [postDetails, setPostDetails] = useState({
-    // orderId: orderId,
-    // premium: plan === 'Premium' ? true : false,
-    premium: false,
+    orderId: order,
+    premium: planTitle === 'Premium' ? true : false,
+    //premium: false,
     post_name: '',
     prop_type: '',
     country: '',
@@ -24,7 +63,7 @@ const CreatePostProvider = ({ children, ...routerProps }) => {
     neighborhood: '',
     street_number: '',
     description: '',
-    stratum: '',             
+    stratum: '',
     price: 0,
     m2: 0,
     rooms: 0,
@@ -56,7 +95,7 @@ const CreatePostProvider = ({ children, ...routerProps }) => {
     setPostDetails(valueTypes({ ...postDetails, [name]: value }));
     localStorage.setItem('postDetails', JSON.stringify(postDetails));
   };
-  
+
   // console.log('postDetails ->', postDetails)
   // const handleSubmit = (input) => {
   //   /* if (errors === '') {
