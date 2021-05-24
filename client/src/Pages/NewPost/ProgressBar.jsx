@@ -54,6 +54,21 @@ const ProgressBar = ({userInfo}) => {
   };
 
   const { postDetails } = useCreatePost();
+  const dateObj = new Date();
+  postDetails.premium ? dateObj.setDate(dateObj.getDate() + 90) : dateObj.setDate(dateObj.getDate() + 30)
+  const month = dateObj.getUTCMonth() + 1;
+  const day = dateObj.getUTCDate();
+  const year = dateObj.getUTCFullYear();
+  const expirationDate = day + "/" + month + "/" + year;
+  const post = {
+    name: userInfo.name,
+    email: userInfo.email,
+    title: postDetails.post_name,
+    image: postDetails.images[0] || "https://www.kindpng.com/picc/m/162-1622610_-house-clipart-clipart-images-household-items-house.png",
+    price: postDetails.price,
+    plan: postDetails.premium ? "Premium" : "Basic",
+    date: expirationDate,
+  };
   return (
     <div className="ctn">
       <Steps current={current}>
@@ -77,15 +92,7 @@ const ProgressBar = ({userInfo}) => {
               message.success(
                 `Tu publicación '${postDetails.post_name}' creada correctamente `
               );
-              const post = {
-                name: userInfo.name,
-                email: userInfo.email,
-                title: postDetails.post_name,
-                image: postDetails.images[0] || "No image available",
-                price: postDetails.price,
-                plan: postDetails.premium ? "Premium" : "Basic",
-                date: "",
-              };
+              
               console.log("POST", post)
               sendPaymentEmail(post);
             }
