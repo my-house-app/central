@@ -9,9 +9,6 @@ import { getGoogleUserData, userSession } from '../../Redux/Actions/index';
 
 function NavBar({ userInfo, getGoogleUser, userSession }) {
   const { user, isAuthenticated } = useAuth0();
-  console.log('userInfo ',userInfo)
-  console.log('user ', user)
-  console.log(isAuthenticated)
   useEffect(() => {
     if (isAuthenticated && !Object.keys(userInfo).length) {
         if (user.sub.substring(0,6) === 'google'){
