@@ -64,7 +64,7 @@ const ProgressBar = ({userInfo}) => {
     name: userInfo.name,
     email: userInfo.email,
     title: postDetails.post_name,
-    image: postDetails.images[0] || "https://www.kindpng.com/picc/m/162-1622610_-house-clipart-clipart-images-household-items-house.png",
+    image: postDetails.images ? postDetails.images[0] : "https://www.kindpng.com/picc/m/162-1622610_-house-clipart-clipart-images-household-items-house.png",
     price: postDetails.price,
     plan: postDetails.premium ? "Premium" : "Basic",
     date: expirationDate,
