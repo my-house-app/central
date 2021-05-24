@@ -87,13 +87,12 @@ const ProgressBar = ({userInfo}) => {
           <Button type="primary" onClick={() =>{
             const resp = window.confirm(`¿Quieres crear la publicación ${postDetails.post_name}?`)
             if (resp) {
-              console.log('sent ->',postDetails)
+  
               addPostService(postDetails);
               message.success(
                 `Tu publicación '${postDetails.post_name}' creada correctamente `
               );
-              
-              console.log("POST", post)
+
               sendPaymentEmail(post);
             }
           }}>

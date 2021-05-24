@@ -79,7 +79,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  getAdminData: () => dispatch(getAdminData()),
+  getAdminData: (id) => dispatch(getAdminData(id)),
   deletePost: (post) => dispatch(deletePost(post)),
 });
 

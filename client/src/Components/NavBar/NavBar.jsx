@@ -33,7 +33,7 @@ function NavBar({ userInfo, getGoogleUser, userSession }) {
       </NavLink>
       <div className={style.menu}>
         {/* <NavLink to="/about" className={style.link} activeClassName={style.active}>About</NavLink> */}
-        <NavLink to="/create" className={style.link} activeClassName={style.active}>Publica</NavLink>
+        <NavLink to="/create" className={style.link} activeClassName={style.active}>Publicar</NavLink>
         <NavLink to="/panel/user" className={style.link} activeClassName={style.active}>Perfil</NavLink>
         <AuthNav />
       </div>

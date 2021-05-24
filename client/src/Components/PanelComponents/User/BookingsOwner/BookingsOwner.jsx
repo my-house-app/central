@@ -23,7 +23,7 @@ function BookingsOwner({
         displayLink: true,
         link: p.postId,
         column2: p.post_name,
-        column3: p.city,
+        column3: p.status,
         id: e.id,
       });
     }));
@@ -38,7 +38,7 @@ function BookingsOwner({
       <TablePage
         deleteAction={deleteBooking}
         tableName="owner bookings"
-        columns={['Date', 'Post', 'City']}
+        columns={['Fecha', 'Publicación', 'Estado']}
         data={list()}
         path="post"
         buttonPath="booking"

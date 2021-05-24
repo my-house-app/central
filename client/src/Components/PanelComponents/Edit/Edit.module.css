@@ -34,6 +34,18 @@
     cursor: pointer;
 }
 
+.ctn textarea {
+    background: var(--white);
+    margin: 5px 0;
+    padding: 15px;
+    width: max-content;
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    color: var(--dark);
+}
+
 .ctn input {
     background: var(--white);
     margin: 5px 0;

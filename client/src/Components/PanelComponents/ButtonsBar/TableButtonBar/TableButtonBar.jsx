@@ -24,10 +24,11 @@ function TableButtonBar({ rol, path }) {
           </label>
         </NavLink>
         <div className={style.btnCtn}>
-          <NavLink to={`/panel/${path}/create`} className={style.btnBar}>
-            <FontAwesomeIcon icon={faPlus} />
-            {' Crear'}
-          </NavLink>
+          {((rol !== 'user' && path !== 'post') && path !== 'booking') && 
+            <NavLink to={`/panel/${path}/create`} className={style.btnBar}>
+              <FontAwesomeIcon icon={faPlus} />
+              {' Crear'}
+            </NavLink>}
           {path === 'post' && 
             <button type="button" className={style.btnBar} onClick={openFilters}>
             <FontAwesomeIcon icon={faSlidersH} />

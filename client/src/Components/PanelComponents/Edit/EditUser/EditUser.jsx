@@ -115,8 +115,8 @@ function EditUser({ session, id, action }) {
   return (
     <div className={style.ctn}>
       {!loading && 
-      <>
-        <EditButtonBar rol={session.type} handleSubmit={handleSubmit} element="user" id={id}/>
+      <> 
+        <EditButtonBar rol={session.type ? session.type : 'user'} handleSubmit={handleSubmit} element="user" id={id}/>
         <form onSubmit={handleSubmit} className={style.form} id="form">
           <div className={style.field}>
             <label htmlFor="name">Nombre</label>
