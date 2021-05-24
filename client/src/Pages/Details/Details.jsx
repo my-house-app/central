@@ -1,5 +1,6 @@
 /* eslint-disable no-shadow */
 import { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import { FaCheck } from 'react-icons/fa';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBed, faBath, faRulerCombined } from '@fortawesome/free-solid-svg-icons';
@@ -8,15 +9,14 @@ import Map from '../../Components/Map/Map'; // esta no se esta usando, se puede 
 import { getPostService, getUserDataService } from '../../Services/properties.service';
 import { addBookingService } from '../../Services/booking.service';
 import styles from './Details.module.css';
-import { useAuth0 } from "@auth0/auth0-react";
 
 export default function Details({ routerProps }) {
   const { id } = routerProps.match.params;
   const [property, setProperty] = useState('');
   const [loading, setLoading] = useState(true);
-  const { user } = useAuth0();
   const [wasBooking, setWasBooking] = useState(false);
-  const userId = user?.sub.slice(6);
+
+  const { session } = useSelector((state) => state);
 
   useEffect(() => {
     async function fetchApi(id) {
@@ -29,7 +29,7 @@ export default function Details({ routerProps }) {
   }, []);
 
   async function itPostWasBooking() {
-    let userInteresed = await getUserDataService(userId);
+    let userInteresed = await getUserDataService(session.id);
     userInteresed = userInteresed.data.user;
     if (!userInteresed) return;
     // console.log('userInteresed: ', userInteresed)
@@ -53,14 +53,14 @@ export default function Details({ routerProps }) {
       return;
     }
 
-    if (!userId) {
+    if (!session.id) {
       alert('Login is required to get a booking.');
       return;// redirigir a login
     }
     // console.log('id user interested..', userId);
     const booking = {
       idPost: property.id, 
-      idInterested: userId, 
+      idInterested: session.id, 
       title: 'Primera reserva creada',
     }
     try {
