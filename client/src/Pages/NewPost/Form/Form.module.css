@@ -1,0 +1,74 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    margin: 2% 10%;
+    font-size: 1.1em;
+    font-family: 'Poppins';
+    color: var(--black);
+}
+
+.form .field {
+    padding: 1.2% 0;
+    width: 55%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.form select {
+    background: var(--white);  
+    border-radius: 25px;
+    outline:0;
+    height: 2.2em;
+    width: 14.4em;
+    padding-left: 15px;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+}
+
+.form input {
+    background: var(--white);
+    margin: 5px 0;
+    padding: 5px 18px;
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;
+    color: var(--black);
+    text-align: left;
+}
+.form textarea {
+    background: var(--white);
+    margin: 5px 0;
+    padding: 5px 30px;
+    width: max-content;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+}
+
+.pdanger {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    color: var(--dark);
+    text-align: center;
+    font-size: 0.8rem;
+    font-weight: 700;
+    width: 58%;
+}
+
+.images input[type="file"] {
+    background-color: inherit;
+    font-family: 'Poppins';
+}
+
+.form input[type="checkbox"]{
+    margin-right: 480px;
+    width: 1.2em;
+    height: 1.2em;
+}

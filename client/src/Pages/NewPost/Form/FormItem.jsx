@@ -1,15 +1,30 @@
 import React from 'react';
+import style from './Form.module.css';
 
 const ItemForm = ({ tag, name, type, label, onChange, stateProperty }) => {
   return (
-    <div>
+    <div className={style.form}>
+      <div className={style.field}>
       <label htmlFor={name}>{label}</label>
-      {!tag && 
+      {!tag && type !== 'checkbox' && 
         <input
           value={stateProperty[name]}
           onChange={onChange}
           type={type}
           name={name}
+        />
+      }
+
+      {!tag && type === 'checkbox' &&
+        <input
+          type={type}
+          onChange={(e) => {
+            onChange(e);
+            console.log(!stateProperty[name])
+            console.log(typeof e.target.value)
+          }}
+          name={name}
+          value={!stateProperty[name]}
         />
       }
       {tag === 'textarea' && 
@@ -24,11 +39,12 @@ const ItemForm = ({ tag, name, type, label, onChange, stateProperty }) => {
           value={stateProperty[name]}
           onChange={onChange}
           name={name}
-        >
-          <option value="" disabled hidden>Elija uno</option>
-          {type.map((e, i) => (<option key={i} value={e}>{e}</option>))}
+        > 
+          <option key={0} value=''>Elige un tipo</option>
+          {type.map((e, i) => (<option key={i+1} value={e}>{e}</option>))}
         </select>
       }
+      </div>
     </div>
   );
 };

@@ -1,5 +1,6 @@
 import useCreatePost from '../hooks/useCreatePost';
 import Form from '../Form/Form';
+import '../step.css';
 
 const formInputsConfig = [
   { label: 'País', type: 'text', name: 'country' },
@@ -13,7 +14,7 @@ const ThirdStep = () => {
   const { setCurrentComponent } = useCreatePost();
 
   return (
-    <div>
+    <div className="ctn">
       <h1>Ubicación del inmueble</h1>
       <Form config={formInputsConfig}/>
       <div>

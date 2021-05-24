@@ -26,9 +26,9 @@ body {
   --black: #060606;
   --dark: #0F1A28;
   --blue: #0578AC;
-  --bright: #00CFFF;
-  --light-blue: #B3EFFF;
-  --white: whitesmoke;
+  --bright: #7de2d1;
+  --light-blue: #679436;
+  --white: #fffafb;
 }
 
 ::-webkit-scrollbar {
