@@ -6,15 +6,9 @@ import axios from 'axios';
 const { REACT_APP_API_BASE_ENDPOINT } = process.env;
 // const REACT_APP_API_BASE_ENDPOINT = 'http://localhost:3001';
 
-// una funcion trae publicaciones disponible
-// otra funcion trae todas
+// TRAE PUBLICACIONES DISPONIBLE
 export async function getFilteredPropiertiesService(id = '', limit = 10) {
   let endpoint = `${REACT_APP_API_BASE_ENDPOINT}/posts`;
-  // if (limit) endpoint += `?limit=${limit}`;
-  // const querystring = window.location.search;
-  // const params = new URLSearchParams(querystring);
-  // console.log('params.toString(): ', params.toString());
-  // endpoint += `&${params.toString()}`; // window.location.search;
   endpoint += getQuerysStrings(limit, id);
   // console.log('endpoint: ', endpoint);
   return await axios.get(endpoint);
@@ -29,25 +23,17 @@ export async function getPostsService(limit = 10) {
 }
 
 // TODAS LA INFO DEL ADMIN
-// export async function getAdminDataService(id, limit = 10) {
-//   let endpoint = `${REACT_APP_API_BASE_ENDPOINT}/admin`;
-//   if (limit) endpoint += `?limit=${limit}&id=${id}`;
-//   return await axios.get(endpoint);
-// }
-// user no registrado id = undefined
-// user registrado comun id = "977fb1a4-5c67-4180-863c-8b8465b2c06b"
-// user registrado SuperAdmin id = "062cad5e-8820-4bf3-bd8f-a5f13fade2e3"
-// todas las publicaciones para el admin
+
+// TODAS LAS PUBLICACIONES PARA EL ADMIN
 export async function getAdminDataService(id = '', limit = 10) {
   let endpoint = `${REACT_APP_API_BASE_ENDPOINT}/posts`;
   endpoint += getQuerysStrings(limit, id);
   return await axios.get(endpoint);
 }
-// el id por el momento no es necesario
-// todos los usuarios para el admin
+
+// TODOS LOS USUARIOS PARA EL ADMIN
 export async function getAdminUsersDataService(id = '', limit = 10) {
   let endpoint = `${REACT_APP_API_BASE_ENDPOINT}/users`;
-  // if (limit) endpoint += `?limit=${limit}&id=${id}`;
   endpoint += getQuerysStrings(limit, id);
   return await axios.get(endpoint);
 }
@@ -55,7 +41,6 @@ export async function getAdminUsersDataService(id = '', limit = 10) {
 // todos las reservas para el admin
 export async function getAdminBookingsDataService(id = '', limit = 10) {
   let endpoint = `${REACT_APP_API_BASE_ENDPOINT}/users/bookings`;
-  // if (limit) endpoint += `?limit=${limit}&id=${id}`;
   endpoint += getQuerysStrings(limit, id);
   return await axios.get(endpoint);
 }
@@ -77,6 +62,12 @@ export async function getPostService(id) {
 export async function addPostService(post) {
   const endpoint = `${REACT_APP_API_BASE_ENDPOINT}/post`;
   return await axios.post(endpoint, post);
+}
+
+// ENVIAR MAIL DE CONFIRMACIÓN DE PAGO
+export async function sendPaymentEmail(order) {
+  const endpoint = `${REACT_APP_API_BASE_ENDPOINT}/mailer/payment`;
+  return await axios.post(endpoint, order);
 }
 
 // EDITAR UN POST
@@ -114,29 +105,6 @@ export async function deleteUserService(userId) {
   return await axios.delete(endpoint);
 }
 
-// DETALLES DE UNA RESERVA
-export async function getBookingService(bookingId) {
-  const endpoint = `${REACT_APP_API_BASE_ENDPOINT}/booking/${bookingId}`;
-  return await axios.get(endpoint);
-}
-
-// AGREGAR UNA RESERVA
-export async function addBookingService(bookingId, booking) {
-  const endpoint = `${REACT_APP_API_BASE_ENDPOINT}/booking/${bookingId}`;
-  return await axios.post(endpoint, booking);
-}
-
-// EDITAR UNA RESERVA
-export async function editBookingService(bookingId, booking) {
-  const endpoint = `${REACT_APP_API_BASE_ENDPOINT}/booking/${bookingId}`;
-  return await axios.put(endpoint, booking);
-}
-
-// ELIMINAR UNA RESERVA
-export async function deleteBookingService(bookingId) {
-  const endpoint = `${REACT_APP_API_BASE_ENDPOINT}/booking/${bookingId}`;
-  return await axios.delete(endpoint);
-}
 
 // AGREGAR USUARIOS LOGUEADOS CON GOOGLE
 export async function findOrCreateGoogleUserService(user) {

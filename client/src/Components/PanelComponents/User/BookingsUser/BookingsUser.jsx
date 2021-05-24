@@ -17,12 +17,13 @@ function Bookings({
   const list = () => {
     const data = [];
     visitDates?.forEach((e) => {
+      console.log('postId: ', e.postId)
       data.push({
         column1: e.date,
         displayLink: true,
         link: e.postId,
         column2: e.post.post_name,
-        column3: e.post.city,
+        column3: e.post.city,// cambiar por status
         id: e.id,
       });
     });
@@ -37,7 +38,7 @@ function Bookings({
       <TablePage
         deleteAction={deleteBooking}
         tableName="bookings"
-        columns={['Date', 'Post', 'City']}
+        columns={['Date', 'Post', 'City']}//City cambiar por status
         data={list()}
         path="post"
         buttonPath="booking"

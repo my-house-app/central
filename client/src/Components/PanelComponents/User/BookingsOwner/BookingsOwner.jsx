@@ -21,7 +21,7 @@ function BookingsOwner({
       data.push({
         column1: e.date,
         displayLink: true,
-        link: p.id,
+        link: p.postId,
         column2: p.post_name,
         column3: p.city,
         id: e.id,

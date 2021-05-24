@@ -19,9 +19,8 @@
 }
 
 
-.ctn .fav {
-  color: var(--dark);
-  margin: 0 1em;
+.ctn .premium {
+  color: goldenrod;
 }
 
 .ctn .propInfo {
