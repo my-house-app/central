@@ -49,7 +49,7 @@ export default function EditBooking({ id, action }) {
   } else {
     return (
       <Fragment>
-        <EditButtonBar rol={session.type}  handleSubmit={handleSubmit} element="user" id={id} />
+        <EditButtonBar rol={session.type ? session.type : 'user'} handleSubmit={handleSubmit} element="user" id={id} />
         <div className={styles.container}>
           <div className={styles.header}>
             <img className={styles.logo} src={Logo} alt='logo' />

@@ -34,8 +34,8 @@ const CreatePostProvider = ({ children, match, ...routerProps }) => {
     external_reference, // va a ser el id de la orden en la db
   } = query(search);
 
-  const [order, setOrder] = useState('');
-  useEffect(() => {
+const [order, setOrder] = useState('');
+useEffect(() => {
     const obj = {
     userId:session.id,
     servicePlanId: planId,
@@ -44,15 +44,18 @@ const CreatePostProvider = ({ children, match, ...routerProps }) => {
     paymentId: payment_id,
     id: external_reference,
     }
+    
     axios.post(`${REACT_APP_API_BASE_ENDPOINT}/mercadopago/order`, obj)
     .then((r) => {
       setOrder(r.data.id);
     })
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [session.id]);
   // ======================================================================
-  const [postDetails, setPostDetails] = useState({
-    orderId: order,
+  const [postDetails, setPostDetails] = useState({})
+useEffect(() => {
+  setPostDetails({
+    orderId: external_reference,
     premium: planTitle === 'Premium' ? true : false,
     post_name: '',
     prop_type: '',
@@ -80,6 +83,8 @@ const CreatePostProvider = ({ children, match, ...routerProps }) => {
     images: [],
     idUser: session.id,
   });
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+}, [session.id]);
   useEffect(() => {
     const postDetailsLocalStorage = localStorage.getItem('postDetails');
     if (!postDetailsLocalStorage) {
@@ -92,12 +97,12 @@ const CreatePostProvider = ({ children, match, ...routerProps }) => {
   const handleOnInputsChange = (event) => {
     const { target } = event;
     const { name, value } = target;
-    setPostDetails(valueTypes({ ...postDetails, [name]: value }));
+    setPostDetails(valueTypes({ ...postDetails, [name]: value, idUser: session.id, orderId: external_reference }));
     // localStorage.setItem('postDetails', JSON.stringify(postDetails));
   };
 
   const [currentComponent, setCurrentComponent] = useState('FirstStep');
-
+  
   return (
     <CreatePostContext.Provider
       value={{

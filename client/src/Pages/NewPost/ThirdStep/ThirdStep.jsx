@@ -6,6 +6,7 @@ const formInputsConfig = [
   { tag: 'select', label: 'País', type: ['Colombia'], name: 'country' },
   { label: 'Departamento', type: 'text', name: 'department' },
   { label: 'Ciudad', type: 'text', name: 'city' },
+  { label: 'Barrio', type: 'text', name: 'neighborhood' },
   { label: 'Dirección', type: 'text', name: 'street_number' },
   { label: 'Estrato', type: 'number', name: 'stratum' },
 ];

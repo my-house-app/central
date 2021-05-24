@@ -7,7 +7,6 @@ export default function TableRow({
   column1, displayLink, link, column2, column3,
   path, id, buttonPath, deleteAction, userId
 }) {
-  console.log('link: ', link)
   return (
     <tr>
       <td>{column1}</td>

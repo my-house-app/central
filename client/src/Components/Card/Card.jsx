@@ -9,7 +9,6 @@ import { RiVipCrownLine } from 'react-icons/ri';
 
 import style from './Card.module.css';
 
-// export default function Card(props) {
 export default function Card({
   image, postName, propType, neighborhood, price, rooms, bathrooms, m2, id, premium,
 }) {

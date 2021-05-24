@@ -23,7 +23,7 @@ function Bookings({
         displayLink: true,
         link: e.postId,
         column2: e.post.post_name,
-        column3: e.post.city,// cambiar por status
+        column3: e.status,// cambiar por status
         id: e.id,
       });
     });
@@ -38,7 +38,7 @@ function Bookings({
       <TablePage
         deleteAction={deleteBooking}
         tableName="bookings"
-        columns={['Date', 'Post', 'City']}//City cambiar por status
+        columns={['Fecha', 'Publicación', 'Estado']}
         data={list()}
         path="post"
         buttonPath="booking"

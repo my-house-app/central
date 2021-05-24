@@ -23,7 +23,7 @@ function PostsUser({
         displayLink: true,
         link: e.id,
         column2: e.post_name,
-        column3: e.city,
+        column3: e.status,
         id: e.id,
       });
     });
@@ -44,7 +44,7 @@ function PostsUser({
         userId={userId}
         deleteAction={deleteAndGet}
         tableName="posts"
-        columns={['Price', 'Title', 'City']}
+        columns={['Precio', 'Título', 'Estado']}
         data={list()}
         path="post"
         buttonPath="post"

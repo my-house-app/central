@@ -15,13 +15,10 @@ const ItemForm = ({ tag, name, type, min, label, onChange, stateProperty }) => {
           min={type === 'number' && min}
         />
       }
-
-      {!tag && type === 'checkbox' &&
+      {type === 'checkbox' &&
         <input
-          type={type}
-          onChange={(e) => {
-            onChange(e);
-          }}
+          type="checkbox"
+          onClick={onChange}
           name={name}
           value={!stateProperty[name]}
         />

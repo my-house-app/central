@@ -52,9 +52,9 @@ export default function MyHouseRoutes() {
             path="/panel"
             component={PanelRoutes}
           />
-          <Route
-          path="/create"
-          component={MercadoPago}
+          <ProtectedRoute
+            path="/create"
+            component={MercadoPago}
           />
           <Route
             component={NotFound}

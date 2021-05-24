@@ -19,7 +19,7 @@ function EditPosts({ id, action, session }) {
   const [loading, setLoading] = useState(true);
   const [errors, setErrors] = React.useState('');
   
-  // const isAdmin = session.type === 'Admin' || session.type === 'SuperAdmin'; 
+  const isAdmin = session.type === 'Admin' || session.type === 'SuperAdmin'; 
 
   useEffect(() => {
     async function fetchPost(id) {
@@ -62,14 +62,14 @@ function EditPosts({ id, action, session }) {
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [postDetail.id]);
-  console.log(session)
+  
 
   function validate(input) {
     const errors = {};
     if (!input.post_name) {
       errors.post_name = 'El título es requerido';
-    } else if (!input.premium) {
-      errors.depatment = 'El plan contratado es requerido';
+    } else if (!input.premium && isAdmin) {
+      errors.premium = 'El plan contratado es requerido'; 
     } else if (!input.department) {
       errors.depatment = 'El deparmento es requerido';
     } else if (!input.city) {
@@ -165,17 +165,17 @@ function EditPosts({ id, action, session }) {
     });
     document.getElementById('form').reset();
   }
-
+  console.log('ESTO ', session.type)
   const [display, setDisplay] = useState(false);
   return (
     <div className={style.ctn}>
       {!loading && 
         <>
-          <EditButtonBar rol={session.type} handleSubmit={handleSubmit} element="post" id={id}/>
+          <EditButtonBar rol={session.type ? session.type : 'user'} handleSubmit={handleSubmit} element="post" id={id}/>
           <form onSubmit={handleSubmit} className={style.form} id="form">
             <div className={style.field}>
               <label htmlFor="post_name">Título</label>
-              <input
+              <textarea
                 type="text"
                 value={input.post_name}
                 name="post_name"
@@ -183,15 +183,31 @@ function EditPosts({ id, action, session }) {
               />
             </div>
             {errors.post_name && (<p className={style.pdanger}>{errors.post_name}</p>)}
-            <div className={style.field}>
-              <label htmlFor="premium"> Plan contratado</label>
-              <select className={style.selectFilter} name="premium" value={input.premium} onChange={handleChange}>
-                <option key="0" value={false}>Elija uno</option>
-                <option key="1" value={!input.premium} >Premium</option>
-                <option key="2" value={input.premium} >Basic</option>
-              </select>
-            </div>
-            {errors.premium && (<p className={style.pdanger}>{errors.premium}</p>)}
+            {isAdmin &&
+            <>
+              <div className={style.field}>
+                <label htmlFor="premium"> Plan contratado</label>
+                <select className={style.selectFilter} name="premium" value={input.premium} onChange={handleChange}>
+                  <option key="0" value={''}>Elija uno</option>
+                  <option key="1" value={!input.premium} >Premium</option>
+                  <option key="2" value={input.premium} >Basic</option>
+                </select>
+              </div>
+              {errors.premium && (<p className={style.pdanger}>{errors.premium}</p>) }
+            </>
+            }
+            {isAdmin &&
+            <>
+              <div className={style.field}>
+                <label htmlFor="status"> Estado de la publicación</label>
+                <select className={style.selectFilter} name="status" value={input.status} onChange={handleChange}>
+                  <option value="" disabled hidden>Elija uno</option>
+                  {['Available', 'Not-Available', 'Expired'].map((type, i) => (<option key={i} value={type}>{type}</option>))}
+                </select>
+              </div>
+              {errors.premium && (<p className={style.pdanger}>{errors.premium}</p>) }
+            </>
+            }
             <div className={style.field}>
               <label htmlFor="department">Departmento</label>
               <input
@@ -306,7 +322,7 @@ function EditPosts({ id, action, session }) {
             </div>
             <div className={style.field}>
               <label htmlFor="description">Descripción</label>
-              <input
+              <textarea
                 type="text"
                 value={input.description}
                 name="description"
