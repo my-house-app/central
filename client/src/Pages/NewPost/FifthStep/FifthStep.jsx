@@ -1,4 +1,4 @@
-import useCreatePost from '../hooks/useCreatePost';
+// import useCreatePost from '../hooks/useCreatePost';
 import Form from '../Form/Form';
 import '../step.css';
 
@@ -14,7 +14,7 @@ const formInputsConfig = [
 ];
 
 const FourthStep = () => {
-  const { setCurrentComponent } = useCreatePost();
+  // const { setCurrentComponent } = useCreatePost();
 
   return (
     <div className='ctn'>

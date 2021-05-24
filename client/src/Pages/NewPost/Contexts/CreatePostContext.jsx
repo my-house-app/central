@@ -1,4 +1,4 @@
-import { createContext, useState, useCallback, useEffect } from 'react';
+import { createContext, useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useLocation } from "react-router-dom";
 import { valueTypes } from '../../../Services/properties.service';
@@ -48,13 +48,12 @@ const CreatePostProvider = ({ children, match, ...routerProps }) => {
     .then((r) => {
       setOrder(r.data.id);
     })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   // ======================================================================
-
   const [postDetails, setPostDetails] = useState({
     orderId: order,
     premium: planTitle === 'Premium' ? true : false,
-    //premium: false,
     post_name: '',
     prop_type: '',
     country: '',
@@ -87,27 +86,15 @@ const CreatePostProvider = ({ children, match, ...routerProps }) => {
       return;
     }
     setPostDetails(JSON.parse(postDetailsLocalStorage));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
+  
   const handleOnInputsChange = (event) => {
     const { target } = event;
     const { name, value } = target;
     setPostDetails(valueTypes({ ...postDetails, [name]: value }));
-    localStorage.setItem('postDetails', JSON.stringify(postDetails));
+    // localStorage.setItem('postDetails', JSON.stringify(postDetails));
   };
-
-  // console.log('postDetails ->', postDetails)
-  // const handleSubmit = (input) => {
-  //   /* if (errors === '') {
-  //     return alert('Revisar campos requeridos')
-  //   } else { */
-  //     const resp = window.confirm(`¿Quieres crear la publicación ${input.post_name}?`)
-  //     if (resp) {
-  //       addPostService(input);
-  //       alert(`Publicación '${input.post_name}' creada correctamente `);
-  //     }
-  //   //}
-  // }
 
   const [currentComponent, setCurrentComponent] = useState('FirstStep');
 

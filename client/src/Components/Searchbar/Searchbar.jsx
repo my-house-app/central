@@ -24,7 +24,9 @@ function Searchbar({ find }) {
         onChange={(e) => handleChange(e)}
         placeholder="Search any post here..."
       />
-      <FaSearch className={style.searchIcon} />
+      <div className={style.searchIcon}>
+        <FaSearch />
+      </div>
     </div>
   );
 }

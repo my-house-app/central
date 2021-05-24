@@ -3,7 +3,7 @@ import useCreatePost from '../hooks/useCreatePost';
 import '../step.css';
 
 const FirstStep = () => {
-  const { setCurrentComponent, postDetails } = useCreatePost();
+  const { /* setCurrentComponent, */ postDetails } = useCreatePost();
 
   return (
     <div className="ctn">

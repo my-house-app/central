@@ -1,7 +1,7 @@
 import React from 'react';
 import style from './Form.module.css';
 
-const ItemForm = ({ tag, name, type, label, onChange, stateProperty }) => {
+const ItemForm = ({ tag, name, type, min, label, onChange, stateProperty }) => {
   return (
     <div className={style.form}>
       <div className={style.field}>
@@ -12,6 +12,7 @@ const ItemForm = ({ tag, name, type, label, onChange, stateProperty }) => {
           onChange={onChange}
           type={type}
           name={name}
+          min={type === 'number' && min}
         />
       }
 
@@ -20,8 +21,6 @@ const ItemForm = ({ tag, name, type, label, onChange, stateProperty }) => {
           type={type}
           onChange={(e) => {
             onChange(e);
-            console.log(!stateProperty[name])
-            console.log(typeof e.target.value)
           }}
           name={name}
           value={!stateProperty[name]}

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { NavLink, Redirect } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faHouseUser, faCalendarAlt } from '@fortawesome/free-solid-svg-icons';

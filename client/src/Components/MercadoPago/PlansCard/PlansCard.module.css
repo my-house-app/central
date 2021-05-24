@@ -5,11 +5,13 @@
   text-align: center;
   padding: 15px;
   box-shadow: 2px 4px 6px 3px var(--blackShadow);
+  border-radius: 20px;
 }
 .button {
+  border-radius: 20px;
   background-color: var(--blue);
-  color: var(--white);
   border: 1px solid var(--blue);
+  color: var(--white);
   padding: 10px;
   width: 97%;
   cursor: pointer;

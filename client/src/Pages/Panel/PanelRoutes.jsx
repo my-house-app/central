@@ -15,7 +15,6 @@ import ProtectedRoute from "../../Components/Auth0/ProtectedRoute/ProtectedRoute
 import CreateForm from '../../Components/PanelComponents/Create/CreateForm';
 
 function PanelRoutes() {
-  console.log('PanelRoutes');
   return (
     <>
       <Switch>
