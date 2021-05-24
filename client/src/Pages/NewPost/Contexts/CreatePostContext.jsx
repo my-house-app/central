@@ -1,15 +1,23 @@
 import { createContext, useState, useCallback, useEffect } from 'react';
 import { useSelector} from 'react-redux';
-import { addPostService } from '../../../Services/properties.service';
+// import {useLocation} from "react-router-dom";
+import { valueTypes } from '../../../Services/properties.service';
 
 export const CreatePostContext = createContext({});
 
 const CreatePostProvider = ({ children, ...routerProps }) => {
   const { session } = useSelector((store) => store);
+  // const search = useLocation().search;
+  // const orderId = new URLSearchParams(search).get('orderId');
+  // const plan = new URLSearchParams(search).get('plan');
+
+
   const [postDetails, setPostDetails] = useState({
-    premium: '',
+    // orderId: orderId,
+    // premium: plan === 'Premium' ? true : false,
+    premium: false,
     post_name: '',
-    prop_type: ['Casa', 'Apartamento'],
+    prop_type: '',
     country: '',
     department: '',
     city: '',
@@ -45,21 +53,22 @@ const CreatePostProvider = ({ children, ...routerProps }) => {
   const handleOnInputsChange = (event) => {
     const { target } = event;
     const { name, value } = target;
-    setPostDetails({ ...postDetails, [name]: value });
+    setPostDetails(valueTypes({ ...postDetails, [name]: value }));
     localStorage.setItem('postDetails', JSON.stringify(postDetails));
   };
-
-  const handleSubmit = (input) => {
-    /* if (errors === '') {
-      return alert('Revisar campos requeridos')
-    } else { */
-      const resp = window.confirm(`¿Quieres crear la publicación ${input.post_name}?`)
-      if (resp) {
-        addPostService(input);
-        alert(`Publicación '${input.post_name}' creada correctamente `);
-      }
-    //}
-  }
+  
+  // console.log('postDetails ->', postDetails)
+  // const handleSubmit = (input) => {
+  //   /* if (errors === '') {
+  //     return alert('Revisar campos requeridos')
+  //   } else { */
+  //     const resp = window.confirm(`¿Quieres crear la publicación ${input.post_name}?`)
+  //     if (resp) {
+  //       addPostService(input);
+  //       alert(`Publicación '${input.post_name}' creada correctamente `);
+  //     }
+  //   //}
+  // }
 
   const [currentComponent, setCurrentComponent] = useState('FirstStep');
 
@@ -72,7 +81,6 @@ const CreatePostProvider = ({ children, ...routerProps }) => {
         setPostDetails,
         setCurrentComponent,
         handleOnInputsChange,
-        handleSubmit
       }}
     >
       {children}

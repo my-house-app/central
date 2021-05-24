@@ -1,6 +1,7 @@
 import useCreatePost from '../hooks/useCreatePost';
 import Form from '../Form/Form';
-import Uploader from '../Uploader/Uploader';
+import Uploader from '../FourthStep/FourthStep';
+import '../step.css'
 
 const formInputsConfig = [
   { label: 'Título', type: 'text', name: 'post_name' },
@@ -17,10 +18,9 @@ const SecondStep = () => {
   const { setCurrentComponent } = useCreatePost();
 
   return (
-    <div>
+    <div className="ctn">
       <h1>Cuéntanos sobre tu propiedad</h1>
       <Form config={formInputsConfig}/>
-      <Uploader />
       <div>
        {/*  <button
           onClick={() => {

@@ -1,0 +1,157 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 4%;
+  }
+  
+  .container .status {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+  }
+  
+  .container .status h4{
+    padding: 1%;
+    border: 2px solid var(--blue);
+    border-radius: 1em;
+    color: var(--blue);
+  }
+  section.title {
+    display: flex;
+    flex-direction: column;
+    color: var(--blue);
+    font-size: 1.2rem;
+    padding-bottom: 1%;
+  }
+  
+section.photo_description {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  height: 300px;
+}
+
+article.address_detail {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 20%;
+}
+/*   article.address_detail p{
+  margin: 0.5rem 0;
+  } */
+  article.address_detail .price {
+    font-size: 2em;
+  }
+  
+  article.address_detail .details {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 100%;
+    /* margin: 5% auto; */
+  }
+  
+.dicon{
+  font-size: 1.1em;
+  margin-left: 1em;
+  color: var(--dark);
+}
+
+article.hero_carousel {
+  width: 700px;
+  height: 100%;
+  position: relative;
+}
+  
+  article.tour_schedule {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 350px;
+  height: 100%;
+  }
+  
+  section.map_facilities {
+  display: flex;
+  justify-content: center;
+  height: 10%;
+  }
+  
+  section.map_facilities > article {
+  width: 50%;
+  }
+  
+  div.details > * {
+  display: block;
+  margin-top: 10px;
+  }
+  
+  .map_container {
+  position: relative;
+  overflow: hidden;
+  height: 50%;
+  margin: 4% auto;
+  }
+  
+  .tour_schedule .details {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  /*   justify-content: space-evenly; */
+  /*   align-items: flex-end; */
+  margin: 0;
+  height: 60%;
+  width: 60%;
+  text-align: center;
+  background: var(--white);
+  border: 2px solid var(--blue);
+  border-radius: 20px;
+  box-shadow: 0px 3px 6px 0px var(--blackShadow);
+  }
+  
+  /* .hero_carousel {
+  width: 620px;
+  height: 380px;
+  } */
+  
+  /* .photo_gallery {
+  width: 620px;
+  height: 380px;
+  } */
+  
+  .facilities_container {
+  text-align: center;
+  margin: 4% auto;
+  }
+  
+  .facilities_container .tit{
+  margin: 1%;
+  font-size: 1.5rem;
+  color: var(--dark);
+  }
+  
+  .facility{
+  width: 30%;
+  margin-bottom: 1rem;
+  }
+  .facilities {
+  width: 80%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  }
+  
+  .icon{
+  margin-left: 0.5em;
+  color: var(--blue);
+  }
+  
+  article > img {
+  width: 100%;
+  border-radius: 5px;
+  height: 50%;
+  }
+  

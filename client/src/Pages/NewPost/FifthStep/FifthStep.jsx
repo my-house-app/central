@@ -1,30 +1,43 @@
 import useCreatePost from '../hooks/useCreatePost';
-import Checkout from './Checkout';
+import Form from '../Form/Form';
+import '../step.css';
 
-const FifthStep = () => {
-    const { setCurrentComponent } = useCreatePost();
+const formInputsConfig = [
+  { label: 'Piscina', type: 'checkbox', name: 'pool' },
+  { label: 'Patio', type: 'checkbox', name: 'backyard' },
+  { label: 'Gimnasio', type: 'checkbox', name: 'gym' },
+  { label: 'Barbecue', type: 'checkbox', name: 'bbq' },
+  { label: 'Cochera', type: 'checkbox', name: 'parking_lot' },
+  { label: 'Jardín', type: 'checkbox', name: 'garden' },
+  { label: 'Ascensor', type: 'checkbox', name: 'elevator' },
+  { label: 'Seguridad', type: 'checkbox', name: 'security' },
+];
+
+const FourthStep = () => {
+  const { setCurrentComponent } = useCreatePost();
+
   return (
+    <div className='ctn'>
+      <h1>Marca las facilidades que disponga tu inmueble </h1>
+      <Form config={formInputsConfig}/>
       <div>
-        <h1>Listo! Revisa los detalles antes de publicar </h1>
-        <div>
-            <Checkout />
-{/*             <button
-            onClick={() => {
-                setCurrentComponent('Done');
-            }}
-            >
-            Done!
-            </button>
-            <button
-            onClick={() => {
-                setCurrentComponent('ThirdStep');
-            }}
-            >
-            Volver...
-            </button> */}
-        </div>
+        {/* <button
+          onClick={() => {
+            setCurrentComponent('FifthStep');
+          }}
+        >
+          Siguiente...
+        </button>
+        <button
+          onClick={() => {
+            setCurrentComponent('ThirdSept');
+          }}
+        >
+          Volver...
+        </button> */}
+      </div>
     </div>
   );
 };
 
-export default FifthStep;
+export default FourthStep;

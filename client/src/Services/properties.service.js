@@ -64,6 +64,12 @@ export async function addPostService(post) {
   return await axios.post(endpoint, post);
 }
 
+// ENVIAR MAIL DE CONFIRMACIÓN DE PAGO
+export async function sendPaymentEmail(order) {
+  const endpoint = `${REACT_APP_API_BASE_ENDPOINT}/mailer/payment`;
+  return await axios.post(endpoint, order);
+}
+
 // EDITAR UN POST
 export async function editPostService(postId, post) {
   const endpoint = `${REACT_APP_API_BASE_ENDPOINT}/post/${postId}`;
@@ -136,4 +142,16 @@ export async function getGeoDataService() {
     ))
   })
   return options;
+}
+
+
+// DATA TYPE PARSER FORM
+export function valueTypes (input) {
+  let values = {}
+  Object.entries(input).forEach(e => {
+     if (e[1] === 'false') e[1] = false;
+     if (e[1] === 'true') e[1] = true;
+     values[e[0]] = e[1];
+   })
+  return values;
 }

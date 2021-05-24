@@ -14,7 +14,7 @@ import PanelRoutes from './Pages/Panel/PanelRoutes';
 import NotFound from './Pages/NotFound/NotFound';
 import MercadoPago from './Components/MercadoPago/MercadoPago';
 import CreatePostContext from './Pages/NewPost/Contexts/CreatePostContext';
-import CreatePost from './Pages/NewPost/CreatePost/CreatePost';
+// import CreatePost from './Pages/NewPost/CreatePost/CreatePost';
 import ProgressBar from './Pages/NewPost/ProgressBar';
 import ProtectedRoute from './Components/Auth0/ProtectedRoute/ProtectedRoute';
 
@@ -33,9 +33,9 @@ export default function MyHouseRoutes() {
             <Redirect to="/home" />
           </Route>
           <ProtectedRoute
-            exact path='/create'
+            exact path='/create/success'
             component={(routerProps) => (
-              <CreatePostContext {...routerProps}>
+             <CreatePostContext {...routerProps}>
                 <ProgressBar />
               </CreatePostContext>
             )}
@@ -53,7 +53,7 @@ export default function MyHouseRoutes() {
             component={PanelRoutes}
           />
           <Route
-          path="/mercadopago"
+          path="/create"
           component={MercadoPago}
           />
           <Route

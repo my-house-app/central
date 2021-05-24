@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEraser } from '@fortawesome/free-solid-svg-icons';
-import { getPostService, editPostService, addPostService } from '../../../../Services/properties.service';
+import { getPostService, editPostService, addPostService, valueTypes } from '../../../../Services/properties.service';
 import Loading from '../../../Auth0/Loading/loading';
 import EditButtonBar from '../../ButtonsBar/EditButtonBar/EditButtonBar';
 import style from '../Edit.module.css';
@@ -30,7 +30,7 @@ function EditPosts({ id, action, session }) {
     fetchPost(id);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  console.log(session.id)
+  
   useEffect(() => {
     setInput({
       premium: action === 'edit' ? postDetail.premium : false,
@@ -39,13 +39,14 @@ function EditPosts({ id, action, session }) {
       city: action === 'edit' ? postDetail.city : '',
       street_number: action === 'edit' ? postDetail.street_number : '',
       description: action === 'edit' ? postDetail.description : '',
-      stratum: action === 'edit' ? postDetail.street_number : '',
+      stratum: action === 'edit' ? postDetail.street_number : 1,
       neighborhood: action === 'edit' ? postDetail.neighborhood : '',
-      price: action === 'edit' ? postDetail.price : '',
+      price: action === 'edit' ? postDetail.price : 1,
       prop_type: action === 'edit' ? postDetail.prop_type : '',
-      m2: action === 'edit' ? postDetail.m2 : '',
-      rooms: action === 'edit' ? postDetail.rooms : '',
-      years: action === 'edit' ? postDetail.years : '',
+      m2: action === 'edit' ? postDetail.m2 : 1,
+      bathrooms: action === 'edit' ? postDetail.bathrooms : 1,
+      rooms: action === 'edit' ? postDetail.rooms : 1,
+      years: action === 'edit' ? postDetail.years : 1,
       pool: action === 'edit' ? postDetail.pool : false,
       backyard: action === 'edit' ? postDetail.backyard : false,
       gym: action === 'edit' ? postDetail.gym : false,
@@ -55,13 +56,13 @@ function EditPosts({ id, action, session }) {
       security: action === 'edit' ? postDetail.security : false,
       bbq: action === 'edit' ? postDetail.bbq : false,
       images: action === 'edit' ? postDetail.images : [],
-      status: action === 'edit' ? postDetail.status : '',
-      createdAt: action === 'edit' ? postDetail.createdAt : '',
+      status: action === 'edit' ? postDetail.status : 'Available',
+      // createdAt: action === 'edit' ? postDetail.createdAt : '',
       idUser: session.id,
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [postDetail.id]);
-  
+  console.log(session)
 
   function validate(input) {
     const errors = {};
@@ -98,12 +99,13 @@ function EditPosts({ id, action, session }) {
       ...input,
       [name]: value,
     }));
-    setInput({
+    setInput(valueTypes({
       ...input,
       [name]: value,
-    });
+    }));
   }
-  
+  console.log(input)
+  console.log('errors', errors)
   function handleSubmit(e) {
     e.preventDefault();
     if (Object.entries(errors).length > 0) {
@@ -134,6 +136,8 @@ function EditPosts({ id, action, session }) {
       }
     }
   }
+
+  valueTypes(input)
 
   function resetForm(e) {
     e.preventDefault()
@@ -182,9 +186,9 @@ function EditPosts({ id, action, session }) {
             <div className={style.field}>
               <label htmlFor="premium"> Plan contratado</label>
               <select className={style.selectFilter} name="premium" value={input.premium} onChange={handleChange}>
-                <option key="0" value={input.premium}>Elija uno</option>
+                <option key="0" value={false}>Elija uno</option>
                 <option key="1" value={!input.premium} >Premium</option>
-                <option key="2" value={input.premium} >Classic</option>
+                <option key="2" value={input.premium} >Basic</option>
               </select>
             </div>
             {errors.premium && (<p className={style.pdanger}>{errors.premium}</p>)}
@@ -231,7 +235,7 @@ function EditPosts({ id, action, session }) {
             <div className={style.field}>
               <label htmlFor="price">Precio</label>
               <input
-                type="text"
+                type="number"
                 value={input.price}
                 name="price"
                 onChange={handleChange}

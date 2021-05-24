@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
 import useCreatePost from './hooks/useCreatePost';
 import { Steps, Button, message } from 'antd';
 import FirstStep from './FirstStep/FirstStep';
@@ -6,35 +7,42 @@ import SecondStep from './SecondStep/SecondStep';
 import ThirdStep from './ThirdStep/ThirdStep';
 import FourthStep from './FourthStep/FourthStep';
 import FifthStep from './FifthStep/FifthStep';
-import { addPostService } from '../../Services/properties.service';
+import SixthStep from './SixthStep/SixthStep';
+import { addPostService, sendPaymentEmail  } from '../../Services/properties.service';
+
 import 'antd/dist/antd.css';
+import './step.css'
 
 const { Step } = Steps;
 
 const steps = [
   {
-    title: 'Elige tu plan',
+    title: 'Has elegido tu plan',
     content: <FirstStep />,
   },
   {
-    title: 'Ubicación',
+    title: 'Características',
     content: <SecondStep />,
   },
   {
-    title: 'Características',
+    title: 'Ubicación',
     content: <ThirdStep />,
   },
   {
-    title: 'Agrega tus imágenes',
+    title: 'Imágenes',
     content: <FourthStep />,
   },
   {
-    title: 'Checkout',
+    title: 'Adicionales',
     content: <FifthStep />,
+  },
+  {
+    title: 'Checkout',
+    content: <SixthStep />,
   },
 ];
 
-const ProgressBar = () => {
+const ProgressBar = ({userInfo}) => {
   const [current, setCurrent] = useState(0);
 
   const next = () => {
@@ -47,7 +55,7 @@ const ProgressBar = () => {
 
   const { postDetails } = useCreatePost();
   return (
-    <>
+    <div className="ctn">
       <Steps current={current}>
         {steps.map(item => (
           <Step key={item.title} title={item.title} />
@@ -64,8 +72,22 @@ const ProgressBar = () => {
           <Button type="primary" onClick={() =>{
             const resp = window.confirm(`¿Quieres crear la publicación ${postDetails.post_name}?`)
             if (resp) {
+              console.log('sent ->',postDetails)
               addPostService(postDetails);
-              message.success(`Tu publicación '${postDetails.post_name}' creada correctamente `);
+              message.success(
+                `Tu publicación '${postDetails.post_name}' creada correctamente `
+              );
+              const post = {
+                name: userInfo.name,
+                email: userInfo.email,
+                title: postDetails.post_name,
+                image: postDetails.images[0] || "No image available",
+                price: postDetails.price,
+                plan: postDetails.premium ? "Premium" : "Basic",
+                date: "",
+              };
+              console.log("POST", post)
+              sendPaymentEmail(post);
             }
           }}>
             Listo
@@ -77,8 +99,12 @@ const ProgressBar = () => {
           </Button>
         )}
       </div>
-    </>
+    </div>
   );
 };
 
-export default ProgressBar;
+const mapStateToProps = (state) => ({
+  userInfo: state.session,
+});
+
+export default connect(mapStateToProps, null)(ProgressBar);
