@@ -81,7 +81,7 @@ const ProgressBar = ({userInfo}) => {
                 name: userInfo.name,
                 email: userInfo.email,
                 title: postDetails.post_name,
-                image: postDetails.images[0] || "No image available",
+                image: postDetails.images || "No image available",
                 price: postDetails.price,
                 plan: postDetails.premium ? "Premium" : "Basic",
                 date: "",

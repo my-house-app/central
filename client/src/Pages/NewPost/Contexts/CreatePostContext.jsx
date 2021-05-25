@@ -1,6 +1,6 @@
 import { createContext, useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { useLocation } from "react-router-dom";
+import { useLocation } from 'react-router-dom';
 import { valueTypes } from '../../../Services/properties.service';
 import axios from 'axios';
 
@@ -16,38 +16,39 @@ const CreatePostProvider = ({ children, match, ...routerProps }) => {
   function query(url) {
     const obj = {};
     const array = url.replace('?', '').split('&');
-    for(let i=0; i < array.length; i++){
+    for (let i = 0; i < array.length; i++) {
       let arr = array[i].split('=');
       obj[arr[0]] = arr[1];
     }
     return obj;
-  };
+  }
 
   const {
     planId, // id del plan
-    planTitle,// basic o premium
+    planTitle, // basic o premium
   } = match.params;
 
   const {
-    status,// se usa para crear la order (approved)
-    payment_id,// se usa para crear la order
+    status, // se usa para crear la order (approved)
+    payment_id, // se usa para crear la order
     external_reference, // va a ser el id de la orden en la db
   } = query(search);
 
   const [order, setOrder] = useState('');
   useEffect(() => {
     const obj = {
-    userId:session.id,
-    servicePlanId: planId,
-    status: "active",
-    paymentStatus: status,
-    paymentId: payment_id,
-    id: external_reference,
-    }
-    axios.post(`${REACT_APP_API_BASE_ENDPOINT}/mercadopago/order`, obj)
-    .then((r) => {
-      setOrder(r.data.id);
-    })
+      userId: session.id,
+      servicePlanId: planId,
+      status: 'active',
+      paymentStatus: status,
+      paymentId: payment_id,
+      id: external_reference,
+    };
+    axios
+      .post(`${REACT_APP_API_BASE_ENDPOINT}/mercadopago/order`, obj)
+      .then((r) => {
+        setOrder(r.data.id);
+      });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   // ======================================================================
@@ -88,7 +89,10 @@ const CreatePostProvider = ({ children, match, ...routerProps }) => {
     setPostDetails(JSON.parse(postDetailsLocalStorage));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  
+ 
+  const handleOnchangeImage = (imageList) => {
+    setPostDetails({ ...postDetails, images: imageList });
+  };
   const handleOnInputsChange = (event) => {
     const { target } = event;
     const { name, value } = target;
@@ -107,6 +111,7 @@ const CreatePostProvider = ({ children, match, ...routerProps }) => {
         setPostDetails,
         setCurrentComponent,
         handleOnInputsChange,
+        handleOnchangeImage,
       }}
     >
       {children}

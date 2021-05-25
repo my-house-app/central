@@ -1,0 +1,9 @@
+.photo_uploader_container {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.image {
+  max-width: 20%;
+}
