@@ -92,7 +92,16 @@ const ProgressBar = ({userInfo}) => {
               message.success(
                 `Tu publicación '${postDetails.post_name}' creada correctamente `
               );
-
+              const post = {
+                name: userInfo.name,
+                email: userInfo.email,
+                title: postDetails.post_name,
+                image: postDetails.images || "No image available",
+                price: postDetails.price,
+                plan: postDetails.premium ? "Premium" : "Basic",
+                date: "",
+              };
+              console.log("POST", post)
               sendPaymentEmail(post);
             }
           }}>
