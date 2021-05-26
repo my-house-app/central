@@ -1,4 +1,10 @@
 import { createContext, useState, useEffect } from 'react';
+import FirstStep from '../FirstStep/FirstStep';
+import SecondStep from '../SecondStep/SecondStep';
+import ThirdStep from '../ThirdStep/ThirdStep';
+import FourthStep from '../FourthStep/FourthStep';
+import FifthStep from '../FifthStep/FifthStep';
+import SixthStep from '../SixthStep/SixthStep';
 import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import { valueTypes } from '../../../Services/properties.service';
@@ -7,6 +13,7 @@ import axios from 'axios';
 export const CreatePostContext = createContext({});
 
 const CreatePostProvider = ({ children, match, ...routerProps }) => {
+  const [current, setCurrent] = useState(0);
   const { REACT_APP_API_BASE_ENDPOINT } = process.env;
   const { session } = useSelector((store) => store);
   const search = useLocation().search;
@@ -34,8 +41,8 @@ const CreatePostProvider = ({ children, match, ...routerProps }) => {
     external_reference, // va a ser el id de la orden en la db
   } = query(search);
 
-const [order, setOrder] = useState('');
-useEffect(() => {
+  const [order, setOrder] = useState('');
+  useEffect(() => {
     const obj = {
       userId: session.id,
       servicePlanId: planId,
@@ -52,39 +59,39 @@ useEffect(() => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [session.id]);
   // ======================================================================
-  const [postDetails, setPostDetails] = useState({})
-useEffect(() => {
-  setPostDetails({
-    orderId: external_reference,
-    premium: planTitle === 'Premium' ? true : false,
-    post_name: '',
-    prop_type: '',
-    country: '',
-    department: '',
-    city: '',
-    neighborhood: '',
-    street_number: '',
-    description: '',
-    stratum: '',
-    price: 0,
-    m2: 0,
-    rooms: 0,
-    bathrooms: 0,
-    years: 0,
-    pool: false,
-    backyard: false,
-    gym: false,
-    bbq: false,
-    parking_lot: false,
-    garden: false,
-    elevator: false,
-    security: false,
-    status: 'Available',
-    images: [],
-    idUser: session.id,
-  });
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-}, [session.id]);
+  const [postDetails, setPostDetails] = useState({});
+  useEffect(() => {
+    setPostDetails({
+      orderId: external_reference,
+      premium: planTitle === 'Premium' ? true : false,
+      post_name: '',
+      prop_type: '',
+      country: '',
+      department: '',
+      city: '',
+      neighborhood: '',
+      street_number: '',
+      description: '',
+      stratum: '',
+      price: 0,
+      m2: 0,
+      rooms: 0,
+      bathrooms: 0,
+      years: 0,
+      pool: false,
+      backyard: false,
+      gym: false,
+      bbq: false,
+      parking_lot: false,
+      garden: false,
+      elevator: false,
+      security: false,
+      status: 'Available',
+      images: [],
+      idUser: session.id,
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [session.id]);
   useEffect(() => {
     const postDetailsLocalStorage = localStorage.getItem('postDetails');
     if (!postDetailsLocalStorage) {
@@ -93,29 +100,62 @@ useEffect(() => {
     setPostDetails(JSON.parse(postDetailsLocalStorage));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
- 
+
   const handleOnchangeImage = (imageList) => {
     setPostDetails({ ...postDetails, images: imageList });
   };
   const handleOnInputsChange = (event) => {
     const { target } = event;
     const { name, value } = target;
-    setPostDetails(valueTypes({ ...postDetails, [name]: value, idUser: session.id, orderId: external_reference }));
+    setPostDetails(
+      valueTypes({
+        ...postDetails,
+        [name]: value,
+        idUser: session.id,
+        orderId: external_reference,
+      })
+    );
     // localStorage.setItem('postDetails', JSON.stringify(postDetails));
   };
 
-  const [currentComponent, setCurrentComponent] = useState('FirstStep');
-  
+  const steps = [
+    {
+      title: 'Has elegido tu plan',
+      content: <FirstStep />,
+    },
+    {
+      title: 'Características',
+      content: <SecondStep />,
+    },
+    {
+      title: 'Ubicación',
+      content: <ThirdStep />,
+    },
+    {
+      title: 'Imágenes',
+      content: <FourthStep />,
+    },
+    {
+      title: 'Adicionales',
+      content: <FifthStep />,
+    },
+    {
+      title: 'Checkout',
+      content: <SixthStep />,
+    },
+  ];
+
   return (
     <CreatePostContext.Provider
       value={{
         routerProps,
         postDetails,
-        currentComponent,
         setPostDetails,
-        setCurrentComponent,
         handleOnInputsChange,
         handleOnchangeImage,
+        current,
+        setCurrent,
+        steps,
       }}
     >
       {children}
