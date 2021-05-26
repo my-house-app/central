@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import useCreatePost from '../../Pages/NewPost/hooks/useCreatePost';
 import styles from './PhotoUploader.module.css';
 
+// Si tenemos tiempo, ver de no agregar imágenes repetidas
+
 const Uploader = () => {
   const {
     handleOnchangeImage,
@@ -12,12 +14,12 @@ const Uploader = () => {
 
   const handlerOnChange = async (event) => {
     const { target } = event;
-    const { files } = target;
-    const newFile = await Promise.all(
-      [...files].map((image) => getBase64(image))
-    );
+    let { files } = target;
+  
+    const newFile = await Promise.all([...files].map((image) => getBase64(image)));
     const newFilesList = [...filesList, ...newFile];
     setFilesList(newFilesList);
+    target.value = '';
   };
 
   const onClickDelete = (url) => {
@@ -25,7 +27,6 @@ const Uploader = () => {
     setFilesList(newFilesList);
   };
   useEffect(() => {
-
     handleOnchangeImage(filesList);
   }, [filesList]);
   return (
@@ -33,7 +34,7 @@ const Uploader = () => {
       <h1>Agrega imágenes de tu inmueble </h1>
       <div>
         <div className={styles.photo_uploader_container}>
-          {filesList.map((image, key) => {
+          {images.map((image, key) => {
             return (
               <img
                 key={key}
@@ -44,7 +45,13 @@ const Uploader = () => {
             );
           })}
         </div>
-        <input type='file' multiple name='images' onChange={handlerOnChange} />
+        <input
+          type='file'
+          multiple
+          name='images'
+          accept='image/*'
+          onChange={handlerOnChange}
+        />
       </div>
     </div>
   );

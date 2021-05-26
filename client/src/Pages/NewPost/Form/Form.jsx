@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import useCreatePost from '../hooks/useCreatePost';
 import { useForm, Controller } from 'react-hook-form';
 import NextButton from './NextButton';
@@ -19,6 +19,7 @@ const InputComponents = {
   text: (field, ...args) => {
     const [componetConfig] = args;
     const { type } = componetConfig;
+
     if (type === 'number') {
       return <input type={type} min='0' {...field} />;
     }
@@ -51,7 +52,7 @@ const Form = ({ config }) => {
             render={({ field }) => {
               return InputComponents[conponentConfig.tag](
                 field,
-                conponentConfig
+                conponentConfig,
               );
             }}
           />

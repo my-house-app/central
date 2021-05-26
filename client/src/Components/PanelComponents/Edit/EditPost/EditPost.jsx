@@ -70,6 +70,8 @@ function EditPosts({ id, action, session }) {
       errors.post_name = 'El título es requerido';
     } else if (!input.premium && isAdmin) {
       errors.premium = 'El plan contratado es requerido'; 
+    } else if (!input.status && isAdmin) {
+      errors.status = 'El status es requerido'; 
     } else if (!input.department) {
       errors.depatment = 'El deparmento es requerido';
     } else if (!input.city) {
@@ -104,8 +106,8 @@ function EditPosts({ id, action, session }) {
       [name]: value,
     }));
   }
-  console.log(input)
-  console.log('errors', errors)
+  console.log('changes ->', input)
+
   function handleSubmit(e) {
     e.preventDefault();
     if (Object.entries(errors).length > 0) {
@@ -165,7 +167,7 @@ function EditPosts({ id, action, session }) {
     });
     document.getElementById('form').reset();
   }
-  console.log('ESTO ', session.type)
+  
   const [display, setDisplay] = useState(false);
   return (
     <div className={style.ctn}>
@@ -188,9 +190,8 @@ function EditPosts({ id, action, session }) {
               <div className={style.field}>
                 <label htmlFor="premium"> Plan contratado</label>
                 <select className={style.selectFilter} name="premium" value={input.premium} onChange={handleChange}>
-                  <option key="0" value={''}>Elija uno</option>
-                  <option key="1" value={!input.premium} >Premium</option>
-                  <option key="2" value={input.premium} >Basic</option>
+                  <option key="1" value={false} >Basic</option>
+                  <option key="2" value={true} >Premium</option>
                 </select>
               </div>
               {errors.premium && (<p className={style.pdanger}>{errors.premium}</p>) }
@@ -201,11 +202,10 @@ function EditPosts({ id, action, session }) {
               <div className={style.field}>
                 <label htmlFor="status"> Estado de la publicación</label>
                 <select className={style.selectFilter} name="status" value={input.status} onChange={handleChange}>
-                  <option value="" disabled hidden>Elija uno</option>
                   {['Available', 'Not-Available', 'Expired'].map((type, i) => (<option key={i} value={type}>{type}</option>))}
                 </select>
               </div>
-              {errors.premium && (<p className={style.pdanger}>{errors.premium}</p>) }
+              {errors.status && (<p className={style.pdanger}>{errors.status}</p>) }
             </>
             }
             <div className={style.field}>
@@ -306,7 +306,7 @@ function EditPosts({ id, action, session }) {
                 value={input.stratum}
                 name="stratum"
                 min="0"
-                onChange={handleChange}
+                onChange={handleChange} 
               />
             </div>
             {errors.stratum && (<p className={style.pdanger}>{errors.stratum}</p>)}
