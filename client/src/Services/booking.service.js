@@ -26,3 +26,8 @@ export async function deleteBookingService(bookingId) {
     return await axios.delete(endpoint);
 }
 
+// OBTENER TODAS MIS RESERVAS
+export async function getAllBookingByUserService(idUser) {
+    const endpoint = `${REACT_APP_API_BASE_ENDPOINT}/bookings/${idUser}`;
+    return await axios.get(endpoint);
+}
