@@ -26,7 +26,7 @@ function PostsAdmin({
       data.push({
         column1: e.email,
         displayLink: true,
-        link: e.userId,
+        link: e.id,
         column2: e.name,
         column3: e.status === null ? 'Available' : e.status,
         id: e.id,

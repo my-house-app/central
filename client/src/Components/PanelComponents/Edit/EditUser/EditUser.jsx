@@ -26,16 +26,13 @@ function EditUser({ session, id, action }) {
     }
     fetchUser(id);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [session.id]);
 
   useEffect(() => {
-    if (id !== session.id) setInput({
+    setInput({
       name: action === 'edit' ? userDetail.name : '',
       email: action === 'edit' ? userDetail.email : '',
-      password: action === 'edit' ? userDetail.password : '',
-      password2: /*action === 'edit'  ? userDetail.password : */ '',
       phone: action === 'edit' ? userDetail.phone : '',
-      photo: action === 'edit' ? userDetail.photo : '',
       city: action === 'edit' ? userDetail.city : '',
       street_number: action === 'edit' ? userDetail.street_number : '',
       zip_code: action === 'edit' ? userDetail.zip_code : '',
@@ -53,12 +50,6 @@ function EditUser({ session, id, action }) {
       errors.name = 'El nombre es requerido';
     } else if (!input.email) {
       errors.email = 'El correo electrónico es requerido';
-    } /* else if (!regEmail.test(input.email)) {
-      errors.email = 'Email is not valid';
-    }  */else if (!input.password) {
-      errors.password = 'La contraseña es requerida';
-    }  else if (!input.password2 || input.password2 !== input.password) {
-      errors.password2 = "Las contraseñas no coinciden";
     } else if (input.type !== 'User' && input.type !== 'Admin' && input.type !== 'SuperAdmin') {
       errors.type = 'El rol es requerido';
     }
@@ -107,7 +98,7 @@ function EditUser({ session, id, action }) {
 
   function resetForm() {
     setInput({
-      phone: '', photo: '', city: '', street_number: '', zip_code: '',
+      phone: '', city: '', street_number: '', zip_code: '',
     });
     document.getElementById('form').reset();
   }
@@ -140,32 +131,11 @@ function EditUser({ session, id, action }) {
             />
           </div>
           {errors.email && (<p className={style.pdanger}>{errors.email}</p>)}
-          <div className={style.field}>
-            <label htmlFor="password">Contraseña</label>
-            <input
-              type="password"
-              value={input.password}
-              name="password"
-              onChange={handleChange}
-            />
-          </div>
-          {errors.password && (<p className={style.pdanger}>{errors.password}</p>)}
-          <div className={style.field}>
-            <label htmlFor="password2">Repetir contraseña</label>
-            <input
-              type="password"
-              value={input.password2}
-              name="password2"
-              onChange={handleChange}
-            />
-          </div>
-          {errors.password2 && (<p className={style.pdanger}>{errors.password2}</p>)}
           {isAdmin &&
             <>
               <div className={style.field}>
                 <label htmlFor="type">Rol</label>
                 <select className={style.selectFilter} name="type" value={input.type} onChange={handleChange}>
-                  <option>Rol</option>
                   {['User', 'Admin', 'SuperAdmin'].map((type, i) => (<option key={i} value={type}>{type}</option>))}
                 </select>
               </div>
@@ -205,15 +175,6 @@ function EditUser({ session, id, action }) {
               type="text"
               value={input.zip_code}
               name="zip_code"
-              onChange={handleChange}
-            />
-          </div>
-          <div className={style.field}>
-            <label htmlFor="photo">Foto</label>
-            <input
-              type="text"
-              value={input.photo}
-              name="photo"
               onChange={handleChange}
             />
           </div>

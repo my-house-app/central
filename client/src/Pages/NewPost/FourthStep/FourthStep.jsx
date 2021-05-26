@@ -1,41 +1,17 @@
-import React, { useState } from 'react';
-import style from '../Form/Form.module.css';
+import PhotoUploader from '../../../Components/PhotoUploader/PhotoUploader';
 import '../step.css';
+import useCreatePost from '../hooks/useCreatePost';
 
-const Uploader = () => {
-  const [filesList, setFilesList] = useState([]);
-
-  const handlerOnChange = (event) => {
-    const { target } = event;
-    const { files } = target;
-    const newFilesList = [...filesList, ...files];
-    setFilesList(newFilesList);
-  };
-
+const FourthStep = () => {
+  const { current, steps, setCurrent } = useCreatePost();
   return (
     <div className='ctn'>
-      <h1>Agrega imágenes de tu inmueble </h1>
-      <div className={style.images}>
-        <input type='file' className={style.images} onChange={handlerOnChange} />
-      </div>
-      <div>
-        {/* <button
-          onClick={() => {
-            setCurrentComponent('FifthStep');
-          }}
-        >
-          Siguiente...
-        </button>
-        <button
-          onClick={() => {
-            setCurrentComponent('ThirdSept');
-          }}
-        >
-          Volver...
-        </button> */}
-      </div>
+      <PhotoUploader />
+      {current < steps.length - 1 && (
+        <button onClick={() => setCurrent(current + 1)}>Siguiente</button>
+      )}
     </div>
   );
 };
 
-export default Uploader;
+export default FourthStep;
