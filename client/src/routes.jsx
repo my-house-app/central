@@ -33,7 +33,7 @@ export default function MyHouseRoutes() {
             <Redirect to="/home" />
           </Route>
           <ProtectedRoute
-            exact path='/create/success/:planId/:planTitle'
+            exact path='/create'
             component={(routerProps) => (
              <CreatePostContext {...routerProps}>
                 <ProgressBar />
@@ -52,10 +52,10 @@ export default function MyHouseRoutes() {
             path="/panel"
             component={PanelRoutes}
           />
-          <ProtectedRoute
+          {/*<ProtectedRoute
             path="/create"
             component={MercadoPago}
-          />
+          />*/}
           <Route
             component={NotFound}
             />

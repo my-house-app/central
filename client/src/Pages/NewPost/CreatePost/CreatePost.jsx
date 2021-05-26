@@ -9,14 +9,14 @@ const CreatePost = () => {
   const { currentComponent, handleSubmit, postDetails } = useCreatePost();
   return (
     <div>
-      {currentComponent === 'FirstStep' && <FirstStep />}      
+      {currentComponent === 'FirstStep' && <FirstStep />}
       {currentComponent === 'SecondStep' && <SecondStep />}
       {currentComponent === 'ThirdStep' && <ThirdStep />}
       {currentComponent === 'FourthStep' && <FourthStep />}
       {currentComponent === 'FifthStep' && <FifthStep />}
       {currentComponent === 'done' && handleSubmit(postDetails)}
     </div>
-    
+
   );
 };
 

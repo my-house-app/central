@@ -5,6 +5,7 @@ import ThirdStep from '../ThirdStep/ThirdStep';
 import FourthStep from '../FourthStep/FourthStep';
 import FifthStep from '../FifthStep/FifthStep';
 import SixthStep from '../SixthStep/SixthStep';
+import MercadoPago from '../../../Components/MercadoPago/MercadoPago';
 import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import { valueTypes } from '../../../Services/properties.service';
@@ -14,6 +15,7 @@ export const CreatePostContext = createContext({});
 
 const CreatePostProvider = ({ children, match, ...routerProps }) => {
   const [current, setCurrent] = useState(0);
+  const [infoPlan, setInfoPlan] = useState({});
   const { REACT_APP_API_BASE_ENDPOINT } = process.env;
   const { session } = useSelector((store) => store);
   const search = useLocation().search;
@@ -120,8 +122,8 @@ const CreatePostProvider = ({ children, match, ...routerProps }) => {
 
   const steps = [
     {
-      title: 'Has elegido tu plan',
-      content: <FirstStep />,
+      title: 'Elige tu plan',
+      content: <MercadoPago />,
     },
     {
       title: 'Características',
@@ -156,6 +158,8 @@ const CreatePostProvider = ({ children, match, ...routerProps }) => {
         current,
         setCurrent,
         steps,
+        infoPlan,
+        setInfoPlan,
       }}
     >
       {children}
