@@ -31,3 +31,9 @@ export async function getAllBookingByUserService(idUser) {
     const endpoint = `${REACT_APP_API_BASE_ENDPOINT}/bookings/${idUser}`;
     return await axios.get(endpoint);
 }
+
+// ENVIAR UNA RESERVA POR EMAIL
+export async function sendBookingEmailService(idbooking) {
+    const endpoint = `${REACT_APP_API_BASE_ENDPOINT}/mailer/booking`;
+    return await axios.post(endpoint, { idbooking });
+}

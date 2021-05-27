@@ -7,7 +7,7 @@ import { faBed, faBath, faRulerCombined } from '@fortawesome/free-solid-svg-icon
 import SliderCarousel from '../../Components/SliderCarousel/SliderCarousel';
 import Map from '../../Components/Map/Map'; // esta no se esta usando, se puede eliminar? @rennygalindez
 import { getPostService, getUserDataService } from '../../Services/properties.service';
-import { addBookingService } from '../../Services/booking.service';
+import { addBookingService, sendBookingEmailService } from '../../Services/booking.service';
 import styles from './Details.module.css';
 
 export default function Details({ routerProps }) {
@@ -64,10 +64,11 @@ export default function Details({ routerProps }) {
       title: 'Primera reserva creada',
     }
     try {
-     /*  const respuesta =  */await addBookingService(booking);
+      const respuesta =  await addBookingService(booking);
+      // console.log("id  booking: ", respuesta.data.booking.id);
+      await sendBookingEmailService(respuesta.data.booking.id);
       alert('Your booking was successfully created!');
-      setWasBooking(true)
-      // console.log('respuesta: ', respuesta);
+      setWasBooking(true);
     } catch (error) {
       console.log('respuesta: ', error.message);
     }
